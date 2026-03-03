@@ -12,7 +12,7 @@ interface PageHeroProps {
 
 export default function PageHero({ eyebrow, headline, subtitle, image }: PageHeroProps) {
   return (
-    <section className="relative min-h-[60vh] lg:min-h-[70vh] bg-dark-bg flex items-end overflow-hidden pt-[61px]">
+    <section className="relative min-h-[60vh] lg:min-h-[70vh] bg-dark-bg flex items-end overflow-hidden pt-[88px]">
       <img
         src={image}
         alt={headline}

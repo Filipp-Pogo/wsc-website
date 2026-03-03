@@ -22,6 +22,18 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg">
+      {/* Caliber Sports top bar */}
+      <div className="bg-dark-mid px-6 lg:px-14 py-1.5 flex items-center justify-between border-b border-white/[0.05]">
+        <span className="text-parchment/30 text-[10px] tracking-[0.16em] uppercase">A Caliber Sports Facility</span>
+        <a
+          href="https://www.calibersports.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-parchment/25 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
+        >
+          calibersports.com
+        </a>
+      </div>
       <div className="flex items-center justify-between px-6 lg:px-14 py-5 border-b border-white/[0.08]">
         <Link href="/" className="text-parchment text-[13px] tracking-[0.14em] uppercase font-medium no-underline">
           Woodinville Sports Club

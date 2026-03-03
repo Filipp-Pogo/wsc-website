@@ -19,6 +19,18 @@ export default function Footer() {
           <p className="text-parchment/[0.28] text-[13px] leading-[1.7] max-w-[260px] mb-4">
             A hybrid performance campus for tennis, golf, and athletic development. Serving the Woodinville community since 1979.
           </p>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-parchment/20 text-[10px] tracking-[0.12em] uppercase">A</span>
+            <a
+              href="https://www.calibersports.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-parchment/35 text-[11px] tracking-[0.14em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200 border-b border-parchment/10 pb-[1px]"
+            >
+              Caliber Sports
+            </a>
+            <span className="text-parchment/20 text-[10px] tracking-[0.12em] uppercase">Facility</span>
+          </div>
           <a
             href="https://www.instagram.com/woodinvillesportsclub"
             target="_blank"
@@ -95,9 +107,19 @@ export default function Footer() {
       </div>
 
       <div className="max-w-[1440px] mx-auto mt-14 pt-8 border-t border-white/[0.06]">
-        <p className="text-parchment/[0.2] text-[11px] tracking-[0.1em] uppercase">
-          &copy; {new Date().getFullYear()} Woodinville Sports Club. All rights reserved.
-        </p>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-parchment/[0.2] text-[11px] tracking-[0.1em] uppercase">
+            &copy; {new Date().getFullYear()} Woodinville Sports Club. All rights reserved.
+          </p>
+          <a
+            href="https://www.calibersports.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-parchment/[0.15] text-[10px] tracking-[0.12em] uppercase no-underline hover:text-parchment/30 transition-colors duration-200"
+          >
+            Powered by Caliber Sports
+          </a>
+        </div>
       </div>
     </footer>
   );

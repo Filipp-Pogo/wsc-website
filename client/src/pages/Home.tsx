@@ -4,8 +4,10 @@
  * Dark hero with metric panel, warm parchment body, field green accents on metrics only
  */
 import { Link } from "wouter";
+import { Instagram } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InstagramFeed from "@/components/InstagramFeed";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/hero-campus-YM3mcvUEufhyrArKQifwwG.webp";
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-KR8dtRjg7iHBtDXSouNG5C.webp";
@@ -53,7 +55,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[61px]">
+      <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[88px]">
         <img
           src={HERO_IMG}
           alt="Woodinville Sports Club campus aerial view"
@@ -428,6 +430,30 @@ export default function Home() {
               Subscribe
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* ── INSTAGRAM FEED ── */}
+      <section className="bg-parchment px-6 lg:px-14 py-20 lg:py-24">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-3">Follow Us</p>
+              <h2 className="text-[clamp(22px,2.4vw,32px)] font-light tracking-[-0.02em] leading-[1.15]">
+                @woodinvillesportsclub
+              </h2>
+            </div>
+            <a
+              href="https://www.instagram.com/woodinvillesportsclub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.12em] uppercase no-underline text-ink border border-wsc-border px-6 py-2.5 hover:border-volt hover:text-volt transition-colors duration-200"
+            >
+              <Instagram size={14} />
+              Follow on Instagram
+            </a>
+          </div>
+          <InstagramFeed />
         </div>
       </section>
 
