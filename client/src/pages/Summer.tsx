@@ -11,9 +11,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/hero-campus-YM3mcvUEufhyrArKQifwwG.webp";
-const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-MqQJkVQ3Hm5xQqVXdXqMrP.webp";
-const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range-7qnFBbfxqhYhVzAqxQxwWZ.webp";
-const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/performance-lab-FkSsEMYJLJCYrfPLpRBnHZ.webp";
+const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-KR8dtRjg7iHBtDXSouNG5C.webp";
+const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range-irxFFwrBT266jij6jYZhLJ.webp";
+const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/performance-lab-kApt2Hu4Tcuo3xJsc7JSJ7.webp";
 
 /* ─── Program Explorer Types ─── */
 type ProgramKey = "tennis" | "golf" | "adventure";
