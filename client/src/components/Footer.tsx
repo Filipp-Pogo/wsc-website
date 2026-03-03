@@ -1,6 +1,6 @@
 /*
  * 4B Design: Dark footer (#161310), 3-column grid
- * Volt-bright column titles, parchment/35% link colors
+ * Real content from WSC website crawl
  */
 import { Link } from "wouter";
 
@@ -16,9 +16,17 @@ export default function Footer() {
           <div className="text-volt-bright text-[12px] mb-5">
             Woodinville, Washington — Pacific Northwest
           </div>
-          <p className="text-parchment/[0.28] text-[13px] leading-[1.7] max-w-[260px]">
+          <p className="text-parchment/[0.28] text-[13px] leading-[1.7] max-w-[260px] mb-4">
             A hybrid performance campus for tennis, golf, and athletic development. Serving the Woodinville community since 1979.
           </p>
+          <a
+            href="https://www.instagram.com/woodinvillesportsclub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-parchment/[0.35] text-[12px] no-underline hover:text-parchment transition-colors duration-200"
+          >
+            @woodinvillesportsclub
+          </a>
         </div>
 
         {/* Campus */}
@@ -32,7 +40,7 @@ export default function Footer() {
               { href: "/golf", label: "Golf" },
               { href: "/fitness", label: "Athletic Performance Lab" },
               { href: "/pickleball", label: "Pickleball" },
-              { href: "/summer", label: "Summer Programs" },
+              { href: "/summer", label: "Summer Training" },
             ].map((link) => (
               <li key={link.href}>
                 <Link
@@ -55,7 +63,7 @@ export default function Footer() {
             {[
               { href: "/membership", label: "Membership" },
               { href: "/about", label: "About WSC" },
-              { href: "/contact", label: "Contact" },
+              { href: "/contact", label: "Contact Us" },
             ].map((link) => (
               <li key={link.href}>
                 <Link
@@ -72,8 +80,15 @@ export default function Footer() {
                 Woodinville, WA 98072
               </p>
               <p className="text-parchment/[0.25] text-[12px] mt-2">
-                (425) 487-1090
+                Front Desk: (425) 487-1090<br />
+                Golf Desk: (425) 485-7319
               </p>
+              <a
+                href="mailto:info@woodinvillesportsclub.com"
+                className="text-parchment/[0.25] text-[12px] no-underline hover:text-parchment/[0.4] transition-colors duration-200 mt-2 inline-block"
+              >
+                info@woodinvillesportsclub.com
+              </a>
             </li>
           </ul>
         </div>

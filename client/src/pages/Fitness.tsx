@@ -1,6 +1,6 @@
 /*
  * 4B Design — APL Fitness Page
- * Hero → Main Gym → APL Training Center → Group Classes → CTA
+ * Real content from WSC website crawl
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -15,12 +15,12 @@ export default function Fitness() {
       <Navbar />
       <PageHero
         eyebrow="Athletic Performance Lab"
-        headline="Where champions are built."
-        subtitle="Elite-level strength and conditioning training for youth and adult athletes. A dedicated training center plus a spacious main gym."
+        headline="Where Champions Are Built."
+        subtitle="WSC's Athletic Performance Lab is a complete performance ecosystem that integrates elite coaching, cutting-edge facilities and individualized strength and conditioning training, enabling youth and adults to achieve their peak performance potential."
         image={PERF_IMG}
       />
 
-      {/* Facilities */}
+      {/* Two Facilities */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
@@ -28,8 +28,8 @@ export default function Fitness() {
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
               Full-service strength<br />and cardio.
             </h2>
-            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              A spacious main gym with comprehensive free weights, cardio equipment, power lifting platforms, and functional training areas. Open to all members during club hours.
+            <p className="text-ink-mid text-[16px] leading-[1.82]">
+              Our Main Gym is a clean and updated space with flexible hours and top-notch equipment, including free weights, cardio machines, power lifting stations, and a dynamic functional training area. Enjoy views of the beautiful tree-lined property while you work out.
             </p>
           </div>
           <div>
@@ -37,25 +37,34 @@ export default function Fitness() {
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
               Dedicated S&C<br />for athletes.
             </h2>
-            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              A purpose-built Athletic Performance Lab training center for structured, coach-led strength and conditioning. Designed for youth and adult athletes pursuing measurable athletic development.
+            <p className="text-ink-mid text-[16px] leading-[1.82]">
+              Our new Athletic Performance Lab (APL) Training Center is a dedicated space for strength and conditioning training for youth and adult athletes. This is where our elite coaching staff hosts small-group strength and conditioning training sessions for athletes striving to reach their maximum performance potential.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Dark: Performance metrics */}
+      {/* Dark: Group S&C */}
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
             <div>
-              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Training</p>
+              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Group S&C Training</p>
               <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
-                Structured for<br />real development.
+                Building more<br />well-rounded athletes.
               </h2>
-              <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px]">
-                Assessment-driven programming. Progressive overload. Sport-specific conditioning. The APL is built around the athlete — not the equipment.
+              <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px] mb-6">
+                We've recently launched an all-new lineup of APL Group Strength & Conditioning Classes for kids and adults. Training sessions benefit athletes of all levels and are tailored to your sport, improving strength, speed, power, agility, and endurance.
               </p>
+              <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px] mb-8">
+                The goal of our APL training program is to develop more well-rounded athletes, giving you the competitive edge to perform at the highest level in your sport.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-7 py-3 hover:bg-volt hover:border-volt transition-colors duration-200"
+              >
+                Browse Classes
+              </Link>
             </div>
             <img
               src={PERF_IMG}
@@ -67,7 +76,7 @@ export default function Fitness() {
           <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-parchment/[0.1] pt-12 gap-y-8">
             {[
               { val: "2", label: "Training Facilities" },
-              { val: "S&C", label: "Group Classes" },
+              { val: "S&C", label: "Small Group Classes" },
               { val: "Youth", label: "& Adult Programs" },
               { val: "4/8/∞", label: "Monthly Packages" },
             ].map((m, i) => (
@@ -84,19 +93,22 @@ export default function Fitness() {
         </div>
       </section>
 
-      {/* Group Classes */}
+      {/* Monthly Packages */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
-          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Group S&C Classes</p>
-          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
-            Monthly packages.
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Flexible Training Packages</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Monthly packages for<br />more scheduling flexibility.
           </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
+            APL Small Group Classes can be purchased in monthly packages of 4, 8, or unlimited classes. Browse from our range of APL strength and conditioning small group classes for adults and youth.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
             {[
-              { name: "4 Classes/Month", desc: "One session per week. Ideal for supplementing sport-specific training." },
-              { name: "8 Classes/Month", desc: "Two sessions per week. The standard for consistent athletic development." },
-              { name: "Unlimited", desc: "Full access to all group S&C classes. For the dedicated athlete." },
+              { name: "4 Classes/Month", desc: "One session per week. Ideal for supplementing sport-specific training with structured S&C work." },
+              { name: "8 Classes/Month", desc: "Two sessions per week. The standard for consistent athletic development and measurable progress." },
+              { name: "Unlimited", desc: "Full access to all group S&C classes. For the dedicated athlete committed to peak performance." },
             ].map((c, i) => (
               <div key={i} className="bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
@@ -110,6 +122,25 @@ export default function Fitness() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto text-center">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Membership</p>
+          <h2 className="text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
+            Explore our membership options.
+          </h2>
+          <p className="text-ink-mid text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+            Take your fitness to the next level at WSC. All-Access memberships include full gym and APL Training Center access.
+          </p>
+          <Link
+            href="/membership"
+            className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+          >
+            Become a Member
+          </Link>
         </div>
       </section>
 

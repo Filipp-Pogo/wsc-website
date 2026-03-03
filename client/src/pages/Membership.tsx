@@ -1,6 +1,6 @@
 /*
  * 4B Design — Membership Page
- * Hero → Tiers → What's Included → CTA
+ * Real content from WSC website crawl
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -12,51 +12,94 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCM
 const tiers = [
   {
     type: "Monthly",
-    name: "Family All-Access",
+    name: "Family All-Access Pass",
     price: "$100",
-    period: "/mo",
-    desc: "Unlimited access for the whole family. Court booking, class registration, golf, and fitness.",
-    features: ["All courts & range", "Class registration", "Gym access", "Family programming"],
+    period: "/mo + tax",
+    who: "All household individuals (two adults max + kids 17 and under)",
+    features: [
+      "Includes Class Registration Pass privileges",
+      "Includes Court & Range Access Pass privileges",
+      "Access to Strength & Fitness Facilities, Sauna and Locker Rooms",
+      "5% golf sims discount + 10-day booking window",
+      "Initiation plus monthly membership fee required",
+      "Membership renews automatically each month",
+    ],
   },
   {
     type: "Monthly",
-    name: "Couple All-Access",
+    name: "Couple All-Access Pass",
     price: "$70",
-    period: "/mo",
-    desc: "Full campus access for two members. All courts, range, gym, and class registration.",
-    features: ["All courts & range", "Class registration", "Gym access", "Two members"],
+    period: "/mo + tax",
+    who: "Two household individuals",
+    features: [
+      "Includes Class Registration Pass privileges",
+      "Includes Court & Range Access Pass privileges",
+      "Access to Strength & Fitness, Sauna and Locker Rooms",
+      "5% golf sims discount + 10-day booking window",
+      "Initiation plus monthly membership fee required",
+      "Membership renews automatically each month",
+    ],
   },
   {
     type: "Monthly",
-    name: "Individual All-Access",
+    name: "Individual All-Access Pass",
     price: "$40",
-    period: "/mo",
-    desc: "Full campus access for a single member. All courts, range, gym, and class registration.",
-    features: ["All courts & range", "Class registration", "Gym access", "Single member"],
+    period: "/mo + tax",
+    who: "One 18+ individual",
+    features: [
+      "Includes Class Registration Pass privileges",
+      "Includes Court & Range Access Pass privileges",
+      "Access to Strength & Fitness Facilities, Sauna and Locker Rooms",
+      "5% golf sims discount + 10-day booking window",
+      "Initiation plus monthly membership fee required",
+      "Membership renews automatically each month",
+    ],
   },
   {
     type: "Annual",
-    name: "Court & Range Access",
+    name: "Court & Range Access Pass",
     price: "$120",
-    period: "/yr",
-    desc: "Annual access for court booking and driving range use.",
-    features: ["Court booking", "Range access", "Toptracer included"],
+    period: "/yr + tax",
+    who: "Two 18+ individuals + household",
+    features: [
+      "Enables court booking & class registration",
+      "Class & court fees apply",
+      "No access to fitness facilities",
+      "7-day advance golf simulator booking window",
+      "$4 off golf range buckets",
+      "Discounts on mini-golf & all beverages",
+      "Access to golf happy hour",
+      "Membership auto-renews annually",
+    ],
   },
   {
     type: "Annual",
-    name: "Class Registration",
+    name: "Class Registration Pass",
     price: "$50",
-    period: "/yr",
-    desc: "Annual registration fee for class enrollment across all disciplines.",
-    features: ["Class enrollment", "All disciplines", "Session scheduling"],
+    period: "/yr + tax",
+    who: "Two 18+ individuals + household",
+    features: [
+      "Enables class registration (Tennis, Pickleball, Events, Camps, Fitness Training)",
+      "Class fees apply",
+      "Does not allow court booking",
+      "No access to fitness facilities, sauna, locker rooms, golf sims, or range discounts",
+      "Membership auto-renews annually",
+    ],
   },
   {
     type: "Trial",
-    name: "Golf Simulator Trial",
+    name: "Trial Golf Simulators",
     price: "$20",
-    period: "one-time",
-    desc: "Try the Swing Lab golf simulators. Limited-time offer through 3/31/26.",
-    features: ["Swing Lab access", "24 data points", "2,000+ courses"],
+    period: "+ tax (one-time)",
+    who: "One 16+ individual",
+    features: [
+      "For non-members or Class Access members",
+      "Test out golf simulators before committing",
+      "Book simulator sessions at regular rates with 7-day window",
+      "Bring up to 3 guests for free through March 31",
+      "Valid through March 31, 2026",
+      "Trial members may upgrade at any time",
+    ],
   },
 ];
 
@@ -66,8 +109,8 @@ export default function Membership() {
       <Navbar />
       <PageHero
         eyebrow="Membership"
-        headline="Find your place on the campus."
-        subtitle="Annual and monthly membership options for court booking, class registration, golf, and fitness."
+        headline="Train Without Limits."
+        subtitle="Strength training. Court sports. Golf. Recovery. All under one roof. Choose the membership that fits your goals."
         image={HERO_IMG}
       />
 
@@ -75,9 +118,9 @@ export default function Membership() {
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="mb-14 pb-8 border-b border-wsc-border">
-            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Options</p>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Membership Options</p>
             <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
-              Membership tiers.
+              Six tiers. One campus.
             </h2>
           </div>
 
@@ -89,15 +132,15 @@ export default function Membership() {
               >
                 <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{t.type}</p>
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-1">{t.name}</h3>
-                <div className="mb-4">
+                <div className="mb-2">
                   <span className="text-volt-bright text-[28px] font-light">{t.price}</span>
                   <span className="text-ink-light text-[13px] ml-1">{t.period}</span>
                 </div>
-                <p className="text-ink-mid text-[14px] leading-[1.7] mb-5">{t.desc}</p>
+                <p className="text-ink-mid text-[13px] mb-5">{t.who}</p>
                 <ul className="space-y-2 mb-6">
                   {t.features.map((f, fi) => (
-                    <li key={fi} className="text-ink-mid text-[13px] flex items-center gap-2">
-                      <span className="text-volt text-[10px]">—</span> {f}
+                    <li key={fi} className="text-ink-mid text-[13px] leading-[1.6] flex items-start gap-2">
+                      <span className="text-volt text-[10px] mt-1">—</span> {f}
                     </li>
                   ))}
                 </ul>
@@ -105,16 +148,50 @@ export default function Membership() {
                   href="/contact"
                   className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
                 >
-                  Enquire
+                  Sign Up
                 </Link>
               </div>
             ))}
           </div>
 
           <div className="mt-8 p-6 bg-parchment-mid border-l-2 border-volt">
-            <p className="text-ink-mid text-[14px] leading-[1.7]">
-              <span className="text-ink font-normal">Note:</span> $50 initiation fee applies to all monthly memberships. All memberships include access to Court Reserve for online booking.
+            <p className="text-ink-mid text-[14px] leading-[1.7] mb-2">
+              <span className="text-ink font-normal">Annual Passes:</span> Auto-renew each year.
             </p>
+            <p className="text-ink-mid text-[14px] leading-[1.7] mb-2">
+              <span className="text-ink font-normal">Monthly Memberships:</span> Require a one-time $50 + tax initiation fee.
+            </p>
+            <p className="text-ink-light text-[13px]">WSC TAX ID# is 82-3755991</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Resources */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-16 lg:py-20">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+          <div className="bg-parchment p-8">
+            <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">Membership Agreement</h3>
+            <p className="text-ink-mid text-[14px] leading-[1.72] mb-4">
+              Review the full membership agreement including terms, conditions, and cancellation policies.
+            </p>
+            <Link
+              href="/contact"
+              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+            >
+              View Agreement
+            </Link>
+          </div>
+          <div className="bg-parchment p-8">
+            <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">Membership Policies</h3>
+            <p className="text-ink-mid text-[14px] leading-[1.72] mb-4">
+              Review our membership policies including guest policies, code of conduct, and facility rules.
+            </p>
+            <Link
+              href="/contact"
+              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+            >
+              View Policies
+            </Link>
           </div>
         </div>
       </section>
@@ -135,6 +212,12 @@ export default function Membership() {
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
             >
               Contact Us
+            </Link>
+            <Link
+              href="/about"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
+            >
+              About WSC
             </Link>
           </div>
         </div>

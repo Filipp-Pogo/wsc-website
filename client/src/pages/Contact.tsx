@@ -1,6 +1,6 @@
 /*
  * 4B Design — Contact Page
- * Hero → Contact Form + Info → Hours → Map placeholder
+ * Real content from WSC website crawl
  */
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
@@ -23,8 +23,8 @@ export default function Contact() {
     <div className="min-h-screen">
       <Navbar />
       <PageHero
-        eyebrow="Contact"
-        headline="Get in touch."
+        eyebrow="Contact Us"
+        headline="Get in Touch."
         subtitle="Questions about membership, programs, or facilities? We'd love to hear from you."
         image={HERO_IMG}
       />
@@ -113,15 +113,31 @@ export default function Contact() {
               <div>
                 <p className="text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">Phone</p>
                 <p className="text-ink text-[16px] leading-[1.7]">
-                  Front Desk: (425) 487-1090<br />
-                  Golf Desk: (425) 485-7319
+                  Front Desk:{" "}
+                  <a href="tel:4254871090" className="text-ink no-underline border-b border-volt pb-[2px]">
+                    (425) 487-1090
+                  </a>
+                  <br />
+                  Golf Desk:{" "}
+                  <a href="tel:4254857319" className="text-ink no-underline border-b border-volt pb-[2px]">
+                    (425) 485-7319
+                  </a>
                 </p>
               </div>
               <div>
                 <p className="text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">Email</p>
-                <a href="mailto:info@woodinvillesportsclub.com" className="text-ink text-[16px] no-underline border-b border-volt pb-[2px]">
+                <a
+                  href="mailto:info@woodinvillesportsclub.com"
+                  className="text-ink text-[16px] no-underline border-b border-volt pb-[2px]"
+                >
                   info@woodinvillesportsclub.com
                 </a>
+              </div>
+              <div>
+                <p className="text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">Sports</p>
+                <p className="text-ink text-[16px] leading-[1.7]">
+                  Tennis, Golf, Fitness, Pickleball
+                </p>
               </div>
             </div>
           </div>
@@ -131,7 +147,7 @@ export default function Contact() {
       {/* Hours */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
-          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Hours</p>
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Hours of Operation</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             When we're open.
           </h2>
@@ -172,6 +188,27 @@ export default function Contact() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Follow */}
+      <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
+        <div className="max-w-[1440px] mx-auto text-center">
+          <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Follow Us</p>
+          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
+            @woodinvillesportsclub
+          </h2>
+          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+            Follow us on Instagram for updates, event highlights, and community stories.
+          </p>
+          <a
+            href="https://www.instagram.com/woodinvillesportsclub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
+          >
+            Follow on Instagram
+          </a>
         </div>
       </section>
 

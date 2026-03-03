@@ -1,6 +1,6 @@
 /*
  * 4B Design — About WSC Page
- * Hero → Story → Elevate Philosophy → Facilities → Community → CTA
+ * Real content from WSC website crawl
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -15,7 +15,7 @@ export default function About() {
       <Navbar />
       <PageHero
         eyebrow="About WSC"
-        headline="Elevating athletic excellence since 1979."
+        headline="Elevating Athletic Excellence Since 1979."
         subtitle="Where passion meets performance, and community thrives through sport."
         image={HERO_IMG}
       />
@@ -31,10 +31,10 @@ export default function About() {
           </div>
           <div>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we.
+              Welcome to Woodinville Sports Club, where passion meets performance, and community thrives through sport. For over four decades, we've been the heart of athletic pursuit in the Pacific Northwest, fostering a legacy of excellence that continues to shape the future of sports and fitness in our region.
             </p>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Today, we stand as a premier multi-sport destination, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs. For over four decades, we've been the heart of athletic pursuit in the Pacific Northwest.
+              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we. Today, we stand as a premier multi-sport destination, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs.
             </p>
             <div className="border-l-2 border-volt pl-6 py-4">
               <p className="text-ink-mid text-[15px] leading-[1.7] italic">
@@ -49,23 +49,26 @@ export default function About() {
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">The Elevate Experience</p>
-          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-14">
+          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
             Elevation in every discipline.
           </h2>
+          <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[640px] mb-14">
+            At Woodinville Sports Club, we believe in the power of elevation — not just in sports, but in life. Our "Elevate" philosophy permeates everything we do.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
             {[
               {
                 name: "Elevate Performance",
-                desc: "For the ambitious athletes pushing their limits. Structured training, competitive programs, and measurable development.",
+                desc: "For the ambitious athletes pushing their limits. Structured training, competitive programs, and measurable development across tennis, golf, and athletic performance.",
               },
               {
                 name: "Elevate Development",
-                desc: "Nurturing the next generation of sports enthusiasts. Junior programs that shape future champions through progressive skill building.",
+                desc: "Nurturing the next generation of sports enthusiasts. Junior programs that shape future champions through progressive skill building and age-appropriate training.",
               },
               {
                 name: "Elevate Fitness",
-                desc: "Empowering every member to reach their peak health. Comprehensive gym facilities and group classes for all levels.",
+                desc: "Empowering every member to reach their peak health. Comprehensive gym facilities, group S&C classes, and personalized training for all levels.",
               },
             ].map((e, i) => (
               <div key={i} className="bg-dark-bg p-8 lg:p-10 border-t-2 border-transparent hover:border-volt-bright transition-colors duration-300">
@@ -74,6 +77,10 @@ export default function About() {
               </div>
             ))}
           </div>
+
+          <p className="text-parchment/[0.35] text-[14px] leading-[1.72] max-w-[640px] mt-10">
+            Whether you're a seasoned competitor, a family looking for active fun, or someone rediscovering the joy of sports, we have a program designed to elevate your game and your well-being.
+          </p>
         </div>
       </section>
 
@@ -81,17 +88,20 @@ export default function About() {
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Our Facilities</p>
-          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
-            Nestled in the Woodinville landscape.
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Nestled in the beautiful Woodinville landscape.
           </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
+            Our club boasts a comprehensive range of world-class facilities on a scenic, historic 67-acre property.
+          </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { val: "8", label: "Indoor Tennis Courts" },
-              { val: "23", label: "Covered Driving Bays" },
-              { val: "4", label: "Golf Simulators" },
-              { val: "8+", label: "Pickleball Courts" },
-              { val: "2", label: "Fitness Facilities" },
+              { val: "8", label: "Climate Controlled Indoor Tennis Courts" },
+              { val: "23", label: "Covered Driving Bays with Toptracer" },
+              { val: "4", label: "Uneekor Golf Simulators" },
+              { val: "8+", label: "Indoor & Outdoor Pickleball Courts" },
+              { val: "2", label: "Fitness & Training Facilities" },
             ].map((f, i) => (
               <div key={i} className="py-6 border-t border-wsc-border">
                 <div className="text-volt-bright text-[36px] font-light tracking-[-0.02em] leading-none mb-2">
@@ -103,24 +113,31 @@ export default function About() {
               </div>
             ))}
           </div>
+
+          <p className="text-ink-mid text-[14px] leading-[1.72] mt-10">
+            Plus a spacious 2.5-acre short-game practice area, grass tees, an 18-hole mini-golf course, and specialized training areas for sport-specific conditioning.
+          </p>
         </div>
       </section>
 
-      {/* Community */}
+      {/* Community & Expert Guidance */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
           <div>
-            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Community</p>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Community at Our Core</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
               More than<br />a sports club.
             </h2>
           </div>
           <div>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Our members don't just train here — they form lifelong friendships, celebrate milestones, and inspire each other to reach new heights. From junior programs that shape future champions to social leagues that bring people together, we're committed to fostering a sense of belonging and shared achievement.
+              More than just a sports club, we're a vibrant community hub. Our members don't just train here — they form lifelong friendships, celebrate milestones, and inspire each other to reach new heights. From junior programs that shape future champions to social leagues that bring people together, we're committed to fostering a sense of belonging and shared achievement.
+            </p>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
+              Our team of certified coaches and fitness professionals are the backbone of the Woodinville Sports Club experience. With their diverse expertise and passionate approach, they're dedicated to helping you unlock your full potential, regardless of your starting point.
             </p>
             <p className="text-ink-mid text-[16px] leading-[1.82]">
-              Our team of certified coaches and fitness professionals are the backbone of the Woodinville Sports Club experience. With their diverse expertise and passionate approach, they're dedicated to helping you unlock your full potential, regardless of your starting point.
+              Whether you're looking to serve your first ace, sink the perfect putt, or simply elevate your overall wellness, Woodinville Sports Club is your launchpad to success. We invite you to become part of our storied legacy and thriving future.
             </p>
           </div>
         </div>
@@ -130,9 +147,12 @@ export default function About() {
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
         <div className="max-w-[1440px] mx-auto text-center">
           <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Join Us</p>
-          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
+          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Ready to elevate your game?
           </h2>
+          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+            Contact us today to learn more about membership options or to schedule a tour of our facilities.
+          </p>
           <div className="flex flex-wrap justify-center gap-5">
             <Link
               href="/membership"

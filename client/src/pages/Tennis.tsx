@@ -1,6 +1,6 @@
 /*
  * 4B Design — Tennis Page
- * Hero → Programs → Facilities → Pricing → CTA
+ * Real content from WSC website crawl
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -9,62 +9,110 @@ import PageHero from "@/components/PageHero";
 
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-KR8dtRjg7iHBtDXSouNG5C.webp";
 
-const programs = [
-  {
-    name: "Tier 1 Performance NW",
-    desc: "World-class tennis academy for junior players bound for the collegiate and professional ranks.",
-    tag: "Elite",
-  },
-  {
-    name: "Tier 1 Core Tennis",
-    desc: "Junior tennis classes for ages 3 and up, with pathways for recreational and elite development.",
-    tag: "Juniors",
-  },
-  {
-    name: "Adult Tennis",
-    desc: "Rigorous group classes for players of all levels. Regular tournaments and UTR matchplay opportunities.",
-    tag: "Adults",
-  },
-];
-
 export default function Tennis() {
   return (
     <div className="min-h-screen">
       <Navbar />
       <PageHero
         eyebrow="Tennis Program"
-        headline="Woodinville's premier indoor tennis facility."
-        subtitle="Eight climate-controlled indoor courts. Professional coaching for juniors and adults. Competitive programs and development pathways."
+        headline="Elevate Your Tennis Game at WSC."
+        subtitle="World-class instruction and facilities for players of all levels."
         image={TENNIS_IMG}
       />
 
       {/* Programs */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
-          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Programs</p>
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Top-Tier Coaching</p>
           <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Training pathways<br />for every level.
           </h2>
 
-          <div className="space-y-0">
-            {programs.map((p, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border"
-              >
-                <p className="text-volt text-[10px] tracking-[0.2em] uppercase">{p.tag}</p>
-                <div>
-                  <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">{p.name}</h3>
-                  <p className="text-ink-mid text-[14px] leading-[1.72]">{p.desc}</p>
-                </div>
-                <Link
-                  href="/contact"
-                  className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
-                >
-                  Enquire
-                </Link>
-              </div>
-            ))}
+          {/* Tier 1 Performance NW */}
+          <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border">
+            <p className="text-volt text-[10px] tracking-[0.2em] uppercase">Elite</p>
+            <div>
+              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">Tier 1 Performance NW</h3>
+              <p className="text-ink-mid text-[14px] leading-[1.72] mb-3">
+                Elite youth academy for aspiring champions. Full-time and after-school options with intensive training programs and top-notch facilities.
+              </p>
+              <ul className="space-y-1.5">
+                {[
+                  "Personalized coaching from former world-ranked players and D1 standouts",
+                  "Tournament preparation and college recruitment assistance",
+                  "Learning facilities for Full-Time Academy kids",
+                ].map((item, i) => (
+                  <li key={i} className="text-ink-mid text-[13px] leading-[1.72] flex items-start gap-2">
+                    <span className="text-volt text-[10px] mt-1">—</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              href="/contact"
+              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          {/* Tier 1 Core */}
+          <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border">
+            <p className="text-volt text-[10px] tracking-[0.2em] uppercase">Juniors</p>
+            <div>
+              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">Tier 1 Core Tennis</h3>
+              <p className="text-ink-mid text-[14px] leading-[1.72] mb-3">
+                Junior tennis classes for ages 3 and up, with pathways for recreational and elite development.
+              </p>
+              <ul className="space-y-1.5">
+                {[
+                  "Athletic movement and coordination",
+                  "High activity and repetition",
+                  "Age-appropriate courts and equipment",
+                  "Basic rally and game play",
+                  "Learning through play — fun and confidence building",
+                ].map((item, i) => (
+                  <li key={i} className="text-ink-mid text-[13px] leading-[1.72] flex items-start gap-2">
+                    <span className="text-volt text-[10px] mt-1">—</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              href="/contact"
+              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          {/* Adult Tennis */}
+          <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border">
+            <p className="text-volt text-[10px] tracking-[0.2em] uppercase">Adults</p>
+            <div>
+              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">Adult Tennis</h3>
+              <p className="text-ink-mid text-[14px] leading-[1.72] mb-3">
+                Rigorous group classes for players of all levels. Regular tournaments and UTR matchplay opportunities.
+              </p>
+              <ul className="space-y-1.5">
+                {[
+                  "Group classes focused on technique, drilling, and matchplay",
+                  "Expert coaching for beginner to advanced players",
+                  "Regular tournaments, socials, and matchplay opportunities",
+                  "Competition training",
+                ].map((item, i) => (
+                  <li key={i} className="text-ink-mid text-[13px] leading-[1.72] flex items-start gap-2">
+                    <span className="text-volt text-[10px] mt-1">—</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              href="/contact"
+              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       </section>
@@ -101,6 +149,54 @@ export default function Tennis() {
             alt="Indoor tennis courts"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
           />
+        </div>
+      </section>
+
+      {/* Court Booking */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Court Booking</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
+              Court Booking<br />Access Pass.
+            </h2>
+          </div>
+          <div>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
+              $120 + tax annual fee for the Court Booking Access Pass. Reserve courts up to 7 days in advance using CourtReserve or by visiting/calling our front desk.
+            </p>
+            <div className="space-y-4 mb-8">
+              <div className="flex justify-between py-3 border-b border-wsc-border">
+                <span className="text-ink text-[14px]">Per 30 Minutes</span>
+                <span className="text-volt-bright text-[16px] font-light">$21.14 + tax</span>
+              </div>
+              <div className="flex justify-between py-3 border-b border-wsc-border">
+                <span className="text-ink text-[14px]">Session Options</span>
+                <span className="text-ink-mid text-[14px]">30, 60 & 90 minutes</span>
+              </div>
+              <div className="flex justify-between py-3 border-b border-wsc-border">
+                <span className="text-ink text-[14px]">Non-Member Guest Fee</span>
+                <span className="text-ink-mid text-[14px]">$10 + tax (member must be present)</span>
+              </div>
+            </div>
+            <p className="text-ink-light text-[13px] italic mb-8">
+              Tennis instruction by unauthorized coaches is strictly prohibited.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/membership"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
+              >
+                Membership Sign Up
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-ink border border-wsc-border px-8 py-3.5 hover:border-volt transition-colors duration-200"
+              >
+                Book a Court
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
