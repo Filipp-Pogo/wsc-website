@@ -1,6 +1,6 @@
 /*
  * 4B Design — Summer Training Page
- * Matches WSC original layout + interactive sample day schedules
+ * Real schedules from WSC sub-pages, organized by program + age group
  * Blue accent: #3899EC via volt/volt-bright tokens
  */
 import { useState } from "react";
@@ -15,22 +15,22 @@ const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/Gmd
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range-7qnFBbfxqhYhVzAqxQxwWZ.webp";
 const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/performance-lab-FkSsEMYJLJCYrfPLpRBnHZ.webp";
 
+/* ─── Program Explorer Types ─── */
 type ProgramKey = "tennis" | "golf" | "adventure";
-type DayType = "half-am" | "half-pm" | "full-tennis" | "full-golf" | "full-bundle";
 
 const PROGRAMS: Record<ProgramKey, {
   name: string;
   ages: string;
-  color: string;
   icon: typeof Trophy;
   desc: string;
   features: string[];
   image: string;
+  levels: { name: string; ages: string }[];
+  contact: string;
 }> = {
   tennis: {
     name: "Tennis",
     ages: "Ages 3–18",
-    color: "volt-bright",
     icon: Trophy,
     desc: "Tier 1 Academy and Core (formerly RPM) tracks for ages 3–18. Tier 1 Academy requires coach approval (Core does not). Includes daily APL athletic development training.",
     features: [
@@ -40,119 +40,244 @@ const PROGRAMS: Record<ProgramKey, {
       "Daily APL athletic development integrated",
     ],
     image: TENNIS_IMG,
+    levels: [
+      { name: "JumpStart", ages: "Ages 3–5" },
+      { name: "Red Ball", ages: "Ages 5–8" },
+      { name: "Orange Ball", ages: "Ages 9–10" },
+      { name: "Green Ball", ages: "Ages 10–12" },
+      { name: "Yellow Ball", ages: "Ages 12+" },
+      { name: "Academy Pathway", ages: "Ages 7–18 (Coach Approval)" },
+    ],
+    contact: "Tier1@woodinvillesportsclub.com",
   },
   golf: {
     name: "Golf",
     ages: "Ages 7–18",
-    color: "volt-bright",
     icon: Sun,
     desc: "Tier 1 Golf Academy training for beginners to advanced golfers ages 7–18. Access to our driving range, practice greens, new indoor golf simulators, and putt-putt course. Includes daily APL athletic development training.",
     features: [
       "23-bay covered driving range with Toptracer",
       "NEW Swing Lab indoor golf simulators",
-      "WGTF Master-certified Director of Golf",
+      "WGTF Master-certified Director of Golf, Daniel Jarvie",
       "Daily APL athletic development integrated",
     ],
     image: GOLF_IMG,
+    levels: [
+      { name: "Golf Club", ages: "Ages 7–14 (Beginner/Rec)" },
+      { name: "Academy Foundations", ages: "Ages 7–9" },
+      { name: "Jr. Academy Prep", ages: "Ages 10–12" },
+      { name: "Junior Academy", ages: "Ages 13–15" },
+      { name: "HS Academy", ages: "Ages 16–18" },
+    ],
+    contact: "Tier1Golf@woodinvillesportsclub.com",
   },
   adventure: {
     name: "Adventure Club",
     ages: "Ages 5–12",
-    color: "volt-bright",
     icon: Zap,
-    desc: "Summer camp for active and creative kids, ages 5–12. With access to our golf range, courts, and grass fields, this camp offers an introduction to multiple sports and activities and professional athletes from around the world.",
+    desc: "Explores a different region of the world each week for 9 weeks, introducing professional tennis and golf legends while building athletic skills through games, activities, and team challenges. Two age groups: 5–8 and 9–12.",
     features: [
       "Multi-sport exploration across 67 acres",
+      "A different world region each week for 9 weeks",
       "Learn about pro athletes from around the world",
       "Access to courts, range, and grass fields",
-      "Creative activities and team building",
     ],
     image: PERF_IMG,
+    levels: [
+      { name: "Explorers", ages: "Ages 5–8" },
+      { name: "Adventurers", ages: "Ages 9–12" },
+    ],
+    contact: "info@woodinvillesportsclub.com",
   },
 };
 
-const SAMPLE_DAYS: Record<DayType, {
+/* ─── Schedule Data — Real times from WSC sub-pages ─── */
+type ScheduleKey = string;
+
+interface ScheduleBlock {
+  time: string;
+  activity: string;
+  type: "sport" | "apl" | "break" | "fun";
+}
+
+interface ScheduleGroup {
+  program: ProgramKey;
   label: string;
   subtitle: string;
-  schedule: { time: string; activity: string; location: string; type: "sport" | "apl" | "break" | "fun" }[];
-}> = {
-  "half-am": {
-    label: "Half-Day AM",
-    subtitle: "Tennis or Golf — 9:00am to 12:30pm",
+  ageNote: string;
+  schedule: ScheduleBlock[];
+}
+
+const SCHEDULES: Record<ScheduleKey, ScheduleGroup> = {
+  // ── TENNIS ──
+  "tennis-core-half-am": {
+    program: "tennis",
+    label: "Core Half-Day AM",
+    subtitle: "JumpStart · Red · Orange · Green · ½-Day Yellow",
+    ageNote: "Ages 3–12+",
     schedule: [
-      { time: "9:00", activity: "Check-in & Dynamic Warm-Up", location: "Main Pavilion", type: "apl" },
-      { time: "9:30", activity: "Sport-Specific Skill Training", location: "Courts / Range", type: "sport" },
-      { time: "10:45", activity: "Hydration Break & Snack", location: "Pavilion", type: "break" },
-      { time: "11:00", activity: "Match Play / On-Course Practice", location: "Courts / Range", type: "sport" },
-      { time: "11:45", activity: "APL Athletic Development", location: "Performance Lab", type: "apl" },
-      { time: "12:15", activity: "Cool-Down & Dismissal", location: "Main Pavilion", type: "break" },
+      { time: "9:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "10:00 AM", activity: "Tennis Training", type: "sport" },
+      { time: "12:00 PM", activity: "Dismissal", type: "break" },
     ],
   },
-  "half-pm": {
-    label: "Half-Day PM",
-    subtitle: "Tennis or Golf — 1:00pm to 4:30pm",
+  "tennis-core-half-bundle": {
+    program: "tennis",
+    label: "Core AM + PM Bundle",
+    subtitle: "Morning Tennis + Afternoon Golf or Adventure Club",
+    ageNote: "Ages 3–12+",
     schedule: [
-      { time: "1:00", activity: "Check-in & Movement Prep", location: "Main Pavilion", type: "apl" },
-      { time: "1:30", activity: "Technical Drills & Instruction", location: "Courts / Range", type: "sport" },
-      { time: "2:45", activity: "Hydration Break", location: "Pavilion", type: "break" },
-      { time: "3:00", activity: "Competitive Games & Challenges", location: "Courts / Range", type: "sport" },
-      { time: "3:45", activity: "APL Athletic Development", location: "Performance Lab", type: "apl" },
-      { time: "4:15", activity: "Cool-Down & Dismissal", location: "Main Pavilion", type: "break" },
+      { time: "9:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "10:00 AM", activity: "Tennis Training", type: "sport" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Golf or Adventure Club", type: "fun" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
     ],
   },
-  "full-tennis": {
-    label: "Full-Day Tennis",
-    subtitle: "Tennis + Adventure Club — 9:00am to 4:30pm",
+  "tennis-yellow-full": {
+    program: "tennis",
+    label: "Core Yellow Full Day",
+    subtitle: "Full-day tennis for ages 12+",
+    ageNote: "Ages 12+",
     schedule: [
-      { time: "9:00", activity: "Check-in & Dynamic Warm-Up", location: "Main Pavilion", type: "apl" },
-      { time: "9:30", activity: "Tennis Skill Training", location: "Indoor Courts", type: "sport" },
-      { time: "10:45", activity: "Hydration Break & Snack", location: "Pavilion", type: "break" },
-      { time: "11:00", activity: "Match Play & Point Construction", location: "Indoor Courts", type: "sport" },
-      { time: "11:45", activity: "APL Athletic Development", location: "Performance Lab", type: "apl" },
-      { time: "12:15", activity: "Lunch Break", location: "Pavilion / Outdoors", type: "break" },
-      { time: "1:00", activity: "Adventure Club: Multi-Sport Rotation", location: "Fields / Courts", type: "fun" },
-      { time: "2:15", activity: "Hydration Break", location: "Pavilion", type: "break" },
-      { time: "2:30", activity: "Adventure Club: Pro Athlete Spotlight", location: "Fields / Courts", type: "fun" },
-      { time: "3:30", activity: "Team Games & Challenges", location: "Grass Fields", type: "fun" },
-      { time: "4:15", activity: "Cool-Down & Dismissal", location: "Main Pavilion", type: "break" },
+      { time: "9:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "10:00 AM", activity: "Tennis Training", type: "sport" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "2:00 PM", activity: "Tennis Training", type: "sport" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
     ],
   },
-  "full-golf": {
-    label: "Full-Day Golf",
-    subtitle: "Golf + Adventure Club — 9:00am to 4:30pm",
+  "tennis-academy-half": {
+    program: "tennis",
+    label: "Academy Half-Day",
+    subtitle: "Tier 1 Academy AM + PM Bundle option",
+    ageNote: "Ages 7–18 (Coach Approval)",
     schedule: [
-      { time: "9:00", activity: "Check-in & Dynamic Warm-Up", location: "Main Pavilion", type: "apl" },
-      { time: "9:30", activity: "Golf Fundamentals & Swing Lab", location: "Range / Simulators", type: "sport" },
-      { time: "10:45", activity: "Hydration Break & Snack", location: "Pavilion", type: "break" },
-      { time: "11:00", activity: "On-Course Play & Short Game", location: "Range / Greens", type: "sport" },
-      { time: "11:45", activity: "APL Athletic Development", location: "Performance Lab", type: "apl" },
-      { time: "12:15", activity: "Lunch Break", location: "Pavilion / Outdoors", type: "break" },
-      { time: "1:00", activity: "Adventure Club: Multi-Sport Rotation", location: "Fields / Courts", type: "fun" },
-      { time: "2:15", activity: "Hydration Break", location: "Pavilion", type: "break" },
-      { time: "2:30", activity: "Adventure Club: Pro Athlete Spotlight", location: "Fields / Courts", type: "fun" },
-      { time: "3:30", activity: "Team Games & Challenges", location: "Grass Fields", type: "fun" },
-      { time: "4:15", activity: "Cool-Down & Dismissal", location: "Main Pavilion", type: "break" },
+      { time: "9:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "10:00 AM", activity: "Academy Tennis Training", type: "sport" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Golf or Adventure Club (Bundle)", type: "fun" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
     ],
   },
-  "full-bundle": {
-    label: "Full-Day Bundle",
-    subtitle: "Tennis AM + Golf PM — 9:00am to 4:30pm",
+
+  // ── GOLF ──
+  "golf-club-half-am": {
+    program: "golf",
+    label: "Golf Club Half-Day AM",
+    subtitle: "AM Golf + PM Bundle (Adventure Club or Tennis)",
+    ageNote: "Ages 7–14",
     schedule: [
-      { time: "9:00", activity: "Check-in & Dynamic Warm-Up", location: "Main Pavilion", type: "apl" },
-      { time: "9:30", activity: "Tennis Skill Training", location: "Indoor Courts", type: "sport" },
-      { time: "10:45", activity: "Hydration Break & Snack", location: "Pavilion", type: "break" },
-      { time: "11:00", activity: "Tennis Match Play", location: "Indoor Courts", type: "sport" },
-      { time: "11:45", activity: "APL Athletic Development", location: "Performance Lab", type: "apl" },
-      { time: "12:15", activity: "Lunch Break", location: "Pavilion / Outdoors", type: "break" },
-      { time: "1:00", activity: "Golf Fundamentals & Swing Lab", location: "Range / Simulators", type: "sport" },
-      { time: "2:15", activity: "Hydration Break", location: "Pavilion", type: "break" },
-      { time: "2:30", activity: "On-Course Play & Short Game", location: "Range / Greens", type: "sport" },
-      { time: "3:30", activity: "APL Cool-Down & Mobility", location: "Performance Lab", type: "apl" },
-      { time: "4:15", activity: "Dismissal", location: "Main Pavilion", type: "break" },
+      { time: "9:00 AM", activity: "Golf Skills Training", type: "sport" },
+      { time: "11:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Adventure Club or Core Tennis", type: "fun" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
+    ],
+  },
+  "golf-club-half-pm": {
+    program: "golf",
+    label: "Golf Club Half-Day PM",
+    subtitle: "AM Bundle (Adventure Club or Tennis) + PM Golf",
+    ageNote: "Ages 7–14",
+    schedule: [
+      { time: "9:00 AM", activity: "Adventure Club or Core Tennis", type: "fun" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Golf Skills Training", type: "sport" },
+      { time: "3:00 PM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
+    ],
+  },
+  "golf-club-full": {
+    program: "golf",
+    label: "Golf Club Full Day",
+    subtitle: "Full-day golf for beginners and recreational golfers",
+    ageNote: "Ages 7–14",
+    schedule: [
+      { time: "9:00 AM", activity: "Golf Skills Training", type: "sport" },
+      { time: "11:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Golf Skills Training", type: "sport" },
+      { time: "3:00 PM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
+    ],
+  },
+  "golf-academy-half": {
+    program: "golf",
+    label: "Academy Half-Day AM",
+    subtitle: "AM Golf Academy + PM Adventure Club or Tennis",
+    ageNote: "Ages 7–18 (Foundations → HS Academy)",
+    schedule: [
+      { time: "9:00 AM", activity: "Academy Golf Skills", type: "sport" },
+      { time: "11:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Adventure Club or Core Tennis*", type: "fun" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
+    ],
+  },
+  "golf-academy-full": {
+    program: "golf",
+    label: "Academy Full Day",
+    subtitle: "Full-day competitive golf training",
+    ageNote: "Ages 7–18 (Foundations → HS Academy)",
+    schedule: [
+      { time: "9:00 AM", activity: "Academy Golf Skills", type: "sport" },
+      { time: "11:00 AM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Academy Golf Skills", type: "sport" },
+      { time: "3:00 PM", activity: "Athletic Development (APL)", type: "apl" },
+      { time: "4:00 PM", activity: "Training Ends", type: "break" },
+    ],
+  },
+
+  // ── ADVENTURE CLUB ──
+  "adventure-half-am": {
+    program: "adventure",
+    label: "Adventure Club AM",
+    subtitle: "AM Adventure + PM Bundle (Golf or Tennis)",
+    ageNote: "Ages 5–12 (groups: 5–8 & 9–12)",
+    schedule: [
+      { time: "9:00 AM", activity: "Adventure Club", type: "fun" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Bundle: Golf or Tennis", type: "sport" },
+      { time: "4:00 PM", activity: "Club Ends", type: "break" },
+    ],
+  },
+  "adventure-half-pm": {
+    program: "adventure",
+    label: "Adventure Club PM",
+    subtitle: "AM Bundle (Golf or Tennis) + PM Adventure",
+    ageNote: "Ages 5–12 (groups: 5–8 & 9–12)",
+    schedule: [
+      { time: "9:00 AM", activity: "Bundle: Golf or Tennis", type: "sport" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Adventure Club", type: "fun" },
+      { time: "4:00 PM", activity: "Club Ends", type: "break" },
+    ],
+  },
+  "adventure-full": {
+    program: "adventure",
+    label: "Adventure Club Full Day",
+    subtitle: "Full-day multi-sport exploration",
+    ageNote: "Ages 5–12 (groups: 5–8 & 9–12)",
+    schedule: [
+      { time: "9:00 AM", activity: "Adventure Club", type: "fun" },
+      { time: "12:00 PM", activity: "Lunch", type: "break" },
+      { time: "1:00 PM", activity: "Adventure Club", type: "fun" },
+      { time: "4:00 PM", activity: "Club Ends", type: "break" },
     ],
   },
 };
 
+/* ─── Group schedules by program ─── */
+const SCHEDULE_KEYS_BY_PROGRAM: Record<ProgramKey, ScheduleKey[]> = {
+  tennis: ["tennis-core-half-am", "tennis-core-half-bundle", "tennis-yellow-full", "tennis-academy-half"],
+  golf: ["golf-club-half-am", "golf-club-half-pm", "golf-club-full", "golf-academy-half", "golf-academy-full"],
+  adventure: ["adventure-half-am", "adventure-half-pm", "adventure-full"],
+};
+
+/* ─── Style maps ─── */
 const typeColors: Record<string, string> = {
   sport: "bg-volt-bright/20 text-volt-bright border-volt-bright/30",
   apl: "bg-parchment/10 text-parchment/80 border-parchment/20",
@@ -163,16 +288,23 @@ const typeColors: Record<string, string> = {
 const typeLabels: Record<string, string> = {
   sport: "SPORT",
   apl: "APL",
-  break: "BREAK",
-  fun: "ADVENTURE",
+  break: "BREAK / MEAL",
+  fun: "BUNDLE / ADV.",
 };
 
+/* ─── Component ─── */
 export default function Summer() {
   const [activeProgram, setActiveProgram] = useState<ProgramKey>("tennis");
-  const [activeDay, setActiveDay] = useState<DayType>("half-am");
+  const [activeSchedule, setActiveSchedule] = useState<ScheduleKey>("tennis-core-half-am");
 
   const program = PROGRAMS[activeProgram];
-  const day = SAMPLE_DAYS[activeDay];
+  const scheduleKeys = SCHEDULE_KEYS_BY_PROGRAM[activeProgram];
+  const schedule = SCHEDULES[activeSchedule];
+
+  function switchProgram(key: ProgramKey) {
+    setActiveProgram(key);
+    setActiveSchedule(SCHEDULE_KEYS_BY_PROGRAM[key][0]);
+  }
 
   return (
     <div className="min-h-screen">
@@ -277,11 +409,9 @@ export default function Summer() {
               return (
                 <button
                   key={key}
-                  onClick={() => setActiveProgram(key)}
+                  onClick={() => switchProgram(key)}
                   className={`flex-1 py-4 px-5 text-left transition-all duration-300 ${
-                    isActive
-                      ? "bg-dark-bg"
-                      : "bg-parchment-mid hover:bg-parchment-dark"
+                    isActive ? "bg-dark-bg" : "bg-parchment-mid hover:bg-parchment-dark"
                   }`}
                 >
                   <p className={`text-[12px] tracking-[0.14em] uppercase mb-1 ${
@@ -320,6 +450,18 @@ export default function Summer() {
                   <p className="text-parchment/50 text-[15px] leading-[1.8] mb-8">
                     {program.desc}
                   </p>
+
+                  {/* Age Group Levels */}
+                  <p className="text-parchment/30 text-[10px] tracking-[0.16em] uppercase mb-3">Levels & Age Groups</p>
+                  <div className="grid grid-cols-2 gap-[2px] mb-8">
+                    {program.levels.map((lvl, i) => (
+                      <div key={i} className="bg-dark-mid px-4 py-3">
+                        <p className="text-parchment text-[13px] font-light">{lvl.name}</p>
+                        <p className="text-parchment/30 text-[11px] mt-0.5">{lvl.ages}</p>
+                      </div>
+                    ))}
+                  </div>
+
                   <div className="space-y-3">
                     {program.features.map((f, i) => (
                       <div key={i} className="flex items-start gap-3">
@@ -329,12 +471,20 @@ export default function Summer() {
                     ))}
                   </div>
                 </div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 mt-10 self-start hover:bg-parchment transition-colors duration-200"
-                >
-                  Register for {program.name} <ChevronRight size={14} />
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-3 mt-10">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
+                  >
+                    Register for {program.name} <ChevronRight size={14} />
+                  </Link>
+                  <a
+                    href={`mailto:${program.contact}`}
+                    className="inline-flex items-center gap-2 text-[12px] tracking-[0.12em] uppercase no-underline text-parchment/50 border border-parchment/15 px-6 py-3.5 hover:border-volt-bright hover:text-parchment transition-colors duration-200"
+                  >
+                    Questions? Email Us
+                  </a>
+                </div>
               </div>
               <div className="relative aspect-[4/3] lg:aspect-auto overflow-hidden">
                 <img
@@ -354,28 +504,49 @@ export default function Summer() {
         </div>
       </section>
 
-      {/* Interactive Sample Day Schedules */}
+      {/* ═══ Interactive Sample Day Schedules ═══ */}
       <section id="sample-days" className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28 scroll-mt-20">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-12 lg:gap-16">
-            {/* Left: Selector */}
+            {/* Left: Program + Schedule Selector */}
             <div>
-              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Sample Day</p>
+              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Sample Day Schedules</p>
               <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.1] mb-4">
                 What does a<br />day look like?
               </h2>
-              <p className="text-parchment/40 text-[14px] leading-[1.75] mb-10">
-                Tap a schedule below to explore what a typical training day looks like. Every option includes APL athletic development.
+              <p className="text-parchment/40 text-[14px] leading-[1.75] mb-8">
+                Select a program and schedule option to see the real daily structure. Every option includes APL athletic development.
               </p>
 
-              <div className="space-y-[2px]">
-                {(Object.keys(SAMPLE_DAYS) as DayType[]).map((key) => {
-                  const d = SAMPLE_DAYS[key];
-                  const isActive = activeDay === key;
+              {/* Program Filter Tabs */}
+              <div className="flex gap-[2px] mb-4">
+                {(Object.keys(PROGRAMS) as ProgramKey[]).map((key) => {
+                  const isActive = activeProgram === key;
                   return (
                     <button
                       key={key}
-                      onClick={() => setActiveDay(key)}
+                      onClick={() => switchProgram(key)}
+                      className={`flex-1 py-2.5 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 ${
+                        isActive
+                          ? "bg-volt-bright text-dark-bg"
+                          : "bg-dark-mid text-parchment/40 hover:text-parchment/70"
+                      }`}
+                    >
+                      {PROGRAMS[key].name}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Schedule Options for Selected Program */}
+              <div className="space-y-[2px]">
+                {scheduleKeys.map((key) => {
+                  const s = SCHEDULES[key];
+                  const isActive = activeSchedule === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setActiveSchedule(key)}
                       className={`w-full text-left px-5 py-4 transition-all duration-300 flex items-center justify-between ${
                         isActive
                           ? "bg-dark-mid border-l-2 border-volt-bright"
@@ -386,12 +557,12 @@ export default function Summer() {
                         <p className={`text-[14px] font-light ${
                           isActive ? "text-parchment" : "text-parchment/50"
                         }`}>
-                          {d.label}
+                          {s.label}
                         </p>
                         <p className={`text-[11px] mt-0.5 ${
-                          isActive ? "text-parchment/40" : "text-parchment/20"
+                          isActive ? "text-volt-bright/70" : "text-parchment/20"
                         }`}>
-                          {d.subtitle}
+                          {s.ageNote}
                         </p>
                       </div>
                       <ChevronRight
@@ -405,23 +576,19 @@ export default function Summer() {
                 })}
               </div>
 
+              {/* Legend */}
               <div className="mt-8 flex gap-3 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-volt-bright/60" />
-                  <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">Sport</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-parchment/40" />
-                  <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">APL</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-volt/40" />
-                  <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">Adventure</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-parchment/15" />
-                  <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">Break</span>
-                </div>
+                {Object.entries(typeLabels).map(([key, label]) => (
+                  <div key={key} className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${
+                      key === "sport" ? "bg-volt-bright/60" :
+                      key === "apl" ? "bg-parchment/40" :
+                      key === "fun" ? "bg-volt/40" :
+                      "bg-parchment/15"
+                    }`} />
+                    <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">{label}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -429,7 +596,7 @@ export default function Summer() {
             <div>
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={activeDay}
+                  key={activeSchedule}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
@@ -437,60 +604,84 @@ export default function Summer() {
                   className="space-y-[2px]"
                 >
                   {/* Day Header */}
-                  <div className="bg-dark-mid px-6 py-5 flex items-center justify-between">
-                    <div>
-                      <h3 className="text-parchment text-[18px] font-light tracking-[-0.01em]">
-                        {day.label}
-                      </h3>
-                      <p className="text-parchment/35 text-[12px] mt-1">{day.subtitle}</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-parchment/30">
-                      <Clock size={14} />
-                      <span className="text-[12px]">{day.schedule.length} blocks</span>
+                  <div className="bg-dark-mid px-6 py-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em]">
+                          {schedule.label}
+                        </h3>
+                        <p className="text-parchment/35 text-[13px] mt-1">{schedule.subtitle}</p>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="text-volt-bright text-[12px] tracking-[0.1em] uppercase">{PROGRAMS[schedule.program].name}</p>
+                        <p className="text-parchment/30 text-[11px] mt-0.5">{schedule.ageNote}</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Timeline Items */}
-                  {day.schedule.map((block, i) => (
-                    <motion.div
-                      key={`${activeDay}-${i}`}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: i * 0.05 }}
-                      className={`relative px-6 py-4 border-l-2 ${typeColors[block.type]} bg-dark-mid/50 hover:bg-dark-mid transition-colors duration-200`}
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex items-start gap-4">
-                          <span className="text-parchment/60 text-[14px] font-light tabular-nums min-w-[48px]">
-                            {block.time}
-                          </span>
-                          <div>
-                            <p className="text-parchment text-[14px] font-light leading-[1.5]">
-                              {block.activity}
-                            </p>
-                            <p className="text-parchment/25 text-[11px] mt-1 flex items-center gap-1.5">
-                              <MapPin size={10} /> {block.location}
-                            </p>
+                  {/* Visual Timeline */}
+                  <div className="relative">
+                    {schedule.schedule.map((block, i) => {
+                      const isLast = i === schedule.schedule.length - 1;
+                      return (
+                        <motion.div
+                          key={`${activeSchedule}-${i}`}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.06 }}
+                          className="relative flex"
+                        >
+                          {/* Time Column */}
+                          <div className="w-[100px] shrink-0 flex flex-col items-center py-4">
+                            <span className="text-parchment/60 text-[13px] font-light tabular-nums">
+                              {block.time}
+                            </span>
+                            {!isLast && (
+                              <div className={`flex-1 w-[1px] mt-2 ${
+                                block.type === "sport" ? "bg-volt-bright/30" :
+                                block.type === "apl" ? "bg-parchment/15" :
+                                block.type === "fun" ? "bg-volt/25" :
+                                "bg-parchment/8"
+                              }`} />
+                            )}
                           </div>
-                        </div>
-                        <span className={`text-[9px] tracking-[0.14em] uppercase px-2.5 py-1 border ${typeColors[block.type]} shrink-0`}>
-                          {typeLabels[block.type]}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
+
+                          {/* Activity Block */}
+                          <div className={`flex-1 border-l-2 ${typeColors[block.type]} px-6 py-4 bg-dark-mid/50 hover:bg-dark-mid transition-colors duration-200`}>
+                            <div className="flex items-center justify-between gap-4">
+                              <div>
+                                <p className="text-parchment text-[15px] font-light leading-[1.5]">
+                                  {block.activity}
+                                </p>
+                              </div>
+                              <span className={`text-[9px] tracking-[0.14em] uppercase px-2.5 py-1 border ${typeColors[block.type]} shrink-0`}>
+                                {typeLabels[block.type]}
+                              </span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
 
                   {/* Day Footer */}
                   <div className="bg-dark-mid/30 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <p className="text-parchment/30 text-[12px]">
-                      <Users size={12} className="inline mr-1.5 -mt-0.5" />
-                      Schedules are representative. Actual times may vary by age group and program.
-                    </p>
+                    <div>
+                      <p className="text-parchment/30 text-[12px]">
+                        <Users size={12} className="inline mr-1.5 -mt-0.5" />
+                        All times from WSC summer program pages. Actual times may vary slightly.
+                      </p>
+                      {schedule.program === "golf" && activeSchedule === "golf-academy-half" && (
+                        <p className="text-parchment/20 text-[11px] mt-1">
+                          * PM bundle: Tier 1 Core Orange or Green tennis
+                        </p>
+                      )}
+                    </div>
                     <Link
                       href="/contact"
                       className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-6 py-2.5 hover:bg-parchment transition-colors duration-200 shrink-0"
                     >
-                      Register for this option <ChevronRight size={12} />
+                      Register <ChevronRight size={12} />
                     </Link>
                   </div>
                 </motion.div>
@@ -516,8 +707,8 @@ export default function Summer() {
             <ul className="space-y-3">
               {[
                 "Former world-ranked, D1, and professional tennis coaches",
-                "NEW Tier 1 Golf Academy, led by WGTF Master-certified Director of Golf",
-                "Athletic Performance Lab training led by NASM-Certified Director of Performance who has trained pro, Olympic, and D1 athletes",
+                "NEW Tier 1 Golf Academy, led by WGTF Master-certified Director of Golf, Daniel Jarvie",
+                "Athletic Performance Lab training led by NASM-Certified Director of Performance, Coach Dom — who has trained pro, Olympic, and D1 athletes",
               ].map((item, i) => (
                 <li key={i} className="text-ink-mid text-[14px] leading-[1.72] flex items-start gap-2.5">
                   <span className="text-volt text-[10px] mt-1.5">—</span> {item}
@@ -541,7 +732,7 @@ export default function Summer() {
               {
                 icon: Clock,
                 title: "Half-Day Sessions",
-                desc: "Morning or afternoon. Perfect for younger athletes or those who want to focus on a single sport.",
+                desc: "Morning (9am–12pm) or afternoon (1pm–4pm). Perfect for younger athletes or those who want to focus on a single sport.",
               },
               {
                 icon: Zap,
@@ -567,7 +758,7 @@ export default function Summer() {
             <a href="mailto:info@woodinvillesportsclub.com" className="text-volt underline underline-offset-2">
               info@woodinvillesportsclub.com
             </a>{" "}
-            and we can help get you registered.
+            (include your t-shirt size and the classes you wish to bundle) and we can get you registered.
           </p>
         </div>
       </section>
