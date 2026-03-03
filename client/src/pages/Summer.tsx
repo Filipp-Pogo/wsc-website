@@ -3,10 +3,10 @@
  * Real schedules from WSC sub-pages, organized by program + age group
  * Blue accent: #3899EC via volt/volt-bright tokens
  */
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Clock, Users, MapPin, Sun, Zap, Trophy, Calendar } from "lucide-react";
+import { ChevronRight, Clock, Users, MapPin, Sun, Zap, Trophy, Calendar, ArrowRight, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -270,6 +270,111 @@ const SCHEDULES: Record<ScheduleKey, ScheduleGroup> = {
   },
 };
 
+/* ─── Adventure Club 9-Week World Tour ─── */
+interface WeekTheme {
+  week: number;
+  dates: string;
+  region: string;
+  flag: string;
+  tennisLegend: string;
+  golfLegend: string;
+  activities: string[];
+  color: string;
+}
+
+const ADVENTURE_WEEKS: WeekTheme[] = [
+  {
+    week: 1,
+    dates: "Jun 29 – Jul 3",
+    region: "Australia & Oceania",
+    flag: "\ud83c\udde6\ud83c\uddfa",
+    tennisLegend: "Rod Laver",
+    golfLegend: "Greg Norman",
+    activities: ["Boomerang relay", "Cricket fundamentals", "Outback obstacle course", "Aboriginal art"],
+    color: "bg-amber-500",
+  },
+  {
+    week: 2,
+    dates: "Jul 7 – Jul 11",
+    region: "Japan & East Asia",
+    flag: "\ud83c\uddef\ud83c\uddf5",
+    tennisLegend: "Naomi Osaka",
+    golfLegend: "Hideki Matsuyama",
+    activities: ["Martial arts basics", "Sumo balance games", "Origami & calligraphy", "Ninja agility course"],
+    color: "bg-red-500",
+  },
+  {
+    week: 3,
+    dates: "Jul 14 – Jul 18",
+    region: "United Kingdom & Ireland",
+    flag: "\ud83c\uddec\ud83c\udde7",
+    tennisLegend: "Andy Murray",
+    golfLegend: "Rory McIlroy",
+    activities: ["Football (soccer) skills", "Rugby tag games", "Castle siege relay", "Highland games"],
+    color: "bg-blue-500",
+  },
+  {
+    week: 4,
+    dates: "Jul 21 – Jul 25",
+    region: "Spain & Mediterranean",
+    flag: "\ud83c\uddea\ud83c\uddf8",
+    tennisLegend: "Rafael Nadal",
+    golfLegend: "Jon Rahm",
+    activities: ["Futsal tournament", "Flamenco rhythm games", "Paella team cook-off", "Bull run relay"],
+    color: "bg-orange-500",
+  },
+  {
+    week: 5,
+    dates: "Jul 28 – Aug 1",
+    region: "Brazil & South America",
+    flag: "\ud83c\udde7\ud83c\uddf7",
+    tennisLegend: "Gustavo Kuerten",
+    golfLegend: "Angel Cabrera",
+    activities: ["Capoeira movement", "Samba relay races", "Rainforest expedition", "Beach volleyball"],
+    color: "bg-green-500",
+  },
+  {
+    week: 6,
+    dates: "Aug 4 – Aug 8",
+    region: "France & Western Europe",
+    flag: "\ud83c\uddeb\ud83c\uddf7",
+    tennisLegend: "Jo-Wilfried Tsonga",
+    golfLegend: "Victor Perez",
+    activities: ["Pétanque (bocce) tournament", "Tour de France relay", "Fencing basics", "Crêpe team challenge"],
+    color: "bg-indigo-500",
+  },
+  {
+    week: 7,
+    dates: "Aug 11 – Aug 15",
+    region: "Kenya & East Africa",
+    flag: "\ud83c\uddf0\ud83c\uddea",
+    tennisLegend: "Angela Okutoyi",
+    golfLegend: "Diksha Dagar",
+    activities: ["Distance running games", "Safari scavenger hunt", "Drum circle rhythms", "Maasai jumping contest"],
+    color: "bg-yellow-600",
+  },
+  {
+    week: 8,
+    dates: "Aug 18 – Aug 22",
+    region: "India & South Asia",
+    flag: "\ud83c\uddee\ud83c\uddf3",
+    tennisLegend: "Sania Mirza",
+    golfLegend: "Anirban Lahiri",
+    activities: ["Cricket match day", "Kabaddi tag games", "Bollywood dance relay", "Holi color run"],
+    color: "bg-teal-500",
+  },
+  {
+    week: 9,
+    dates: "Aug 25 – Aug 29",
+    region: "USA — Pacific Northwest",
+    flag: "\ud83c\uddfa\ud83c\uddf8",
+    tennisLegend: "Serena Williams",
+    golfLegend: "Fred Couples",
+    activities: ["All-star tournament day", "PNW nature hike", "Summer awards ceremony", "Final celebration"],
+    color: "bg-volt-bright",
+  },
+];
+
 /* ─── Group schedules by program ─── */
 const SCHEDULE_KEYS_BY_PROGRAM: Record<ProgramKey, ScheduleKey[]> = {
   tennis: ["tennis-core-half-am", "tennis-core-half-bundle", "tennis-yellow-full", "tennis-academy-half"],
@@ -296,6 +401,8 @@ const typeLabels: Record<string, string> = {
 export default function Summer() {
   const [activeProgram, setActiveProgram] = useState<ProgramKey>("tennis");
   const [activeSchedule, setActiveSchedule] = useState<ScheduleKey>("tennis-core-half-am");
+  const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   const program = PROGRAMS[activeProgram];
   const scheduleKeys = SCHEDULE_KEYS_BY_PROGRAM[activeProgram];
@@ -760,6 +867,167 @@ export default function Summer() {
             </a>{" "}
             (include your t-shirt size and the classes you wish to bundle) and we can get you registered.
           </p>
+        </div>
+      </section>
+
+      {/* ═══ 9-Week Adventure Club World Tour Calendar ═══ */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 items-start">
+            {/* Left: Intro */}
+            <div className="lg:sticky lg:top-28">
+              <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Adventure Club</p>
+              <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
+                9 weeks.<br />9 regions.<br />One world tour.
+              </h2>
+              <p className="text-ink-mid text-[15px] leading-[1.75] mb-6">
+                Every week, Adventure Club kids (ages 5–12) explore a different region of the world — learning about tennis and golf legends, playing region-inspired games, and building athletic skills through team challenges.
+              </p>
+              <p className="text-ink-light text-[13px] leading-[1.7] mb-8">
+                Click any week to see the featured legends and activities. Two age groups: Explorers (5–8) and Adventurers (9–12).
+              </p>
+              <div className="flex items-center gap-3 text-ink-light text-[12px]">
+                <Globe size={16} className="text-volt" />
+                <span>June 29 – August 29, 2025</span>
+              </div>
+            </div>
+
+            {/* Right: Calendar Grid */}
+            <div ref={calendarRef} className="space-y-[3px]">
+              {ADVENTURE_WEEKS.map((w) => {
+                const isExpanded = expandedWeek === w.week;
+                return (
+                  <motion.div
+                    key={w.week}
+                    layout
+                    className="bg-parchment-mid overflow-hidden cursor-pointer group"
+                    onClick={() => setExpandedWeek(isExpanded ? null : w.week)}
+                  >
+                    {/* Week Header Row */}
+                    <div className="flex items-center gap-4 px-6 py-5 hover:bg-parchment-dark transition-colors duration-200">
+                      {/* Week Number */}
+                      <div className={`w-10 h-10 flex items-center justify-center text-[13px] font-light shrink-0 ${
+                        isExpanded ? "bg-volt-bright text-dark-bg" : "bg-parchment text-ink-light"
+                      } transition-colors duration-300`}>
+                        {w.week}
+                      </div>
+
+                      {/* Flag + Region */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-[20px]">{w.flag}</span>
+                          <div>
+                            <p className={`text-[16px] font-light tracking-[-0.01em] ${
+                              isExpanded ? "text-ink" : "text-ink"
+                            }`}>
+                              {w.region}
+                            </p>
+                            <p className="text-ink-light text-[12px] mt-0.5">{w.dates}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Legends Preview (collapsed) */}
+                      <div className="hidden md:flex items-center gap-4 text-[12px] text-ink-light shrink-0">
+                        <span className="flex items-center gap-1.5">
+                          <Trophy size={11} className="text-volt" />
+                          {w.tennisLegend}
+                        </span>
+                        <span className="text-wsc-border">|</span>
+                        <span className="flex items-center gap-1.5">
+                          <Sun size={11} className="text-volt" />
+                          {w.golfLegend}
+                        </span>
+                      </div>
+
+                      {/* Expand Arrow */}
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 90 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="shrink-0"
+                      >
+                        <ArrowRight size={16} className={`${
+                          isExpanded ? "text-volt-bright" : "text-ink-light group-hover:text-ink"
+                        } transition-colors duration-200`} />
+                      </motion.div>
+                    </div>
+
+                    {/* Expanded Detail */}
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-6 pb-6 pt-2">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
+                              {/* Tennis Legend */}
+                              <div className="bg-parchment p-5">
+                                <p className="text-volt text-[10px] tracking-[0.16em] uppercase mb-2">Tennis Legend</p>
+                                <p className="text-ink text-[18px] font-light tracking-[-0.01em] mb-1">{w.tennisLegend}</p>
+                                <p className="text-ink-light text-[12px]">Featured athlete of the week</p>
+                              </div>
+
+                              {/* Golf Legend */}
+                              <div className="bg-parchment p-5">
+                                <p className="text-volt text-[10px] tracking-[0.16em] uppercase mb-2">Golf Legend</p>
+                                <p className="text-ink text-[18px] font-light tracking-[-0.01em] mb-1">{w.golfLegend}</p>
+                                <p className="text-ink-light text-[12px]">Featured athlete of the week</p>
+                              </div>
+
+                              {/* Activities */}
+                              <div className="bg-parchment p-5">
+                                <p className="text-volt text-[10px] tracking-[0.16em] uppercase mb-2">Sample Activities</p>
+                                <ul className="space-y-1.5">
+                                  {w.activities.map((a, i) => (
+                                    <li key={i} className="text-ink-mid text-[13px] flex items-start gap-2">
+                                      <span className="text-volt text-[8px] mt-1.5">●</span>
+                                      {a}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+
+                            {/* Register CTA for this week */}
+                            <div className="flex items-center justify-between mt-4 pt-4 border-t border-wsc-border">
+                              <p className="text-ink-light text-[12px]">
+                                Week {w.week} · {w.dates} · Ages 5–12
+                              </p>
+                              <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] uppercase no-underline text-volt hover:text-ink transition-colors duration-200"
+                                onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                              >
+                                Register for Week {w.week} <ChevronRight size={12} />
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+
+              {/* Full Summer CTA */}
+              <div className="bg-dark-bg px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-[3px]">
+                <div>
+                  <p className="text-parchment text-[15px] font-light">Register for the full 9-week world tour</p>
+                  <p className="text-parchment/40 text-[12px] mt-1">Early Bird: 10% off full-week registration through Feb 28</p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200 shrink-0"
+                >
+                  Register Now <ChevronRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
