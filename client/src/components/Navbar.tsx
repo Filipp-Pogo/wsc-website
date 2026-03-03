@@ -47,8 +47,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 ${
                   location === link.href
-                    ? "text-parchment"
-                    : "text-parchment/[0.45] hover:text-parchment"
+                    ? "text-parchment font-medium"
+                    : "text-parchment/[0.75] hover:text-parchment"
                 }`}
               >
                 {link.label}
@@ -83,8 +83,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`text-[13px] tracking-[0.1em] uppercase no-underline ${
                     location === link.href
-                      ? "text-parchment"
-                      : "text-parchment/[0.45]"
+                      ? "text-parchment font-medium"
+                      : "text-parchment/[0.75]"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
