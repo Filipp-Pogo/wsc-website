@@ -59,9 +59,9 @@ export default function Home() {
         <img
           src={HERO_IMG}
           alt="Woodinville Sports Club campus aerial view"
-          className="absolute inset-0 w-full h-full object-cover object-[center_30%] saturate-[0.3] brightness-[0.35]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_30%] saturate-[0.4] brightness-[0.55]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.95)] via-[rgba(22,19,16,0.6)] to-[rgba(22,19,16,0.2)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.85)] via-[rgba(22,19,16,0.35)] to-[rgba(22,19,16,0.1)]" />
 
         <div className="relative z-10 px-6 lg:px-14 pb-0 max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end">
           {/* Left: copy */}
