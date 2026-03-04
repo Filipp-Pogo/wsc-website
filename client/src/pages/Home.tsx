@@ -1,6 +1,7 @@
 /*
  * 4B Design — Home Page
- * Emotional engagement upgrade: This Week, Your Day, interactive cards,
+ * Tier 1 Sports by Caliber prominence, immersive gallery, bigger visuals
+ * Emotional engagement: This Week, Your Day, interactive cards,
  * testimonials, experience-first membership, newsletter CTA
  */
 import { useState } from "react";
@@ -9,12 +10,28 @@ import { Instagram, Calendar, Clock, MapPin, ChevronRight, Quote } from "lucide-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InstagramFeed from "@/components/InstagramFeed";
+import FacilityGallery from "@/components/FacilityGallery";
+import Tier1Banner from "@/components/Tier1Banner";
+import FullWidthImage from "@/components/FullWidthImage";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/hero-campus-YM3mcvUEufhyrArKQifwwG.webp";
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
 const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-gym_0d1e0831.jpg";
 const PICKLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/pickleball-courts_30a446d6.jpg";
+
+/* Generated gallery images */
+const GALLERY_TENNIS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
+const GALLERY_GOLF = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
+const GALLERY_YOUTH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-youth-training-fzR4bkTsjP6QpYS2R2Qisf.webp";
+const GALLERY_AERIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-campus-aerial-8wo6tNdxv3qg4KeBNBJjwd.webp";
+
+/* Real facility photos */
+const CAMPUS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
+const SWINGLAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-swinglab_317d4474.jpg";
+const TENNIS_LESSON_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-lesson_f845dcaf.jpeg";
+const FITNESS_TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-training_dc50d579.jpeg";
+const SUMMER_KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
 
 const metrics = [
   { label: "Indoor Tennis Courts", val: "8", unit: "climate controlled" },
@@ -64,8 +81,8 @@ const disciplines = [
   {
     num: "02",
     tag: "Golf",
-    name: "Driving Range & Swing Lab",
-    desc: "Scenic driving range with 23 covered bays, free Toptracer technology, grass tees and a 2.5-acre short-game practice area.",
+    name: "Tier 1 Golf Academy",
+    desc: "Scenic driving range with 23 covered bays, free Toptracer technology, grass tees and a 2.5-acre short-game practice area. Tier 1 Golf Academy for youth and adults.",
     detail: "4 Swing Lab simulators capturing 24 data points. Expert coaching for juniors and adults.",
     img: GOLF_IMG,
     href: "/golf",
@@ -144,6 +161,17 @@ const testimonials = [
   },
 ];
 
+const galleryImages = [
+  { src: GALLERY_AERIAL, alt: "WSC campus aerial view", caption: "67 acres of world-class athletic facilities in the heart of Woodinville", span: "wide" as const },
+  { src: TENNIS_IMG, alt: "Indoor tennis courts", caption: "8 climate-controlled indoor tennis courts", span: "normal" as const },
+  { src: SWINGLAB_IMG, alt: "Swing Lab simulators", caption: "Swing Lab — 4 Uneekor simulators with 24 data points", span: "normal" as const },
+  { src: GALLERY_TENNIS, alt: "Tennis match in action", caption: "Tier 1 Tennis — training future champions", span: "normal" as const },
+  { src: GALLERY_YOUTH, alt: "Youth athletic training", caption: "APL youth strength and conditioning", span: "normal" as const },
+  { src: GALLERY_GOLF, alt: "Driving range at sunset", caption: "23 covered bays with free Toptracer technology", span: "wide" as const },
+  { src: PICKLE_IMG, alt: "Pickleball dome", caption: "The Dome — open play 7 days a week", span: "normal" as const },
+  { src: FITNESS_TRAINING_IMG, alt: "Fitness training", caption: "Full-service gym and APL Training Center", span: "normal" as const },
+];
+
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [activeDayStep, setActiveDayStep] = useState(0);
@@ -170,8 +198,11 @@ export default function Home() {
               Level Up Your<br className="hidden lg:block" />
               Game at WSC.
             </h1>
-            <p className="text-parchment/[0.45] text-[16px] leading-[1.72] max-w-[440px] mb-12">
+            <p className="text-parchment/[0.45] text-[16px] leading-[1.72] max-w-[440px] mb-5">
               The definitive destination in the Pacific Northwest for athletes and families seeking unparalleled sports training, holistic development, and a thriving community.
+            </p>
+            <p className="text-volt-bright/80 text-[13px] tracking-[0.06em] mb-12">
+              Home of Tier 1 Sports by Caliber — one of the nation's leading developmental programs.
             </p>
             <div className="flex flex-wrap gap-5 items-center">
               <Link
@@ -254,6 +285,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TIER 1 SPORTS BY CALIBER — Full Banner ── */}
+      <Tier1Banner variant="full" />
+
+      {/* ── FULL-WIDTH VISUAL BREAK — Campus ── */}
+      <FullWidthImage
+        src={GALLERY_AERIAL}
+        alt="WSC campus from above"
+        caption="67 acres of athletic excellence in the Pacific Northwest."
+        subcaption="Woodinville, Washington"
+        height="tall"
+      />
+
       {/* ── ABOUT ── */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-32">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
@@ -309,7 +352,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">
+          {/* 2-column layout for bigger cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
             {disciplines.map((d, i) => (
               <div
                 key={d.num}
@@ -321,7 +365,7 @@ export default function Home() {
                   <img
                     src={d.img}
                     alt={d.tag}
-                    className={`w-full aspect-[4/3] object-cover transition-all duration-[650ms] ease-out ${
+                    className={`w-full aspect-[16/10] object-cover transition-all duration-[650ms] ease-out ${
                       hoveredCard === i
                         ? "scale-[1.06] saturate-[0.7] brightness-[0.75]"
                         : "saturate-[0.55] brightness-[0.85]"
@@ -390,6 +434,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── FULL-WIDTH VISUAL BREAK — Tennis Action ── */}
+      <FullWidthImage
+        src={GALLERY_TENNIS}
+        alt="Indoor tennis match at WSC"
+        caption="Train with former world-ranked professionals and D1 standouts."
+        subcaption="Tier 1 Tennis Academy"
+        height="medium"
+      />
 
       {/* ── YOUR DAY AT WSC ── */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
@@ -482,31 +535,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SWING LAB CALLOUT ── */}
+      {/* ── FACILITY GALLERY — Immersive Photo Grid ── */}
+      <FacilityGallery
+        images={galleryImages}
+        title="Our Campus."
+        eyebrow="67 Acres"
+        dark
+      />
+
+      {/* ── SWING LAB CALLOUT — Bigger Visual ── */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
-          <div>
-            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Now Open</p>
-            <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
-              Swing Lab<br />Golf Simulators.
-            </h2>
+        <div className="max-w-[1440px] mx-auto">
+          {/* Full-width image first */}
+          <div className="mb-12 overflow-hidden">
+            <img
+              src={SWINGLAB_IMG}
+              alt="Swing Lab Golf Simulators"
+              className="w-full aspect-[21/9] object-cover saturate-[0.7] brightness-[0.85]"
+            />
           </div>
-          <div>
-            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
-              Our golf simulators provide feedback on every aspect of your swing and ball flight, capturing 24 data points in real time. Train with the same precision technology used by tour professionals, and watch your game transform through instant, actionable feedback. Now open for booking.
-            </p>
-            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Four professional-grade Uneekor simulators with GSPRO software. Over 2,000 high-quality courses. Compete in stroke, scramble, stableford, match play, best ball, or alt shot.
-            </p>
-            <Link
-              href="/golf"
-              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
-            >
-              Learn More About Swing Lab
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
+            <div>
+              <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Now Open</p>
+              <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
+                Swing Lab<br />Golf Simulators.
+              </h2>
+            </div>
+            <div>
+              <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
+                Our golf simulators provide feedback on every aspect of your swing and ball flight, capturing 24 data points in real time. Train with the same precision technology used by tour professionals, and watch your game transform through instant, actionable feedback. Now open for booking.
+              </p>
+              <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
+                Four professional-grade Uneekor simulators with GSPRO software. Over 2,000 high-quality courses. Compete in stroke, scramble, stableford, match play, best ball, or alt shot.
+              </p>
+              <Link
+                href="/golf"
+                className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+              >
+                Learn More About Swing Lab
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ── FULL-WIDTH VISUAL BREAK — Golf Sunset ── */}
+      <FullWidthImage
+        src={GALLERY_GOLF}
+        alt="WSC driving range at golden hour"
+        caption="23 covered bays with free Toptracer. Open to the public."
+        subcaption="Driving Range"
+        height="medium"
+      />
 
       {/* ── PERFORMANCE DARK ── */}
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
@@ -530,9 +610,9 @@ export default function Home() {
               </Link>
             </div>
             <img
-              src={PERF_IMG}
-              alt="Athletic Performance Lab"
-              className="w-full aspect-[4/3] object-cover saturate-[0.4] brightness-[0.65]"
+              src={GALLERY_YOUTH}
+              alt="Youth athletic training at APL"
+              className="w-full aspect-[4/3] object-cover saturate-[0.65] brightness-[0.75]"
             />
           </div>
 
@@ -560,7 +640,7 @@ export default function Home() {
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
           <div>
-            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">New Program</p>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
             <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
               Introducing<br />Tier 1 Golf Academy.
             </h2>
@@ -620,6 +700,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── FULL-WIDTH VISUAL BREAK — Summer Kids ── */}
+      <FullWidthImage
+        src={SUMMER_KIDS_IMG}
+        alt="Summer camp kids at WSC"
+        caption="Summer Training Camp — ages 3 to 18, June 29 through August 30."
+        subcaption="Summer 2026"
+        height="short"
+      />
 
       {/* ── MEMBERSHIP — Experience-First ── */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">

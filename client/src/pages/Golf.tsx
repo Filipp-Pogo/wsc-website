@@ -1,20 +1,24 @@
 /*
  * 4B Design — Golf Page
  * Real content from WSC website crawl
+ * Tier 1 Sports by Caliber branding
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import Tier1Banner from "@/components/Tier1Banner";
+import FullWidthImage from "@/components/FullWidthImage";
 
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
+const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
 
 export default function Golf() {
   return (
     <div className="min-h-screen">
       <Navbar />
       <PageHero
-        eyebrow="Golf Program"
+        eyebrow="Tier 1 Golf by Caliber"
         headline="Woodinville's Best Golf Driving Range and Practice Area."
         subtitle="Practice at our driving range and state-of-the-art facility featuring 23 covered driving bays, grass tees, an expansive 2.5-acre short game training area, new indoor golf simulators, and an 18-hole mini-golf course."
         image={GOLF_IMG}
@@ -225,6 +229,15 @@ export default function Golf() {
         </div>
       </section>
 
+      {/* Full-width visual break */}
+      <FullWidthImage
+        src={GOLF_SUNSET}
+        alt="WSC driving range at golden hour"
+        caption="23 covered bays with free Toptracer. Open to the public."
+        subcaption="Driving Range"
+        height="medium"
+      />
+
       {/* Why WSC Golf */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
@@ -287,6 +300,9 @@ export default function Golf() {
           </p>
         </div>
       </section>
+
+      {/* Tier 1 compact banner */}
+      <Tier1Banner variant="compact" />
 
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">

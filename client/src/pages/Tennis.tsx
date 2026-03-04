@@ -1,22 +1,26 @@
 /*
  * 4B Design — Tennis Page
  * Real content from WSC website crawl
+ * Tier 1 Sports by Caliber branding
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import Tier1Banner from "@/components/Tier1Banner";
+import FullWidthImage from "@/components/FullWidthImage";
 
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
+const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
 
 export default function Tennis() {
   return (
     <div className="min-h-screen">
       <Navbar />
       <PageHero
-        eyebrow="Tennis Program"
+        eyebrow="Tier 1 Tennis by Caliber"
         headline="Elevate Your Tennis Game at WSC."
-        subtitle="World-class instruction and facilities for players of all levels."
+        subtitle="World-class instruction and facilities for players of all levels. Home of Tier 1 Sports — one of the nation's leading developmental programs."
         image={TENNIS_IMG}
       />
 
@@ -256,6 +260,18 @@ export default function Tennis() {
           </div>
         </div>
       </section>
+
+      {/* Full-width visual break */}
+      <FullWidthImage
+        src={TENNIS_ACTION}
+        alt="Tennis match in action at WSC"
+        caption="Train with former world-ranked professionals and D1 standouts."
+        subcaption="Tier 1 Tennis Academy"
+        height="medium"
+      />
+
+      {/* Tier 1 compact banner */}
+      <Tier1Banner variant="compact" />
 
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
