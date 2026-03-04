@@ -15,8 +15,8 @@ const DEFAULTS = {
   headline: "Home to World-Class Programming",
   description:
     "Tier 1 is one of the leading developmental programs in the country — now in tennis, golf, and athletic performance at WSC.",
-  ctaLabel: "Explore Programs",
-  ctaHref: "https://app.courtreserve.com/Online/Portal/Index/6689",
+  ctaLabel: "Explore Tier 1 Programs",
+  ctaHref: "https://www.tier1nw.com",
   external: true,
 };
 

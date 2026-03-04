@@ -27,15 +27,26 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
               One of the nation's leading developmental programs.
             </h3>
           </div>
-          <a
-            href={CALIBER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline text-white border border-white/30 px-7 py-3 hover:bg-white/10 transition-colors duration-200 shrink-0"
-          >
-            Learn About Caliber
-            <ArrowRight size={13} />
-          </a>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <a
+              href="https://www.tier1nw.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-white transition-colors duration-200"
+            >
+              Explore Tier 1
+              <ArrowRight size={13} />
+            </a>
+            <a
+              href={CALIBER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline text-white border border-white/30 px-7 py-3 hover:bg-white/10 transition-colors duration-200"
+            >
+              Caliber Sports
+              <ArrowRight size={13} />
+            </a>
+          </div>
         </div>
       </section>
     );
@@ -67,9 +78,18 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
               WSC is home to Tier 1 Sports by Caliber — one of the nation's leading developmental programs in tennis, golf, and athletic performance. Our coaches develop athletes from first swing to collegiate and professional ranks.
             </p>
             <div className="flex flex-wrap gap-4">
+              <a
+                href="https://www.tier1nw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-white transition-colors duration-200"
+              >
+                Explore Tier 1 Programs
+                <ArrowRight size={13} />
+              </a>
               <Link
                 href="/tennis"
-                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-white transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline text-white border border-white/30 px-7 py-3 hover:bg-white/10 transition-colors duration-200"
               >
                 Tennis Programs
                 <ArrowRight size={13} />

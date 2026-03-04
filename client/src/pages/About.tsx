@@ -136,9 +136,23 @@ export default function About() {
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
               Our team of certified coaches and fitness professionals are the backbone of the Woodinville Sports Club experience. With their diverse expertise and passionate approach, they're dedicated to helping you unlock your full potential, regardless of your starting point.
             </p>
-            <p className="text-ink-mid text-[16px] leading-[1.82]">
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
               Whether you're looking to serve your first ace, sink the perfect putt, or simply elevate your overall wellness, Woodinville Sports Club is your launchpad to success. We invite you to become part of our storied legacy and thriving future.
             </p>
+            <div className="bg-[#0d1b2a] p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-1.5">Tier 1 Sports by Caliber</p>
+                <p className="text-white text-[15px] font-light">Discover our world-class developmental programming.</p>
+              </div>
+              <a
+                href="https://www.tier1nw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-white transition-colors duration-200 shrink-0"
+              >
+                Explore Tier 1
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -161,10 +175,18 @@ export default function About() {
               View Membership
             </Link>
             <a
-              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              href="https://www.tier1nw.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
+            >
+              Explore Tier 1 Programs
+            </a>
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment/60 text-[12px] tracking-[0.14em] uppercase hover:text-parchment transition-colors duration-200"
             >
               Schedule a Tour
             </a>

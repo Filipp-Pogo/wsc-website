@@ -215,6 +215,15 @@ export default function Home() {
                 Become a Member
               </Link>
               <a
+                href="https://www.tier1nw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright/50 px-7 py-3.5 hover:bg-volt-bright/10 hover:border-volt-bright transition-colors duration-200"
+              >
+                Explore Tier 1 Programs
+                <ChevronRight size={13} />
+              </a>
+              <a
                 href="https://app.courtreserve.com/Online/Portal/Index/6689"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -445,6 +454,9 @@ export default function Home() {
         caption="Train with former world-ranked professionals and D1 standouts."
         subcaption="Tier 1 Tennis Academy"
         height="medium"
+        ctaLabel="Explore Tier 1 Tennis"
+        ctaHref="https://www.tier1nw.com"
+        ctaExternal
       />
 
       {/* ── YOUR DAY AT WSC ── */}
@@ -611,6 +623,8 @@ export default function Home() {
         caption="23 covered bays with free Toptracer. Open to the public."
         subcaption="Driving Range"
         height="medium"
+        ctaLabel="Explore Tier 1 Golf"
+        ctaHref="/golf"
       />
 
       {/* ── PERFORMANCE DARK ── */}
@@ -687,12 +701,23 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/golf"
-              className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
-            >
-              Learn More About Golf
-            </Link>
+            <div className="flex flex-wrap gap-5 items-center">
+              <a
+                href="https://www.tier1nw.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-dark-bg hover:text-parchment transition-colors duration-200"
+              >
+                Explore Tier 1 Golf
+                <ChevronRight size={13} />
+              </a>
+              <Link
+                href="/golf"
+                className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+              >
+                Learn More About Golf
+              </Link>
+            </div>
           </div>
         </div>
       </section>

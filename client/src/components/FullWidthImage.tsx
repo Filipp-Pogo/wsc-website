@@ -11,6 +11,9 @@ interface FullWidthImageProps {
   subcaption?: string;
   height?: "short" | "medium" | "tall";
   overlay?: "light" | "dark" | "none";
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaExternal?: boolean;
 }
 
 export default function FullWidthImage({
@@ -20,6 +23,9 @@ export default function FullWidthImage({
   subcaption,
   height = "medium",
   overlay = "dark",
+  ctaLabel,
+  ctaHref,
+  ctaExternal = false,
 }: FullWidthImageProps) {
   const heightClass =
     height === "short"
@@ -56,6 +62,27 @@ export default function FullWidthImage({
               <p className="text-parchment text-[clamp(18px,2.2vw,28px)] font-light tracking-[-0.02em] leading-[1.2] max-w-[600px]">
                 {caption}
               </p>
+            )}
+            {ctaLabel && ctaHref && (
+              ctaExternal ? (
+                <a
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-5 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-parchment transition-colors duration-200"
+                >
+                  {ctaLabel}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              ) : (
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center gap-2 mt-5 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-parchment transition-colors duration-200"
+                >
+                  {ctaLabel}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+              )
             )}
           </div>
         </div>
