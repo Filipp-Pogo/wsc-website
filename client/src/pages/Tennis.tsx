@@ -158,8 +158,57 @@ export default function Tennis() {
         </div>
       </section>
 
-      {/* Court Booking */}
+      {/* Coaching Staff */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="mb-14">
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Our Coaches</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
+              Trained by the best.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+            {[
+              {
+                name: "Filipp Pogostkin",
+                title: "Director, Tier 1 Performance NW",
+                credential: "Former world-ranked professional",
+                philosophy: "Building complete athletes who compete with confidence at the highest levels. Every player deserves a personalized pathway.",
+              },
+              {
+                name: "Coaching Staff",
+                title: "Tier 1 Core Tennis",
+                credential: "D1 collegiate standouts & certified professionals",
+                philosophy: "Making tennis accessible and fun from age 3 through adult. High-repetition, age-appropriate training that builds skills and love for the game.",
+              },
+              {
+                name: "Adult Program Staff",
+                title: "Adult Tennis & Matchplay",
+                credential: "USPTA & PTR certified coaches",
+                philosophy: "Competitive group training, UTR matchplay, and tournament preparation for adult players who want to keep improving.",
+              },
+            ].map((coach, i) => (
+              <div key={i} className="bg-parchment-mid p-8 lg:p-10">
+                <div className="w-16 h-16 rounded-full bg-dark-bg/10 flex items-center justify-center mb-6">
+                  <span className="text-volt text-[20px] font-light">{coach.name.charAt(0)}</span>
+                </div>
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-1">{coach.name}</h3>
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-1.5">{coach.title}</p>
+                <p className="text-ink-mid text-[11px] tracking-[0.08em] uppercase mb-5">{coach.credential}</p>
+                <p className="text-ink-mid text-[14px] leading-[1.72] italic">"{coach.philosophy}"</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-ink-light text-[13px] mt-6 italic">
+            Coach headshots and full bios coming soon. Contact us to learn more about our coaching team.
+          </p>
+        </div>
+      </section>
+
+      {/* Court Booking */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Court Booking</p>

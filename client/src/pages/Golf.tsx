@@ -245,6 +245,49 @@ export default function Golf() {
         </div>
       </section>
 
+      {/* Coaching Staff */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="mb-14">
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Our Coaches</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
+              Expert instruction<br />at every level.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+            {[
+              {
+                name: "Daniel Jarvie",
+                title: "Director of Golf & Tier 1 Golf Academy",
+                credential: "WGTF Master Certified Coach",
+                philosophy: "Golf is a game of precision and patience. My approach combines cutting-edge simulator technology with fundamentals-first coaching to build swings that last a lifetime.",
+              },
+              {
+                name: "Golf Academy Staff",
+                title: "Junior & Adult Instruction",
+                credential: "PGA & WGTF certified professionals",
+                philosophy: "From first-time juniors to competitive adults, we build confidence through structured progression and real-time data feedback in the Swing Lab.",
+              },
+            ].map((coach, i) => (
+              <div key={i} className="bg-parchment-mid p-8 lg:p-10">
+                <div className="w-16 h-16 rounded-full bg-dark-bg/10 flex items-center justify-center mb-6">
+                  <span className="text-volt text-[20px] font-light">{coach.name.charAt(0)}</span>
+                </div>
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-1">{coach.name}</h3>
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-1.5">{coach.title}</p>
+                <p className="text-ink-mid text-[11px] tracking-[0.08em] uppercase mb-5">{coach.credential}</p>
+                <p className="text-ink-mid text-[14px] leading-[1.72] italic">"{coach.philosophy}"</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-ink-light text-[13px] mt-6 italic">
+            Coach headshots and full bios coming soon. Contact us to learn more about our coaching team.
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
         <div className="max-w-[1440px] mx-auto text-center">
