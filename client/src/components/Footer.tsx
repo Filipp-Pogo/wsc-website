@@ -1,13 +1,18 @@
 /*
- * 4B Design: Dark footer (#161310), 3-column grid
+ * 4B Design: Dark footer (#161310), 4-column grid
  * Real content from WSC website crawl
+ * Added: Quick Links column with Court Reserve, Tier 1, Caliber Sports
  */
 import { Link } from "wouter";
+
+const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
+const TIER1_URL = "https://www.tier1nw.com";
+const CALIBER_URL = "https://www.calibersports.com";
 
 export default function Footer() {
   return (
     <footer className="bg-dark-bg px-6 lg:px-14 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 max-w-[1440px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-12 max-w-[1440px] mx-auto">
         {/* Brand */}
         <div>
           <div className="text-parchment text-[13px] tracking-[0.14em] uppercase font-medium mb-2">
@@ -22,7 +27,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 mb-4">
             <span className="text-parchment/20 text-[10px] tracking-[0.12em] uppercase">A</span>
             <a
-              href="https://www.calibersports.com"
+              href={CALIBER_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-parchment/35 text-[11px] tracking-[0.14em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200 border-b border-parchment/10 pb-[1px]"
@@ -66,34 +71,100 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Club */}
+        {/* Quick Links */}
         <div>
           <div className="text-volt-bright text-[11px] tracking-[0.18em] uppercase font-medium mb-5">
-            Club
+            Quick Links
           </div>
           <ul className="list-none space-y-2.5">
-            {[
-              { href: "/membership", label: "Membership" },
-              { href: "/about", label: "About WSC" },
-              { href: "/contact", label: "Contact Us" },
-            ].map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <a
+                href={COURT_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Book a Court
+              </a>
+            </li>
+            <li>
+              <a
+                href={COURT_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Book a Simulator
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/membership"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Membership
+              </Link>
+            </li>
+            <li>
+              <a
+                href={TIER1_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Tier 1 Performance NW
+              </a>
+            </li>
+            <li>
+              <a
+                href={CALIBER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Caliber Sports
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <div className="text-volt-bright text-[11px] tracking-[0.18em] uppercase font-medium mb-5">
+            Contact
+          </div>
+          <ul className="list-none space-y-2.5">
+            <li>
+              <Link
+                href="/about"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                About WSC
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Contact Us
+              </Link>
+            </li>
             <li className="pt-4">
               <p className="text-parchment/[0.25] text-[12px] leading-relaxed">
                 15327 140th Pl NE<br />
                 Woodinville, WA 98072
               </p>
               <p className="text-parchment/[0.25] text-[12px] mt-2">
-                Front Desk: (425) 487-1090<br />
-                Golf Desk: (425) 485-7319
+                Front Desk:{" "}
+                <a href="tel:+14254871090" className="text-parchment/[0.35] no-underline hover:text-parchment transition-colors duration-200">
+                  (425) 487-1090
+                </a>
+                <br />
+                Golf Desk:{" "}
+                <a href="tel:+14254857319" className="text-parchment/[0.35] no-underline hover:text-parchment transition-colors duration-200">
+                  (425) 485-7319
+                </a>
               </p>
               <a
                 href="mailto:info@woodinvillesportsclub.com"
@@ -112,7 +183,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Woodinville Sports Club. All rights reserved.
           </p>
           <a
-            href="https://www.calibersports.com"
+            href={CALIBER_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-parchment/[0.15] text-[10px] tracking-[0.12em] uppercase no-underline hover:text-parchment/30 transition-colors duration-200"

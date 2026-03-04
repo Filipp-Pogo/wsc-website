@@ -81,12 +81,14 @@ export default function Golf() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-7 py-3 hover:bg-volt hover:border-volt transition-colors duration-200"
             >
               Book a Simulator
-            </Link>
+            </a>
           </div>
           <div>
             <div className="grid grid-cols-2 gap-6 mb-10">
@@ -154,12 +156,14 @@ export default function Golf() {
                   <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">{p.name}</h3>
                   <p className="text-ink-mid text-[14px] leading-[1.72]">{p.desc}</p>
                 </div>
-                <Link
-                  href="/contact"
+                <a
+                  href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
                 >
                   Register
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -258,12 +262,14 @@ export default function Golf() {
             >
               View Membership
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
             >
               Private Lesson Inquiry
-            </Link>
+            </a>
           </div>
         </div>
       </section>

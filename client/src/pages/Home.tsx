@@ -83,12 +83,14 @@ export default function Home() {
               >
                 Become a Member
               </Link>
-              <Link
-                href="/contact"
-                className="text-[12px] tracking-[0.12em] uppercase no-underline text-parchment/[0.4] border-b border-parchment/[0.2] pb-[3px]"
+              <a
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[12px] tracking-[0.14em] uppercase no-underline text-parchment/[0.55] hover:text-parchment transition-colors duration-200"
               >
                 Schedule a Tour
-              </Link>
+              </a>
             </div>
           </div>
 

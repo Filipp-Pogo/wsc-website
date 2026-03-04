@@ -48,12 +48,14 @@ export default function Tennis() {
                 ))}
               </ul>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href="https://www.tier1nw.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
               Learn More
-            </Link>
+            </a>
           </div>
 
           {/* Tier 1 Core */}
@@ -78,12 +80,14 @@ export default function Tennis() {
                 ))}
               </ul>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href="https://www.tier1nw.com/tier1-core"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
               Learn More
-            </Link>
+            </a>
           </div>
 
           {/* Adult Tennis */}
@@ -107,12 +111,14 @@ export default function Tennis() {
                 ))}
               </ul>
             </div>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
               Learn More
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -189,12 +195,14 @@ export default function Tennis() {
               >
                 Membership Sign Up
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-ink border border-wsc-border px-8 py-3.5 hover:border-volt transition-colors duration-200"
               >
                 Book a Court
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -214,12 +222,14 @@ export default function Tennis() {
             >
               View Membership
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
             >
-              Contact Us
-            </Link>
+              Book a Court
+            </a>
           </div>
         </div>
       </section>

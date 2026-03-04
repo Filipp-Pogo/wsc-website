@@ -144,12 +144,14 @@ export default function Membership() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
+                <a
+                  href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
                 >
                   Sign Up
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -174,24 +176,28 @@ export default function Membership() {
             <p className="text-ink-mid text-[14px] leading-[1.72] mb-4">
               Review the full membership agreement including terms, conditions, and cancellation policies.
             </p>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
               View Agreement
-            </Link>
+            </a>
           </div>
           <div className="bg-parchment p-8">
             <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">Membership Policies</h3>
             <p className="text-ink-mid text-[14px] leading-[1.72] mb-4">
               Review our membership policies including guest policies, code of conduct, and facility rules.
             </p>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
               View Policies
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -207,12 +213,14 @@ export default function Membership() {
             Contact us to learn more about membership options or to schedule a tour of our facilities.
           </p>
           <div className="flex flex-wrap justify-center gap-5">
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
             >
-              Contact Us
-            </Link>
+              Sign Up Now
+            </a>
             <Link
               href="/about"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"

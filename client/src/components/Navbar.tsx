@@ -1,10 +1,14 @@
 /*
  * 4B Design: Dark nav bar (#161310), Inter 500 logo, 12px uppercase links
  * Volt-bright CTA button, subtle border-bottom on nav-inner
+ * Added: Book Now (Court Reserve), phone in top bar
  */
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+
+const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
+const CALIBER_URL = "https://www.calibersports.com";
 
 const navLinks = [
   { href: "/tennis", label: "Tennis" },
@@ -22,17 +26,26 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg">
-      {/* Caliber Sports top bar */}
+      {/* Caliber Sports top bar with phone */}
       <div className="bg-dark-mid px-6 lg:px-14 py-1.5 flex items-center justify-between border-b border-white/[0.05]">
         <span className="text-parchment/30 text-[10px] tracking-[0.16em] uppercase">A Caliber Sports Facility</span>
-        <a
-          href="https://www.calibersports.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-parchment/25 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
-        >
-          calibersports.com
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href="tel:+14254814686"
+            className="hidden sm:flex items-center gap-1.5 text-parchment/30 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
+          >
+            <Phone size={10} />
+            (425) 481-4686
+          </a>
+          <a
+            href={CALIBER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-parchment/25 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
+          >
+            calibersports.com
+          </a>
+        </div>
       </div>
       <div className="flex items-center justify-between px-6 lg:px-14 py-5 border-b border-white/[0.08]">
         <Link href="/" className="text-parchment text-[13px] tracking-[0.14em] uppercase font-medium no-underline">
@@ -57,12 +70,23 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="/membership"
-          className="hidden lg:inline-block text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5 hover:bg-parchment transition-colors duration-200"
-        >
-          Membership
-        </Link>
+        {/* Desktop CTAs — Book Now + Membership */}
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href={COURT_RESERVE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-2.5 hover:bg-parchment/10 transition-colors duration-200"
+          >
+            Book Now
+          </a>
+          <Link
+            href="/membership"
+            className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5 hover:bg-parchment transition-colors duration-200"
+          >
+            Membership
+          </Link>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -92,14 +116,32 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li>
+            <li className="flex gap-3 mt-2">
+              <a
+                href={COURT_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-2.5"
+                onClick={() => setMobileOpen(false)}
+              >
+                Book Now
+              </a>
               <Link
                 href="/membership"
-                className="inline-block text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5 mt-2"
+                className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5"
                 onClick={() => setMobileOpen(false)}
               >
                 Membership
               </Link>
+            </li>
+            <li className="mt-1">
+              <a
+                href="tel:+14254814686"
+                className="flex items-center gap-1.5 text-parchment/50 text-[11px] tracking-[0.1em] uppercase no-underline"
+              >
+                <Phone size={11} />
+                (425) 481-4686
+              </a>
             </li>
           </ul>
         </div>

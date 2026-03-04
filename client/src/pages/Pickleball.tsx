@@ -193,12 +193,14 @@ export default function Pickleball() {
                   ))}
                 </ul>
               </div>
-              <Link
-                href="/contact"
+              <a
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
               >
                 Sign Up
-              </Link>
+              </a>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border">
@@ -221,12 +223,14 @@ export default function Pickleball() {
                   ))}
                 </ul>
               </div>
-              <Link
-                href="/contact"
+              <a
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
               >
                 Sign Up
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -249,12 +253,14 @@ export default function Pickleball() {
             >
               View Membership
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
             >
-              Contact Us
-            </Link>
+              Book a Court
+            </a>
           </div>
         </div>
       </section>

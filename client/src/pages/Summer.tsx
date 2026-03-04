@@ -440,7 +440,9 @@ export default function Summer() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
               >
                 Register Now <ChevronRight size={14} />
@@ -489,7 +491,9 @@ export default function Summer() {
             </span>
           </div>
           <Link
-            href="/contact"
+            href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
             className="text-dark-bg text-[11px] tracking-[0.14em] uppercase no-underline border border-dark-bg/30 px-5 py-2 hover:bg-dark-bg hover:text-volt-bright transition-colors duration-200"
           >
             Register by Feb 28
@@ -580,7 +584,9 @@ export default function Summer() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 mt-10">
                   <Link
-                    href="/contact"
+                    href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
                   >
                     Register for {program.name} <ChevronRight size={14} />
@@ -785,7 +791,9 @@ export default function Summer() {
                       )}
                     </div>
                     <Link
-                      href="/contact"
+                      href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-6 py-2.5 hover:bg-parchment transition-colors duration-200 shrink-0"
                     >
                       Register <ChevronRight size={12} />
@@ -998,7 +1006,9 @@ export default function Summer() {
                                 Week {w.week} · {w.dates} · Ages 5–12
                               </p>
                               <Link
-                                href="/contact"
+                                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] uppercase no-underline text-volt hover:text-ink transition-colors duration-200"
                                 onClick={(e: React.MouseEvent) => e.stopPropagation()}
                               >
@@ -1020,7 +1030,9 @@ export default function Summer() {
                   <p className="text-parchment/40 text-[12px] mt-1">Early Bird: 10% off full-week registration through Feb 28</p>
                 </div>
                 <Link
-                  href="/contact"
+                  href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200 shrink-0"
                 >
                   Register Now <ChevronRight size={14} />
@@ -1090,13 +1102,17 @@ export default function Summer() {
           </p>
           <div className="flex flex-wrap justify-center gap-5">
             <Link
-              href="/contact"
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
             >
               Register Now <ChevronRight size={14} />
             </Link>
             <Link
-              href="/contact"
+              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-ink border border-wsc-border px-8 py-3.5 hover:border-volt transition-colors duration-200"
             >
               Contact Us

@@ -59,12 +59,14 @@ export default function Fitness() {
               <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px] mb-8">
                 The goal of our APL training program is to develop more well-rounded athletes, giving you the competitive edge to perform at the highest level in your sport.
               </p>
-              <Link
-                href="/contact"
+              <a
+                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-7 py-3 hover:bg-volt hover:border-volt transition-colors duration-200"
               >
                 Browse Classes
-              </Link>
+              </a>
             </div>
             <img
               src={PERF_IMG}
@@ -113,12 +115,14 @@ export default function Fitness() {
               <div key={i} className="bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
                 <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">{c.desc}</p>
-                <Link
-                  href="/contact"
+                <a
+                  href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
                 >
                   Enquire
-                </Link>
+                </a>
               </div>
             ))}
           </div>
