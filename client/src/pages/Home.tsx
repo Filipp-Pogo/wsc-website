@@ -153,7 +153,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[88px]">
+      <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[130px]">
         <img
           src={HERO_IMG}
           alt="Woodinville Sports Club campus aerial view"

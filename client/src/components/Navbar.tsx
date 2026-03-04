@@ -6,6 +6,7 @@
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import MarketingBanner from "@/components/MarketingBanner";
 
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 const CALIBER_URL = "https://www.calibersports.com";
@@ -47,6 +48,10 @@ export default function Navbar() {
           </a>
         </div>
       </div>
+
+      {/* Marketing Banner — edit MarketingBanner.tsx defaults to update */}
+      <MarketingBanner />
+
       <div className="flex items-center justify-between px-6 lg:px-14 py-5 border-b border-white/[0.08]">
         <Link href="/" className="text-parchment text-[13px] tracking-[0.14em] uppercase font-medium no-underline">
           Woodinville Sports Club
