@@ -29,6 +29,9 @@ const GALLERY_AERIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696
 /* Real facility photos */
 const CAMPUS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 const SWINGLAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-swinglab_317d4474.jpg";
+const SIM_BAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-bay-b27xhwZZfcgtCUYYzrMUzN.webp";
+const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-screen-a8ZgKeFQVWNrVWHTfStJQE.webp";
+const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
 const TENNIS_LESSON_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-lesson_f845dcaf.jpeg";
 const FITNESS_TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-training_dc50d579.jpeg";
 const SUMMER_KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
@@ -543,18 +546,20 @@ export default function Home() {
         dark
       />
 
-      {/* ── SWING LAB CALLOUT — Bigger Visual ── */}
+      {/* ── SWING LAB CALLOUT — Bigger Visual with Simulator Gallery ── */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
-          {/* Full-width image first */}
-          <div className="mb-12 overflow-hidden">
+          {/* Hero image — wide cinematic shot */}
+          <div className="mb-10 overflow-hidden">
             <img
-              src={SWINGLAB_IMG}
-              alt="Swing Lab Golf Simulators"
-              className="w-full aspect-[21/9] object-cover saturate-[0.7] brightness-[0.85]"
+              src={SIM_LOUNGE_IMG}
+              alt="Swing Lab Golf Simulator Lounge — multiple bays"
+              className="w-full aspect-[21/9] object-cover"
             />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
+
+          {/* Heading + copy */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start mb-14">
             <div>
               <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Now Open</p>
               <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
@@ -575,6 +580,26 @@ export default function Home() {
                 Learn More About Swing Lab
               </Link>
             </div>
+          </div>
+
+          {/* Simulator photo gallery — 3 images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { src: SIM_BAY_IMG, alt: "Golfer mid-swing in Uneekor simulator bay with data overlay", caption: "Uneekor launch monitors capture 24 data points" },
+              { src: SIM_SCREEN_IMG, alt: "Simulator screen showing virtual course and swing analytics", caption: "2,000+ photorealistic courses with real-time feedback" },
+              { src: SWINGLAB_IMG, alt: "WSC Swing Lab interior", caption: "Four professional-grade simulator bays" },
+            ].map((img, i) => (
+              <div key={i} className="group relative overflow-hidden">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="text-white text-[12px] tracking-[0.04em] px-5 pb-5">{img.caption}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

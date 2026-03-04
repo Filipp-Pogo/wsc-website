@@ -12,6 +12,9 @@ import FullWidthImage from "@/components/FullWidthImage";
 
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
 const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
+const SIM_BAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-bay-b27xhwZZfcgtCUYYzrMUzN.webp";
+const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-screen-a8ZgKeFQVWNrVWHTfStJQE.webp";
+const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
 
 export default function Golf() {
   return (
@@ -119,6 +122,26 @@ export default function Golf() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Simulator photo gallery */}
+        <div className="max-w-[1440px] mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[
+            { src: SIM_BAY_IMG, alt: "Golfer using Uneekor simulator with swing data overlay", caption: "Uneekor launch monitors capture 24 data points per swing" },
+            { src: SIM_SCREEN_IMG, alt: "Simulator screen with virtual course and analytics", caption: "2,000+ photorealistic courses with real-time feedback" },
+            { src: SIM_LOUNGE_IMG, alt: "Multiple simulator bays in the Swing Lab lounge", caption: "Four professional-grade bays with lounge seating" },
+          ].map((img, i) => (
+            <div key={i} className="group relative overflow-hidden">
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <p className="text-white text-[12px] tracking-[0.04em] px-5 pb-5">{img.caption}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
