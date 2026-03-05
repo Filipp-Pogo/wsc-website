@@ -166,6 +166,14 @@ export default function Footer() {
                 Privacy Policy
               </Link>
             </li>
+            <li>
+              <Link
+                href="/terms"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Terms of Service
+              </Link>
+            </li>
             <li className="pt-4">
               <p className="text-parchment/50 text-[12px] leading-relaxed">
                 15327 140th Pl NE<br />
