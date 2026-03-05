@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Accessibility from "./pages/Accessibility";
 import BackToTop from "./components/BackToTop";
 import AccessibilityToggle from "./components/AccessibilityToggle";
+import CookieConsent from "./components/CookieConsent";
 
 function Router() {
   return (
@@ -47,6 +48,7 @@ function App() {
           </main>
           <BackToTop />
           <AccessibilityToggle />
+          <CookieConsent />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
