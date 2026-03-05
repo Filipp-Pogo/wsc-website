@@ -13,6 +13,9 @@ import Summer from "./pages/Summer";
 import Membership from "./pages/Membership";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Accessibility from "./pages/Accessibility";
+import BackToTop from "./components/BackToTop";
+import AccessibilityToggle from "./components/AccessibilityToggle";
 
 function Router() {
   return (
@@ -26,6 +29,7 @@ function Router() {
       <Route path="/membership" component={Membership} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/accessibility" component={Accessibility} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -41,6 +45,8 @@ function App() {
           <main id="main-content">
             <Router />
           </main>
+          <BackToTop />
+          <AccessibilityToggle />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

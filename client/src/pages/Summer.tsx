@@ -420,7 +420,7 @@ export default function Summer() {
       {/* Hero — Full bleed with overlay */}
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="WSC Campus" className="w-full h-full object-cover brightness-[0.35] saturate-[0.7]" />
+          <img src={HERO_IMG} alt="" role="presentation" className="w-full h-full object-cover brightness-[0.35] saturate-[0.7]" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/60 to-transparent" />
         </div>
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-14 pb-16 lg:pb-20">
@@ -541,6 +541,7 @@ export default function Summer() {
           </div>
 
           {/* Program Detail */}
+          <div aria-live="polite" aria-atomic="true">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProgram}
@@ -614,6 +615,7 @@ export default function Summer() {
               </div>
             </motion.div>
           </AnimatePresence>
+          </div>
         </div>
       </section>
 
@@ -706,7 +708,7 @@ export default function Summer() {
             </div>
 
             {/* Right: Timeline */}
-            <div>
+            <div aria-live="polite" aria-atomic="true">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeSchedule}

@@ -105,6 +105,7 @@ export default function InstagramFeed() {
           className="relative group aspect-square overflow-hidden bg-parchment-mid block no-underline"
           onMouseEnter={() => setHoveredId(post.id)}
           onMouseLeave={() => setHoveredId(null)}
+          aria-label={`Instagram post: ${post.caption.substring(0, 80)}${post.caption.length > 80 ? '...' : ''}`}
         >
           {/* Thumbnail */}
           <img
@@ -149,7 +150,7 @@ export default function InstagramFeed() {
 
             {/* Instagram icon */}
             <div className="absolute bottom-3 right-3">
-              <Instagram size={14} className="text-parchment/40" />
+              <Instagram size={14} className="text-parchment/60" />
             </div>
           </div>
 

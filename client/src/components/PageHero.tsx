@@ -15,7 +15,7 @@ export default function PageHero({ eyebrow, headline, subtitle, image }: PageHer
     <section className="relative min-h-[60vh] lg:min-h-[70vh] bg-dark-bg flex items-end overflow-hidden pt-[130px]">
       <img
         src={image}
-        alt={headline}
+        alt="" role="presentation"
         className="absolute inset-0 w-full h-full object-cover object-center saturate-[0.3] brightness-[0.35]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.95)] via-[rgba(22,19,16,0.6)] to-[rgba(22,19,16,0.2)]" />

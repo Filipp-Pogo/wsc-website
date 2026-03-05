@@ -112,6 +112,36 @@
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
   }
+
+  /* ── Visible Focus Indicators — WCAG 2.4.7 ── */
+  :focus-visible {
+    outline: 2px solid oklch(0.72 0.15 248);
+    outline-offset: 2px;
+  }
+
+  /* ── Reduced Motion — WCAG 2.3.3 ── */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ── High Contrast Mode ── */
+  .high-contrast {
+    --color-parchment: oklch(0.97 0.005 80);
+    --color-parchment-mid: oklch(0.94 0.005 80);
+    --color-ink: oklch(0.05 0.005 60);
+    --color-ink-mid: oklch(0.20 0.01 60);
+    --color-ink-light: oklch(0.35 0.01 60);
+    --color-volt-bright: oklch(0.60 0.18 248);
+    --color-dark-bg: oklch(0.05 0.005 60);
+    --color-dark-mid: oklch(0.08 0.005 60);
+  }
 }
 
 @layer components {

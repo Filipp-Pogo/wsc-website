@@ -71,7 +71,8 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 ${
+                aria-current={location === link.href ? "page" : undefined}
+                className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 py-2 ${
                   location === link.href
                     ? "text-parchment font-medium"
                     : "text-parchment/75 hover:text-parchment"
@@ -89,13 +90,13 @@ export default function Navbar() {
             href={COURT_RESERVE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-2.5 hover:bg-parchment/10 transition-colors duration-200"
+            className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-3 min-h-[44px] flex items-center hover:bg-parchment/10 transition-colors duration-200"
           >
             Book Now
           </a>
           <Link
             href="/membership"
-            className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5 hover:bg-parchment transition-colors duration-200"
+            className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-3 min-h-[44px] flex items-center hover:bg-parchment transition-colors duration-200"
           >
             Membership
           </Link>
@@ -103,7 +104,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden text-parchment"
+          className="lg:hidden text-parchment min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={mobileOpen}
@@ -120,7 +121,8 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-[13px] tracking-[0.1em] uppercase no-underline ${
+                  aria-current={location === link.href ? "page" : undefined}
+                  className={`text-[13px] tracking-[0.1em] uppercase no-underline py-2 block ${
                     location === link.href
                       ? "text-parchment font-medium"
                       : "text-parchment/75"
@@ -136,14 +138,14 @@ export default function Navbar() {
                 href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-2.5"
+                className="text-[12px] tracking-[0.1em] uppercase no-underline text-parchment border border-parchment/30 px-5 py-3 min-h-[44px] inline-flex items-center"
                 onClick={() => setMobileOpen(false)}
               >
                 Book Now
               </a>
               <Link
                 href="/membership"
-                className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-2.5"
+                className="text-[12px] tracking-[0.1em] uppercase no-underline text-dark-bg bg-volt-bright px-6 py-3 min-h-[44px] inline-flex items-center"
                 onClick={() => setMobileOpen(false)}
               >
                 Membership
