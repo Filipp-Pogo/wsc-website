@@ -72,7 +72,7 @@ export default function Golf() {
             <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
               Swing Lab<br />Golf Simulators.
             </h2>
-            <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px] mb-6">
+            <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-6">
               Four professional-grade Uneekor simulators with GSPRO software. 24 data points captured in real time, providing feedback on every aspect of your swing and ball flight. Over 2,000 high-quality, user-created courses.
             </p>
             <ul className="space-y-2 mb-8">
@@ -83,7 +83,7 @@ export default function Golf() {
                 "Tables, seating and TVs",
                 "Coming soon: Tournaments through Simulator Golf Tour (SGT)",
               ].map((item, i) => (
-                <li key={i} className="text-parchment/[0.4] text-[13px] leading-[1.72] flex items-start gap-2">
+                <li key={i} className="text-parchment/65 text-[13px] leading-[1.72] flex items-start gap-2">
                   <span className="text-volt-bright text-[10px] mt-1">—</span> {item}
                 </li>
               ))}
@@ -109,7 +109,7 @@ export default function Golf() {
                   <div className="text-volt-bright text-[32px] font-light tracking-[-0.02em] leading-none mb-2">
                     {m.val}
                   </div>
-                  <div className="text-parchment/[0.3] text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
+                  <div className="text-parchment/55 text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
                     {m.label}
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function Golf() {
             </div>
             <div className="bg-dark-bg p-6 border-l-2 border-volt-bright">
               <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-2">Launch Promo</p>
-              <p className="text-parchment/[0.45] text-[14px] leading-[1.72]">
+              <p className="text-parchment/65 text-[14px] leading-[1.72]">
                 Limited-time Golf Simulator Membership — bring guests for free through March 31, 2026. Trial membership available for $20 + tax.
               </p>
             </div>
@@ -334,7 +334,7 @@ export default function Golf() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Elevate your game.
           </h2>
-          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+          <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
             Visit today to experience our driving range, Swing Lab simulators, and Tier 1 Golf Academy.
           </p>
           <div className="flex flex-wrap justify-center gap-5">

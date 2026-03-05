@@ -52,7 +52,7 @@ export default function About() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
             Elevation in every discipline.
           </h2>
-          <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[640px] mb-14">
+          <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[640px] mb-14">
             At Woodinville Sports Club, we believe in the power of elevation — not just in sports, but in life. Our "Elevate" philosophy permeates everything we do.
           </p>
 
@@ -73,12 +73,12 @@ export default function About() {
             ].map((e, i) => (
               <div key={i} className="bg-dark-bg p-8 lg:p-10 border-t-2 border-transparent hover:border-volt-bright transition-colors duration-300">
                 <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em] mb-3">{e.name}</h3>
-                <p className="text-parchment/[0.45] text-[14px] leading-[1.72]">{e.desc}</p>
+                <p className="text-parchment/65 text-[14px] leading-[1.72]">{e.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-parchment/[0.35] text-[14px] leading-[1.72] max-w-[640px] mt-10">
+          <p className="text-parchment/60 text-[14px] leading-[1.72] max-w-[640px] mt-10">
             Whether you're a seasoned competitor, a family looking for active fun, or someone rediscovering the joy of sports, we have a program designed to elevate your game and your well-being.
           </p>
         </div>
@@ -164,7 +164,7 @@ export default function About() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Ready to elevate your game?
           </h2>
-          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+          <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
             Contact us today to learn more about membership options or to schedule a tour of our facilities.
           </p>
           <div className="flex flex-wrap justify-center gap-5">

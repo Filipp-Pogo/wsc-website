@@ -26,14 +26,22 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg">
+    <>
+    {/* Skip to main content — WCAG 2.4.1 */}
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-volt-bright focus:text-dark-bg focus:px-4 focus:py-2 focus:text-sm"
+    >
+      Skip to main content
+    </a>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg" aria-label="Main navigation">
       {/* Caliber Sports top bar with phone */}
       <div className="bg-dark-mid px-6 lg:px-14 py-1.5 flex items-center justify-between border-b border-white/[0.05]">
-        <span className="text-parchment/30 text-[10px] tracking-[0.16em] uppercase">A Caliber Sports Facility</span>
+        <span className="text-parchment/50 text-[10px] tracking-[0.16em] uppercase">A Caliber Sports Facility</span>
         <div className="flex items-center gap-6">
           <a
             href="tel:+14254814686"
-            className="hidden sm:flex items-center gap-1.5 text-parchment/30 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
+            className="hidden sm:flex items-center gap-1.5 text-parchment/50 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/70 transition-colors duration-200"
           >
             <Phone size={10} />
             (425) 481-4686
@@ -42,7 +50,7 @@ export default function Navbar() {
             href={CALIBER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-parchment/25 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200"
+            className="text-parchment/50 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment/70 transition-colors duration-200"
           >
             calibersports.com
           </a>
@@ -66,7 +74,7 @@ export default function Navbar() {
                 className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 ${
                   location === link.href
                     ? "text-parchment font-medium"
-                    : "text-parchment/[0.75] hover:text-parchment"
+                    : "text-parchment/75 hover:text-parchment"
                 }`}
               >
                 {link.label}
@@ -97,6 +105,8 @@ export default function Navbar() {
         <button
           className="lg:hidden text-parchment"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -113,7 +123,7 @@ export default function Navbar() {
                   className={`text-[13px] tracking-[0.1em] uppercase no-underline ${
                     location === link.href
                       ? "text-parchment font-medium"
-                      : "text-parchment/[0.75]"
+                      : "text-parchment/75"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -152,5 +162,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }

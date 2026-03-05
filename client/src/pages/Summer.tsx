@@ -386,7 +386,7 @@ const SCHEDULE_KEYS_BY_PROGRAM: Record<ProgramKey, ScheduleKey[]> = {
 const typeColors: Record<string, string> = {
   sport: "bg-volt-bright/20 text-volt-bright border-volt-bright/30",
   apl: "bg-parchment/10 text-parchment/80 border-parchment/20",
-  break: "bg-parchment/5 text-parchment/40 border-parchment/10",
+  break: "bg-parchment/10 text-parchment/60 border-parchment/15",
   fun: "bg-volt/20 text-volt-bright border-volt/30",
 };
 
@@ -471,8 +471,8 @@ export default function Summer() {
             ].map((s, i) => (
               <div key={i} className="bg-dark-bg/80 backdrop-blur-sm px-5 py-4">
                 <p className="text-volt-bright text-[22px] font-light tracking-[-0.01em]">{s.value}</p>
-                <p className="text-parchment/40 text-[11px] tracking-[0.12em] uppercase mt-0.5">{s.label}</p>
-                <p className="text-parchment/25 text-[11px] mt-1">{s.detail}</p>
+                <p className="text-parchment/60 text-[11px] tracking-[0.12em] uppercase mt-0.5">{s.label}</p>
+                <p className="text-parchment/55 text-[11px] mt-1">{s.detail}</p>
               </div>
             ))}
           </motion.div>
@@ -563,12 +563,12 @@ export default function Summer() {
                   </p>
 
                   {/* Age Group Levels */}
-                  <p className="text-parchment/30 text-[10px] tracking-[0.16em] uppercase mb-3">Levels & Age Groups</p>
+                  <p className="text-parchment/55 text-[10px] tracking-[0.16em] uppercase mb-3">Levels & Age Groups</p>
                   <div className="grid grid-cols-2 gap-[2px] mb-8">
                     {program.levels.map((lvl, i) => (
                       <div key={i} className="bg-dark-mid px-4 py-3">
                         <p className="text-parchment text-[13px] font-light">{lvl.name}</p>
-                        <p className="text-parchment/30 text-[11px] mt-0.5">{lvl.ages}</p>
+                        <p className="text-parchment/55 text-[11px] mt-0.5">{lvl.ages}</p>
                       </div>
                     ))}
                   </div>
@@ -577,7 +577,7 @@ export default function Summer() {
                     {program.features.map((f, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <span className="text-volt-bright text-[8px] mt-2">●</span>
-                        <p className="text-parchment/40 text-[14px] leading-[1.65]">{f}</p>
+                        <p className="text-parchment/60 text-[14px] leading-[1.65]">{f}</p>
                       </div>
                     ))}
                   </div>
@@ -627,7 +627,7 @@ export default function Summer() {
               <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.1] mb-4">
                 What does a<br />day look like?
               </h2>
-              <p className="text-parchment/40 text-[14px] leading-[1.75] mb-8">
+              <p className="text-parchment/60 text-[14px] leading-[1.75] mb-8">
                 Select a program and schedule option to see the real daily structure. Every option includes APL athletic development.
               </p>
 
@@ -642,7 +642,7 @@ export default function Summer() {
                       className={`flex-1 py-2.5 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 ${
                         isActive
                           ? "bg-volt-bright text-dark-bg"
-                          : "bg-dark-mid text-parchment/40 hover:text-parchment/70"
+                          : "bg-dark-mid text-parchment/60 hover:text-parchment/80"
                       }`}
                     >
                       {PROGRAMS[key].name}
@@ -673,7 +673,7 @@ export default function Summer() {
                           {s.label}
                         </p>
                         <p className={`text-[11px] mt-0.5 ${
-                          isActive ? "text-volt-bright/70" : "text-parchment/20"
+                          isActive ? "text-volt-bright/70" : "text-parchment/50"
                         }`}>
                           {s.ageNote}
                         </p>
@@ -681,7 +681,7 @@ export default function Summer() {
                       <ChevronRight
                         size={14}
                         className={`transition-all duration-300 ${
-                          isActive ? "text-volt-bright translate-x-0" : "text-parchment/20 -translate-x-1"
+                          isActive ? "text-volt-bright translate-x-0" : "text-parchment/50 -translate-x-1"
                         }`}
                       />
                     </button>
@@ -699,7 +699,7 @@ export default function Summer() {
                       key === "fun" ? "bg-volt/40" :
                       "bg-parchment/15"
                     }`} />
-                    <span className="text-parchment/30 text-[10px] tracking-[0.1em] uppercase">{label}</span>
+                    <span className="text-parchment/55 text-[10px] tracking-[0.1em] uppercase">{label}</span>
                   </div>
                 ))}
               </div>
@@ -723,11 +723,11 @@ export default function Summer() {
                         <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em]">
                           {schedule.label}
                         </h3>
-                        <p className="text-parchment/35 text-[13px] mt-1">{schedule.subtitle}</p>
+                        <p className="text-parchment/55 text-[13px] mt-1">{schedule.subtitle}</p>
                       </div>
                       <div className="text-right shrink-0">
                         <p className="text-volt-bright text-[12px] tracking-[0.1em] uppercase">{PROGRAMS[schedule.program].name}</p>
-                        <p className="text-parchment/30 text-[11px] mt-0.5">{schedule.ageNote}</p>
+                        <p className="text-parchment/55 text-[11px] mt-0.5">{schedule.ageNote}</p>
                       </div>
                     </div>
                   </div>
@@ -780,12 +780,12 @@ export default function Summer() {
                   {/* Day Footer */}
                   <div className="bg-dark-mid/30 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
-                      <p className="text-parchment/30 text-[12px]">
+                      <p className="text-parchment/55 text-[12px]">
                         <Users size={12} className="inline mr-1.5 -mt-0.5" />
                         All times from WSC summer program pages. Actual times may vary slightly.
                       </p>
                       {schedule.program === "golf" && activeSchedule === "golf-academy-half" && (
-                        <p className="text-parchment/20 text-[11px] mt-1">
+                        <p className="text-parchment/50 text-[11px] mt-1">
                           * PM bundle: Tier 1 Core Orange or Green tennis
                         </p>
                       )}
@@ -1027,7 +1027,7 @@ export default function Summer() {
               <div className="bg-dark-bg px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-[3px]">
                 <div>
                   <p className="text-parchment text-[15px] font-light">Register for the full 9-week world tour</p>
-                  <p className="text-parchment/40 text-[12px] mt-1">Early Bird: 10% off full-week registration through Feb 28</p>
+                  <p className="text-parchment/60 text-[12px] mt-1">Early Bird: 10% off full-week registration through Feb 28</p>
                 </div>
                 <Link
                   href="https://app.courtreserve.com/Online/Portal/Index/6689"
@@ -1051,10 +1051,10 @@ export default function Summer() {
             <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
               Building complete<br />athletes.
             </h2>
-            <p className="text-parchment/[0.45] text-[15px] leading-[1.8] mb-6">
+            <p className="text-parchment/65 text-[15px] leading-[1.8] mb-6">
               Athletic development focuses on helping athletes move better, get stronger, faster, and more coordinated so they can perform with confidence and stay healthy. Our goal is to build well-rounded athletes who can train, compete, and succeed across any sport.
             </p>
-            <p className="text-parchment/[0.45] text-[15px] leading-[1.8]">
+            <p className="text-parchment/65 text-[15px] leading-[1.8]">
               Athletes work on key areas such as basic movement skills, strength, speed, balance, and coordination through age-appropriate training. Sessions emphasize proper technique and body control to reduce injury risk while supporting long-term physical development.
             </p>
             <Link
@@ -1079,7 +1079,7 @@ export default function Summer() {
               ].map((s, i) => (
                 <div key={i} className="bg-dark-bg/70 backdrop-blur-sm px-3 py-3 text-center">
                   <p className="text-volt-bright text-[13px] font-light">{s.value}</p>
-                  <p className="text-parchment/30 text-[9px] tracking-[0.12em] uppercase mt-0.5">{s.label}</p>
+                  <p className="text-parchment/55 text-[9px] tracking-[0.12em] uppercase mt-0.5">{s.label}</p>
                 </div>
               ))}
             </div>

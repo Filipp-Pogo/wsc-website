@@ -67,7 +67,7 @@ export default function MarketingBanner({
               {headline}
             </p>
             {description && (
-              <p className="hidden md:block text-[#161310]/55 text-[11px] tracking-[0.02em] mt-0.5 truncate">
+              <p className="hidden md:block text-[#161310]/70 text-[11px] tracking-[0.02em] mt-0.5 truncate">
                 {description}
               </p>
             )}

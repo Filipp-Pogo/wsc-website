@@ -38,47 +38,54 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
+                  <label htmlFor="contact-first-name" className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
                     First Name
                   </label>
                   <input
+                    id="contact-first-name"
                     type="text"
                     value={form.firstName}
                     onChange={(e) => setForm({ ...form, firstName: e.target.value })}
                     className="w-full bg-parchment-mid border border-wsc-border px-4 py-3 text-[14px] text-ink focus:border-volt focus:outline-none transition-colors"
                     required
+                    autoComplete="given-name"
                   />
                 </div>
                 <div>
-                  <label className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
+                  <label htmlFor="contact-last-name" className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
                     Last Name
                   </label>
                   <input
+                    id="contact-last-name"
                     type="text"
                     value={form.lastName}
                     onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                     className="w-full bg-parchment-mid border border-wsc-border px-4 py-3 text-[14px] text-ink focus:border-volt focus:outline-none transition-colors"
                     required
+                    autoComplete="family-name"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
+                <label htmlFor="contact-email" className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
                   Email
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full bg-parchment-mid border border-wsc-border px-4 py-3 text-[14px] text-ink focus:border-volt focus:outline-none transition-colors"
                   required
+                  autoComplete="email"
                 />
               </div>
               <div>
-                <label className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
+                <label htmlFor="contact-message" className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   rows={5}
@@ -198,7 +205,7 @@ export default function Contact() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             @woodinvillesportsclub
           </h2>
-          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+          <p className="text-parchment/60 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
             Follow us on Instagram for updates, event highlights, and community stories.
           </p>
           <a

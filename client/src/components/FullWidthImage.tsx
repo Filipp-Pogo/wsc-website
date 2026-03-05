@@ -54,7 +54,7 @@ export default function FullWidthImage({
         <div className="absolute bottom-0 left-0 right-0 z-10 px-6 lg:px-14 pb-8 lg:pb-12">
           <div className="max-w-[1440px] mx-auto">
             {subcaption && (
-              <p className="text-parchment/50 text-[10px] tracking-[0.2em] uppercase mb-2">
+              <p className="text-parchment/70 text-[10px] tracking-[0.2em] uppercase mb-2">
                 {subcaption}
               </p>
             )}

@@ -11,7 +11,7 @@ const CALIBER_URL = "https://www.calibersports.com";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-bg px-6 lg:px-14 py-16">
+    <footer className="bg-dark-bg px-6 lg:px-14 py-16" aria-label="Site footer">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-12 max-w-[1440px] mx-auto">
         {/* Brand */}
         <div>
@@ -21,26 +21,26 @@ export default function Footer() {
           <div className="text-volt-bright text-[12px] mb-5">
             Woodinville, Washington — Pacific Northwest
           </div>
-          <p className="text-parchment/[0.28] text-[13px] leading-[1.7] max-w-[260px] mb-4">
+            <p className="text-parchment/50 text-[13px] leading-[1.7] max-w-[260px] mb-4">
             A hybrid performance campus for tennis, golf, and athletic development. Serving the Woodinville community since 1979.
           </p>
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-parchment/20 text-[10px] tracking-[0.12em] uppercase">A</span>
+            <span className="text-parchment/50 text-[10px] tracking-[0.12em] uppercase">A</span>
             <a
               href={CALIBER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-parchment/35 text-[11px] tracking-[0.14em] uppercase no-underline hover:text-parchment/50 transition-colors duration-200 border-b border-parchment/10 pb-[1px]"
+              className="text-parchment/60 text-[11px] tracking-[0.14em] uppercase no-underline hover:text-parchment/70 transition-colors duration-200 border-b border-parchment/20 pb-[1px]"
             >
               Caliber Sports
             </a>
-            <span className="text-parchment/20 text-[10px] tracking-[0.12em] uppercase">Facility</span>
+            <span className="text-parchment/50 text-[10px] tracking-[0.12em] uppercase">Facility</span>
           </div>
           <a
             href="https://www.instagram.com/woodinvillesportsclub"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-parchment/[0.35] text-[12px] no-underline hover:text-parchment transition-colors duration-200"
+            className="text-parchment/60 text-[12px] no-underline hover:text-parchment transition-colors duration-200"
           >
             @woodinvillesportsclub
           </a>
@@ -62,7 +62,7 @@ export default function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                  className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -82,7 +82,7 @@ export default function Footer() {
                 href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Book a Court
               </a>
@@ -92,7 +92,7 @@ export default function Footer() {
                 href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Book a Simulator
               </a>
@@ -100,7 +100,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/membership"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Membership
               </Link>
@@ -110,7 +110,7 @@ export default function Footer() {
                 href={TIER1_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Tier 1 Performance NW
               </a>
@@ -120,7 +120,7 @@ export default function Footer() {
                 href={CALIBER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Caliber Sports
               </a>
@@ -137,7 +137,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/about"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 About WSC
               </Link>
@@ -145,30 +145,30 @@ export default function Footer() {
             <li>
               <Link
                 href="/contact"
-                className="text-parchment/[0.35] text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Contact Us
               </Link>
             </li>
             <li className="pt-4">
-              <p className="text-parchment/[0.25] text-[12px] leading-relaxed">
+              <p className="text-parchment/50 text-[12px] leading-relaxed">
                 15327 140th Pl NE<br />
                 Woodinville, WA 98072
               </p>
-              <p className="text-parchment/[0.25] text-[12px] mt-2">
+              <p className="text-parchment/50 text-[12px] mt-2">
                 Front Desk:{" "}
-                <a href="tel:+14254871090" className="text-parchment/[0.35] no-underline hover:text-parchment transition-colors duration-200">
+                <a href="tel:+14254871090" className="text-parchment/60 no-underline hover:text-parchment transition-colors duration-200">
                   (425) 487-1090
                 </a>
                 <br />
                 Golf Desk:{" "}
-                <a href="tel:+14254857319" className="text-parchment/[0.35] no-underline hover:text-parchment transition-colors duration-200">
+                <a href="tel:+14254857319" className="text-parchment/60 no-underline hover:text-parchment transition-colors duration-200">
                   (425) 485-7319
                 </a>
               </p>
               <a
                 href="mailto:info@woodinvillesportsclub.com"
-                className="text-parchment/[0.25] text-[12px] no-underline hover:text-parchment/[0.4] transition-colors duration-200 mt-2 inline-block"
+                className="text-parchment/50 text-[12px] no-underline hover:text-parchment/70 transition-colors duration-200 mt-2 inline-block"
               >
                 info@woodinvillesportsclub.com
               </a>
@@ -179,14 +179,14 @@ export default function Footer() {
 
       <div className="max-w-[1440px] mx-auto mt-14 pt-8 border-t border-white/[0.06]">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-parchment/[0.2] text-[11px] tracking-[0.1em] uppercase">
+          <p className="text-parchment/50 text-[11px] tracking-[0.1em] uppercase">
             &copy; {new Date().getFullYear()} Woodinville Sports Club. All rights reserved.
           </p>
           <a
             href={CALIBER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-parchment/[0.15] text-[10px] tracking-[0.12em] uppercase no-underline hover:text-parchment/30 transition-colors duration-200"
+            className="text-parchment/50 text-[10px] tracking-[0.12em] uppercase no-underline hover:text-parchment/60 transition-colors duration-200"
           >
             Powered by Caliber Sports
           </a>

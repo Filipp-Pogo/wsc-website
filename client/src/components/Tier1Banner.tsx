@@ -74,7 +74,7 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
               Developmental<br />
               Programming.
             </h2>
-            <p className="text-white/50 text-[16px] leading-[1.8] max-w-[480px] mb-8">
+            <p className="text-white/70 text-[16px] leading-[1.8] max-w-[480px] mb-8">
               WSC is home to Tier 1 Sports by Caliber — one of the nation's leading developmental programs in tennis, golf, and athletic performance. Our coaches develop athletes from first swing to collegiate and professional ranks.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -138,7 +138,7 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
                 <p className="text-white text-[12px] tracking-[0.12em] uppercase mb-3">
                   {item.label}
                 </p>
-                <p className="text-white/35 text-[13px] leading-[1.65]">
+                <p className="text-white/60 text-[13px] leading-[1.65]">
                   {item.desc}
                 </p>
               </div>

@@ -201,7 +201,7 @@ export default function Home() {
               Level Up Your<br className="hidden lg:block" />
               Game at WSC.
             </h1>
-            <p className="text-parchment/[0.45] text-[16px] leading-[1.72] max-w-[440px] mb-5">
+            <p className="text-parchment/60 text-[16px] leading-[1.72] max-w-[440px] mb-5">
               The definitive destination in the Pacific Northwest for athletes and families seeking unparalleled sports training, holistic development, and a thriving community.
             </p>
             <p className="text-volt-bright/80 text-[13px] tracking-[0.06em] mb-12">
@@ -227,7 +227,7 @@ export default function Home() {
                 href="https://app.courtreserve.com/Online/Portal/Index/6689"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[12px] tracking-[0.14em] uppercase no-underline text-parchment/[0.55] hover:text-parchment transition-colors duration-200"
+                className="text-[12px] tracking-[0.14em] uppercase no-underline text-parchment/65 hover:text-parchment transition-colors duration-200"
               >
                 Schedule a Tour
               </a>
@@ -242,7 +242,7 @@ export default function Home() {
                   i < metrics.length - 1 ? "border-b border-parchment/[0.08]" : ""
                 }`}
               >
-                <span className="text-parchment/[0.35] text-[12px] tracking-[0.12em] uppercase">
+                <span className="text-parchment/60 text-[12px] tracking-[0.12em] uppercase">
                   {m.label}
                 </span>
                 <span>
@@ -250,7 +250,7 @@ export default function Home() {
                     {m.val}
                   </span>
                   {m.unit && (
-                    <span className="text-parchment/[0.3] text-[12px] tracking-[0.1em] uppercase ml-2">
+                    <span className="text-parchment/50 text-[12px] tracking-[0.1em] uppercase ml-2">
                       {m.unit}
                     </span>
                   )}
@@ -270,6 +270,7 @@ export default function Home() {
               This Week at WSC
             </p>
           </div>
+          <h2 className="sr-only">This Week at WSC</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-parchment/[0.06]">
             {thisWeekItems.map((item, i) => (
               <div
@@ -285,10 +286,10 @@ export default function Home() {
                 <h3 className="text-parchment text-[17px] font-light tracking-[-0.01em] mb-2.5">
                   {item.title}
                 </h3>
-                <p className="text-parchment/[0.4] text-[13px] leading-[1.65] mb-4">
+                <p className="text-parchment/60 text-[13px] leading-[1.65] mb-4">
                   {item.desc}
                 </p>
-                <div className="text-parchment/[0.3] text-[11px] tracking-[0.08em] uppercase">
+                <div className="text-parchment/50 text-[11px] tracking-[0.08em] uppercase">
                   {item.date}{item.time && ` · ${item.time}`}
                 </div>
               </div>
@@ -638,7 +639,7 @@ export default function Home() {
               <h2 className="text-parchment text-[clamp(28px,3vw,46px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
                 Where champions<br />are built.
               </h2>
-              <p className="text-parchment/[0.45] text-[15px] leading-[1.8] max-w-[420px] mb-8">
+              <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[500px]">
                 WSC's Athletic Performance Lab is a complete performance ecosystem that integrates elite coaching, cutting-edge facilities and individualized strength and conditioning training, enabling youth and adults to achieve their peak performance potential.
               </p>
               <Link
@@ -666,7 +667,7 @@ export default function Home() {
                 <div className="text-volt-bright text-[40px] font-light tracking-[-0.03em] leading-none mb-2">
                   {m.val}
                 </div>
-                <div className="text-parchment/[0.3] text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
+                <div className="text-parchment/55 text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
                   {m.label}
                 </div>
               </div>
@@ -736,12 +737,12 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <div key={i} className="bg-dark-bg p-8 lg:p-10 group">
                 <Quote size={20} className="text-volt-bright/40 mb-6" />
-                <p className="text-parchment/[0.7] text-[15px] leading-[1.75] mb-8 font-light italic">
+                <p className="text-parchment/80 text-[15px] leading-[1.75] mb-8 font-light italic">
                   "{t.quote}"
                 </p>
                 <div className="border-t border-parchment/[0.08] pt-5">
                   <p className="text-parchment text-[14px] font-light mb-1">{t.name}</p>
-                  <p className="text-parchment/[0.35] text-[11px] tracking-[0.1em] uppercase">
+                  <p className="text-parchment/60 text-[11px] tracking-[0.1em] uppercase">
                     {t.role}
                   </p>
                 </div>
@@ -853,14 +854,17 @@ export default function Home() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Get this week's schedule<br className="hidden sm:block" /> and campus updates.
           </h2>
-          <p className="text-parchment/[0.45] text-[15px] leading-[1.75] max-w-[520px] mx-auto mb-8">
+          <p className="text-parchment/60 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
             Open play times, class availability, registration deadlines, and member-only offers — delivered to your inbox every Monday.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-[480px] mx-auto">
+            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
             <input
+              id="newsletter-email"
               type="email"
               placeholder="Your email address"
-              className="flex-1 bg-dark-bg border border-parchment/[0.15] px-5 py-3 text-[14px] text-parchment placeholder:text-parchment/[0.25] focus:border-volt focus:outline-none transition-colors"
+              aria-label="Email address for newsletter subscription"
+              className="flex-1 bg-dark-bg border border-parchment/[0.15] px-5 py-3 text-[14px] text-parchment placeholder:text-parchment/50 focus:border-volt focus:outline-none transition-colors"
             />
             <button className="text-[12px] tracking-[0.14em] uppercase bg-volt-bright text-dark-bg px-8 py-3 hover:bg-parchment transition-colors duration-200">
               Subscribe

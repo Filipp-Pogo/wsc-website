@@ -136,7 +136,7 @@ export default function InstagramFeed() {
             </div>
 
             {/* Caption preview */}
-            <p className="text-parchment/60 text-[11px] leading-[1.6] text-center line-clamp-3 max-w-[200px]">
+            <p className="text-parchment/75 text-[11px] leading-[1.6] text-center line-clamp-3 max-w-[200px]">
               {post.caption}
             </p>
 
@@ -155,7 +155,7 @@ export default function InstagramFeed() {
 
           {/* Date badge (always visible) */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-bg/50 to-transparent px-3 py-2 group-hover:opacity-0 transition-opacity duration-300">
-            <p className="text-parchment/50 text-[10px] tracking-[0.1em] uppercase">{post.date}</p>
+            <p className="text-parchment/70 text-[10px] tracking-[0.1em] uppercase">{post.date}</p>
           </div>
         </a>
       ))}
