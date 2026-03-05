@@ -183,6 +183,14 @@ export default function Footer() {
                 Club Policies
               </Link>
             </li>
+            <li>
+              <Link
+                href="/faq"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                FAQ
+              </Link>
+            </li>
             <li className="pt-4">
               <p className="text-parchment/50 text-[12px] leading-relaxed">
                 15327 140th Pl NE<br />
