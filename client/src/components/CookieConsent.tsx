@@ -103,7 +103,7 @@ export default function CookieConsent() {
                 <p className="text-parchment/55 text-[12px] leading-[1.6]">
                   By clicking "Accept All," you consent to our use of cookies. You can manage your preferences or decline non-essential cookies.{" "}
                   <Link
-                    href="/accessibility"
+                    href="/privacy"
                     className="text-volt-bright/80 no-underline hover:text-volt-bright transition-colors duration-200 border-b border-volt-bright/30 pb-[1px]"
                   >
                     Privacy Policy
