@@ -52,34 +52,19 @@ export default function About() {
         </div>
       </section>
 
-      {/* Training Facility Notice */}
-      <section className="bg-[#0d1b2a] px-6 lg:px-14 py-16 lg:py-20">
+      {/* Court Scheduling Note */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-12 lg:py-14">
         <div className="max-w-[1440px] mx-auto">
-          <div className="border border-volt-bright/30 bg-dark-bg/50 p-8 lg:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 border border-volt-bright/50 flex items-center justify-center shrink-0">
-                  <svg className="w-6 h-6 text-volt-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-1">Training Facility</p>
-                  <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em]">Important Notice</h3>
-                </div>
-              </div>
-              <div>
-                <p className="text-parchment/80 text-[15px] leading-[1.8] mb-4">
-                  Woodinville Sports Club is first and foremost a <strong className="text-parchment">training facility</strong>. Our courts, driving range, simulators, and gym are home to structured academy programming through Tier 1 Sports by Caliber — one of the leading developmental programs in the country.
-                </p>
-                <p className="text-parchment/80 text-[15px] leading-[1.8] mb-4">
-                  <strong className="text-parchment">Public court usage is available</strong>, but access is restricted due to academy training schedules. Court availability for recreational play varies by day and time, as priority is given to Tier 1 training sessions, junior development programs, and structured coaching blocks.
-                </p>
-                <p className="text-parchment/65 text-[14px] leading-[1.72]">
-                  We encourage all prospective members and visitors to check <a href="https://app.courtreserve.com/Online/Portal/Index/6689" target="_blank" rel="noopener noreferrer" className="text-volt-bright hover:text-parchment transition-colors duration-200 underline">CourtReserve</a> for real-time availability or contact the front desk at <a href="tel:4254871090" className="text-volt-bright hover:text-parchment transition-colors duration-200 underline">(425) 487-1090</a> to confirm open play times before visiting.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-10 items-center">
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 text-volt shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <p className="text-volt text-[11px] tracking-[0.22em] uppercase font-medium">Court Scheduling</p>
             </div>
+            <p className="text-ink-mid text-[15px] leading-[1.75]">
+              As a training-focused facility, court time at WSC is prioritized for academy programming through Tier 1 Sports by Caliber. Recreational and member play is welcome and available — we recommend checking <a href="https://app.courtreserve.com/Online/Portal/Index/6689" target="_blank" rel="noopener noreferrer" className="text-volt hover:text-ink transition-colors duration-200 underline">CourtReserve</a> for current availability or calling us at <a href="tel:4254871090" className="text-volt hover:text-ink transition-colors duration-200 underline">(425) 487-1090</a>.
+            </p>
           </div>
         </div>
       </section>
