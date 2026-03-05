@@ -6,12 +6,17 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
 const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-gym_0d1e0831.jpg";
 
 export default function Fitness() {
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://woodinvillesportsclub.com/" },
+        { name: "APL Fitness", url: "https://woodinvillesportsclub.com/fitness" },
+      ])]} />
       <Navbar />
       <PageHero
         eyebrow="Athletic Performance Lab"

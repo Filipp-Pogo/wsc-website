@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Clock, Users, MapPin, Sun, Zap, Trophy, Calendar, ArrowRight, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StructuredData, { getSummerCampSchema, getBreadcrumbSchema } from "@/components/StructuredData";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
@@ -415,6 +416,13 @@ export default function Summer() {
 
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[
+        getSummerCampSchema(),
+        getBreadcrumbSchema([
+          { name: "Home", url: "https://woodinvillesportsclub.com/" },
+          { name: "Summer Training", url: "https://woodinvillesportsclub.com/summer" },
+        ]),
+      ]} />
       <Navbar />
 
       {/* Hero — Full bleed with overlay */}

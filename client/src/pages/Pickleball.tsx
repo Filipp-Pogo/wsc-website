@@ -6,12 +6,17 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
 const PICKLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/pickleball-courts_30a446d6.jpg";
 
 export default function Pickleball() {
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://woodinvillesportsclub.com/" },
+        { name: "Pickleball", url: "https://woodinvillesportsclub.com/pickleball" },
+      ])]} />
       <Navbar />
       <PageHero
         eyebrow="Pickleball"

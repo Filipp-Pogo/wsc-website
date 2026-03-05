@@ -6,12 +6,19 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 
 export default function About() {
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[
+        getBreadcrumbSchema([
+          { name: "Home", url: "https://woodinvillesportsclub.com/" },
+          { name: "About", url: "https://woodinvillesportsclub.com/about" },
+        ]),
+      ]} />
       <Navbar />
       <PageHero
         eyebrow="About WSC"

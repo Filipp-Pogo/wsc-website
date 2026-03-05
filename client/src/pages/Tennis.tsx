@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
 const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
@@ -16,6 +17,10 @@ const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/
 export default function Tennis() {
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://woodinvillesportsclub.com/" },
+        { name: "Tennis", url: "https://woodinvillesportsclub.com/tennis" },
+      ])]} />
       <Navbar />
       <PageHero
         eyebrow="Tier 1 Tennis by Caliber"

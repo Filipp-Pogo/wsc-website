@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
 const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
@@ -19,6 +20,10 @@ const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696
 export default function Golf() {
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://woodinvillesportsclub.com/" },
+        { name: "Golf", url: "https://woodinvillesportsclub.com/golf" },
+      ])]} />
       <Navbar />
       <PageHero
         eyebrow="Tier 1 Golf by Caliber"
