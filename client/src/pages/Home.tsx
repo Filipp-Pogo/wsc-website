@@ -849,28 +849,114 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EMAIL SIGNUP — Upgraded CTA ── */}
-      <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto text-center">
-          <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Stay Connected</p>
-          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
-            Get this week's schedule<br className="hidden sm:block" /> and campus updates.
-          </h2>
-          <p className="text-parchment/60 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
-            Open play times, class availability, registration deadlines, and member-only offers — delivered to your inbox every Monday.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-[480px] mx-auto">
-            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="Your email address"
-              aria-label="Email address for newsletter subscription"
-              className="flex-1 bg-dark-bg border border-parchment/[0.15] px-5 py-3 text-[14px] text-parchment placeholder:text-parchment/50 focus:border-volt focus:outline-none transition-colors"
-            />
-            <button className="text-[12px] tracking-[0.14em] uppercase bg-volt-bright text-dark-bg px-8 py-3 hover:bg-parchment transition-colors duration-200">
-              Subscribe
-            </button>
+      {/* ── EMAIL SIGNUP — Free Trial Day Incentive ── */}
+      <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-32 relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="max-w-[1440px] mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
+            {/* Left: Incentive offer */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-volt-bright/10 border border-volt-bright/20 px-4 py-2 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-volt-bright"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>
+                <span className="text-volt-bright text-[11px] tracking-[0.18em] uppercase font-medium">Exclusive Offer</span>
+              </div>
+              <h2 className="text-parchment text-[clamp(28px,3.5vw,48px)] font-light tracking-[-0.02em] leading-[1.1] mb-5">
+                Sign up &amp; get a<br />
+                <span className="text-volt-bright">Free Trial Day.</span>
+              </h2>
+              <p className="text-parchment/60 text-[15px] leading-[1.8] mb-6 max-w-[440px]">
+                Experience the full WSC campus — tennis courts, golf simulators, APL gym, and more. No commitment, no pressure. Just one day to see why athletes choose WSC.
+              </p>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mb-2">
+                <div className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-volt-bright"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span className="text-parchment/60 text-[13px]">Full facility access</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-volt-bright"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span className="text-parchment/60 text-[13px]">Complimentary group class</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-volt-bright"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span className="text-parchment/60 text-[13px]">Campus tour included</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-volt-bright"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span className="text-parchment/60 text-[13px]">Weekly schedule &amp; updates</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Signup form card */}
+            <div className="bg-dark-bg border border-parchment/[0.08] p-8 lg:p-10">
+              <p className="text-parchment text-[20px] font-light tracking-[-0.01em] mb-2">Claim your free trial day</p>
+              <p className="text-parchment/50 text-[13px] leading-[1.7] mb-8">
+                Enter your details below and we'll send you a pass for a complimentary day at WSC, plus our weekly newsletter with schedules, open play times, and member-only offers.
+              </p>
+              <form onSubmit={(e) => { e.preventDefault(); const toast = document.createElement('div'); toast.textContent = 'Thank you! Check your inbox for your Free Trial Day pass.'; toast.className = 'fixed top-24 left-1/2 -translate-x-1/2 bg-volt-bright text-dark-bg px-6 py-3 text-[13px] tracking-wide z-[9999] shadow-lg'; document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000); }} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="trial-first-name" className="text-parchment/50 text-[11px] tracking-[0.12em] uppercase block mb-2">First Name</label>
+                    <input
+                      id="trial-first-name"
+                      type="text"
+                      required
+                      placeholder="Jane"
+                      className="w-full bg-transparent border border-parchment/[0.12] px-4 py-3 text-[14px] text-parchment placeholder:text-parchment/30 focus:border-volt-bright focus:outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="trial-last-name" className="text-parchment/50 text-[11px] tracking-[0.12em] uppercase block mb-2">Last Name</label>
+                    <input
+                      id="trial-last-name"
+                      type="text"
+                      required
+                      placeholder="Smith"
+                      className="w-full bg-transparent border border-parchment/[0.12] px-4 py-3 text-[14px] text-parchment placeholder:text-parchment/30 focus:border-volt-bright focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="trial-email" className="text-parchment/50 text-[11px] tracking-[0.12em] uppercase block mb-2">Email Address</label>
+                  <input
+                    id="trial-email"
+                    type="email"
+                    required
+                    placeholder="jane@example.com"
+                    className="w-full bg-transparent border border-parchment/[0.12] px-4 py-3 text-[14px] text-parchment placeholder:text-parchment/30 focus:border-volt-bright focus:outline-none transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="trial-interest" className="text-parchment/50 text-[11px] tracking-[0.12em] uppercase block mb-2">Primary Interest</label>
+                  <select
+                    id="trial-interest"
+                    className="w-full bg-transparent border border-parchment/[0.12] px-4 py-3 text-[14px] text-parchment focus:border-volt-bright focus:outline-none transition-colors appearance-none"
+                    defaultValue=""
+                    required
+                  >
+                    <option value="" disabled className="bg-dark-bg">Select your interest</option>
+                    <option value="tennis" className="bg-dark-bg">Tennis</option>
+                    <option value="golf" className="bg-dark-bg">Golf &amp; Simulators</option>
+                    <option value="pickleball" className="bg-dark-bg">Pickleball</option>
+                    <option value="fitness" className="bg-dark-bg">APL Fitness / Gym</option>
+                    <option value="tier1" className="bg-dark-bg">Tier 1 Academy Programs</option>
+                    <option value="summer" className="bg-dark-bg">Summer Camps</option>
+                    <option value="general" className="bg-dark-bg">General / All Sports</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full text-[12px] tracking-[0.16em] uppercase bg-volt-bright text-dark-bg px-8 py-4 hover:bg-parchment transition-colors duration-200 font-medium mt-2"
+                >
+                  Get My Free Trial Day Pass
+                </button>
+                <p className="text-parchment/30 text-[11px] text-center leading-[1.6] mt-3">
+                  By signing up you agree to receive our weekly newsletter. You can unsubscribe at any time. See our{" "}
+                  <Link href="/privacy" className="text-parchment/50 underline hover:text-parchment/70 transition-colors">Privacy Policy</Link>.
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </section>
