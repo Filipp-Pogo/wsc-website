@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import Accessibility from "./pages/Accessibility";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Policies from "./pages/Policies";
 import BackToTop from "./components/BackToTop";
 import AccessibilityToggle from "./components/AccessibilityToggle";
 import CookieConsent from "./components/CookieConsent";
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/accessibility" component={Accessibility} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      <Route path="/policies" component={Policies} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
