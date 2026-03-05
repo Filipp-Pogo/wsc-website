@@ -55,7 +55,8 @@ export default function Footer() {
             {[
               { href: "/tennis", label: "Tennis" },
               { href: "/golf", label: "Golf" },
-              { href: "/fitness", label: "Athletic Performance Lab" },
+              { href: "/gym", label: "Gym" },
+              { href: "/fitness", label: "APL Fitness" },
               { href: "/pickleball", label: "Pickleball" },
               { href: "/summer", label: "Summer Training" },
             ].map((link) => (

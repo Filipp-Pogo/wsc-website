@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Tennis from "./pages/Tennis";
 import Golf from "./pages/Golf";
 import Fitness from "./pages/Fitness";
+import Gym from "./pages/Gym";
 import Pickleball from "./pages/Pickleball";
 import Summer from "./pages/Summer";
 import Membership from "./pages/Membership";
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/tennis" component={Tennis} />
       <Route path="/golf" component={Golf} />
+      <Route path="/gym" component={Gym} />
       <Route path="/fitness" component={Fitness} />
       <Route path="/pickleball" component={Pickleball} />
       <Route path="/summer" component={Summer} />

@@ -1,20 +1,33 @@
 /*
  * 4B Design: Dark nav bar (#161310), Inter 500 logo, 12px uppercase links
  * Volt-bright CTA button, subtle border-bottom on nav-inner
- * Added: Book Now (Court Reserve), phone in top bar
+ * Gym is main nav item with dropdown for Gym + APL Fitness
  */
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import MarketingBanner from "@/components/MarketingBanner";
 
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 const CALIBER_URL = "https://www.calibersports.com";
 
-const navLinks = [
+interface NavLink {
+  href: string;
+  label: string;
+  children?: { href: string; label: string }[];
+}
+
+const navLinks: NavLink[] = [
   { href: "/tennis", label: "Tennis" },
   { href: "/golf", label: "Golf" },
-  { href: "/fitness", label: "APL Fitness" },
+  {
+    href: "/gym",
+    label: "Gym",
+    children: [
+      { href: "/gym", label: "Main Gym" },
+      { href: "/fitness", label: "APL Fitness" },
+    ],
+  },
   { href: "/pickleball", label: "Pickleball" },
   { href: "/summer", label: "Summer" },
   { href: "/about", label: "About" },
@@ -24,6 +37,32 @@ const navLinks = [
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileGymOpen, setMobileGymOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isGymActive = location === "/gym" || location === "/fitness";
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 150);
+  };
 
   return (
     <>
@@ -67,21 +106,73 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden lg:flex gap-9 list-none">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                aria-current={location === link.href ? "page" : undefined}
-                className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 py-2 ${
-                  location === link.href
-                    ? "text-parchment font-medium"
-                    : "text-parchment/75 hover:text-parchment"
-                }`}
+          {navLinks.map((link) =>
+            link.children ? (
+              /* Gym dropdown */
+              <li
+                key={link.href}
+                ref={dropdownRef}
+                className="relative"
+                onMouseEnter={handleDropdownEnter}
+                onMouseLeave={handleDropdownLeave}
               >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+                <button
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  aria-expanded={dropdownOpen}
+                  aria-haspopup="true"
+                  className={`flex items-center gap-1 text-[12px] tracking-[0.1em] uppercase transition-colors duration-200 py-2 bg-transparent border-none cursor-pointer ${
+                    isGymActive
+                      ? "text-parchment font-medium"
+                      : "text-parchment/75 hover:text-parchment"
+                  }`}
+                >
+                  {link.label}
+                  <ChevronDown
+                    size={12}
+                    className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {/* Dropdown panel */}
+                {dropdownOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+                    <ul className="bg-dark-bg border border-white/[0.1] min-w-[180px] py-2 list-none shadow-lg">
+                      {link.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            aria-current={location === child.href ? "page" : undefined}
+                            className={`block px-5 py-2.5 text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 ${
+                              location === child.href
+                                ? "text-parchment bg-white/[0.05] font-medium"
+                                : "text-parchment/65 hover:text-parchment hover:bg-white/[0.03]"
+                            }`}
+                            onClick={() => setDropdownOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ) : (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  aria-current={location === link.href ? "page" : undefined}
+                  className={`text-[12px] tracking-[0.1em] uppercase no-underline transition-colors duration-200 py-2 ${
+                    location === link.href
+                      ? "text-parchment font-medium"
+                      : "text-parchment/75 hover:text-parchment"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
         {/* Desktop CTAs — Book Now + Membership */}
@@ -117,22 +208,62 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden bg-dark-bg border-t border-white/[0.08] px-6 py-6">
           <ul className="flex flex-col gap-5 list-none">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={location === link.href ? "page" : undefined}
-                  className={`text-[13px] tracking-[0.1em] uppercase no-underline py-2 block ${
-                    location === link.href
-                      ? "text-parchment font-medium"
-                      : "text-parchment/75"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                <li key={link.href}>
+                  <button
+                    onClick={() => setMobileGymOpen(!mobileGymOpen)}
+                    aria-expanded={mobileGymOpen}
+                    className={`flex items-center gap-1.5 text-[13px] tracking-[0.1em] uppercase py-2 bg-transparent border-none cursor-pointer w-full text-left ${
+                      isGymActive
+                        ? "text-parchment font-medium"
+                        : "text-parchment/75"
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={13}
+                      className={`transition-transform duration-200 ${mobileGymOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                  {mobileGymOpen && (
+                    <ul className="list-none pl-4 mt-2 space-y-3 border-l border-parchment/15">
+                      {link.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            aria-current={location === child.href ? "page" : undefined}
+                            className={`text-[13px] tracking-[0.1em] uppercase no-underline py-1 block ${
+                              location === child.href
+                                ? "text-parchment font-medium"
+                                : "text-parchment/65"
+                            }`}
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ) : (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={location === link.href ? "page" : undefined}
+                    className={`text-[13px] tracking-[0.1em] uppercase no-underline py-2 block ${
+                      location === link.href
+                        ? "text-parchment font-medium"
+                        : "text-parchment/75"
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
             <li className="flex gap-3 mt-2">
               <a
                 href={COURT_RESERVE_URL}
