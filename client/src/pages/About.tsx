@@ -38,15 +38,47 @@ export default function About() {
           </div>
           <div>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Welcome to Woodinville Sports Club, where passion meets performance, and community thrives through sport. For over four decades, we've been the heart of athletic pursuit in the Pacific Northwest, fostering a legacy of excellence that continues to shape the future of sports and fitness in our region.
+              Welcome to Woodinville Sports Club — a dedicated <strong>training facility</strong> where passion meets performance and community thrives through sport. For over four decades, we've been the heart of athletic pursuit in the Pacific Northwest, fostering a legacy of excellence that continues to shape the future of sports and fitness in our region.
             </p>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we. Today, we stand as a premier multi-sport destination, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs.
+              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we. Today, we stand as a premier <strong>multi-sport training campus</strong>, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs — all anchored by <strong>Tier 1 Sports by Caliber</strong>, one of the nation's leading developmental programs.
             </p>
             <div className="border-l-2 border-volt pl-6 py-4">
               <p className="text-ink-mid text-[15px] leading-[1.7] italic">
                 "Woodinville Sports Club: Where every swing, serve, and step is an opportunity to rise higher."
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Facility Notice */}
+      <section className="bg-[#0d1b2a] px-6 lg:px-14 py-16 lg:py-20">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="border border-volt-bright/30 bg-dark-bg/50 p-8 lg:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 lg:gap-12 items-start">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 border border-volt-bright/50 flex items-center justify-center shrink-0">
+                  <svg className="w-6 h-6 text-volt-bright" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-1">Training Facility</p>
+                  <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em]">Important Notice</h3>
+                </div>
+              </div>
+              <div>
+                <p className="text-parchment/80 text-[15px] leading-[1.8] mb-4">
+                  Woodinville Sports Club is first and foremost a <strong className="text-parchment">training facility</strong>. Our courts, driving range, simulators, and gym are home to structured academy programming through Tier 1 Sports by Caliber — one of the leading developmental programs in the country.
+                </p>
+                <p className="text-parchment/80 text-[15px] leading-[1.8] mb-4">
+                  <strong className="text-parchment">Public court usage is available</strong>, but access is restricted due to academy training schedules. Court availability for recreational play varies by day and time, as priority is given to Tier 1 training sessions, junior development programs, and structured coaching blocks.
+                </p>
+                <p className="text-parchment/65 text-[14px] leading-[1.72]">
+                  We encourage all prospective members and visitors to check <a href="https://app.courtreserve.com/Online/Portal/Index/6689" target="_blank" rel="noopener noreferrer" className="text-volt-bright hover:text-parchment transition-colors duration-200 underline">CourtReserve</a> for real-time availability or contact the front desk at <a href="tel:4254871090" className="text-volt-bright hover:text-parchment transition-colors duration-200 underline">(425) 487-1090</a> to confirm open play times before visiting.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -96,10 +128,10 @@ export default function About() {
         <div className="max-w-[1440px] mx-auto">
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Our Facilities</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
-            Nestled in the beautiful Woodinville landscape.
+            A 67-acre training campus in the heart of Woodinville.
           </h2>
           <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
-            Our club boasts a comprehensive range of world-class facilities on a scenic, historic 67-acre property.
+            Our campus is purpose-built for athlete development. Every court, bay, and training space is designed to support structured programming — from junior development through elite competition. Facility access is managed through CourtReserve to balance academy training with member and public play.
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
