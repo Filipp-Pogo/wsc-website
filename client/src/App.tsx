@@ -1,13 +1,12 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Tennis from "./pages/Tennis";
 import Golf from "./pages/Golf";
-import Fitness from "./pages/Fitness";
 import Gym from "./pages/Gym";
 import Pickleball from "./pages/Pickleball";
 import Summer from "./pages/Summer";
@@ -16,7 +15,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Accessibility from "./pages/Accessibility";
 import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
 import Policies from "./pages/Policies";
 import FAQ from "./pages/FAQ";
 import ProShop from "./pages/ProShop";
@@ -31,7 +29,6 @@ function Router() {
       <Route path="/tennis" component={Tennis} />
       <Route path="/golf" component={Golf} />
       <Route path="/gym" component={Gym} />
-      <Route path="/fitness" component={Fitness} />
       <Route path="/pickleball" component={Pickleball} />
       <Route path="/summer" component={Summer} />
       <Route path="/membership" component={Membership} />
@@ -39,10 +36,11 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/accessibility" component={Accessibility} />
       <Route path="/privacy" component={Privacy} />
-      <Route path="/terms" component={Terms} />
       <Route path="/policies" component={Policies} />
       <Route path="/faq" component={FAQ} />
       <Route path="/pro-shop" component={ProShop} />
+      <Route path="/terms">{() => <Redirect to="/policies" />}</Route>
+      <Route path="/fitness">{() => <Redirect to="/gym" />}</Route>
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

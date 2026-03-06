@@ -55,8 +55,7 @@ export default function Footer() {
             {[
               { href: "/tennis", label: "Tennis" },
               { href: "/golf", label: "Golf" },
-              { href: "/gym", label: "Gym" },
-              { href: "/fitness", label: "APL Fitness" },
+              { href: "/gym", label: "Gym & Fitness" },
               { href: "/pickleball", label: "Pickleball" },
               { href: "/summer", label: "Summer Training" },
               { href: "/pro-shop", label: "Pro Shop" },
@@ -170,18 +169,10 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/terms"
-                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
-              >
-                Terms of Service
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/policies"
                 className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
-                Club Policies
+                Policies & Terms
               </Link>
             </li>
             <li>

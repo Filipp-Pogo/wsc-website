@@ -1,8 +1,7 @@
 /*
- * 4B Design — WSC Gym Page
- * Dedicated page for the Main Gym at Woodinville Sports Club
- * Covers: Main Gym, Weight Room, Cardio, Functional Training, Sauna & Locker Rooms
- * Links to APL Fitness for athletic performance training
+ * 4B Design — WSC Gym & APL Page (Merged)
+ * Covers: Main Gym, Weight Room, Functional Training, APL Training Center,
+ * Group S&C Classes, Monthly Packages, Amenities, Hours
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -21,13 +20,13 @@ export default function Gym() {
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Gym", url: "https://woodinvillesportsclub.com/gym" },
+        { name: "Gym & APL", url: "https://woodinvillesportsclub.com/gym" },
       ])]} />
       <Navbar />
       <PageHero
-        eyebrow="WSC Gym"
+        eyebrow="Gym & Athletic Performance Lab"
         headline="Your Gym. Your Goals."
-        subtitle="A clean, modern, fully-equipped gym surrounded by 67 acres of Pacific Northwest beauty. Whether you're here for cardio, strength, or functional training — WSC has the space and equipment to match your ambition."
+        subtitle="Two training facilities on one campus — a full-service gym for cardio and strength, plus an elite Athletic Performance Lab for structured S&C coaching. Whether you train solo or with a coach, WSC has the space and equipment to match your ambition."
         image={GYM_HERO}
       />
 
@@ -38,8 +37,8 @@ export default function Gym() {
             { val: "2", label: "Training Facilities" },
             { val: "67", label: "Acre Campus" },
             { val: "6am", label: "Early Open" },
-            { val: "Full", label: "Free Weight Room" },
-            { val: "Sauna", label: "& Locker Rooms" },
+            { val: "S&C", label: "Group Classes" },
+            { val: "4/8/∞", label: "Monthly Packages" },
           ].map((m, i) => (
             <div key={i} className={`pr-10 ${i < 4 ? "lg:border-r border-parchment/[0.08]" : ""}`}>
               <div className="text-volt-bright text-[36px] font-light tracking-[-0.03em] leading-none mb-2">
@@ -53,7 +52,7 @@ export default function Gym() {
         </div>
       </section>
 
-      {/* Main Gym Section — Image Left, Text Right */}
+      {/* Main Gym Section */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -73,21 +72,19 @@ export default function Gym() {
                 Our Main Gym is a clean and updated space with flexible hours and top-notch equipment, including free weights, cardio machines, power lifting stations, and a dynamic functional training area.
               </p>
               <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-                Enjoy views of the beautiful tree-lined property while you work out. The gym features floor-to-ceiling windows overlooking our 67-acre campus, creating an atmosphere that's as inspiring as it is functional.
+                Enjoy views of the beautiful tree-lined property while you work out. Floor-to-ceiling windows overlook our 67-acre campus, creating an atmosphere that's as inspiring as it is functional.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">Treadmills</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">Ellipticals</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">Rowing Machines</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">Stationary Bikes</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">Free Weights</span>
+                {["Treadmills", "Ellipticals", "Rowing Machines", "Stationary Bikes", "Free Weights"].map((e) => (
+                  <span key={e} className="text-[11px] tracking-[0.1em] uppercase text-ink-mid border border-ink/15 px-4 py-2">{e}</span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Weight Room Section — Dark */}
+      {/* Weight Room — Dark */}
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -99,15 +96,10 @@ export default function Gym() {
               <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-6">
                 Our dedicated weight room features power racks, Olympic lifting platforms, a full dumbbell range, cable machines, and kettlebells. Whether you're training for competition or general fitness, you'll find the equipment you need.
               </p>
-              <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-8">
-                Rubber flooring, mirrors, and proper ventilation create a focused training environment. The space is designed for both experienced lifters and those just starting their strength journey.
-              </p>
               <div className="flex flex-wrap gap-3">
-                <span className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">Power Racks</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">Olympic Platforms</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">Dumbbells</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">Cable Machines</span>
-                <span className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">Kettlebells</span>
+                {["Power Racks", "Olympic Platforms", "Dumbbells", "Cable Machines", "Kettlebells"].map((e) => (
+                  <span key={e} className="text-[11px] tracking-[0.1em] uppercase text-parchment/60 border border-parchment/20 px-4 py-2">{e}</span>
+                ))}
               </div>
             </div>
             <img
@@ -119,7 +111,7 @@ export default function Gym() {
         </div>
       </section>
 
-      {/* Functional Training — Light */}
+      {/* Functional Training */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -146,6 +138,91 @@ export default function Gym() {
         </div>
       </section>
 
+      {/* ── APL TRAINING CENTER ── */}
+      <section id="apl" className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
+            <div>
+              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Athletic Performance Lab</p>
+              <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
+                Where champions<br />are built.
+              </h2>
+              <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-6">
+                Our new Athletic Performance Lab (APL) Training Center is a dedicated space for elite strength and conditioning. Small-group classes, sport-specific programming, and expert coaching for youth and adult athletes.
+              </p>
+              <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-8">
+                The goal of our APL training program is to develop more well-rounded athletes — improving strength, speed, power, agility, and endurance through structured programming.
+              </p>
+              <a
+                href={COURT_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-7 py-3 hover:bg-volt hover:border-volt transition-colors duration-200"
+              >
+                Browse S&C Classes
+              </a>
+            </div>
+            <img
+              src={PERF_IMG}
+              alt="APL Training Center at WSC"
+              className="w-full aspect-[4/3] object-cover saturate-[0.4] brightness-[0.65]"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-parchment/[0.1] pt-12 gap-y-8">
+            {[
+              { val: "2", label: "Training Facilities" },
+              { val: "S&C", label: "Small Group Classes" },
+              { val: "Youth", label: "& Adult Programs" },
+              { val: "4/8/∞", label: "Monthly Packages" },
+            ].map((m, i) => (
+              <div key={i} className={`pr-10 ${i < 3 ? "lg:border-r border-parchment/[0.08]" : ""}`}>
+                <div className="text-volt-bright text-[40px] font-light tracking-[-0.03em] leading-none mb-2">
+                  {m.val}
+                </div>
+                <div className="text-parchment/55 text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Monthly Packages */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Flexible Training Packages</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Monthly packages for<br />more scheduling flexibility.
+          </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
+            APL Small Group Classes can be purchased in monthly packages of 4, 8, or unlimited classes. Browse from our range of APL strength and conditioning small group classes for adults and youth.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
+            {[
+              { name: "4 Classes/Month", desc: "One session per week. Ideal for supplementing sport-specific training with structured S&C work." },
+              { name: "8 Classes/Month", desc: "Two sessions per week. The standard for consistent athletic development and measurable progress." },
+              { name: "Unlimited", desc: "Full access to all group S&C classes. For the dedicated athlete committed to peak performance." },
+            ].map((c, i) => (
+              <div key={i} className="bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
+                <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">{c.desc}</p>
+                <a
+                  href={COURT_RESERVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+                >
+                  Enquire
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Amenities Grid */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
@@ -155,77 +232,18 @@ export default function Gym() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
             {[
-              {
-                title: "Sauna",
-                desc: "Unwind after your workout in our dry sauna. Available to all members with gym access during regular facility hours.",
-              },
-              {
-                title: "Locker Rooms",
-                desc: "Clean, well-maintained locker rooms with showers, changing areas, and secure storage for your belongings.",
-              },
-              {
-                title: "Stretching Area",
-                desc: "A dedicated stretching and recovery zone with foam rollers, yoga mats, and resistance bands.",
-              },
-              {
-                title: "Pro Shop",
-                desc: "Pick up essentials — grips, strings, balls, apparel, and accessories — conveniently located on campus.",
-              },
-              {
-                title: "Free Parking",
-                desc: "Ample free parking right at the facility. No meters, no garages — just pull up and train.",
-              },
-              {
-                title: "Wi-Fi",
-                desc: "Complimentary high-speed Wi-Fi throughout the facility so you can stream music, track workouts, or stay connected.",
-              },
+              { title: "Sauna", desc: "Unwind after your workout in our dry sauna. Available to all members with gym access during regular facility hours." },
+              { title: "Locker Rooms", desc: "Clean, well-maintained locker rooms with showers, changing areas, and secure storage for your belongings." },
+              { title: "Stretching Area", desc: "A dedicated stretching and recovery zone with foam rollers, yoga mats, and resistance bands." },
+              { title: "Pro Shop", desc: "Pick up essentials — grips, strings, balls, apparel, and accessories — conveniently located on campus." },
+              { title: "Free Parking", desc: "Ample free parking right at the facility. No meters, no garages — just pull up and train." },
+              { title: "Wi-Fi", desc: "Complimentary high-speed Wi-Fi throughout the facility so you can stream music, track workouts, or stay connected." },
             ].map((a, i) => (
               <div key={i} className="bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{a.title}</h3>
                 <p className="text-ink-mid text-[14px] leading-[1.72]">{a.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* APL Fitness Crosslink — Dark */}
-      <section className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Athletic Performance Lab</p>
-              <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
-                Take your training<br />to the next level.
-              </h2>
-              <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-6">
-                Beyond the main gym, WSC's Athletic Performance Lab (APL) is a dedicated space for elite strength and conditioning. Small-group classes, sport-specific programming, and expert coaching for youth and adult athletes.
-              </p>
-              <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[420px] mb-8">
-                APL training is designed to build more well-rounded athletes — improving strength, speed, power, agility, and endurance through structured programming.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/fitness"
-                  className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-parchment transition-colors duration-200"
-                >
-                  Explore APL Fitness
-                </Link>
-                <a
-                  href={COURT_RESERVE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-parchment/30 px-7 py-3 hover:bg-parchment/10 transition-colors duration-200"
-                >
-                  Browse Classes
-                </a>
-              </div>
-            </div>
-            <img
-              src={PERF_IMG}
-              alt="APL Training Center at WSC"
-              className="w-full aspect-[4/3] object-cover saturate-[0.4] brightness-[0.65]"
-            />
           </div>
         </div>
       </section>

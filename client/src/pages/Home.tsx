@@ -1,8 +1,7 @@
 /*
- * 4B Design — Home Page
- * Tier 1 Sports by Caliber prominence, immersive gallery, bigger visuals
- * Emotional engagement: This Week, Your Day, interactive cards,
- * testimonials, experience-first membership, newsletter CTA
+ * 4B Design — Home Page (Simplified)
+ * Removed duplicate Swing Lab gallery, Tier 1 Golf Academy detail, and APL Performance section.
+ * These are now compact teasers linking to their respective pages.
  */
 import { useState } from "react";
 import { Link } from "wouter";
@@ -28,11 +27,7 @@ const GALLERY_YOUTH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/
 const GALLERY_AERIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-campus-aerial-8wo6tNdxv3qg4KeBNBJjwd.webp";
 
 /* Real facility photos */
-const CAMPUS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 const SWINGLAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-swinglab_317d4474.jpg";
-const SIM_BAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-bay-b27xhwZZfcgtCUYYzrMUzN.webp";
-const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-screen-a8ZgKeFQVWNrVWHTfStJQE.webp";
-const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
 const TENNIS_LESSON_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-lesson_f845dcaf.jpeg";
 const FITNESS_TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-training_dc50d579.jpeg";
 const SUMMER_KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
@@ -95,11 +90,11 @@ const disciplines = [
   {
     num: "03",
     tag: "Performance",
-    name: "Athletic Performance Lab",
-    desc: "Elite-level strength and conditioning training for youth and adult athletes. A dedicated APL Training Center plus a spacious main gym.",
+    name: "Gym & Athletic Performance Lab",
+    desc: "Full-service gym plus elite-level strength and conditioning training for youth and adult athletes in the dedicated APL Training Center.",
     detail: "Small-group S&C classes. Monthly packages of 4, 8, or unlimited sessions.",
     img: PERF_IMG,
-    href: "/fitness",
+    href: "/gym",
     stat: "Youth & Adult",
   },
   {
@@ -206,8 +201,8 @@ export default function Home() {
             <p className="text-parchment/60 text-[16px] leading-[1.72] max-w-[440px] mb-5">
               The definitive destination in the Pacific Northwest for athletes and families seeking unparalleled sports training, holistic development, and a thriving community.
             </p>
-            <p className="text-volt-bright/80 text-[13px] tracking-[0.06em] mb-12">
-              Home of Tier 1 Sports by Caliber — one of the nation's leading developmental programs.
+            <p className="text-parchment/45 text-[13px] leading-[1.65] max-w-[440px] mb-8">
+              Home to <strong className="text-parchment/65 font-normal">Tier 1 Sports by Caliber</strong> — one of the nation's leading developmental programs in tennis, golf, and athletic performance.
             </p>
             <div className="flex flex-wrap gap-5 items-center">
               <Link
@@ -561,60 +556,69 @@ export default function Home() {
         dark
       />
 
-      {/* ── SWING LAB CALLOUT — Bigger Visual with Simulator Gallery ── */}
+      {/* ── SWING LAB + TIER 1 GOLF — Compact Teasers ── */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
-          {/* Hero image — wide cinematic shot */}
-          <div className="mb-10 overflow-hidden">
-            <img
-              src={SIM_LOUNGE_IMG}
-              alt="Swing Lab Golf Simulator Lounge — multiple bays"
-              className="w-full aspect-[21/9] object-cover"
-            />
-          </div>
-
-          {/* Heading + copy */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start mb-14">
-            <div>
-              <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Now Open</p>
-              <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
-                Swing Lab<br />Golf Simulators.
-              </h2>
-            </div>
-            <div>
-              <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
-                Our golf simulators provide feedback on every aspect of your swing and ball flight, capturing 24 data points in real time. Train with the same precision technology used by tour professionals, and watch your game transform through instant, actionable feedback. Now open for booking.
-              </p>
-              <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-                Four professional-grade Uneekor simulators with GSPRO software. Over 2,000 high-quality courses. Compete in stroke, scramble, stableford, match play, best ball, or alt shot.
-              </p>
-              <Link
-                href="/golf"
-                className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
-              >
-                Learn More About Swing Lab
-              </Link>
-            </div>
-          </div>
-
-          {/* Simulator photo gallery — 3 images */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { src: SIM_BAY_IMG, alt: "Golfer mid-swing in Uneekor simulator bay with data overlay", caption: "Uneekor launch monitors capture 24 data points" },
-              { src: SIM_SCREEN_IMG, alt: "Simulator screen showing virtual course and swing analytics", caption: "2,000+ photorealistic courses with real-time feedback" },
-              { src: SWINGLAB_IMG, alt: "WSC Swing Lab interior", caption: "Four professional-grade simulator bays" },
-            ].map((img, i) => (
-              <div key={i} className="group relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[3px]">
+            {/* Swing Lab Teaser */}
+            <div className="bg-parchment overflow-hidden group">
+              <div className="overflow-hidden">
                 <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={SWINGLAB_IMG}
+                  alt="Swing Lab Golf Simulators at WSC"
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <p className="text-white text-[12px] tracking-[0.04em] px-5 pb-5">{img.caption}</p>
+              </div>
+              <div className="p-8">
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">Now Open</p>
+                <h3 className="text-[22px] font-light tracking-[-0.01em] mb-3">Swing Lab Golf Simulators</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">
+                  Four professional-grade Uneekor simulators capturing 24 data points in real time. Over 2,000 courses. Train with the same precision technology used by tour professionals.
+                </p>
+                <Link
+                  href="/golf"
+                  className="inline-flex items-center gap-1.5 text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px] group-hover:text-volt transition-colors duration-200"
+                >
+                  Learn More on Golf Page
+                  <ChevronRight size={12} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Tier 1 Golf Teaser */}
+            <div className="bg-parchment overflow-hidden group">
+              <div className="overflow-hidden">
+                <img
+                  src={GOLF_IMG}
+                  alt="Tier 1 Golf Academy at WSC"
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">Tier 1 Golf Academy</p>
+                <h3 className="text-[22px] font-light tracking-[-0.01em] mb-3">Junior & Adult Golf Programs</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">
+                  Classes for all levels, from first swing to elite golfers. Junior Academy for ages 7–18. Led by WGTF Master Certified Coach, Daniel Jarvie. Full-time youth academy launching in 2026.
+                </p>
+                <div className="flex flex-wrap gap-4 items-center">
+                  <a
+                    href="https://www.tier1nw.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px] group-hover:text-volt transition-colors duration-200"
+                  >
+                    Explore Tier 1 Golf
+                    <ChevronRight size={12} />
+                  </a>
+                  <Link
+                    href="/golf"
+                    className="text-ink-mid text-[12px] tracking-[0.12em] uppercase no-underline hover:text-ink transition-colors duration-200"
+                  >
+                    Full Golf Page
+                  </Link>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -626,104 +630,9 @@ export default function Home() {
         caption="23 covered bays with free Toptracer. Open to the public."
         subcaption="Driving Range"
         height="medium"
-        ctaLabel="Explore Tier 1 Golf"
+        ctaLabel="Explore Golf"
         ctaHref="/golf"
       />
-
-      {/* ── PERFORMANCE DARK ── */}
-      <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
-            <div>
-              <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">
-                Athletic Performance Lab
-              </p>
-              <h2 className="text-parchment text-[clamp(28px,3vw,46px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
-                Where champions<br />are built.
-              </h2>
-              <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[500px]">
-                WSC's Athletic Performance Lab is a complete performance ecosystem that integrates elite coaching, cutting-edge facilities and individualized strength and conditioning training, enabling youth and adults to achieve their peak performance potential.
-              </p>
-              <Link
-                href="/fitness"
-                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-7 py-3 hover:bg-volt hover:border-volt transition-colors duration-200"
-              >
-                Learn About the Lab
-              </Link>
-            </div>
-            <img
-              src={GALLERY_YOUTH}
-              alt="Youth athletic training at APL"
-              className="w-full aspect-[4/3] object-cover saturate-[0.65] brightness-[0.75]"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-parchment/[0.1] pt-12 gap-y-8">
-            {[
-              { val: "2", label: "Training Facilities" },
-              { val: "S&C", label: "Small Group Classes" },
-              { val: "Youth", label: "& Adult Programs" },
-              { val: "4/8/∞", label: "Monthly Packages" },
-            ].map((m, i) => (
-              <div key={i} className={`pr-10 ${i < 3 ? "lg:border-r border-parchment/[0.08]" : ""}`}>
-                <div className="text-volt-bright text-[40px] font-light tracking-[-0.03em] leading-none mb-2">
-                  {m.val}
-                </div>
-                <div className="text-parchment/55 text-[11px] tracking-[0.14em] uppercase leading-[1.5]">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TIER 1 GOLF ACADEMY ── */}
-      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
-          <div>
-            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
-            <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
-              Introducing<br />Tier 1 Golf Academy.
-            </h2>
-          </div>
-          <div>
-            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
-              Classes for youth and adults of all levels, from first swing to elite golfers. Junior Academy serves youth ages 7–18. Led by WGTF Master Certified Coach, Daniel Jarvie. Outdoor instruction on the range; indoor instruction in WSC's new Swing Lab indoor golf simulators.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                "After-school academy for ages 7–18",
-                "New Foundations class for ages 7–9",
-                "Adult clinics for men and women",
-                "Includes indoor training in Swing Lab simulators",
-                "Full-time youth academy launching in 2026",
-              ].map((item, i) => (
-                <li key={i} className="text-ink-mid text-[14px] leading-[1.72] flex items-start gap-2.5">
-                  <span className="text-volt text-[10px] mt-1.5">—</span> {item}
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-wrap gap-5 items-center">
-              <a
-                href="https://www.tier1nw.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-dark-bg hover:text-parchment transition-colors duration-200"
-              >
-                Explore Tier 1 Golf
-                <ChevronRight size={13} />
-              </a>
-              <Link
-                href="/golf"
-                className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
-              >
-                Learn More About Golf
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── MEMBER TESTIMONIALS ── */}
       <section className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28">
