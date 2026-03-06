@@ -59,6 +59,7 @@ export default function Footer() {
               { href: "/fitness", label: "APL Fitness" },
               { href: "/pickleball", label: "Pickleball" },
               { href: "/summer", label: "Summer Training" },
+              { href: "/pro-shop", label: "Pro Shop" },
             ].map((link) => (
               <li key={link.href}>
                 <Link

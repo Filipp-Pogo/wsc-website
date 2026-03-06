@@ -19,6 +19,7 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Policies from "./pages/Policies";
 import FAQ from "./pages/FAQ";
+import ProShop from "./pages/ProShop";
 import BackToTop from "./components/BackToTop";
 import AccessibilityToggle from "./components/AccessibilityToggle";
 import CookieConsent from "./components/CookieConsent";
@@ -41,6 +42,7 @@ function Router() {
       <Route path="/terms" component={Terms} />
       <Route path="/policies" component={Policies} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/pro-shop" component={ProShop} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

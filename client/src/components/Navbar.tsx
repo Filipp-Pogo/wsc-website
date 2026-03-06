@@ -30,6 +30,7 @@ const navLinks: NavLink[] = [
   },
   { href: "/pickleball", label: "Pickleball" },
   { href: "/summer", label: "Summer" },
+  { href: "/pro-shop", label: "Pro Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
