@@ -2,6 +2,7 @@
  * 4B Design — Golf Page
  * Real content from WSC website crawl
  * Tier 1 Sports by Caliber branding
+ * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -10,6 +11,7 @@ import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
 const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
@@ -18,6 +20,16 @@ const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696
 const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
 
 export default function Golf() {
+  // Scroll-reveal hooks
+  const { ref: rangeRef, isVisible: rangeVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: swingLabRef, isVisible: swingLabVisible } = useScrollReveal({ threshold: 0.08 });
+  const { containerRef: simGalleryRef, visibleItems: simGalleryVisible } = useStaggerReveal(3, { staggerDelay: 140, threshold: 0.1 });
+  const { ref: academyRef, isVisible: academyVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: pricingRef, isVisible: pricingVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: whyRef, isVisible: whyVisible } = useScrollReveal({ threshold: 0.1 });
+  const { containerRef: coachesRef, visibleItems: coachesVisible } = useStaggerReveal(2, { staggerDelay: 160, threshold: 0.1 });
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
+
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
@@ -34,7 +46,10 @@ export default function Golf() {
 
       {/* Driving Range */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div
+          ref={rangeRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${rangeVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Driving Range</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
@@ -71,7 +86,10 @@ export default function Golf() {
 
       {/* Swing Lab */}
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div
+          ref={swingLabRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${swingLabVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Now Open</p>
             <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
@@ -130,13 +148,16 @@ export default function Golf() {
         </div>
 
         {/* Simulator photo gallery */}
-        <div className="max-w-[1440px] mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div ref={simGalleryRef} className="max-w-[1440px] mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-3">
           {[
             { src: SIM_BAY_IMG, alt: "Golfer using Uneekor simulator with swing data overlay", caption: "Uneekor launch monitors capture 24 data points per swing" },
             { src: SIM_SCREEN_IMG, alt: "Simulator screen with virtual course and analytics", caption: "2,000+ photorealistic courses with real-time feedback" },
             { src: SIM_LOUNGE_IMG, alt: "Multiple simulator bays in the Swing Lab lounge", caption: "Four professional-grade bays with lounge seating" },
           ].map((img, i) => (
-            <div key={i} className="group relative overflow-hidden">
+            <div
+              key={i}
+              className={`group relative overflow-hidden transition-all duration-700 ease-out ${simGalleryVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
               <img
                 src={img.src}
                 alt={img.alt}
@@ -152,7 +173,10 @@ export default function Golf() {
 
       {/* Tier 1 Golf Academy */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={academyRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${academyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
             Registration is open.
@@ -204,7 +228,10 @@ export default function Golf() {
 
       {/* Range Pricing */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={pricingRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${pricingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Range Pricing</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Open to the public.
@@ -213,7 +240,7 @@ export default function Golf() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] mb-8">
             {[
               { name: "Small Bucket", detail: "~45 balls", price: "$10 + tax" },
-              { name: "Medium Bucket", detail: "~75 balls", price: "$12 + tax" },
+              { name: "Medium Bucket", detail: "~70 balls", price: "$12 + tax" },
               { name: "Large Bucket", detail: "~100 balls", price: "$14 + tax" },
             ].map((p, i) => (
               <div key={i} className="bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
@@ -268,7 +295,10 @@ export default function Golf() {
 
       {/* Why WSC Golf */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
+        <div
+          ref={whyRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${whyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Why WSC Golf</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
@@ -296,7 +326,7 @@ export default function Golf() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+          <div ref={coachesRef} className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
             {[
               {
                 name: "Daniel Jarvie",
@@ -311,7 +341,10 @@ export default function Golf() {
                 philosophy: "From first-time juniors to competitive adults, we build confidence through structured progression and real-time data feedback in the Swing Lab.",
               },
             ].map((coach, i) => (
-              <div key={i} className="bg-parchment-mid p-8 lg:p-10">
+              <div
+                key={i}
+                className={`bg-parchment-mid p-8 lg:p-10 transition-all duration-700 ease-out ${coachesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
                 <div className="w-16 h-16 rounded-full bg-dark-bg/10 flex items-center justify-center mb-6">
                   <span className="text-volt text-[20px] font-light">{coach.name.charAt(0)}</span>
                 </div>
@@ -334,7 +367,10 @@ export default function Golf() {
 
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto text-center">
+        <div
+          ref={ctaRef}
+          className={`max-w-[1440px] mx-auto text-center transition-all duration-700 ease-out ${ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Get Started</p>
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Elevate your game.

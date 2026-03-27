@@ -2,6 +2,7 @@
  * 4B Design — Tennis Page
  * Real content from WSC website crawl
  * Tier 1 Sports by Caliber branding
+ * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
@@ -10,11 +11,19 @@ import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
 const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
 
 export default function Tennis() {
+  // Scroll-reveal hooks
+  const { ref: programsRef, isVisible: programsVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: facilitiesRef, isVisible: facilitiesVisible } = useScrollReveal({ threshold: 0.1 });
+  const { containerRef: coachesRef, visibleItems: coachesVisible } = useStaggerReveal(3, { staggerDelay: 150, threshold: 0.08 });
+  const { ref: bookingRef, isVisible: bookingVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
+
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
@@ -31,7 +40,10 @@ export default function Tennis() {
 
       {/* Programs */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={programsRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${programsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Top-Tier Coaching</p>
           <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Training pathways<br />for every level.
@@ -134,7 +146,10 @@ export default function Tennis() {
 
       {/* Facilities */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div
+          ref={facilitiesRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${facilitiesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Facilities</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
@@ -177,7 +192,7 @@ export default function Tennis() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+          <div ref={coachesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
             {[
               {
                 name: "Filipp Pogostkin",
@@ -198,7 +213,10 @@ export default function Tennis() {
                 philosophy: "Competitive group training, UTR matchplay, and tournament preparation for adult players who want to keep improving.",
               },
             ].map((coach, i) => (
-              <div key={i} className="bg-parchment-mid p-8 lg:p-10">
+              <div
+                key={i}
+                className={`bg-parchment-mid p-8 lg:p-10 transition-all duration-700 ease-out ${coachesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
                 <div className="w-16 h-16 rounded-full bg-dark-bg/10 flex items-center justify-center mb-6">
                   <span className="text-volt text-[20px] font-light">{coach.name.charAt(0)}</span>
                 </div>
@@ -218,7 +236,10 @@ export default function Tennis() {
 
       {/* Court Booking */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
+        <div
+          ref={bookingRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${bookingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Court Booking</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
@@ -235,7 +256,7 @@ export default function Tennis() {
                 <span className="text-volt-bright text-[16px] font-light">$21.14 + tax</span>
               </div>
               <div className="flex justify-between py-3 border-b border-wsc-border">
-                <span className="text-ink text-[14px]">Session Options</span>
+                <span className="text-ink text-[14px]">Booking Increments</span>
                 <span className="text-ink-mid text-[14px]">30, 60 & 90 minutes</span>
               </div>
               <div className="flex justify-between py-3 border-b border-wsc-border">
@@ -280,7 +301,10 @@ export default function Tennis() {
 
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto text-center">
+        <div
+          ref={ctaRef}
+          className={`max-w-[1440px] mx-auto text-center transition-all duration-700 ease-out ${ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Get Started</p>
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
             Ready to step on court?

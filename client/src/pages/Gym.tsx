@@ -2,12 +2,14 @@
  * 4B Design — WSC Gym & APL Page (Merged)
  * Covers: Main Gym, Weight Room, Functional Training, APL Training Center,
  * Group S&C Classes, Monthly Packages, Amenities, Hours
+ * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const GYM_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-main-kbMDtnrHt7XhzvkRacRv7e.webp";
 const GYM_WEIGHTS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-weights-RzsgUqBr5ayotRkdcXJGYE.webp";
@@ -16,6 +18,16 @@ const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCM
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 export default function Gym() {
+  // Scroll-reveal hooks
+  const { ref: mainGymRef, isVisible: mainGymVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: weightRef, isVisible: weightVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: functionalRef, isVisible: functionalVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: aplRef, isVisible: aplVisible } = useScrollReveal({ threshold: 0.08 });
+  const { containerRef: packagesRef, visibleItems: packagesVisible } = useStaggerReveal(3, { staggerDelay: 140, threshold: 0.1 });
+  const { containerRef: amenitiesRef, visibleItems: amenitiesVisible } = useStaggerReveal(6, { staggerDelay: 100, threshold: 0.06 });
+  const { ref: hoursRef, isVisible: hoursVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
+
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
@@ -54,7 +66,10 @@ export default function Gym() {
 
       {/* Main Gym Section */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={mainGymRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${mainGymVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="order-2 lg:order-1">
               <img
@@ -86,7 +101,10 @@ export default function Gym() {
 
       {/* Weight Room — Dark */}
       <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={weightRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${weightVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Weight Room</p>
@@ -113,7 +131,10 @@ export default function Gym() {
 
       {/* Functional Training */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={functionalRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${functionalVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="order-2 lg:order-1">
               <img
@@ -140,7 +161,10 @@ export default function Gym() {
 
       {/* ── APL TRAINING CENTER ── */}
       <section id="apl" className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={aplRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${aplVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
             <div>
               <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Athletic Performance Lab</p>
@@ -200,13 +224,16 @@ export default function Gym() {
             APL Small Group Classes can be purchased in monthly packages of 4, 8, or unlimited classes. Browse from our range of APL strength and conditioning small group classes for adults and youth.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
+          <div ref={packagesRef} className="grid grid-cols-1 md:grid-cols-3 gap-[3px]">
             {[
               { name: "4 Classes/Month", desc: "One session per week. Ideal for supplementing sport-specific training with structured S&C work." },
               { name: "8 Classes/Month", desc: "Two sessions per week. The standard for consistent athletic development and measurable progress." },
               { name: "Unlimited", desc: "Full access to all group S&C classes. For the dedicated athlete committed to peak performance." },
             ].map((c, i) => (
-              <div key={i} className="bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
+              <div
+                key={i}
+                className={`bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-all duration-700 ease-out ${packagesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
                 <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">{c.desc}</p>
                 <a
@@ -230,7 +257,7 @@ export default function Gym() {
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Everything you need,<br />all under one roof.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+          <div ref={amenitiesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
             {[
               { title: "Sauna", desc: "Unwind after your workout in our dry sauna. Available to all members with gym access during regular facility hours." },
               { title: "Locker Rooms", desc: "Clean, well-maintained locker rooms with showers, changing areas, and secure storage for your belongings." },
@@ -239,7 +266,10 @@ export default function Gym() {
               { title: "Free Parking", desc: "Ample free parking right at the facility. No meters, no garages — just pull up and train." },
               { title: "Wi-Fi", desc: "Complimentary high-speed Wi-Fi throughout the facility so you can stream music, track workouts, or stay connected." },
             ].map((a, i) => (
-              <div key={i} className="bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
+              <div
+                key={i}
+                className={`bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-all duration-700 ease-out ${amenitiesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
                 <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{a.title}</h3>
                 <p className="text-ink-mid text-[14px] leading-[1.72]">{a.desc}</p>
               </div>
@@ -250,7 +280,10 @@ export default function Gym() {
 
       {/* Hours */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={hoursRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${hoursVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
               <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Gym Hours</p>
@@ -282,7 +315,10 @@ export default function Gym() {
 
       {/* CTA */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto text-center">
+        <div
+          ref={ctaRef}
+          className={`max-w-[1440px] mx-auto text-center transition-all duration-700 ease-out ${ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Get Started</p>
           <h2 className="text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Ready to train at WSC?
