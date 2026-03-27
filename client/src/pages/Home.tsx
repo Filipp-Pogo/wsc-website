@@ -3,7 +3,7 @@
  * Removed duplicate Swing Lab gallery, Tier 1 Golf Academy detail, and APL Performance section.
  * These are now compact teasers linking to their respective pages.
  */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { Instagram, Calendar, Clock, MapPin, ChevronRight, Quote } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -13,6 +13,7 @@ import FacilityGallery from "@/components/FacilityGallery";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getLocalBusinessSchema, getWebSiteSchema, getFAQSchema } from "@/components/StructuredData";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/hero-campus-YM3mcvUEufhyrArKQifwwG.webp";
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
@@ -174,6 +175,15 @@ const galleryImages = [
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [activeDayStep, setActiveDayStep] = useState(0);
+
+  // Scroll-reveal hooks
+  const { containerRef: disciplineRef, visibleItems: disciplineVisible } = useStaggerReveal(4, { staggerDelay: 140, threshold: 0.08 });
+  const { ref: summerRef, isVisible: summerVisible } = useScrollReveal({ threshold: 0.15 });
+  const { ref: swingLabRef, isVisible: swingLabVisible } = useScrollReveal({ threshold: 0.12 });
+  const { ref: tier1GolfRef, isVisible: tier1GolfVisible } = useScrollReveal({ threshold: 0.12 });
+  const { ref: dayRef, isVisible: dayVisible } = useScrollReveal({ threshold: 0.08 });
+  const { containerRef: testimonialRef, visibleItems: testimonialVisible } = useStaggerReveal(3, { staggerDelay: 160, threshold: 0.1 });
+  const { ref: membershipRef, isVisible: membershipVisible } = useScrollReveal({ threshold: 0.1 });
 
   return (
     <div className="min-h-screen">
@@ -363,11 +373,15 @@ export default function Home() {
           </div>
 
           {/* 2-column layout for bigger cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+          <div ref={disciplineRef} className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
             {disciplines.map((d, i) => (
               <div
                 key={d.num}
-                className="bg-parchment group overflow-hidden cursor-pointer relative"
+                className={`bg-parchment group overflow-hidden cursor-pointer relative transition-all duration-700 ease-out ${
+                  disciplineVisible[i]
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
                 onMouseEnter={() => setHoveredCard(i)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
@@ -426,7 +440,12 @@ export default function Home() {
           </div>
 
           {/* Summer Training — standalone */}
-          <div className="mt-[3px] bg-parchment p-8 lg:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div
+            ref={summerRef}
+            className={`mt-[3px] bg-parchment p-8 lg:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 transition-all duration-700 ease-out ${
+              summerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
             <div className="max-w-[600px]">
               <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-2.5">05 — Summer Training</p>
               <h3 className="text-[22px] font-light tracking-[-0.01em] mb-3">Summer Training Camp</h3>
@@ -459,8 +478,8 @@ export default function Home() {
 
       {/* ── YOUR DAY AT WSC ── */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20">
+        <div ref={dayRef} className="max-w-[1440px] mx-auto">
+          <div className={`grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 transition-all duration-800 ease-out ${dayVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             {/* Left: intro */}
             <div className="lg:sticky lg:top-32 lg:self-start">
               <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Experience</p>
@@ -561,7 +580,10 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[3px]">
             {/* Swing Lab Teaser */}
-            <div className="bg-parchment overflow-hidden group">
+            <div
+              ref={swingLabRef}
+              className={`bg-parchment overflow-hidden group transition-all duration-700 ease-out ${swingLabVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
               <div className="overflow-hidden">
                 <img
                   src={SWINGLAB_IMG}
@@ -586,7 +608,10 @@ export default function Home() {
             </div>
 
             {/* Tier 1 Golf Teaser */}
-            <div className="bg-parchment overflow-hidden group">
+            <div
+              ref={tier1GolfRef}
+              className={`bg-parchment overflow-hidden group transition-all duration-700 ease-out delay-150 ${tier1GolfVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
               <div className="overflow-hidden">
                 <img
                   src={GOLF_IMG}
@@ -644,9 +669,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-parchment/[0.06]">
+          <div ref={testimonialRef} className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-parchment/[0.06]">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-dark-bg p-8 lg:p-10 group">
+              <div key={i} className={`bg-dark-bg p-8 lg:p-10 group transition-all duration-700 ease-out ${testimonialVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
                 <Quote size={20} className="text-volt-bright/40 mb-6" />
                 <p className="text-parchment/80 text-[15px] leading-[1.75] mb-8 font-light italic">
                   "{t.quote}"
@@ -674,7 +699,7 @@ export default function Home() {
 
       {/* ── MEMBERSHIP — Experience-First ── */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div ref={membershipRef} className={`max-w-[1440px] mx-auto transition-all duration-800 ease-out ${membershipVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           {/* Aspirational lead */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-end mb-6">
             <div>
