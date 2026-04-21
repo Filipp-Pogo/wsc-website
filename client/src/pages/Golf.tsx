@@ -4,7 +4,9 @@
  * Tier 1 Sports by Caliber branding
  * Scroll reveal animations for consistent UX
  */
+import { useState } from "react";
 import { Link } from "wouter";
+import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
@@ -19,6 +21,129 @@ const SIM_BAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/Gm
 const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-screen-a8ZgKeFQVWNrVWHTfStJQE.webp";
 const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
 
+const SKILL_LEVELS = [
+  "Beginner — Never played or just starting",
+  "Novice — Played a few times, learning basics",
+  "Intermediate — Comfortable on the course, working on consistency",
+  "Advanced — Low handicap, competitive play",
+  "Junior — Youth player (under 18)",
+];
+
+function PrivateLessonForm() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    skillLevel: "",
+    experience: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    toast.success("Lesson request submitted! Our golf staff will contact you within 1–2 business days.");
+    setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
+    setTimeout(() => setSubmitted(false), 4000);
+  };
+
+  const inputClass =
+    "w-full bg-dark-bg border border-parchment/15 px-4 py-3 text-[14px] text-parchment placeholder:text-parchment/30 focus:border-volt-bright focus:outline-none transition-colors duration-200";
+  const labelClass = "block text-parchment/55 text-[11px] tracking-[0.14em] uppercase mb-2";
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div>
+        <label htmlFor="lesson-name" className={labelClass}>Full Name *</label>
+        <input
+          id="lesson-name"
+          type="text"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          placeholder="Your full name"
+          className={inputClass}
+          required
+          autoComplete="name"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="lesson-email" className={labelClass}>Email *</label>
+          <input
+            id="lesson-email"
+            type="email"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            placeholder="you@email.com"
+            className={inputClass}
+            required
+            autoComplete="email"
+          />
+        </div>
+        <div>
+          <label htmlFor="lesson-phone" className={labelClass}>Phone</label>
+          <input
+            id="lesson-phone"
+            type="tel"
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            placeholder="(425) 555-0100"
+            className={inputClass}
+            autoComplete="tel"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="lesson-skill" className={labelClass}>Skill Level *</label>
+        <select
+          id="lesson-skill"
+          value={form.skillLevel}
+          onChange={(e) => setForm({ ...form, skillLevel: e.target.value })}
+          className={`${inputClass} appearance-none cursor-pointer ${!form.skillLevel ? "text-parchment/30" : ""}`}
+          required
+        >
+          <option value="" disabled>Select your skill level</option>
+          {SKILL_LEVELS.map((level) => (
+            <option key={level} value={level} className="text-parchment bg-dark-bg">
+              {level}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="lesson-experience" className={labelClass}>Tell Us About Your Goals</label>
+        <textarea
+          id="lesson-experience"
+          value={form.experience}
+          onChange={(e) => setForm({ ...form, experience: e.target.value })}
+          rows={4}
+          placeholder="What are you hoping to improve? Any prior experience, upcoming events, or specific goals?"
+          className={`${inputClass} resize-none`}
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={submitted}
+        className={`text-[12px] tracking-[0.14em] uppercase px-8 py-3.5 transition-colors duration-200 ${
+          submitted
+            ? "bg-parchment/20 text-parchment/50 cursor-default"
+            : "bg-volt-bright text-dark-bg hover:bg-parchment hover:text-dark-bg"
+        }`}
+      >
+        {submitted ? "Request Submitted" : "Submit Lesson Request"}
+      </button>
+
+      <p className="text-parchment/35 text-[12px] leading-[1.6]">
+        Our golf staff will review your request and reach out within 1–2 business days to schedule your lesson.
+      </p>
+    </form>
+  );
+}
+
 export default function Golf() {
   // Scroll-reveal hooks
   const { ref: rangeRef, isVisible: rangeVisible } = useScrollReveal({ threshold: 0.08 });
@@ -29,6 +154,7 @@ export default function Golf() {
   const { ref: whyRef, isVisible: whyVisible } = useScrollReveal({ threshold: 0.1 });
   const { containerRef: coachesRef, visibleItems: coachesVisible } = useStaggerReveal(2, { staggerDelay: 160, threshold: 0.1 });
   const { ref: accessRef, isVisible: accessVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: formRef, isVisible: formVisible } = useScrollReveal({ threshold: 0.08 });
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
 
   return (
@@ -358,6 +484,43 @@ export default function Golf() {
           </div>
 
 
+        </div>
+      </section>
+
+      {/* Private Lesson Interest Form */}
+      <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={formRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 transition-all duration-700 ease-out ${formVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          {/* Info side */}
+          <div>
+            <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Private Lessons</p>
+            <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.1] mb-6">
+              Request a<br />private lesson.
+            </h2>
+            <p className="text-parchment/65 text-[15px] leading-[1.8] mb-8 max-w-[420px]">
+              Interested in one-on-one instruction? Fill out the form and our golf staff will reach out to match you with the right coach for your goals and skill level.
+            </p>
+            <div className="space-y-5">
+              {[
+                { label: "Personalized Instruction", desc: "Tailored to your swing, goals, and schedule" },
+                { label: "Range & Simulator", desc: "Lessons on the range or in our Swing Lab bays" },
+                { label: "All Skill Levels", desc: "From first-time golfers to competitive players" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="text-volt-bright text-[10px] mt-1.5">—</span>
+                  <div>
+                    <p className="text-parchment text-[14px] font-medium mb-0.5">{item.label}</p>
+                    <p className="text-parchment/50 text-[13px]">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Form side */}
+          <PrivateLessonForm />
         </div>
       </section>
 
