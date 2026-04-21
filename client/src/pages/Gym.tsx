@@ -23,6 +23,7 @@ export default function Gym() {
   const { ref: weightRef, isVisible: weightVisible } = useScrollReveal({ threshold: 0.08 });
   const { ref: functionalRef, isVisible: functionalVisible } = useScrollReveal({ threshold: 0.08 });
   const { ref: aplRef, isVisible: aplVisible } = useScrollReveal({ threshold: 0.08 });
+  const { containerRef: classesRef, visibleItems: classesVisible } = useStaggerReveal(7, { staggerDelay: 100, threshold: 0.06 });
   const { containerRef: packagesRef, visibleItems: packagesVisible } = useStaggerReveal(3, { staggerDelay: 140, threshold: 0.1 });
   const { containerRef: amenitiesRef, visibleItems: amenitiesVisible } = useStaggerReveal(6, { staggerDelay: 100, threshold: 0.06 });
   const { ref: hoursRef, isVisible: hoursVisible } = useScrollReveal({ threshold: 0.1 });
@@ -209,6 +210,85 @@ export default function Gym() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* APL Class Listings */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">APL Group Classes</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Our all-new lineup of<br />S&C classes.
+          </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
+            Training sessions benefit athletes of all levels and are tailored to your sport, improving strength, speed, power, agility, and endurance. Browse our APL Group Strength & Conditioning classes for kids and adults.
+          </p>
+
+          <div ref={classesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+            {[
+              {
+                name: "APL Intro to Fitness",
+                who: "Youth",
+                desc: "Foundation-level class introducing young athletes to proper movement patterns, body awareness, and basic strength training in a supportive environment.",
+              },
+              {
+                name: "APL Build",
+                who: "Youth",
+                desc: "Progressive strength and conditioning class focused on building athletic foundations — core stability, coordination, and functional movement.",
+              },
+              {
+                name: "APL Ignite",
+                who: "Youth",
+                desc: "High-intensity training for developing athletes. Emphasis on explosive power, speed development, and sport-specific conditioning.",
+              },
+              {
+                name: "APL Push, Pull & Upper Body",
+                who: "Youth / Adult",
+                desc: "Targeted upper body strength session covering pressing, pulling, and shoulder stability exercises for balanced athletic development.",
+              },
+              {
+                name: "APL Lower Body Strength & Power",
+                who: "Youth / Adult",
+                desc: "Focused lower body training — squats, deadlifts, plyometrics, and single-leg work to build leg strength, power, and injury resilience.",
+              },
+              {
+                name: "APL Speed School",
+                who: "Ages 12–18",
+                desc: "Sprint mechanics, acceleration drills, agility ladder work, and change-of-direction training for competitive young athletes.",
+              },
+              {
+                name: "Adult Athletic Performance",
+                who: "Adults",
+                desc: "Structured strength and conditioning for adults. Improve functional fitness, build lean muscle, and enhance overall athletic performance.",
+              },
+            ].map((c, i) => (
+              <div
+                key={i}
+                className={`bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-all duration-700 ease-out ${classesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{c.who}</p>
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72]">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href={COURT_RESERVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+            >
+              Browse & Register
+            </a>
+            <Link
+              href="/membership"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-ink border border-ink/20 px-8 py-3.5 hover:bg-ink/5 transition-colors duration-200"
+            >
+              Membership Options
+            </Link>
           </div>
         </div>
       </section>

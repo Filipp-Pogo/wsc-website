@@ -1,16 +1,30 @@
 /*
  * 4B Design — Pickleball Page
- * Real content from WSC website crawl
+ * Updated with full content from live WSC site crawl (April 2026):
+ * Private court rental, tournament dates, DUPR ladders, open play guidelines, court capacity
+ * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 
 const PICKLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/pickleball-courts_30a446d6.jpg";
+const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 export default function Pickleball() {
+  const { ref: courtsRef, isVisible: courtsVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: scheduleRef, isVisible: scheduleVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: pricingRef, isVisible: pricingVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: rentalRef, isVisible: rentalVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: classesRef, isVisible: classesVisible } = useScrollReveal({ threshold: 0.08 });
+  const { containerRef: tournamentsRef, visibleItems: tournamentsVisible } = useStaggerReveal(4, { staggerDelay: 120, threshold: 0.1 });
+  const { ref: duprRef, isVisible: duprVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: guidelinesRef, isVisible: guidelinesVisible } = useScrollReveal({ threshold: 0.08 });
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
+
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
@@ -27,14 +41,17 @@ export default function Pickleball() {
 
       {/* Courts & Open Play */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div
+          ref={courtsRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${courtsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <div>
             <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Open Play</p>
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
               Eight indoor courts.<br />Seven days a week.
             </h2>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Join our daily open play sessions and play and socialize with other pickleball enthusiasts. Our open play sessions are designed to provide a fun and engaging environment for players of all skill levels. We've got 8 indoor courts in the dome and 4 outdoor courts in summer.
+              Join our daily open play sessions and socialize with other pickleball enthusiasts. Our sessions are designed for players of all skill levels. We've got 8 indoor courts in the dome and 4 outdoor courts in summer.
             </p>
             <div className="grid grid-cols-2 gap-6">
               {[
@@ -52,17 +69,33 @@ export default function Pickleball() {
               ))}
             </div>
           </div>
-          <img
-            src={PICKLE_IMG}
-            alt="Pickleball dome"
-            className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
-          />
+          <div>
+            <img
+              src={PICKLE_IMG}
+              alt="Pickleball dome"
+              className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85] mb-6"
+            />
+            <div className="bg-parchment-mid p-6 border-l-2 border-volt">
+              <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-2">Court Capacity</p>
+              <div className="space-y-2">
+                <p className="text-ink-mid text-[13px] leading-[1.6]">
+                  <span className="text-ink font-normal">Court 7 (4 PB courts):</span> Max 16 players, 22 registrants
+                </p>
+                <p className="text-ink-mid text-[13px] leading-[1.6]">
+                  <span className="text-ink font-normal">Courts 7 & 8 (8 PB courts):</span> Max 32 players, 44 registrants
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Schedule */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={scheduleRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${scheduleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Open Play Schedule</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Fall / Winter / Spring hours.
@@ -71,10 +104,11 @@ export default function Pickleball() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px] mb-8">
             <div className="bg-parchment p-8 lg:p-10">
               <h3 className="text-[18px] font-light tracking-[-0.01em] mb-5">Weekday Schedule</h3>
+              <p className="text-ink-light text-[12px] mb-4 italic">September 5 – June 14</p>
               <div className="space-y-3">
                 {[
                   { day: "Mon, Wed, Fri", time: "8:00 PM – 11:00 PM", note: "4 courts on Tennis Court 7" },
-                  { day: "Wednesdays", time: "Advanced players only", note: "DUPR 3.5+" },
+                  { day: "Wednesdays", time: "Advanced players only", note: "DUPR 3.5+ required" },
                   { day: "Tue, Thu", time: "10:00 AM – 1:00 PM", note: "4 courts on Tennis Court 7" },
                   { day: "Tue, Thu", time: "8:00 PM – 11:00 PM", note: "4 courts on Tennis Court 7" },
                 ].map((s, i) => (
@@ -90,6 +124,7 @@ export default function Pickleball() {
             </div>
             <div className="bg-parchment p-8 lg:p-10">
               <h3 className="text-[18px] font-light tracking-[-0.01em] mb-5">Weekend Schedule</h3>
+              <p className="text-ink-light text-[12px] mb-4 italic">September 5 – June 14</p>
               <div className="space-y-3">
                 {[
                   { day: "Saturday", time: "7:00 AM – 9:30 AM", note: "DUPR Ladders" },
@@ -108,8 +143,9 @@ export default function Pickleball() {
               </div>
               <div className="mt-6 pt-5 border-t border-wsc-border">
                 <h4 className="text-[16px] font-light tracking-[-0.01em] mb-3">Summer Hours</h4>
+                <p className="text-ink-light text-[12px] mb-2 italic">June 15 – September 4</p>
                 <p className="text-ink-mid text-[14px] leading-[1.72]">
-                  June 15 – September 4: Mon/Wed/Fri 6:00 PM – 9:00 PM on outdoor courts.
+                  Mon/Wed/Fri 6:00 PM – 9:00 PM on outdoor courts.
                 </p>
               </div>
             </div>
@@ -119,7 +155,10 @@ export default function Pickleball() {
 
       {/* Pricing */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={pricingRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${pricingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Pricing</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">
             Open session pricing.
@@ -137,10 +176,6 @@ export default function Pickleball() {
                   <span className="text-ink-mid text-[14px]">Sat–Sun (2.5 hr session)</span>
                   <span className="text-volt-bright text-[16px] font-light">$15 + tax</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-wsc-border">
-                  <span className="text-ink-mid text-[14px]">Private Court Rental</span>
-                  <span className="text-ink-mid text-[14px]">Available</span>
-                </div>
               </div>
               <p className="text-ink-light text-[12px] mt-4 italic">Members can pre-register for sessions.</p>
             </div>
@@ -155,10 +190,6 @@ export default function Pickleball() {
                   <span className="text-ink-mid text-[14px]">Sat–Sun (2.5 hr session)</span>
                   <span className="text-volt-bright text-[16px] font-light">$20 + tax</span>
                 </div>
-                <div className="flex justify-between py-3 border-b border-wsc-border">
-                  <span className="text-ink-mid text-[14px]">Private Court Rental</span>
-                  <span className="text-ink-mid text-[14px]">Available</span>
-                </div>
               </div>
               <p className="text-ink-light text-[12px] mt-4 italic">Non-members are walk-in only.</p>
             </div>
@@ -166,9 +197,58 @@ export default function Pickleball() {
         </div>
       </section>
 
-      {/* Classes */}
+      {/* Private Court Rental */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
-        <div className="max-w-[1440px] mx-auto">
+        <div
+          ref={rentalRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${rentalVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Private Court Rental</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
+              Reserve your<br />own court.
+            </h2>
+          </div>
+          <div>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
+              Want a court to yourself? Reserve a private pickleball court for your group. Available during select hours for members and their guests.
+            </p>
+            <div className="space-y-4 mb-8">
+              <div className="flex justify-between py-3 border-b border-wsc-border">
+                <span className="text-ink text-[14px]">Member Court Rental</span>
+                <span className="text-volt-bright text-[16px] font-light">$25 + tax / hr</span>
+              </div>
+              <div className="flex justify-between py-3 border-b border-wsc-border">
+                <span className="text-ink text-[14px]">Guest Fee</span>
+                <span className="text-ink-mid text-[14px]">$5 + tax / person</span>
+              </div>
+            </div>
+            <div className="bg-parchment p-6 border-l-2 border-volt mb-6">
+              <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-2">Available Hours</p>
+              <div className="space-y-1.5">
+                <p className="text-ink-mid text-[13px] leading-[1.6]">Mon – Thu: 8:00 PM – 11:00 PM</p>
+                <p className="text-ink-mid text-[13px] leading-[1.6]">Friday: 7:00 PM – 11:00 PM</p>
+                <p className="text-ink-mid text-[13px] leading-[1.6]">Saturday: 8:00 AM – 12:00 PM</p>
+              </div>
+            </div>
+            <a
+              href={COURT_RESERVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+            >
+              Reserve a Court
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Classes */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={classesRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${classesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Instructional Classes</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
             Learn and improve.
@@ -199,7 +279,7 @@ export default function Pickleball() {
                 </ul>
               </div>
               <a
-                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
@@ -229,7 +309,7 @@ export default function Pickleball() {
                 </ul>
               </div>
               <a
-                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
@@ -242,14 +322,168 @@ export default function Pickleball() {
       </section>
 
       {/* Tournaments */}
+      <section className="bg-dark-mid px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Tournaments</p>
+            <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
+              Four major tournaments per year.
+            </h2>
+            <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[560px] mx-auto">
+              We partner with Pickleball is Great (PIG) to host tournaments. Round Robin format, skills 3.0–5.0 in age events (under 50 and 50+).
+            </p>
+          </div>
+
+          <div ref={tournamentsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">
+            {[
+              { name: "Shamrock Shootout", date: "March 20–22, 2026", season: "Spring" },
+              { name: "Spring Fling", date: "May 29–31, 2026", season: "Late Spring" },
+              { name: "Dominate the Dome", date: "September 2026", season: "Fall" },
+              { name: "Holiday Classic", date: "December 2026", season: "Winter" },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className={`bg-dark-bg p-8 border-t-2 border-transparent hover:border-volt-bright transition-all duration-700 ease-out ${tournamentsVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
+                <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-3">{t.season}</p>
+                <h3 className="text-parchment text-[18px] font-light tracking-[-0.01em] mb-2">{t.name}</h3>
+                <p className="text-parchment/55 text-[13px]">{t.date}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 p-6 bg-dark-bg border-l-2 border-volt-bright">
+            <p className="text-parchment/65 text-[14px] leading-[1.7]">
+              <span className="text-parchment font-normal">Tournament Contact:</span> Paul Matthewson, Pickleball is Great (PIG)
+            </p>
+            <p className="text-parchment/55 text-[13px] mt-1">
+              <a href="mailto:pickleballisgreat.paul@gmail.com" className="text-volt-bright no-underline hover:text-parchment transition-colors duration-200">
+                pickleballisgreat.paul@gmail.com
+              </a>
+              {" · "}
+              <a href="tel:+14258706540" className="text-parchment/55 no-underline hover:text-parchment transition-colors duration-200">
+                (425) 870-6540
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* DUPR Ladders */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={duprRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${duprVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">DUPR Ladders</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
+              Competitive play.<br />Every Saturday.
+            </h2>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
+              DUPR Ladder sessions run every Saturday from 7:00 AM – 9:30 AM. Players are grouped by skill level for competitive, structured play. Results are tracked through DUPR for official ratings.
+            </p>
+            <p className="text-ink-mid text-[16px] leading-[1.82]">
+              Wednesday evening sessions (8:00 PM – 11:00 PM) are gated for advanced players with a DUPR rating of 3.5 or higher.
+            </p>
+          </div>
+          <div className="space-y-[3px]">
+            <div className="bg-parchment p-8">
+              <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">Saturday DUPR Ladders</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between py-2 border-b border-wsc-border">
+                  <span className="text-ink-mid text-[14px]">Time</span>
+                  <span className="text-ink text-[14px]">7:00 AM – 9:30 AM</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-wsc-border">
+                  <span className="text-ink-mid text-[14px]">Format</span>
+                  <span className="text-ink text-[14px]">Grouped by skill level</span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span className="text-ink-mid text-[14px]">Ratings</span>
+                  <span className="text-ink text-[14px]">Tracked via DUPR</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-parchment p-8">
+              <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">Wednesday Advanced Play</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between py-2 border-b border-wsc-border">
+                  <span className="text-ink-mid text-[14px]">Time</span>
+                  <span className="text-ink text-[14px]">8:00 PM – 11:00 PM</span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span className="text-ink-mid text-[14px]">Requirement</span>
+                  <span className="text-ink text-[14px]">DUPR 3.5+ required</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Open Play Guidelines */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={guidelinesRef}
+          className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${guidelinesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Open Play Guidelines</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            How open play works.
+          </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
+            Our open play sessions use a paddle stack waitlist system to ensure fair rotation and maximum court time for all players.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+            {[
+              {
+                title: "Paddle Stack",
+                desc: "Place your paddle in the stack when you arrive. When a court opens, the next paddles in line form the next group. Four paddles per court.",
+              },
+              {
+                title: "Court Rotation",
+                desc: "Games are played to 11, win by 2. Losing team rotates off and places paddles back in the stack. Winners stay on for one additional game.",
+              },
+              {
+                title: "Challenge Court",
+                desc: "One court is designated as the challenge court. Winners from other courts can challenge the current champions. If you win, you stay; if you lose, you rotate.",
+              },
+              {
+                title: "Skill Grouping",
+                desc: "When multiple courts are available, players are encouraged to self-organize by skill level. Staff may assist with grouping during busy sessions.",
+              },
+              {
+                title: "Guest Policy",
+                desc: "Non-members are welcome at walk-in rates. A member must be present for guests using the Court Booking Access Pass guest fee.",
+              },
+              {
+                title: "Etiquette",
+                desc: "Respect all players and staff. Call your own lines honestly. Keep noise levels reasonable. No outside coaching or instruction is permitted.",
+              },
+            ].map((g, i) => (
+              <div key={i} className="bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{g.title}</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72]">{g.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto text-center">
-          <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Tournaments</p>
+        <div
+          ref={ctaRef}
+          className={`max-w-[1440px] mx-auto text-center transition-all duration-700 ease-out ${ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">Get Started</p>
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
-            Four major tournaments per year.
+            Ready to play?
           </h2>
           <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
-            We partner with Pickleball is Great (PIG) to host tournaments. Round Robin format, skills 3.0–5.0 in age events (under 50 and 50+).
+            Join our open play sessions, sign up for classes, or reserve a private court. No membership required for open play.
           </p>
           <div className="flex flex-wrap justify-center gap-5">
             <Link
@@ -259,7 +493,7 @@ export default function Pickleball() {
               View Membership
             </Link>
             <a
-              href="https://app.courtreserve.com/Online/Portal/Index/6689"
+              href={COURT_RESERVE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"

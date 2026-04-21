@@ -83,7 +83,8 @@ export default function Tennis() {
           <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border">
             <p className="text-volt text-[10px] tracking-[0.2em] uppercase">Juniors</p>
             <div>
-              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">Tier 1 Core Tennis</h3>
+              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-1">Tier 1 Core Tennis</h3>
+              <p className="text-ink-light text-[11px] tracking-[0.08em] uppercase mb-3">Formerly RPM Tennis</p>
               <p className="text-ink-mid text-[14px] leading-[1.72] mb-3">
                 Junior tennis classes for ages 3 and up, with pathways for recreational and elite development.
               </p>

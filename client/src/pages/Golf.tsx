@@ -28,6 +28,7 @@ export default function Golf() {
   const { ref: pricingRef, isVisible: pricingVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: whyRef, isVisible: whyVisible } = useScrollReveal({ threshold: 0.1 });
   const { containerRef: coachesRef, visibleItems: coachesVisible } = useStaggerReveal(2, { staggerDelay: 160, threshold: 0.1 });
+  const { ref: accessRef, isVisible: accessVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
 
   return (
@@ -240,7 +241,7 @@ export default function Golf() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] mb-8">
             {[
               { name: "Small Bucket", detail: "~45 balls", price: "$10 + tax" },
-              { name: "Medium Bucket", detail: "~70 balls", price: "$12 + tax" },
+              { name: "Medium Bucket", detail: "~75 balls", price: "$12 + tax" },
               { name: "Large Bucket", detail: "~100 balls", price: "$14 + tax" },
             ].map((p, i) => (
               <div key={i} className="bg-parchment-mid p-8 border-t-2 border-transparent hover:border-volt transition-colors duration-300">
@@ -332,13 +333,13 @@ export default function Golf() {
                 name: "Daniel Jarvie",
                 title: "Director of Golf & Tier 1 Golf Academy",
                 credential: "WGTF Master Certified Coach",
-                philosophy: "Golf is a game of precision and patience. My approach combines cutting-edge simulator technology with fundamentals-first coaching to build swings that last a lifetime.",
+                philosophy: "Former Seattle Junior Champion and Division I player at University of Washington. 30+ years of professional teaching, coaching, and playing experience. Former Director of Instruction and College Coach who taught golf schools for legendary PGA Tour coach Jimmy Ballard.",
               },
               {
-                name: "Golf Academy Staff",
-                title: "Junior & Adult Instruction",
-                credential: "PGA & WGTF certified professionals",
-                philosophy: "From first-time juniors to competitive adults, we build confidence through structured progression and real-time data feedback in the Swing Lab.",
+                name: "Stella Kim",
+                title: "WSC Golf Instructor",
+                credential: "LPGA-Certified Teaching Professional, TPI Level 1 & 2",
+                philosophy: "Nearly two decades of experience with a supportive, detail-oriented teaching style. Graduate of Professional Golf Career College (2014). Taught in Southern California, New York, and Korea before joining WSC in Seattle.",
               },
             ].map((coach, i) => (
               <div
@@ -356,9 +357,46 @@ export default function Golf() {
             ))}
           </div>
 
-          <p className="text-ink-light text-[13px] mt-6 italic">
-            Coach headshots and full bios coming soon. Contact us to learn more about our coaching team.
-          </p>
+
+        </div>
+      </section>
+
+      {/* Court & Range Access Pass Benefits */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={accessRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${accessVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Member Benefits</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
+              Court & Range<br />Access Pass.            </h2>
+          </div>
+          <div>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
+              Our $120/year Court & Range Access Pass unlocks exclusive golf benefits alongside court booking privileges. Save on range sessions and enjoy perks across the campus.
+            </p>
+            <div className="space-y-4 mb-8">
+              {[
+                { benefit: "7-Day Advance Booking", detail: "Reserve golf simulators up to 7 days in advance" },
+                { benefit: "$4 Off Range Buckets", detail: "Discount on every bucket purchase at the driving range" },
+                { benefit: "Mini-Golf Discounts", detail: "Reduced rates on our 18-hole mini-golf course" },
+                { benefit: "Beverage Discounts", detail: "Discounts on all beverages at the range" },
+                { benefit: "Golf Happy Hour", detail: "Access to exclusive golf happy hour sessions" },
+              ].map((b, i) => (
+                <div key={i} className="flex justify-between py-3 border-b border-wsc-border">
+                  <span className="text-ink text-[14px]">{b.benefit}</span>
+                  <span className="text-ink-mid text-[14px] text-right max-w-[280px]">{b.detail}</span>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/membership"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+            >
+              View All Membership Options
+            </Link>
+          </div>
         </div>
       </section>
 
