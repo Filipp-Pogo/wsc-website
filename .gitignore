@@ -13,6 +13,7 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
+.vercel/
 
 # IDE and editor files
 .vscode/
@@ -108,3 +109,4 @@ temp/
 
 # Webdev artifacts (checkpoint zips, migrations, etc.)
 .webdev/
+.vercel
