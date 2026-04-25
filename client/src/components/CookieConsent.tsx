@@ -29,6 +29,9 @@ function getStoredConsent(): ConsentState | null {
 
 function storeConsent(consent: ConsentState) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+  window.dispatchEvent(
+    new CustomEvent("wsc-cookie-consent-changed", { detail: consent }),
+  );
 }
 
 export default function CookieConsent() {

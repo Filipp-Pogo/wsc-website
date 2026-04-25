@@ -33,8 +33,17 @@ export default function Contact() {
         return;
       }
     }
-    toast.success("Message sent! We'll be in touch shortly.");
-    setForm({ firstName: "", lastName: "", email: "", message: "" });
+    const name = `${form.firstName} ${form.lastName}`.trim();
+    const subject = `Website inquiry from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${form.email}`,
+      "",
+      form.message,
+    ].join("\n");
+
+    window.location.href = `mailto:info@woodinvillesportsclub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    toast.info("Opening an email draft so your message can be sent.");
   };
 
   return (

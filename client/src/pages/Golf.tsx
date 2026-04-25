@@ -58,8 +58,18 @@ function PrivateLessonForm() {
       }
     }
     setSubmitted(true);
-    toast.success("Lesson request submitted! Our golf staff will contact you within 1–2 business days.");
-    setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
+    const subject = `Golf lesson request from ${form.name}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.phone ? `Phone: ${form.phone}` : null,
+      `Skill level: ${form.skillLevel}`,
+      "",
+      form.experience || "No additional goals provided.",
+    ].filter(Boolean).join("\n");
+
+    window.location.href = `mailto:info@woodinvillesportsclub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    toast.info("Opening an email draft so the golf staff receives your request.");
     setTimeout(() => setSubmitted(false), 4000);
   };
 
