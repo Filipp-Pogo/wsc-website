@@ -12,6 +12,8 @@ import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
 const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
@@ -26,6 +28,7 @@ export default function Tennis() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.tennis} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Tennis", url: "https://woodinvillesportsclub.com/tennis" },

@@ -14,6 +14,9 @@ import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
 const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
@@ -38,9 +41,22 @@ function PrivateLessonForm() {
     experience: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const { honeypotProps, validateSubmission } = useFormProtection();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const check = validateSubmission();
+    if (!check.valid) {
+      if (check.reason === "honeypot" || check.reason === "too_fast") {
+        toast.success("Lesson request submitted! Our golf staff will contact you within 1–2 business days.");
+        setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
+        return;
+      }
+      if (check.reason === "rate_limited") {
+        toast.error("Please wait a moment before submitting another request.");
+        return;
+      }
+    }
     setSubmitted(true);
     toast.success("Lesson request submitted! Our golf staff will contact you within 1–2 business days.");
     setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
@@ -125,6 +141,8 @@ function PrivateLessonForm() {
         />
       </div>
 
+      {/* Honeypot — invisible to humans, bots fill it */}
+      <input {...honeypotProps} />
       <button
         type="submit"
         disabled={submitted}
@@ -159,6 +177,7 @@ export default function Golf() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.golf} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Golf", url: "https://woodinvillesportsclub.com/golf" },

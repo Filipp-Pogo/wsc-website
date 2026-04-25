@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const PICKLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/pickleball-courts_30a446d6.jpg";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
@@ -27,6 +29,7 @@ export default function Pickleball() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.pickleball} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Pickleball", url: "https://woodinvillesportsclub.com/pickleball" },

@@ -7,6 +7,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const PROSHOP_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-proshop-interior-PvK9QmkgVpfuVtSvxLkuaa.webp";
 const STRINGING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-proshop-stringing-HwQnsyjWTswCvaL9wXGVmf.webp";
@@ -101,6 +103,7 @@ const SHOP_CATEGORIES = [
 export default function ProShop() {
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.proShop} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Pro Shop", url: "https://woodinvillesportsclub.com/pro-shop" },

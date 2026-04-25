@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const GYM_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-main-kbMDtnrHt7XhzvkRacRv7e.webp";
 const GYM_WEIGHTS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-weights-RzsgUqBr5ayotRkdcXJGYE.webp";
@@ -31,6 +33,7 @@ export default function Gym() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.gym} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Gym & APL", url: "https://woodinvillesportsclub.com/gym" },

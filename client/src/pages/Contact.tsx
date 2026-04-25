@@ -8,20 +8,38 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { toast } from "sonner";
 import StructuredData, { getContactPageSchema, getBreadcrumbSchema } from "@/components/StructuredData";
+import { useFormProtection } from "@/hooks/useFormProtection";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-exterior_368d9d74.jpg";
 
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const { honeypotProps, validateSubmission } = useFormProtection();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const check = validateSubmission();
+    if (!check.valid) {
+      // Silently reject bot submissions — show fake success so bots think it worked
+      if (check.reason === "honeypot" || check.reason === "too_fast") {
+        toast.success("Message sent! We'll be in touch shortly.");
+        setForm({ firstName: "", lastName: "", email: "", message: "" });
+        return;
+      }
+      if (check.reason === "rate_limited") {
+        toast.error("Please wait a moment before sending another message.");
+        return;
+      }
+    }
     toast.success("Message sent! We'll be in touch shortly.");
     setForm({ firstName: "", lastName: "", email: "", message: "" });
   };
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.contact} />
       <StructuredData schemas={[
         getContactPageSchema(),
         getBreadcrumbSchema([
@@ -101,6 +119,8 @@ export default function Contact() {
                   required
                 />
               </div>
+              {/* Honeypot — invisible to humans, bots fill it */}
+              <input {...honeypotProps} />
               <button
                 type="submit"
                 className="text-[12px] tracking-[0.14em] uppercase bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"

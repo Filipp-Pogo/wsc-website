@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 
@@ -99,8 +101,7 @@ const tiers = [
       "For non-members or Class Access members",
       "Test out golf simulators before committing",
       "Book simulator sessions at regular rates with 7-day window",
-      "Bring up to 3 guests for free through March 31",
-      "Valid through March 31, 2026",
+      "Bring up to 3 guests per session",
       "Trial members may upgrade at any time",
     ],
   },
@@ -254,6 +255,7 @@ function FAQSection() {
 export default function Membership() {
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.membership} />
       <StructuredData schemas={[getBreadcrumbSchema([
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Membership", url: "https://woodinvillesportsclub.com/membership" },

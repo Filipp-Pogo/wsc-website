@@ -6,12 +6,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { Link } from "wouter";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 
 export default function Accessibility() {
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.accessibility} />
       <Navbar />
       <PageHero
         eyebrow="Accessibility"

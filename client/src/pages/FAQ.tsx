@@ -10,6 +10,8 @@ import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData
 import { Link } from "wouter";
 import { useState } from "react";
 import { ChevronDown, Search } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 
@@ -294,6 +296,7 @@ export default function FAQ() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.faq} />
       <Navbar />
       <StructuredData schemas={[
         getBreadcrumbSchema([

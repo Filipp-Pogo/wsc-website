@@ -10,6 +10,8 @@ import { ChevronRight, Clock, Users, MapPin, Sun, Zap, Trophy, Calendar, ArrowRi
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData, { getSummerCampSchema, getBreadcrumbSchema } from "@/components/StructuredData";
+import SEOHead from "@/components/SEOHead";
+import { SEO } from "@/lib/seo-data";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
@@ -416,6 +418,7 @@ export default function Summer() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...SEO.summer} />
       <StructuredData schemas={[
         getSummerCampSchema(),
         getBreadcrumbSchema([
