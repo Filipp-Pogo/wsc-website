@@ -2,11 +2,13 @@
  * 4B Design — Membership Page
  * Real content from WSC website crawl
  */
+import { useState } from "react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
 
@@ -103,6 +105,151 @@ const tiers = [
     ],
   },
 ];
+
+const FAQ_ITEMS = [
+  {
+    category: "Pricing & Plans",
+    items: [
+      {
+        q: "What membership options are available?",
+        a: "We offer six tiers: Family All-Access ($100/mo), Couple All-Access ($70/mo), Individual All-Access ($40/mo), Court & Range Access ($120/yr), Class Registration ($50/yr), and a Trial Golf Simulators pass ($20 one-time). Monthly memberships include a $50 + tax initiation fee.",
+      },
+      {
+        q: "Is there a discount for families?",
+        a: "Yes. The Family All-Access Pass covers all household members (two adults plus kids 17 and under) for $100/month + tax. It includes full access to all facilities, classes, court booking, and golf simulator discounts.",
+      },
+      {
+        q: "What does the Court & Range Access Pass include?",
+        a: "For $120/year + tax, you get court booking privileges, 7-day advance golf simulator reservations, $4 off range buckets, mini-golf discounts, beverage discounts, and access to golf happy hour sessions. Class and court fees still apply.",
+      },
+      {
+        q: "Are there any hidden fees?",
+        a: "Monthly memberships require a one-time $50 + tax initiation fee. Annual passes have no initiation fee. All listed prices are subject to applicable sales tax. Court booking and class registration fees apply separately based on the activity.",
+      },
+      {
+        q: "Can I try the golf simulators before committing to a membership?",
+        a: "Absolutely. Our Trial Golf Simulators pass is $20 + tax (one-time) and lets you book simulator sessions at regular rates with a 7-day booking window. You can upgrade to a full membership at any time.",
+      },
+    ],
+  },
+  {
+    category: "Booking & Access",
+    items: [
+      {
+        q: "How do I book courts and simulators?",
+        a: "All bookings are made through CourtReserve, our online reservation platform. You can book tennis courts, pickleball courts, and golf simulators. Court & Range Access Pass holders and All-Access members can book up to 7 days in advance for simulators.",
+      },
+      {
+        q: "Do I need a membership to use the driving range?",
+        a: "No. The driving range is open to the public — no membership required. Simply purchase a bucket of balls at the range. Membership holders receive $4 off each bucket.",
+      },
+      {
+        q: "Can I bring guests to the facility?",
+        a: "Yes. Guest policies vary by membership tier and activity. All-Access members can bring guests to the gym and fitness areas. Golf simulator trial members can bring up to 3 guests for free through the promotional period. Check with the front desk for current guest policies.",
+      },
+      {
+        q: "What are the facility hours?",
+        a: "Tennis & Gym: Weekdays 6:00 AM \u2013 11:00 PM, Weekends 7:00 AM \u2013 10:00 PM. Golf Range: Everyday 9:00 AM \u2013 10:00 PM. Pickleball open play runs 7 days a week \u2014 check the schedule for specific session times. Holiday hours may vary.",
+      },
+    ],
+  },
+  {
+    category: "Cancellations & Changes",
+    items: [
+      {
+        q: "How do I cancel my membership?",
+        a: "Monthly memberships can be cancelled by contacting the front desk or emailing info@woodinvillesportsclub.com. A 30-day written notice is required. Annual passes are non-refundable once purchased but will not auto-renew if cancelled before the renewal date.",
+      },
+      {
+        q: "Can I upgrade or downgrade my membership?",
+        a: "Yes. You can upgrade your membership at any time \u2014 the difference will be prorated. Downgrades take effect at the start of your next billing cycle. Contact the front desk to make changes.",
+      },
+      {
+        q: "What is the cancellation policy for court bookings?",
+        a: "Court and simulator reservations can be cancelled up to 24 hours in advance without penalty. Late cancellations or no-shows may result in a fee. Repeated no-shows may affect future booking privileges.",
+      },
+      {
+        q: "Can I freeze my membership temporarily?",
+        a: "Monthly All-Access memberships may be frozen for up to 2 months per year for medical reasons or extended travel. A freeze request must be submitted in writing to the front desk. Annual passes cannot be frozen.",
+      },
+    ],
+  },
+];
+
+function FAQSection() {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.05 });
+  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
+
+  const toggle = (id: string) => {
+    setOpenItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  return (
+    <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+      <div
+        ref={ref}
+        className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      >
+        <div className="mb-14 pb-8 border-b border-wsc-border">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Frequently Asked Questions</p>
+          <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
+            Common questions,<br />clear answers.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+          {FAQ_ITEMS.map((cat) => (
+            <div key={cat.category}>
+              <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-6">{cat.category}</p>
+              <div className="space-y-0">
+                {cat.items.map((item, i) => {
+                  const id = `${cat.category}-${i}`;
+                  const isOpen = openItems.has(id);
+                  return (
+                    <div key={id} className="border-b border-wsc-border">
+                      <button
+                        onClick={() => toggle(id)}
+                        className="w-full flex items-start justify-between gap-3 py-4 text-left group"
+                        aria-expanded={isOpen}
+                      >
+                        <span className="text-ink text-[14px] leading-[1.55] font-normal group-hover:text-volt transition-colors duration-200">
+                          {item.q}
+                        </span>
+                        <svg
+                          className={`shrink-0 w-4 h-4 mt-1 text-ink-light transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-out ${
+                          isOpen ? "max-h-[400px] opacity-100 pb-4" : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        <p className="text-ink-mid text-[13px] leading-[1.72] pr-6">
+                          {item.a}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Membership() {
   return (
@@ -206,6 +353,9 @@ export default function Membership() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* CTA */}
       <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
