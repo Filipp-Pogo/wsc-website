@@ -22,6 +22,7 @@ The scraper stores raw snapshots in `.scrape/woodinvillesportsclub.com/`, which 
 
 - Replaced generated/CloudFront image URLs with local WSC images in `client/public/images/wsc/`.
 - Added a local WSC logo at `client/public/logo.png` for structured data.
+- Moved legacy Wix URL handling into Vercel-level redirects; see `LEGACY_URL_REDIRECTS.md`.
 - Updated footer hours to match the repeated live-site footer:
   - Tennis: weekdays 6AM-11PM, weekends 7AM-10PM
   - Gym: weekdays 6AM-11PM, weekends 7AM-10PM
