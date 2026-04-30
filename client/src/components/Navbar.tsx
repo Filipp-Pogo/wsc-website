@@ -62,8 +62,12 @@ export default function Navbar() {
       <MarketingBanner />
 
       <div className="flex items-center justify-between px-6 lg:px-14 py-5 border-b border-white/[0.08]">
-        <Link href="/" className="text-parchment text-[13px] tracking-[0.14em] uppercase font-medium no-underline">
-          Woodinville Sports Club
+        <Link href="/" className="flex items-center no-underline" aria-label="Woodinville Sports Club home">
+          <img
+            src="/logo.png"
+            alt="Woodinville Sports Club"
+            className="block h-9 sm:h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop links */}
