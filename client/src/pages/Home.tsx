@@ -17,7 +17,6 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "/images/wsc/campus-dome.webp";
 const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
 const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
 const PERF_IMG = "/images/wsc/gym-main.webp";
@@ -34,6 +33,44 @@ const SWINGLAB_IMG = "/images/wsc/swing-lab-simulators.webp";
 const TENNIS_LESSON_IMG = "/images/wsc/tennis-player.webp";
 const FITNESS_TRAINING_IMG = "/images/wsc/apl-training.webp";
 const SUMMER_KIDS_IMG = "/images/wsc/summer-camp.webp";
+
+const heroCollageImages = [
+  {
+    src: GALLERY_AERIAL,
+    objectPosition: "center",
+    className: "col-span-2 row-span-2 lg:col-span-4 lg:row-span-6",
+  },
+  {
+    src: TENNIS_LESSON_IMG,
+    objectPosition: "center",
+    className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
+  },
+  {
+    src: SUMMER_KIDS_IMG,
+    objectPosition: "center 32%",
+    className: "col-span-1 row-span-2 lg:col-span-2 lg:row-span-3",
+  },
+  {
+    src: TENNIS_IMG,
+    objectPosition: "center",
+    className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
+  },
+  {
+    src: GOLF_IMG,
+    objectPosition: "center",
+    className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
+  },
+  {
+    src: FITNESS_TRAINING_IMG,
+    objectPosition: "center 34%",
+    className: "hidden lg:block lg:col-span-2 lg:row-span-3",
+  },
+  {
+    src: SWINGLAB_IMG,
+    objectPosition: "center",
+    className: "hidden lg:block lg:col-span-3 lg:row-span-3",
+  },
+];
 
 const metrics = [
   { label: "Indoor Tennis Courts", val: "8", unit: "climate controlled" },
@@ -195,14 +232,27 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[130px]">
-        <img
-          src={HERO_IMG}
-          alt="" role="presentation"
-          className="absolute inset-0 w-full h-full object-cover object-[center_30%] saturate-[0.4] brightness-[0.55]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.85)] via-[rgba(22,19,16,0.35)] to-[rgba(22,19,16,0.1)]" />
+        <div
+          className="absolute inset-0 grid grid-cols-2 grid-rows-6 gap-px bg-dark-bg lg:grid-cols-12"
+          aria-hidden="true"
+        >
+          {heroCollageImages.map((tile) => (
+            <div key={tile.src} className={`relative overflow-hidden ${tile.className}`}>
+              <img
+                src={tile.src}
+                alt=""
+                role="presentation"
+                className="h-full w-full object-cover saturate-[0.72] brightness-[0.68] contrast-[1.05] lg:scale-[1.02]"
+                style={{ objectPosition: tile.objectPosition }}
+              />
+              <div className="absolute inset-0 bg-dark-bg/5" />
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-bg via-[rgba(22,19,16,0.72)] to-[rgba(22,19,16,0.24)] lg:via-[rgba(22,19,16,0.46)] lg:to-[rgba(22,19,16,0.08)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-[rgba(22,19,16,0.22)] to-[rgba(22,19,16,0.06)]" />
 
-        <div className="relative z-10 px-6 lg:px-14 pb-0 max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end">
+        <div className="relative z-10 px-6 lg:px-14 pb-0 max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.7fr)] gap-10 lg:gap-16 items-end">
           <div className="pb-16 lg:pb-20">
             <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-7">
               Woodinville, Washington — Pacific Northwest
@@ -244,29 +294,31 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pb-16 lg:pb-20 border-l-0 lg:border-l border-parchment/[0.1] lg:pl-16">
-            {metrics.map((m, i) => (
-              <div
-                key={i}
-                className={`flex justify-between items-baseline py-6 ${
-                  i < metrics.length - 1 ? "border-b border-parchment/[0.08]" : ""
-                }`}
-              >
-                <span className="text-parchment/60 text-[12px] tracking-[0.12em] uppercase">
-                  {m.label}
-                </span>
-                <span>
-                  <span className="text-volt-bright text-[32px] font-light tracking-[-0.02em] leading-none">
-                    {m.val}
+          <div className="pb-12 lg:pb-20">
+            <div className="border border-parchment/[0.1] bg-dark-bg/45 px-5 backdrop-blur-[2px] sm:px-8">
+              {metrics.map((m, i) => (
+                <div
+                  key={i}
+                  className={`flex justify-between gap-5 items-baseline py-5 sm:py-6 ${
+                    i < metrics.length - 1 ? "border-b border-parchment/[0.08]" : ""
+                  }`}
+                >
+                  <span className="text-parchment/60 text-[12px] tracking-[0.12em] uppercase">
+                    {m.label}
                   </span>
-                  {m.unit && (
-                    <span className="text-parchment/50 text-[12px] tracking-[0.1em] uppercase ml-2">
-                      {m.unit}
+                  <span className="text-right">
+                    <span className="text-volt-bright text-[32px] font-light tracking-[-0.02em] leading-none">
+                      {m.val}
                     </span>
-                  )}
-                </span>
-              </div>
-            ))}
+                    {m.unit && (
+                      <span className="text-parchment/50 text-[12px] tracking-[0.1em] uppercase ml-2">
+                        {m.unit}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -825,7 +877,7 @@ export default function Home() {
       {/* ── INSTAGRAM FEED ── */}
       <section className="bg-parchment px-6 lg:px-14 py-20 lg:py-24">
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex flex-col gap-5 mb-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-3">Follow Us</p>
               <h2 className="text-[clamp(22px,2.4vw,32px)] font-light tracking-[-0.02em] leading-[1.15]">
@@ -836,7 +888,7 @@ export default function Home() {
               href="https://www.instagram.com/woodinvillesportsclub"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[12px] tracking-[0.12em] uppercase no-underline text-ink border border-wsc-border px-6 py-2.5 hover:border-volt hover:text-volt transition-colors duration-200"
+              className="inline-flex items-center gap-2 self-start text-[12px] tracking-[0.12em] uppercase no-underline text-ink border border-wsc-border px-6 py-2.5 hover:border-volt hover:text-volt transition-colors duration-200 sm:self-auto"
             >
               <Instagram size={14} />
               Follow on Instagram
