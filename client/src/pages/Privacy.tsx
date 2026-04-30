@@ -11,7 +11,7 @@ import { Link } from "wouter";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
+const HERO_IMG = "/images/wsc/campus-dome.webp";
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">{children}</p>;

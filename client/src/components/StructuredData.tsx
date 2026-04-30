@@ -41,9 +41,8 @@ const WSC_GEO = {
 
 /* ─── Opening Hours ─── */
 const WSC_HOURS = [
-  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "06:00", closes: "21:00" },
-  { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "07:00", closes: "20:00" },
-  { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "07:00", closes: "18:00" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "06:00", closes: "23:00" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "07:00", closes: "22:00" },
 ];
 
 /* ─── Main LocalBusiness + SportsActivityLocation Schema ─── */
@@ -60,8 +59,8 @@ export function getLocalBusinessSchema() {
     telephone: "+1-425-487-1090",
     email: "info@woodinvillesportsclub.com",
     image: [
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg",
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-hero_1c5d8a3e.jpg",
+      "https://woodinvillesportsclub.com/images/wsc/campus-dome.webp",
+      "https://woodinvillesportsclub.com/images/wsc/tennis-courts.webp",
     ],
     logo: "https://woodinvillesportsclub.com/logo.png",
     address: WSC_ADDRESS,

@@ -15,8 +15,8 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
-const TENNIS_ACTION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
+const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
+const TENNIS_ACTION = "/images/wsc/tennis-player.webp";
 
 export default function Tennis() {
   // Scroll-reveal hooks

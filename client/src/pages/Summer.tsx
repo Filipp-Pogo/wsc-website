@@ -13,10 +13,10 @@ import StructuredData, { getSummerCampSchema, getBreadcrumbSchema } from "@/comp
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
-const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
-const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
-const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-apl_168d952e.jpeg";
+const HERO_IMG = "/images/wsc/campus-dome.webp";
+const TENNIS_IMG = "/images/wsc/summer-camp.webp";
+const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
+const PERF_IMG = "/images/wsc/apl-training.webp";
 
 /* ─── Program Explorer Types ─── */
 type ProgramKey = "tennis" | "golf" | "adventure";

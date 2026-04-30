@@ -12,7 +12,7 @@ import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-exterior_368d9d74.jpg";
+const HERO_IMG = "/images/wsc/contact-campus.webp";
 
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });

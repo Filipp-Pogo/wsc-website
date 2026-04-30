@@ -18,11 +18,11 @@ import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
-const GOLF_SUNSET = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
-const SIM_BAY_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-bay-b27xhwZZfcgtCUYYzrMUzN.webp";
-const SIM_SCREEN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-screen-a8ZgKeFQVWNrVWHTfStJQE.webp";
-const SIM_LOUNGE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-simulator-lounge-9SbZwcbCL97SqWKqef278g.webp";
+const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
+const GOLF_SUNSET = "/images/wsc/campus-sunset.webp";
+const SIM_BAY_IMG = "/images/wsc/swing-lab-simulators.webp";
+const SIM_SCREEN_IMG = "/images/wsc/swing-lab-simulators.webp";
+const SIM_LOUNGE_IMG = "/images/wsc/swing-lab-simulators.webp";
 
 const SKILL_LEVELS = [
   "Beginner — Never played or just starting",

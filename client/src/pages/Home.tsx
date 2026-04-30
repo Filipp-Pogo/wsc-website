@@ -17,23 +17,23 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/hero-campus-YM3mcvUEufhyrArKQifwwG.webp";
-const TENNIS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-courts-indoor_9c2f3805.png";
-const GOLF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-range_9238eade.jpg";
-const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-gym_0d1e0831.jpg";
-const PICKLE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/pickleball-courts_30a446d6.jpg";
+const HERO_IMG = "/images/wsc/campus-dome.webp";
+const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
+const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
+const PERF_IMG = "/images/wsc/gym-main.webp";
+const PICKLE_IMG = "/images/wsc/pickleball-dome.webp";
 
 /* Generated gallery images */
-const GALLERY_TENNIS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-tennis-action-JmWKsZmyNBc8EkvEeBdjz9.webp";
-const GALLERY_GOLF = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-golf-sunset-4rf3PMHnvUxKJFv49qxgeS.webp";
-const GALLERY_YOUTH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-youth-training-fzR4bkTsjP6QpYS2R2Qisf.webp";
-const GALLERY_AERIAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gallery-campus-aerial-8wo6tNdxv3qg4KeBNBJjwd.webp";
+const GALLERY_TENNIS = "/images/wsc/tennis-player.webp";
+const GALLERY_GOLF = "/images/wsc/campus-sunset.webp";
+const GALLERY_YOUTH = "/images/wsc/apl-training.webp";
+const GALLERY_AERIAL = "/images/wsc/golf-range-aerial.webp";
 
 /* Real facility photos */
-const SWINGLAB_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/golf-swinglab_317d4474.jpg";
-const TENNIS_LESSON_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/tennis-lesson_f845dcaf.jpeg";
-const FITNESS_TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-training_dc50d579.jpeg";
-const SUMMER_KIDS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/summer-kids_c9d92fda.jpeg";
+const SWINGLAB_IMG = "/images/wsc/swing-lab-simulators.webp";
+const TENNIS_LESSON_IMG = "/images/wsc/tennis-player.webp";
+const FITNESS_TRAINING_IMG = "/images/wsc/apl-training.webp";
+const SUMMER_KIDS_IMG = "/images/wsc/summer-camp.webp";
 
 const metrics = [
   { label: "Indoor Tennis Courts", val: "8", unit: "climate controlled" },

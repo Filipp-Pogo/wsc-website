@@ -10,8 +10,8 @@ import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const PROSHOP_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-proshop-interior-PvK9QmkgVpfuVtSvxLkuaa.webp";
-const STRINGING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-proshop-stringing-HwQnsyjWTswCvaL9wXGVmf.webp";
+const PROSHOP_HERO = "/images/wsc/racket-stringing.webp";
+const STRINGING_IMG = "/images/wsc/racket-stringing.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 const STRING_OPTIONS = [

@@ -10,7 +10,7 @@ import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
+const HERO_IMG = "/images/wsc/campus-dome.webp";
 
 export default function About() {
   return (

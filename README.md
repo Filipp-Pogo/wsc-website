@@ -22,6 +22,16 @@ pnpm verify
 pnpm start
 ```
 
+## Live Site Scrape
+
+```bash
+pnpm scrape:live
+```
+
+The scraper crawls the current Wix site into `.scrape/` for content and photo
+comparison. The raw scrape is ignored by Git; production-ready images live in
+`client/public/images/wsc/`.
+
 ## Environment
 
 Analytics is optional and consent-gated. Copy `.env.example` to `.env.local`

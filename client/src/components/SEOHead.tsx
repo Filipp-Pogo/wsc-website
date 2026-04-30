@@ -8,8 +8,12 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://woodinvillesportsclub.com";
-const DEFAULT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/about-campus_70f7e2b0.jpg";
+const DEFAULT_IMAGE = "/images/wsc/campus-dome.webp";
 const SITE_NAME = "Woodinville Sports Club";
+
+function absoluteUrl(value: string) {
+  return value.startsWith("http") ? value : `${BASE_URL}${value}`;
+}
 
 /**
  * Sets per-page <title>, meta description, canonical URL, and OG/Twitter tags.
@@ -19,7 +23,7 @@ export default function SEOHead({ title, description, path, image }: SEOHeadProp
   useEffect(() => {
     const fullTitle = `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${BASE_URL}${path}`;
-    const ogImage = image || DEFAULT_IMAGE;
+    const ogImage = absoluteUrl(image || DEFAULT_IMAGE);
 
     // Title
     document.title = fullTitle;
@@ -69,10 +73,10 @@ export default function SEOHead({ title, description, path, image }: SEOHeadProp
       setMeta("property", "og:url", `${BASE_URL}/`);
       setMeta("property", "og:title", `${SITE_NAME} | World-Class Sports Training`);
       setMeta("property", "og:description", "A 67-acre performance campus featuring tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber.");
-      setMeta("property", "og:image", DEFAULT_IMAGE);
+      setMeta("property", "og:image", absoluteUrl(DEFAULT_IMAGE));
       setMeta("name", "twitter:title", `${SITE_NAME} | World-Class Sports Training`);
       setMeta("name", "twitter:description", "A 67-acre performance campus featuring tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber.");
-      setMeta("name", "twitter:image", DEFAULT_IMAGE);
+      setMeta("name", "twitter:image", absoluteUrl(DEFAULT_IMAGE));
     };
   }, [title, description, path, image]);
 

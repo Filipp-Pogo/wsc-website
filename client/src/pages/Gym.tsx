@@ -13,10 +13,10 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
-const GYM_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-main-kbMDtnrHt7XhzvkRacRv7e.webp";
-const GYM_WEIGHTS = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-weights-RzsgUqBr5ayotRkdcXJGYE.webp";
-const GYM_FUNCTIONAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/wsc-gym-functional-TNis4jbtrUgkmbUojh2MTU.webp";
-const PERF_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663356767696/GmdCMwsk6BDHemXNoKKRRf/fitness-gym_0d1e0831.jpg";
+const GYM_HERO = "/images/wsc/gym-main.webp";
+const GYM_WEIGHTS = "/images/wsc/gym-floor.webp";
+const GYM_FUNCTIONAL = "/images/wsc/apl-training.webp";
+const PERF_IMG = "/images/wsc/gym-main.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 export default function Gym() {
@@ -379,9 +379,8 @@ export default function Gym() {
             </div>
             <div className="space-y-4">
               {[
-                { day: "Monday – Friday", hours: "6:00 AM – 9:00 PM" },
-                { day: "Saturday", hours: "7:00 AM – 7:00 PM" },
-                { day: "Sunday", hours: "8:00 AM – 6:00 PM" },
+                { day: "Monday – Friday", hours: "6:00 AM – 10:00 PM" },
+                { day: "Saturday – Sunday", hours: "7:00 AM – 10:00 PM" },
               ].map((h, i) => (
                 <div key={i} className="flex items-center justify-between py-4 border-b border-ink/10">
                   <span className="text-[15px] font-light">{h.day}</span>
