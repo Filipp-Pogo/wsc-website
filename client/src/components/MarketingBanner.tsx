@@ -57,6 +57,7 @@ export default function MarketingBanner({
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 py-2.5 sm:py-3">
         {/* Dismiss button — mobile only (absolute top-right so it doesn't crowd content) */}
         <button
+          type="button"
           onClick={() => setDismissed(true)}
           className="sm:hidden absolute top-2.5 right-3 text-[#161310]/30 hover:text-[#161310]/70 transition-colors duration-200 p-1 z-10"
           aria-label="Dismiss banner"
@@ -110,6 +111,7 @@ export default function MarketingBanner({
             )}
             {/* Desktop dismiss — visible on sm+ only */}
             <button
+              type="button"
               onClick={() => setDismissed(true)}
               className="hidden sm:block text-[#161310]/30 hover:text-[#161310]/70 transition-colors duration-200 p-1"
               aria-label="Dismiss banner"

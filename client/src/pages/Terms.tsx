@@ -4,8 +4,6 @@
  * facility usage rules, booking policies, code of conduct, and general legal terms.
  * Design matches Privacy and Accessibility page structure (PageHero + alternating sections).
  */
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { Link } from "wouter";
@@ -79,7 +77,6 @@ export default function Terms() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Terms of Service", url: "https://woodinvillesportsclub.com/terms" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Terms of Service"
         headline="Terms &amp; Conditions."
@@ -539,8 +536,6 @@ export default function Terms() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

@@ -4,8 +4,6 @@
  */
 import { useState } from "react";
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -210,13 +208,19 @@ function FAQSection() {
               <div className="space-y-0">
                 {cat.items.map((item, i) => {
                   const id = `${cat.category}-${i}`;
+                  const safeId = id.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+                  const questionId = `membership-faq-question-${safeId}`;
+                  const answerId = `membership-faq-answer-${safeId}`;
                   const isOpen = openItems.has(id);
                   return (
                     <div key={id} className="border-b border-wsc-border">
                       <button
+                        type="button"
+                        id={questionId}
                         onClick={() => toggle(id)}
                         className="w-full flex items-start justify-between gap-3 py-4 text-left group"
                         aria-expanded={isOpen}
+                        aria-controls={answerId}
                       >
                         <span className="text-ink text-[14px] leading-[1.55] font-normal group-hover:text-volt transition-colors duration-200">
                           {item.q}
@@ -232,6 +236,10 @@ function FAQSection() {
                         </svg>
                       </button>
                       <div
+                        id={answerId}
+                        role="region"
+                        aria-labelledby={questionId}
+                        aria-hidden={!isOpen}
                         className={`overflow-hidden transition-all duration-300 ease-out ${
                           isOpen ? "max-h-[400px] opacity-100 pb-4" : "max-h-0 opacity-0"
                         }`}
@@ -260,7 +268,6 @@ export default function Membership() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Membership", url: "https://woodinvillesportsclub.com/membership" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Membership"
         headline="Train Without Limits."
@@ -387,8 +394,6 @@ export default function Membership() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

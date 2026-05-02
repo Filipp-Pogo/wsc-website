@@ -3,8 +3,6 @@
  * Real content from WSC website crawl
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import SEOHead from "@/components/SEOHead";
@@ -22,7 +20,6 @@ export default function About() {
           { name: "About", url: "https://woodinvillesportsclub.com/about" },
         ]),
       ]} />
-      <Navbar />
       <PageHero
         eyebrow="About WSC"
         headline="Elevating Athletic Excellence Since 1979."
@@ -220,8 +217,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

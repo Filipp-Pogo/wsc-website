@@ -3,8 +3,6 @@
  * WSC on-site stringing services, racquet accessories, apparel, and golf gear
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import SEOHead from "@/components/SEOHead";
@@ -108,7 +106,6 @@ export default function ProShop() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Pro Shop", url: "https://woodinvillesportsclub.com/pro-shop" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="On-Site Pro Shop"
         headline="Stringing & Pro Shop"
@@ -327,8 +324,6 @@ export default function ProShop() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

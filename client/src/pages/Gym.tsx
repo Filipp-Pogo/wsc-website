@@ -5,8 +5,6 @@
  * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
@@ -38,7 +36,6 @@ export default function Gym() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Gym & APL", url: "https://woodinvillesportsclub.com/gym" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Gym & Athletic Performance Lab"
         headline="Your Gym. Your Goals."
@@ -424,8 +421,6 @@ export default function Gym() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

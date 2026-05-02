@@ -3,8 +3,6 @@
  * membership agreement, court booking, and facility rules.
  * Accordion-style Q&A organized by category.
  */
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { Link } from "wouter";
@@ -226,13 +224,19 @@ const FAQS: FAQItem[] = [
 
 /* ── Accordion Item ──────────────────────────────────────── */
 
-function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
+function AccordionItem({ item, itemId, isOpen, onToggle }: { item: FAQItem; itemId: string; isOpen: boolean; onToggle: () => void }) {
+  const questionId = `faq-question-${itemId}`;
+  const answerId = `faq-answer-${itemId}`;
+
   return (
     <div className="border-b border-ink/8">
       <button
+        type="button"
+        id={questionId}
         onClick={onToggle}
         className="w-full flex items-start justify-between gap-4 py-5 px-1 text-left bg-transparent border-none cursor-pointer group"
         aria-expanded={isOpen}
+        aria-controls={answerId}
       >
         <span className={`text-[15px] leading-[1.55] transition-colors duration-200 ${isOpen ? "text-ink font-medium" : "text-ink-mid group-hover:text-ink"}`}>
           {item.q}
@@ -243,6 +247,10 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: bool
         />
       </button>
       <div
+        id={answerId}
+        role="region"
+        aria-labelledby={questionId}
+        aria-hidden={!isOpen}
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[500px] opacity-100 pb-5" : "max-h-0 opacity-0"}`}
       >
         <p className="text-ink-mid text-[14px] leading-[1.78] px-1 pr-10">
@@ -297,7 +305,6 @@ export default function FAQ() {
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.faq} />
-      <Navbar />
       <StructuredData schemas={[
         getBreadcrumbSchema([
           { name: "Home", url: "https://woodinvillesportsclub.com/" },
@@ -332,6 +339,8 @@ export default function FAQ() {
           {/* Category Pills */}
           <div className="flex flex-wrap gap-2">
             <button
+              type="button"
+              aria-pressed={activeCategory === "all"}
               onClick={() => { setActiveCategory("all"); setOpenItems(new Set()); }}
               className={`text-[11px] tracking-[0.1em] uppercase px-4 py-2 border transition-all duration-200 cursor-pointer ${
                 activeCategory === "all"
@@ -345,7 +354,9 @@ export default function FAQ() {
               const count = FAQS.filter((f) => f.category === cat.id).length;
               return (
                 <button
+                  type="button"
                   key={cat.id}
+                  aria-pressed={activeCategory === cat.id}
                   onClick={() => { setActiveCategory(cat.id); setOpenItems(new Set()); }}
                   className={`text-[11px] tracking-[0.1em] uppercase px-4 py-2 border transition-all duration-200 cursor-pointer ${
                     activeCategory === cat.id
@@ -366,7 +377,7 @@ export default function FAQ() {
         <div className="max-w-[900px] mx-auto">
           {filteredFAQs.length > 0 ? (
             <>
-              <p className="text-ink-light text-[13px] tracking-[0.06em] mb-8">
+              <p className="text-ink-light text-[13px] tracking-[0.06em] mb-8" role="status" aria-live="polite">
                 Showing {filteredFAQs.length} of {FAQS.length} questions
                 {activeCategory !== "all" && (
                   <> in <span className="text-ink font-medium">{FAQ_CATEGORIES.find(c => c.id === activeCategory)?.label}</span></>
@@ -382,6 +393,7 @@ export default function FAQ() {
                     <AccordionItem
                       key={globalIndex}
                       item={faq}
+                      itemId={`faq-${globalIndex}`}
                       isOpen={openItems.has(globalIndex)}
                       onToggle={() => toggleItem(globalIndex)}
                     />
@@ -396,6 +408,7 @@ export default function FAQ() {
                 Try a different search term or browse all categories.
               </p>
               <button
+                type="button"
                 onClick={() => { setSearchQuery(""); setActiveCategory("all"); }}
                 className="text-[12px] tracking-[0.1em] uppercase text-volt border border-volt px-6 py-2.5 bg-transparent cursor-pointer hover:bg-volt hover:text-dark-bg transition-colors duration-200"
               >
@@ -453,8 +466,6 @@ export default function FAQ() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

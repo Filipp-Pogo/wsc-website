@@ -6,8 +6,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { Instagram, Calendar, Clock, MapPin, ChevronRight, Quote } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import InstagramFeed from "@/components/InstagramFeed";
 import FacilityGallery from "@/components/FacilityGallery";
 import Tier1Banner from "@/components/Tier1Banner";
@@ -223,12 +221,18 @@ export default function Home() {
   const { ref: dayRef, isVisible: dayVisible } = useScrollReveal({ threshold: 0.08 });
   const { containerRef: testimonialRef, visibleItems: testimonialVisible } = useStaggerReveal(3, { staggerDelay: 160, threshold: 0.1 });
   const { ref: membershipRef, isVisible: membershipVisible } = useScrollReveal({ threshold: 0.1 });
+  const [newsletterStatus, setNewsletterStatus] = useState("");
+
+  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setNewsletterStatus("Thank you for subscribing. Check your inbox for a welcome email.");
+    e.currentTarget.reset();
+  };
 
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.home} />
       <StructuredData schemas={[getLocalBusinessSchema(), getWebSiteSchema(), getFAQSchema()]} />
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[130px]">
@@ -561,14 +565,17 @@ export default function Home() {
 
               <div className="space-y-2">
                 {dayAtWSC.map((step, i) => (
-                  <div
+                  <button
+                    type="button"
                     key={i}
-                    className={`relative lg:pl-14 p-6 lg:p-8 cursor-pointer transition-all duration-400 ${
+                    aria-expanded={activeDayStep === i}
+                    aria-controls={`day-at-wsc-step-${i}`}
+                    onClick={() => setActiveDayStep(i)}
+                    className={`relative w-full text-left lg:pl-14 p-6 lg:p-8 transition-all duration-400 ${
                       activeDayStep === i
                         ? "bg-parchment-mid"
                         : "hover:bg-parchment-mid/50"
                     }`}
-                    onClick={() => setActiveDayStep(i)}
                   >
                     {/* Timeline dot */}
                     <div
@@ -590,31 +597,32 @@ export default function Home() {
                         </span>
                       </div>
                       <div className="flex-1">
-                        <h3
-                          className={`text-[18px] font-light tracking-[-0.01em] mb-1.5 transition-colors duration-300 ${
+                        <span
+                          className={`block text-[18px] font-light tracking-[-0.01em] mb-1.5 transition-colors duration-300 ${
                             activeDayStep === i ? "text-ink" : "text-ink/70"
                           }`}
                         >
                           {step.title}
-                        </h3>
-                        <div
+                        </span>
+                        <span
+                          id={`day-at-wsc-step-${i}`}
                           className={`overflow-hidden transition-all duration-500 ease-out ${
                             activeDayStep === i ? "max-h-[100px] opacity-100" : "max-h-0 opacity-0"
                           }`}
                         >
-                          <p className="text-ink-mid text-[14px] leading-[1.72] mb-2">
+                          <span className="block text-ink-mid text-[14px] leading-[1.72] mb-2">
                             {step.desc}
-                          </p>
-                          <div className="flex items-center gap-1.5">
+                          </span>
+                          <span className="flex items-center gap-1.5">
                             <MapPin size={11} className="text-volt" />
                             <span className="text-volt text-[11px] tracking-[0.12em] uppercase">
                               {step.location}
                             </span>
-                          </div>
-                        </div>
+                          </span>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -848,7 +856,7 @@ export default function Home() {
           <p className="text-parchment/60 text-[15px] leading-[1.75] mb-8">
             Weekly schedules, open play times, registration deadlines, and member-only updates — delivered to your inbox every Monday.
           </p>
-          <form onSubmit={(e) => { e.preventDefault(); const toast = document.createElement('div'); toast.textContent = 'Thank you for subscribing! Check your inbox for a welcome email.'; toast.className = 'fixed top-24 left-1/2 -translate-x-1/2 bg-volt-bright text-dark-bg px-6 py-3 text-[13px] tracking-wide z-[9999] shadow-lg'; document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000); }}>
+          <form onSubmit={handleNewsletterSubmit}>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input
@@ -866,6 +874,14 @@ export default function Home() {
                 Subscribe
               </button>
             </div>
+            <p
+              className="sr-only"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {newsletterStatus}
+            </p>
             <p className="text-parchment/30 text-[11px] leading-[1.6] mt-4">
               Unsubscribe at any time. See our{" "}
               <Link href="/privacy" className="text-parchment/50 underline hover:text-parchment/70 transition-colors">Privacy Policy</Link>.
@@ -897,8 +913,6 @@ export default function Home() {
           <InstagramFeed />
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

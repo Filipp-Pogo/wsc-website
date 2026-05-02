@@ -3,8 +3,6 @@
  * Real content from WSC website crawl
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 
@@ -17,7 +15,6 @@ export default function Fitness() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "APL Fitness", url: "https://woodinvillesportsclub.com/fitness" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Athletic Performance Lab"
         headline="Where Champions Are Built."
@@ -152,8 +149,6 @@ export default function Fitness() {
           </Link>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

@@ -118,21 +118,24 @@ export default function CookieConsent() {
             {/* Buttons */}
             <div className="flex items-center gap-3 shrink-0">
               <button
+                type="button"
                 onClick={() => setExpanded(!expanded)}
                 className="text-parchment/65 text-[11px] tracking-[0.1em] uppercase no-underline hover:text-parchment transition-colors duration-200 flex items-center gap-1.5 min-h-[44px] px-2"
                 aria-expanded={expanded}
-                aria-controls="cookie-preferences"
+                aria-controls={expanded ? "cookie-preferences" : undefined}
               >
                 Manage
                 {expanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
               </button>
               <button
+                type="button"
                 onClick={declineAll}
                 className="text-[11px] tracking-[0.12em] uppercase text-parchment border border-parchment/25 px-5 py-2.5 min-h-[44px] hover:bg-parchment/10 transition-colors duration-200"
               >
                 Decline
               </button>
               <button
+                type="button"
                 onClick={acceptAll}
                 className="text-[11px] tracking-[0.12em] uppercase text-dark-bg bg-volt-bright px-6 py-2.5 min-h-[44px] hover:bg-parchment transition-colors duration-200"
               >
@@ -142,6 +145,7 @@ export default function CookieConsent() {
 
             {/* Close button */}
             <button
+              type="button"
               onClick={declineAll}
               className="absolute top-3 right-3 lg:static text-parchment/40 hover:text-parchment transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Close cookie banner and decline non-essential cookies"
@@ -175,9 +179,11 @@ export default function CookieConsent() {
                       Analytics
                     </label>
                     <button
+                      type="button"
                       id="cookie-analytics"
                       role="switch"
                       aria-checked={analytics}
+                      aria-label="Allow analytics cookies"
                       onClick={() => setAnalytics(!analytics)}
                       className={`relative w-10 h-5 rounded-full transition-colors duration-200 ${
                         analytics ? "bg-volt-bright" : "bg-parchment/20"
@@ -202,9 +208,11 @@ export default function CookieConsent() {
                       Marketing
                     </label>
                     <button
+                      type="button"
                       id="cookie-marketing"
                       role="switch"
                       aria-checked={marketing}
+                      aria-label="Allow marketing cookies"
                       onClick={() => setMarketing(!marketing)}
                       className={`relative w-10 h-5 rounded-full transition-colors duration-200 ${
                         marketing ? "bg-volt-bright" : "bg-parchment/20"
@@ -225,6 +233,7 @@ export default function CookieConsent() {
 
               <div className="flex justify-end">
                 <button
+                  type="button"
                   onClick={savePreferences}
                   className="text-[11px] tracking-[0.12em] uppercase text-dark-bg bg-volt-bright px-6 py-2.5 min-h-[44px] hover:bg-parchment transition-colors duration-200"
                 >

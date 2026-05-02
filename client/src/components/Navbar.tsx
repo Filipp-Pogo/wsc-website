@@ -25,6 +25,7 @@ const navLinks = [
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileMenuId = "mobile-navigation-menu";
 
   return (
     <>
@@ -109,10 +110,12 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
+          type="button"
           className="lg:hidden text-parchment min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={mobileOpen}
+          aria-controls={mobileOpen ? mobileMenuId : undefined}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -120,7 +123,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-dark-bg border-t border-white/[0.08] px-6 py-6">
+        <div id={mobileMenuId} className="lg:hidden bg-dark-bg border-t border-white/[0.08] px-6 py-6">
           <ul className="flex flex-col gap-5 list-none">
             {navLinks.map((link) => (
               <li key={link.href}>

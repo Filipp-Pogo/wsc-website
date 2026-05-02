@@ -5,8 +5,6 @@
  * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
@@ -34,7 +32,6 @@ export default function Pickleball() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Pickleball", url: "https://woodinvillesportsclub.com/pickleball" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Pickleball"
         headline="Pickleball at Woodinville Sports Club."
@@ -506,8 +503,6 @@ export default function Pickleball() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

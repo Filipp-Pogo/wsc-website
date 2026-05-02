@@ -3,8 +3,6 @@
  * Branded error page with navigation back to key sections
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
 const quickLinks = [
@@ -24,7 +22,6 @@ export default function NotFound() {
         description="The page you're looking for doesn't exist. Navigate back to Woodinville Sports Club's homepage or explore our programs."
         path="/404"
       />
-      <Navbar />
 
       <section className="bg-dark-bg min-h-[80vh] flex items-center px-6 lg:px-14 pt-[130px] pb-20">
         <div className="max-w-[1440px] w-full mx-auto">
@@ -77,8 +74,6 @@ export default function NotFound() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

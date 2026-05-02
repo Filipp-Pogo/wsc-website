@@ -1,9 +1,7 @@
 /*
  * Accessibility Statement Page
- * WCAG 2.1 AA compliance declaration and contact information
+ * WCAG 2.2 AA accessibility statement and contact information
  */
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { Link } from "wouter";
 import SEOHead from "@/components/SEOHead";
@@ -15,7 +13,6 @@ export default function Accessibility() {
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.accessibility} />
-      <Navbar />
       <PageHero
         eyebrow="Accessibility"
         headline="Our Commitment to Accessibility."
@@ -28,13 +25,13 @@ export default function Accessibility() {
         <div className="max-w-[800px] mx-auto">
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Accessibility Statement</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
-            Web Content Accessibility Guidelines (WCAG) 2.1
+            Web Content Accessibility Guidelines (WCAG) 2.2
           </h2>
 
           <div className="space-y-6 text-ink-mid text-[16px] leading-[1.82]">
             <p>
-              Woodinville Sports Club strives to ensure that its website is accessible to people with disabilities. All pages and content on our website have been designed to meet or exceed the requirements of the{" "}
-              <strong className="text-ink font-normal">Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>, published by the World Wide Web Consortium (W3C).
+              Woodinville Sports Club strives to ensure that its website is accessible to people with disabilities. Our website aims to conform to the{" "}
+              <strong className="text-ink font-normal">Web Content Accessibility Guidelines (WCAG) 2.2 Level AA</strong>, published by the World Wide Web Consortium (W3C), where those guidelines apply to our content and functionality.
             </p>
 
             <p>
@@ -48,7 +45,7 @@ export default function Accessibility() {
                   "Semantic HTML structure with proper heading hierarchy for screen reader navigation",
                   "ARIA landmarks (main, navigation, footer) to help assistive technology users orient themselves",
                   "Skip-to-content link for keyboard users to bypass repetitive navigation",
-                  "Sufficient color contrast ratios meeting WCAG 2.1 AA standards (4.5:1 for normal text, 3:1 for large text)",
+                  "Color contrast designed around WCAG Level AA contrast targets",
                   "Descriptive alt text on all meaningful images",
                   "Properly associated form labels for all input fields",
                   "Keyboard-accessible navigation and interactive elements",
@@ -124,7 +121,7 @@ export default function Accessibility() {
 
           <div className="space-y-6 text-ink-mid text-[16px] leading-[1.82]">
             <p>
-              This website aims to conform to <strong className="text-ink font-normal">WCAG 2.1 Level AA</strong>. The Web Content Accessibility Guidelines (WCAG) define requirements for designers and developers to improve accessibility for people with disabilities, including those with visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
+              This website aims to conform to <strong className="text-ink font-normal">WCAG 2.2 Level AA</strong>. The Web Content Accessibility Guidelines (WCAG) define requirements for designers and developers to improve accessibility for people with disabilities, including those with visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
             </p>
             <p>
               Compliance with these guidelines also helps make web content more usable for all users. For more information about WCAG, visit the{" "}
@@ -138,7 +135,7 @@ export default function Accessibility() {
               </a>.
             </p>
             <p>
-              This statement was last updated on March 4, 2026.
+              This statement was last updated on May 2, 2026.
             </p>
           </div>
         </div>
@@ -170,8 +167,6 @@ export default function Accessibility() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

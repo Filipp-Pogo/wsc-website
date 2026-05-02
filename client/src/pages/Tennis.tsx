@@ -5,8 +5,6 @@
  * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
@@ -33,7 +31,6 @@ export default function Tennis() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Tennis", url: "https://woodinvillesportsclub.com/tennis" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Tier 1 Tennis by Caliber"
         headline="Elevate Your Tennis Game at WSC."
@@ -331,8 +328,6 @@ export default function Tennis() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

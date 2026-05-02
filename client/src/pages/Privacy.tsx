@@ -4,8 +4,6 @@
  * third-party services, data collection, and user rights.
  * Design matches Accessibility page structure (PageHero + alternating sections).
  */
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { Link } from "wouter";
 import SEOHead from "@/components/SEOHead";
@@ -65,7 +63,6 @@ export default function Privacy() {
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.privacy} />
-      <Navbar />
       <PageHero
         eyebrow="Privacy Policy"
         headline="Your Privacy Matters."
@@ -475,8 +472,6 @@ export default function Privacy() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

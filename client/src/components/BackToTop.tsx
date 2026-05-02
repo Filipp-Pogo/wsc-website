@@ -31,6 +31,7 @@ export default function BackToTop() {
 
   return (
     <button
+      type="button"
       onClick={scrollToTop}
       className={`
         fixed bottom-6 right-6 z-50

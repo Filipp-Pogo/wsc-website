@@ -3,8 +3,6 @@
  * Real content from WSC website crawl
  */
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { toast } from "sonner";
 import StructuredData, { getContactPageSchema, getBreadcrumbSchema } from "@/components/StructuredData";
@@ -56,7 +54,6 @@ export default function Contact() {
           { name: "Contact", url: "https://woodinvillesportsclub.com/contact" },
         ]),
       ]} />
-      <Navbar />
       <PageHero
         eyebrow="Contact Us"
         headline="Get in Touch."
@@ -255,8 +252,6 @@ export default function Contact() {
           </a>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

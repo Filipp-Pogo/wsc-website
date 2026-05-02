@@ -3,12 +3,10 @@
  * Real schedules from WSC sub-pages, organized by program + age group
  * Blue accent: #3899EC via volt/volt-bright tokens
  */
-import { useState, useRef } from "react";
+import { useState, useRef, type KeyboardEvent } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Clock, Users, MapPin, Sun, Zap, Trophy, Calendar, ArrowRight, Globe } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import StructuredData, { getSummerCampSchema, getBreadcrumbSchema } from "@/components/StructuredData";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
@@ -416,6 +414,49 @@ export default function Summer() {
     setActiveSchedule(SCHEDULE_KEYS_BY_PROGRAM[key][0]);
   }
 
+  function moveTabFocus<T extends string>(
+    event: KeyboardEvent<HTMLDivElement>,
+    keys: T[],
+    activeKey: T,
+    activate: (key: T) => void,
+    tabId: (key: T) => string,
+  ) {
+    const currentIndex = keys.indexOf(activeKey);
+    if (currentIndex === -1) return;
+
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = (currentIndex + 1) % keys.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = (currentIndex - 1 + keys.length) % keys.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = keys.length - 1;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    const nextKey = keys[nextIndex];
+    activate(nextKey);
+    requestAnimationFrame(() => document.getElementById(tabId(nextKey))?.focus());
+  }
+
+  function toggleAdventureWeek(week: number) {
+    setExpandedWeek((current) => (current === week ? null : week));
+  }
+
+  function handleAdventureWeekKeyDown(event: KeyboardEvent<HTMLDivElement>, week: number) {
+    const target = event.target as HTMLElement;
+    if (target.closest("a, button, input, select, textarea")) return;
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleAdventureWeek(week);
+    }
+  }
+
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.summer} />
@@ -426,7 +467,6 @@ export default function Summer() {
           { name: "Summer Training", url: "https://woodinvillesportsclub.com/summer" },
         ]),
       ]} />
-      <Navbar />
 
       {/* Hero — Full bleed with overlay */}
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
@@ -524,13 +564,29 @@ export default function Summer() {
           </p>
 
           {/* Program Tabs */}
-          <div className="flex gap-[3px] mb-10">
+          <div
+            className="flex gap-[3px] mb-10"
+            role="tablist"
+            aria-label="Summer training programs"
+            onKeyDown={(event) => moveTabFocus(
+              event,
+              Object.keys(PROGRAMS) as ProgramKey[],
+              activeProgram,
+              switchProgram,
+              (key) => `summer-program-tab-${key}`,
+            )}
+          >
             {(Object.keys(PROGRAMS) as ProgramKey[]).map((key) => {
               const p = PROGRAMS[key];
               const isActive = activeProgram === key;
               return (
                 <button
+                  type="button"
                   key={key}
+                  id={`summer-program-tab-${key}`}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls="summer-program-panel"
                   onClick={() => switchProgram(key)}
                   className={`flex-1 py-4 px-5 text-left transition-all duration-300 ${
                     isActive ? "bg-dark-bg" : "bg-parchment-mid hover:bg-parchment-dark"
@@ -552,7 +608,13 @@ export default function Summer() {
           </div>
 
           {/* Program Detail */}
-          <div aria-live="polite" aria-atomic="true">
+          <div
+            id="summer-program-panel"
+            role="tabpanel"
+            aria-labelledby={`summer-program-tab-${activeProgram}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProgram}
@@ -645,12 +707,28 @@ export default function Summer() {
               </p>
 
               {/* Program Filter Tabs */}
-              <div className="flex gap-[2px] mb-4">
+              <div
+                className="flex gap-[2px] mb-4"
+                role="tablist"
+                aria-label="Sample day program filter"
+                onKeyDown={(event) => moveTabFocus(
+                  event,
+                  Object.keys(PROGRAMS) as ProgramKey[],
+                  activeProgram,
+                  switchProgram,
+                  (key) => `sample-program-tab-${key}`,
+                )}
+              >
                 {(Object.keys(PROGRAMS) as ProgramKey[]).map((key) => {
                   const isActive = activeProgram === key;
                   return (
                     <button
+                      type="button"
                       key={key}
+                      id={`sample-program-tab-${key}`}
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls="sample-schedule-panel"
                       onClick={() => switchProgram(key)}
                       className={`flex-1 py-2.5 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 ${
                         isActive
@@ -665,13 +743,16 @@ export default function Summer() {
               </div>
 
               {/* Schedule Options for Selected Program */}
-              <div className="space-y-[2px]">
+              <div className="space-y-[2px]" role="group" aria-label="Schedule options">
                 {scheduleKeys.map((key) => {
                   const s = SCHEDULES[key];
                   const isActive = activeSchedule === key;
                   return (
                     <button
+                      type="button"
                       key={key}
+                      aria-pressed={isActive}
+                      aria-label={`Show ${s.label} schedule`}
                       onClick={() => setActiveSchedule(key)}
                       className={`w-full text-left px-5 py-4 transition-all duration-300 flex items-center justify-between ${
                         isActive
@@ -719,7 +800,13 @@ export default function Summer() {
             </div>
 
             {/* Right: Timeline */}
-            <div aria-live="polite" aria-atomic="true">
+            <div
+              id="sample-schedule-panel"
+              role="tabpanel"
+              aria-labelledby={`sample-program-tab-${activeProgram}`}
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeSchedule}
@@ -921,8 +1008,14 @@ export default function Summer() {
                   <motion.div
                     key={w.week}
                     layout
-                    className="bg-parchment-mid overflow-hidden cursor-pointer group"
-                    onClick={() => setExpandedWeek(isExpanded ? null : w.week)}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isExpanded}
+                    aria-controls={isExpanded ? `adventure-week-${w.week}-details` : undefined}
+                    aria-label={`${isExpanded ? "Collapse" : "Expand"} week ${w.week}: ${w.region}`}
+                    className="bg-parchment-mid overflow-hidden cursor-pointer group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+                    onClick={() => toggleAdventureWeek(w.week)}
+                    onKeyDown={(event) => handleAdventureWeekKeyDown(event, w.week)}
                   >
                     {/* Week Header Row */}
                     <div className="flex items-center gap-4 px-6 py-5 hover:bg-parchment-dark transition-colors duration-200">
@@ -977,6 +1070,7 @@ export default function Summer() {
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
+                          id={`adventure-week-${w.week}-details`}
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -1133,8 +1227,6 @@ export default function Summer() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

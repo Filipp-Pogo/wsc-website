@@ -7,8 +7,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
@@ -192,7 +190,6 @@ export default function Golf() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Golf", url: "https://woodinvillesportsclub.com/golf" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Tier 1 Golf by Caliber"
         headline="Woodinville's Best Golf Driving Range and Practice Area."
@@ -626,8 +623,6 @@ export default function Golf() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

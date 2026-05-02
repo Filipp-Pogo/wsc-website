@@ -8,6 +8,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import BackToTop from "./components/BackToTop";
 import AccessibilityToggle from "./components/AccessibilityToggle";
 import CookieConsent from "./components/CookieConsent";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const Tennis = lazy(() => import("./pages/Tennis"));
@@ -27,7 +29,11 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 function PageLoading() {
   return (
-    <div className="min-h-screen bg-parchment text-ink flex items-center justify-center px-6">
+    <div
+      className="min-h-screen bg-parchment text-ink flex items-center justify-center px-6"
+      role="status"
+      aria-live="polite"
+    >
       <p className="text-[12px] tracking-[0.18em] uppercase text-ink-light">
         Loading
       </p>
@@ -69,9 +75,11 @@ function App() {
         <TooltipProvider>
           <Analytics />
           <Toaster />
-          <main id="main-content">
+          <Navbar />
+          <main id="main-content" tabIndex={-1}>
             <Router />
           </main>
+          <Footer />
           <BackToTop />
           <AccessibilityToggle />
           <CookieConsent />

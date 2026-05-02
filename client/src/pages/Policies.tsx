@@ -4,8 +4,6 @@
  *   Tab 2: Terms of Service (legal terms, liability, conduct, website usage)
  * Design: Scandinavian minimalism, alternating parchment sections.
  */
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { Link } from "wouter";
@@ -130,14 +128,16 @@ function QuickNav({ sections }: { sections: { id: string; label: string }[] }) {
   return (
     <div className="bg-parchment border-b border-ink/8">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
         className="lg:hidden w-full flex items-center justify-between px-6 py-4 text-ink text-[13px] tracking-[0.08em] uppercase font-medium bg-transparent border-none cursor-pointer"
         aria-expanded={open}
+        aria-controls="policies-quick-nav"
       >
         Jump to Section
         <ChevronDown size={16} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
-      <div className={`${open ? "block" : "hidden"} lg:block max-w-[1440px] mx-auto px-6 lg:px-14`}>
+      <div id="policies-quick-nav" className={`${open ? "block" : "hidden"} lg:block max-w-[1440px] mx-auto px-6 lg:px-14`}>
         <div className="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-0 py-3 lg:py-0 overflow-x-auto">
           {sections.map((s) => (
             <a
@@ -733,7 +733,6 @@ export default function Policies() {
         { name: "Home", url: "https://woodinvillesportsclub.com/" },
         { name: "Policies & Terms", url: "https://woodinvillesportsclub.com/policies" },
       ])]} />
-      <Navbar />
       <PageHero
         eyebrow="Policies & Terms"
         headline="Policies & Terms."
@@ -743,8 +742,10 @@ export default function Policies() {
 
       {/* Tab Switcher */}
       <div className="bg-dark-bg sticky top-[130px] z-30 border-b border-white/[0.08]">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-14 flex">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-14 flex" role="group" aria-label="Policy content">
           <button
+            type="button"
+            aria-pressed={activeTab === "policies"}
             onClick={() => setActiveTab("policies")}
             className={`text-[12px] tracking-[0.12em] uppercase py-4 px-6 border-b-2 transition-colors duration-200 bg-transparent cursor-pointer ${
               activeTab === "policies"
@@ -755,6 +756,8 @@ export default function Policies() {
             Club Policies
           </button>
           <button
+            type="button"
+            aria-pressed={activeTab === "terms"}
             onClick={() => setActiveTab("terms")}
             className={`text-[12px] tracking-[0.12em] uppercase py-4 px-6 border-b-2 transition-colors duration-200 bg-transparent cursor-pointer ${
               activeTab === "terms"
@@ -799,8 +802,6 @@ export default function Policies() {
           </p>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
