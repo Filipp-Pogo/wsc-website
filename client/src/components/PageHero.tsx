@@ -16,9 +16,9 @@ export default function PageHero({ eyebrow, headline, subtitle, image }: PageHer
       <img
         src={image}
         alt="" role="presentation"
-        className="absolute inset-0 w-full h-full object-cover object-center saturate-[0.3] brightness-[0.35]"
+        className="absolute inset-0 w-full h-full object-cover object-center saturate-[0.38] brightness-[0.44]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.95)] via-[rgba(22,19,16,0.6)] to-[rgba(22,19,16,0.2)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.71)] via-[rgba(22,19,16,0.45)] to-[rgba(22,19,16,0.15)]" />
       <div className="relative z-10 px-6 lg:px-14 pb-16 lg:pb-20 max-w-[1440px] w-full mx-auto">
         <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-5">
           {eyebrow}

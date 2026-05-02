@@ -86,6 +86,7 @@ jspm_packages/
 .playwright-cli/
 .playwright-mcp/
 wsc-hero-collage*.png
+wsc-*-hero*.png
 
 # Next.js build output
 .next
