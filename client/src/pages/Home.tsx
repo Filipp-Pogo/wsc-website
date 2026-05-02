@@ -249,8 +249,8 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-bg via-[rgba(22,19,16,0.72)] to-[rgba(22,19,16,0.24)] lg:via-[rgba(22,19,16,0.46)] lg:to-[rgba(22,19,16,0.08)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-[rgba(22,19,16,0.22)] to-[rgba(22,19,16,0.06)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(22,19,16,0.8)] via-[rgba(22,19,16,0.58)] to-[rgba(22,19,16,0.19)] lg:via-[rgba(22,19,16,0.37)] lg:to-[rgba(22,19,16,0.06)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.8)] via-[rgba(22,19,16,0.18)] to-[rgba(22,19,16,0.05)]" />
 
         <div className="relative z-10 px-6 lg:px-14 pb-0 max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.7fr)] gap-10 lg:gap-16 items-end">
           <div className="pb-16 lg:pb-20">
