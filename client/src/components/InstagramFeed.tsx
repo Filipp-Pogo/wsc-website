@@ -111,6 +111,8 @@ export default function InstagramFeed() {
           <img
             src={post.thumbnail}
             alt={post.caption}
+            width={1800}
+            height={1200}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             style={{ filter: "saturate(0.85) brightness(0.95)" }}
             loading="lazy"

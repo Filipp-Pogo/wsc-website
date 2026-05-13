@@ -7,7 +7,7 @@ interface SEOHeadProps {
   image?: string;
 }
 
-const BASE_URL = "https://woodinvillesportsclub.com";
+const BASE_URL = "https://www.woodinvillesportsclub.com";
 const DEFAULT_IMAGE = "/images/wsc/campus-dome.webp";
 const SITE_NAME = "Woodinville Sports Club";
 
@@ -68,14 +68,14 @@ export default function SEOHead({ title, description, path, image }: SEOHeadProp
     // Cleanup: restore homepage defaults on unmount
     return () => {
       document.title = `${SITE_NAME} | Tennis, Golf, Pickleball & Athletic Performance | Woodinville, WA`;
-      setMeta("name", "description", "Woodinville Sports Club is a 67-acre hybrid performance campus in Woodinville, WA. Home to Tier 1 Sports by Caliber — world-class tennis, golf, pickleball, and athletic performance training.");
+      setMeta("name", "description", "Woodinville Sports Club is a 67-acre campus for tennis, golf, pickleball, gym, APL training, camps, events, and family programs in Woodinville, WA.");
       if (canonical) canonical.setAttribute("href", `${BASE_URL}/`);
       setMeta("property", "og:url", `${BASE_URL}/`);
-      setMeta("property", "og:title", `${SITE_NAME} | World-Class Sports Training`);
-      setMeta("property", "og:description", "A 67-acre performance campus featuring tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber.");
+      setMeta("property", "og:title", `Woodinville Sports Campus | ${SITE_NAME}`);
+      setMeta("property", "og:description", "Woodinville Sports Club is a 67-acre campus for tennis, golf, pickleball, gym, APL training, camps, events, and family programs in Woodinville, WA.");
       setMeta("property", "og:image", absoluteUrl(DEFAULT_IMAGE));
-      setMeta("name", "twitter:title", `${SITE_NAME} | World-Class Sports Training`);
-      setMeta("name", "twitter:description", "A 67-acre performance campus featuring tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber.");
+      setMeta("name", "twitter:title", `Woodinville Sports Campus | ${SITE_NAME}`);
+      setMeta("name", "twitter:description", "Woodinville Sports Club is a 67-acre campus for tennis, golf, pickleball, gym, APL training, camps, events, and family programs in Woodinville, WA.");
       setMeta("name", "twitter:image", absoluteUrl(DEFAULT_IMAGE));
     };
   }, [title, description, path, image]);

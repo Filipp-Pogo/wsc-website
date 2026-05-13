@@ -12,8 +12,8 @@ export default function Fitness() {
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "APL Fitness", url: "https://woodinvillesportsclub.com/fitness" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "APL Fitness", url: "https://www.woodinvillesportsclub.com/fitness" },
       ])]} />
       <PageHero
         eyebrow="Athletic Performance Lab"
@@ -72,7 +72,10 @@ export default function Fitness() {
             </div>
             <img
               src={PERF_IMG}
-              alt="APL Training"
+              alt="Athletic Performance Lab training space at Woodinville Sports Club"
+              width={1800}
+              height={1350}
+              loading="lazy"
               className="w-full aspect-[4/3] object-cover saturate-[0.4] brightness-[0.65]"
             />
           </div>

@@ -72,6 +72,8 @@ export default function FacilityGallery({
                 <img
                   src={img.src}
                   alt={img.alt}
+                  width={1800}
+                  height={1200}
                   className={`w-full h-full object-cover ${aspectClass} transition-all duration-700 ease-out ${
                     activeImg === i
                       ? "scale-[1.04] brightness-[0.6]"

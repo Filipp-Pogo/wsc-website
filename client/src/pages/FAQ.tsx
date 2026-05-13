@@ -307,8 +307,8 @@ export default function FAQ() {
       <SEOHead {...SEO.faq} />
       <StructuredData schemas={[
         getBreadcrumbSchema([
-          { name: "Home", url: "https://woodinvillesportsclub.com/" },
-          { name: "FAQ", url: "https://woodinvillesportsclub.com/faq" },
+          { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+          { name: "FAQ", url: "https://www.woodinvillesportsclub.com/faq" },
         ]),
         faqSchema,
       ]} />

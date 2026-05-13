@@ -117,6 +117,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link
+                href="/blog"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Blog & Resources
+              </Link>
+            </li>
+            <li>
               <a
                 href={TIER1_URL}
                 target="_blank"

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-05-13T05:12:36.825Z",
+  "homepage": [
+    "LocalBusiness + SportsActivityLocation",
+    "WebSite",
+    "FAQPage"
+  ],
+  "contact": [
+    "LocalBusiness + SportsActivityLocation",
+    "ContactPage",
+    "BreadcrumbList"
+  ],
+  "inner_pages": "BreadcrumbList added through StructuredData on public inner routes, including privacy and accessibility.",
+  "unresolved_values": [],
+  "values": {
+    "legalName": "Woodinville Sports Club",
+    "address": "15327 140th Pl NE, Woodinville, WA 98072, US",
+    "phone": "+1-425-487-1090",
+    "golfDesk": "+1-425-485-7319",
+    "geo": {
+      "latitude": 47.7543,
+      "longitude": -122.1635
+    },
+    "openingHours": [
+      "Mo-Fr 06:00-23:00",
+      "Sa-Su 07:00-22:00"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/woodinvillesportsclub",
+      "https://www.calibersports.com",
+      "https://www.tier1nw.com"
+    ],
+    "image": "https://www.woodinvillesportsclub.com/images/wsc/campus-dome.webp"
+  }
+}

@@ -14,6 +14,7 @@ import StructuredData, { getLocalBusinessSchema, getWebSiteSchema, getFAQSchema 
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
+import { responsiveAvifSrcSet, responsiveWebpSrcSet } from "@/lib/responsive-image";
 
 const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
 const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
@@ -35,36 +36,57 @@ const SUMMER_KIDS_IMG = "/images/wsc/summer-camp.webp";
 const heroCollageImages = [
   {
     src: GALLERY_AERIAL,
+    alt: "Aerial view of the Woodinville Sports Club golf range and campus",
+    width: 1800,
+    height: 1170,
     objectPosition: "center",
     className: "col-span-2 row-span-2 lg:col-span-4 lg:row-span-6",
   },
   {
     src: TENNIS_LESSON_IMG,
+    alt: "Tennis player training at Woodinville Sports Club",
+    width: 1800,
+    height: 1200,
     objectPosition: "center",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
     src: SUMMER_KIDS_IMG,
+    alt: "Kids participating in summer camp at Woodinville Sports Club",
+    width: 1388,
+    height: 1667,
     objectPosition: "center 32%",
     className: "col-span-1 row-span-2 lg:col-span-2 lg:row-span-3",
   },
   {
     src: TENNIS_IMG,
+    alt: "Indoor tennis courts at Woodinville Sports Club",
+    width: 1800,
+    height: 1218,
     objectPosition: "center",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
     src: GOLF_IMG,
+    alt: "Golf practice range at Woodinville Sports Club",
+    width: 1800,
+    height: 1200,
     objectPosition: "center",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
     src: FITNESS_TRAINING_IMG,
+    alt: "Athletic performance training at Woodinville Sports Club",
+    width: 1185,
+    height: 1800,
     objectPosition: "center 34%",
     className: "hidden lg:block lg:col-span-2 lg:row-span-3",
   },
   {
     src: SWINGLAB_IMG,
+    alt: "Swing Lab golf simulators at Woodinville Sports Club",
+    width: 1800,
+    height: 1350,
     objectPosition: "center",
     className: "hidden lg:block lg:col-span-3 lg:row-span-3",
   },
@@ -240,15 +262,31 @@ export default function Home() {
           className="absolute inset-0 grid grid-cols-2 grid-rows-6 gap-px bg-dark-bg lg:grid-cols-12"
           aria-hidden="true"
         >
-          {heroCollageImages.map((tile) => (
+          {heroCollageImages.map((tile, index) => (
             <div key={tile.src} className={`relative overflow-hidden ${tile.className}`}>
-              <img
-                src={tile.src}
-                alt=""
-                role="presentation"
-                className="h-full w-full object-cover saturate-[0.72] brightness-[0.68] contrast-[1.05] lg:scale-[1.02]"
-                style={{ objectPosition: tile.objectPosition }}
-              />
+              <picture className="block h-full w-full">
+                <source
+                  type="image/avif"
+                  srcSet={responsiveAvifSrcSet(tile.src)}
+                  sizes={index === 0 ? "(min-width: 1024px) 34vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+                />
+                <source
+                  type="image/webp"
+                  srcSet={responsiveWebpSrcSet(tile.src)}
+                  sizes={index === 0 ? "(min-width: 1024px) 34vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+                />
+                <img
+                  src={tile.src}
+                  alt={tile.alt}
+                  width={tile.width}
+                  height={tile.height}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  decoding="async"
+                  className="h-full w-full object-cover saturate-[0.72] brightness-[0.68] contrast-[1.05] lg:scale-[1.02]"
+                  style={{ objectPosition: tile.objectPosition }}
+                />
+              </picture>
               <div className="absolute inset-0 bg-dark-bg/5" />
             </div>
           ))}
@@ -455,7 +493,10 @@ export default function Home() {
                 <div className="overflow-hidden relative">
                   <img
                     src={d.img}
-                    alt={d.tag}
+                    alt={`${d.name} facilities at Woodinville Sports Club`}
+                    width={1800}
+                    height={1200}
+                    loading="lazy"
                     className={`w-full aspect-[16/10] object-cover transition-all duration-[650ms] ease-out ${
                       hoveredCard === i
                         ? "scale-[1.06] saturate-[0.7] brightness-[0.75]"
@@ -659,6 +700,9 @@ export default function Home() {
                 <img
                   src={SWINGLAB_IMG}
                   alt="Swing Lab Golf Simulators at WSC"
+                  width={1800}
+                  height={1350}
+                  loading="lazy"
                   className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -687,6 +731,9 @@ export default function Home() {
                 <img
                   src={GOLF_IMG}
                   alt="Tier 1 Golf Academy at WSC"
+                  width={1800}
+                  height={1200}
+                  loading="lazy"
                   className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

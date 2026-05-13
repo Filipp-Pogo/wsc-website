@@ -265,8 +265,8 @@ export default function Membership() {
     <div className="min-h-screen">
       <SEOHead {...SEO.membership} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Membership", url: "https://woodinvillesportsclub.com/membership" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Membership", url: "https://www.woodinvillesportsclub.com/membership" },
       ])]} />
       <PageHero
         eyebrow="Membership"

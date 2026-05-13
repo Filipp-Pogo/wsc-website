@@ -463,15 +463,22 @@ export default function Summer() {
       <StructuredData schemas={[
         getSummerCampSchema(),
         getBreadcrumbSchema([
-          { name: "Home", url: "https://woodinvillesportsclub.com/" },
-          { name: "Summer Training", url: "https://woodinvillesportsclub.com/summer" },
+          { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+          { name: "Summer Training", url: "https://www.woodinvillesportsclub.com/summer" },
         ]),
       ]} />
 
       {/* Hero — Full bleed with overlay */}
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={HERO_IMG} alt="" role="presentation" className="w-full h-full object-cover brightness-[0.44] saturate-[0.78]" />
+          <img
+            src={HERO_IMG}
+            alt="Summer camp activities at Woodinville Sports Club"
+            width={1388}
+            height={1667}
+            loading="eager"
+            className="w-full h-full object-cover brightness-[0.44] saturate-[0.78]"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.75)] via-[rgba(22,19,16,0.45)] to-transparent" />
         </div>
         <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-14 pb-16 lg:pb-20">
@@ -676,7 +683,10 @@ export default function Summer() {
               <div className="relative aspect-[4/3] lg:aspect-auto overflow-hidden">
                 <img
                   src={program.image}
-                  alt={program.name}
+                  alt={`${program.name} summer program at Woodinville Sports Club`}
+                  width={1800}
+                  height={1200}
+                  loading="lazy"
                   className="w-full h-full object-cover brightness-[0.8] saturate-[0.85]"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-6">
@@ -1174,7 +1184,10 @@ export default function Summer() {
           <div className="relative">
             <img
               src={PERF_IMG}
-              alt="Athletic Performance Lab"
+              alt="Athletic Performance Lab training for summer athletes at WSC"
+              width={1185}
+              height={1800}
+              loading="lazy"
               className="w-full aspect-[4/3] object-cover brightness-[0.7] saturate-[0.8]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 to-transparent" />

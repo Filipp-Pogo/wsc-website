@@ -43,8 +43,8 @@ export default function FoodTrucks() {
     <div className="min-h-screen">
       <SEOHead {...SEO.foodTrucks} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Food Trucks", url: "https://woodinvillesportsclub.com/food-trucks" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Food Trucks", url: "https://www.woodinvillesportsclub.com/food-trucks" },
       ])]} />
 
       <PageHero

@@ -96,8 +96,8 @@ export default function Sessions() {
     <div className="min-h-screen">
       <SEOHead {...SEO.sessions} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Session Dates", url: "https://woodinvillesportsclub.com/sessions" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Session Dates", url: "https://www.woodinvillesportsclub.com/sessions" },
       ])]} />
 
       <PageHero

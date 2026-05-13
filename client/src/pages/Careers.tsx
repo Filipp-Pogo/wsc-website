@@ -45,8 +45,8 @@ export default function Careers() {
     <div className="min-h-screen">
       <SEOHead {...SEO.careers} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Careers", url: "https://woodinvillesportsclub.com/careers" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Careers", url: "https://www.woodinvillesportsclub.com/careers" },
       ])]} />
 
       <PageHero

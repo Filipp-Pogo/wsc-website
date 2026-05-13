@@ -33,8 +33,8 @@ export default function Gym() {
     <div className="min-h-screen">
       <SEOHead {...SEO.gym} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Gym & APL", url: "https://woodinvillesportsclub.com/gym" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Gym & APL", url: "https://www.woodinvillesportsclub.com/gym" },
       ])]} />
       <PageHero
         eyebrow="Gym & Athletic Performance Lab"
@@ -76,6 +76,9 @@ export default function Gym() {
               <img
                 src={GYM_HERO}
                 alt="WSC Main Gym with cardio machines and tree-lined views"
+                width={1800}
+                height={1350}
+                loading="lazy"
                 className="w-full aspect-[4/3] object-cover"
               />
             </div>
@@ -124,6 +127,9 @@ export default function Gym() {
             <img
               src={GYM_WEIGHTS}
               alt="WSC weight room with power racks and Olympic lifting platforms"
+              width={1800}
+              height={1350}
+              loading="lazy"
               className="w-full aspect-[4/3] object-cover"
             />
           </div>
@@ -141,6 +147,9 @@ export default function Gym() {
               <img
                 src={GYM_FUNCTIONAL}
                 alt="WSC functional training area with turf, TRX, and battle ropes"
+                width={1800}
+                height={1350}
+                loading="lazy"
                 className="w-full aspect-[4/3] object-cover"
               />
             </div>
@@ -190,6 +199,9 @@ export default function Gym() {
             <img
               src={PERF_IMG}
               alt="APL Training Center at WSC"
+              width={1185}
+              height={1800}
+              loading="lazy"
               className="w-full aspect-[4/3] object-cover saturate-[0.4] brightness-[0.65]"
             />
           </div>

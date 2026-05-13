@@ -187,8 +187,8 @@ export default function Golf() {
     <div className="min-h-screen">
       <SEOHead {...SEO.golf} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Golf", url: "https://woodinvillesportsclub.com/golf" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Golf", url: "https://www.woodinvillesportsclub.com/golf" },
       ])]} />
       <PageHero
         eyebrow="Tier 1 Golf by Caliber"
@@ -231,7 +231,10 @@ export default function Golf() {
           </div>
           <img
             src={GOLF_IMG}
-            alt="Golf driving range"
+            alt="Covered golf driving range at Woodinville Sports Club"
+            width={1800}
+            height={1200}
+            loading="lazy"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
           />
         </div>
@@ -314,6 +317,9 @@ export default function Golf() {
               <img
                 src={img.src}
                 alt={img.alt}
+                width={1800}
+                height={1350}
+                loading="lazy"
                 className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">

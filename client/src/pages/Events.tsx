@@ -56,8 +56,8 @@ export default function Events() {
     <div className="min-h-screen">
       <SEOHead {...SEO.events} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Private Events", url: "https://woodinvillesportsclub.com/events" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Private Events", url: "https://www.woodinvillesportsclub.com/events" },
       ])]} />
 
       <PageHero
@@ -101,7 +101,14 @@ export default function Events() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-[3px]">
             {venues.map((venue) => (
               <article key={venue.name} className="bg-parchment">
-                <img src={venue.image} alt="" className="w-full aspect-[4/3] object-cover saturate-[0.62] brightness-[0.9]" />
+                <img
+                  src={venue.image}
+                  alt={`${venue.name} event venue at Woodinville Sports Club`}
+                  width={1800}
+                  height={1200}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover saturate-[0.62] brightness-[0.9]"
+                />
                 <div className="p-8">
                   <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">{venue.name}</h3>
                   <p className="text-ink-mid text-[14px] leading-[1.72]">{venue.desc}</p>

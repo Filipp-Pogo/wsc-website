@@ -93,8 +93,8 @@ export default function Tennis() {
     <div className="min-h-screen">
       <SEOHead {...SEO.tennis} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Tennis", url: "https://woodinvillesportsclub.com/tennis" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Tennis", url: "https://www.woodinvillesportsclub.com/tennis" },
       ])]} />
       <PageHero
         eyebrow="Tier 1 Tennis by Caliber"
@@ -140,7 +140,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Tier 1 Performance
             </a>
           </div>
 
@@ -173,7 +173,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Tier 1 Core
             </a>
           </div>
 
@@ -204,7 +204,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Adult Tennis
             </a>
           </div>
         </div>
@@ -242,7 +242,10 @@ export default function Tennis() {
           </div>
           <img
             src={TENNIS_IMG}
-            alt="Indoor tennis courts"
+            alt="Indoor tennis courts at Woodinville Sports Club"
+            width={1800}
+            height={1218}
+            loading="lazy"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
           />
         </div>

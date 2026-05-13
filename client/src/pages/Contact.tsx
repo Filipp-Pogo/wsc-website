@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import PageHero from "@/components/PageHero";
 import { toast } from "sonner";
-import StructuredData, { getContactPageSchema, getBreadcrumbSchema } from "@/components/StructuredData";
+import StructuredData, { getContactPageSchema, getLocalBusinessSchema, getBreadcrumbSchema } from "@/components/StructuredData";
 import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
@@ -49,10 +49,11 @@ export default function Contact() {
     <div className="min-h-screen">
       <SEOHead {...SEO.contact} />
       <StructuredData schemas={[
+        getLocalBusinessSchema(),
         getContactPageSchema(),
         getBreadcrumbSchema([
-          { name: "Home", url: "https://woodinvillesportsclub.com/" },
-          { name: "Contact", url: "https://woodinvillesportsclub.com/contact" },
+          { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+          { name: "Contact", url: "https://www.woodinvillesportsclub.com/contact" },
         ]),
       ]} />
       <PageHero

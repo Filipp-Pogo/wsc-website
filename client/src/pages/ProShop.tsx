@@ -97,8 +97,8 @@ export default function ProShop() {
     <div className="min-h-screen">
       <SEOHead {...SEO.proShop} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Pro Shop", url: "https://woodinvillesportsclub.com/pro-shop" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Pro Shop", url: "https://www.woodinvillesportsclub.com/pro-shop" },
       ])]} />
       <PageHero
         eyebrow="On-Site Pro Shop"
@@ -158,6 +158,9 @@ export default function ProShop() {
                 <img
                   src={STRINGING_IMG}
                   alt="Professional racquet stringing machine at WSC Pro Shop with string spools and tools"
+                  width={1500}
+                  height={1245}
+                  loading="lazy"
                   className="w-full h-[420px] lg:h-[520px] object-cover"
                 />
               </div>

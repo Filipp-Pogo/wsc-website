@@ -45,7 +45,9 @@ export default function FullWidthImage({
     <section className={`relative ${heightClass} overflow-hidden`}>
       <img
         src={src}
-        alt="" role="presentation"
+        alt={alt}
+        width={1800}
+        height={1200}
         className="absolute inset-0 w-full h-full object-cover object-center"
         loading="lazy"
       />
