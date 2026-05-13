@@ -336,10 +336,10 @@ export default function Pickleball() {
 
           <div ref={tournamentsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">
             {[
-              { name: "Shamrock Shootout", date: "March 20–22, 2026", season: "Spring" },
-              { name: "Spring Fling", date: "May 29–31, 2026", season: "Late Spring" },
+              { name: "Spring Fling", date: "May 29–31, 2026", season: "Upcoming" },
               { name: "Dominate the Dome", date: "September 2026", season: "Fall" },
               { name: "Holiday Classic", date: "December 2026", season: "Winter" },
+              { name: "Shamrock Shootout", date: "Completed March 20–22, 2026", season: "Completed" },
             ].map((t, i) => (
               <div
                 key={i}

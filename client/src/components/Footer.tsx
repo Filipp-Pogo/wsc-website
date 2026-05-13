@@ -59,6 +59,8 @@ export default function Footer() {
               { href: "/pickleball", label: "Pickleball" },
               { href: "/summer", label: "Summer Training" },
               { href: "/pro-shop", label: "Pro Shop" },
+              { href: "/events", label: "Private Events" },
+              { href: "/food-trucks", label: "Food Trucks" },
             ].map((link) => (
               <li key={link.href}>
                 <Link
@@ -78,6 +80,14 @@ export default function Footer() {
             Quick Links
           </div>
           <ul className="list-none space-y-2.5">
+            <li>
+              <Link
+                href="/sessions"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                2026 Session Dates
+              </Link>
+            </li>
             <li>
               <a
                 href={COURT_RESERVE_URL}
@@ -149,6 +159,14 @@ export default function Footer() {
                 className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >
                 Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/careers"
+                className="text-parchment/60 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
+              >
+                Careers
               </Link>
             </li>
             <li>

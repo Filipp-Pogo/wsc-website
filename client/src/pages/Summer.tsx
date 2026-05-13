@@ -296,7 +296,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 2,
-    dates: "Jul 7 – Jul 11",
+    dates: "Jul 6 – Jul 10",
     region: "Japan & East Asia",
     flag: "\ud83c\uddef\ud83c\uddf5",
     tennisLegend: "Naomi Osaka",
@@ -306,7 +306,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 3,
-    dates: "Jul 14 – Jul 18",
+    dates: "Jul 13 – Jul 17",
     region: "United Kingdom & Ireland",
     flag: "\ud83c\uddec\ud83c\udde7",
     tennisLegend: "Andy Murray",
@@ -316,7 +316,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 4,
-    dates: "Jul 21 – Jul 25",
+    dates: "Jul 20 – Jul 24",
     region: "Spain & Mediterranean",
     flag: "\ud83c\uddea\ud83c\uddf8",
     tennisLegend: "Rafael Nadal",
@@ -326,7 +326,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 5,
-    dates: "Jul 28 – Aug 1",
+    dates: "Jul 27 – Jul 31",
     region: "Brazil & South America",
     flag: "\ud83c\udde7\ud83c\uddf7",
     tennisLegend: "Gustavo Kuerten",
@@ -336,7 +336,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 6,
-    dates: "Aug 4 – Aug 8",
+    dates: "Aug 3 – Aug 7",
     region: "France & Western Europe",
     flag: "\ud83c\uddeb\ud83c\uddf7",
     tennisLegend: "Jo-Wilfried Tsonga",
@@ -346,7 +346,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 7,
-    dates: "Aug 11 – Aug 15",
+    dates: "Aug 10 – Aug 14",
     region: "Kenya & East Africa",
     flag: "\ud83c\uddf0\ud83c\uddea",
     tennisLegend: "Angela Okutoyi",
@@ -356,7 +356,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 8,
-    dates: "Aug 18 – Aug 22",
+    dates: "Aug 17 – Aug 21",
     region: "India & South Asia",
     flag: "\ud83c\uddee\ud83c\uddf3",
     tennisLegend: "Sania Mirza",
@@ -366,7 +366,7 @@ const ADVENTURE_WEEKS: WeekTheme[] = [
   },
   {
     week: 9,
-    dates: "Aug 25 – Aug 29",
+    dates: "Aug 24 – Aug 28",
     region: "USA — Pacific Northwest",
     flag: "\ud83c\uddfa\ud83c\uddf8",
     tennisLegend: "Serena Williams",
@@ -530,15 +530,15 @@ export default function Summer() {
         </div>
       </section>
 
-      {/* Early Bird Banner */}
+      {/* Registration Banner */}
       <section className="bg-volt-bright px-6 lg:px-14 py-5">
         <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <span className="text-dark-bg text-[12px] tracking-[0.14em] uppercase font-medium">
-              Early Bird Special
+              Summer Registration Open
             </span>
             <span className="text-dark-bg/60 text-[13px]">
-              Save 10% on full-week registration + Free Summer Training t-shirt
+              Tennis, Golf, and Adventure Club programs run June 29 - August 30, 2026
             </span>
           </div>
           <Link
@@ -547,7 +547,7 @@ export default function Summer() {
                 rel="noopener noreferrer"
             className="text-dark-bg text-[11px] tracking-[0.14em] uppercase no-underline border border-dark-bg/30 px-5 py-2 hover:bg-dark-bg hover:text-volt-bright transition-colors duration-200"
           >
-            Register by Feb 28
+            Register Now
           </Link>
         </div>
       </section>
@@ -996,7 +996,7 @@ export default function Summer() {
               </p>
               <div className="flex items-center gap-3 text-ink-light text-[12px]">
                 <Globe size={16} className="text-volt" />
-                <span>June 29 – August 29, 2025</span>
+                <span>June 29 – August 30, 2026</span>
               </div>
             </div>
 
@@ -1134,7 +1134,7 @@ export default function Summer() {
               <div className="bg-dark-bg px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-[3px]">
                 <div>
                   <p className="text-parchment text-[15px] font-light">Register for the full 9-week world tour</p>
-                  <p className="text-parchment/60 text-[12px] mt-1">Early Bird: 10% off full-week registration through Feb 28</p>
+                  <p className="text-parchment/60 text-[12px] mt-1">Full-day, half-day, and bundle options are available through CourtReserve</p>
                 </div>
                 <Link
                   href="https://app.courtreserve.com/Online/Portal/Index/6689"
@@ -1165,7 +1165,7 @@ export default function Summer() {
               Athletes work on key areas such as basic movement skills, strength, speed, balance, and coordination through age-appropriate training. Sessions emphasize proper technique and body control to reduce injury risk while supporting long-term physical development.
             </p>
             <Link
-              href="/fitness"
+              href="/gym"
               className="inline-flex items-center gap-2 text-parchment text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt-bright pb-[3px] mt-8 hover:text-volt-bright transition-colors duration-200"
             >
               Learn more about APL <ChevronRight size={12} />
@@ -1199,14 +1199,12 @@ export default function Summer() {
         <div className="max-w-[1440px] mx-auto text-center">
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Registration is Open</p>
           <h2 className="text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
-            Save 10% with Early Bird pricing.
+            Build your summer schedule.
           </h2>
           <p className="text-ink-mid text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-3">
-            Register by February 28, 2026 and get 10% off full-week registration. Plus a free Summer Training t-shirt.
+            Summer registration is open for Tennis, Golf, and Adventure Club programs. Bundles can pair a half-day of Adventure Club with Golf Club or Core Tennis for a full-day multi-sport experience.
           </p>
-          <p className="text-ink-light text-[12px] mb-8">
-            *10% discount does not apply to Tier 1 Academy tennis.
-          </p>
+          <p className="text-ink-light text-[12px] mb-8">For bundle help, email info@woodinvillesportsclub.com.</p>
           <div className="flex flex-wrap justify-center gap-5">
             <Link
               href="https://app.courtreserve.com/Online/Portal/Index/6689"

@@ -45,6 +45,30 @@ export const SEO = {
       "6 membership tiers from $20 one-time trial to $100/mo Family All-Access. Court booking, golf simulator access, gym and fitness, and class registration. Join Woodinville Sports Club today.",
     path: "/membership",
   },
+  sessions: {
+    title: "2026 Session Dates & Registration Calendar",
+    description:
+      "View Woodinville Sports Club's 2026 programming session dates, registration windows, start dates, end dates, and summer training schedule.",
+    path: "/sessions",
+  },
+  events: {
+    title: "Private Events, Parties & Venue Rentals",
+    description:
+      "Host private events at Woodinville Sports Club in Woodinville Wine Country. Weddings, birthdays, corporate events, family celebrations, sports parties, and cabin rentals.",
+    path: "/events",
+  },
+  foodTrucks: {
+    title: "Food Trucks at WSC",
+    description:
+      "Woodinville Sports Club hosts rotating local food trucks on campus. Grab dinner before golf, tennis, pickleball, fitness, or private events.",
+    path: "/food-trucks",
+  },
+  careers: {
+    title: "Careers at WSC",
+    description:
+      "Explore careers at Woodinville Sports Club across tennis, golf, fitness, operations, youth camps, and athletic programming.",
+    path: "/careers",
+  },
   about: {
     title: "About WSC — 67-Acre Campus Since 1979",
     description:

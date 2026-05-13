@@ -231,36 +231,43 @@ export default function Gym() {
                 name: "APL Intro to Fitness",
                 who: "Youth",
                 desc: "Foundation-level class introducing young athletes to proper movement patterns, body awareness, and basic strength training in a supportive environment.",
+                times: ["Wednesdays: 5:30-6:00 PM"],
               },
               {
                 name: "APL Build",
                 who: "Youth",
                 desc: "Progressive strength and conditioning class focused on building athletic foundations — core stability, coordination, and functional movement.",
+                times: ["Mon-Thu: 6:30-7:00 PM"],
               },
               {
                 name: "APL Ignite",
                 who: "Youth",
                 desc: "High-intensity training for developing athletes. Emphasis on explosive power, speed development, and sport-specific conditioning.",
+                times: ["Mon-Thu: 6:00-6:30 PM"],
               },
               {
                 name: "APL Push, Pull & Upper Body",
                 who: "Youth / Adult",
                 desc: "Targeted upper body strength session covering pressing, pulling, and shoulder stability exercises for balanced athletic development.",
+                times: ["Tue & Thu: 5:00-6:00 PM", "Tue & Thu: 7:00-8:00 PM"],
               },
               {
                 name: "APL Lower Body Strength & Power",
                 who: "Youth / Adult",
                 desc: "Focused lower body training — squats, deadlifts, plyometrics, and single-leg work to build leg strength, power, and injury resilience.",
+                times: ["Mon & Wed: 5:00-6:00 PM", "Mon & Wed: 7:00-8:00 PM"],
               },
               {
                 name: "APL Speed School",
                 who: "Ages 12–18",
                 desc: "Sprint mechanics, acceleration drills, agility ladder work, and change-of-direction training for competitive young athletes.",
+                times: ["Saturdays: 10:30-11:30 AM"],
               },
               {
                 name: "Adult Athletic Performance",
                 who: "Adults",
                 desc: "Structured strength and conditioning for adults. Improve functional fitness, build lean muscle, and enhance overall athletic performance.",
+                times: ["Tuesdays: 6:30-7:30 PM", "Thursdays: 6:30-7:30 PM"],
               },
             ].map((c, i) => (
               <div
@@ -269,7 +276,12 @@ export default function Gym() {
               >
                 <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{c.who}</p>
                 <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{c.name}</h3>
-                <p className="text-ink-mid text-[14px] leading-[1.72]">{c.desc}</p>
+                <p className="text-ink-mid text-[14px] leading-[1.72] mb-5">{c.desc}</p>
+                <div className="space-y-1.5 pt-4 border-t border-wsc-border">
+                  {c.times.map((time) => (
+                    <p key={time} className="text-ink text-[12px] leading-[1.6]">{time}</p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -330,8 +342,103 @@ export default function Gym() {
         </div>
       </section>
 
-      {/* Amenities Grid */}
+      {/* Personal & Team Training */}
+      <section className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.35fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase mb-6">Personal Training</p>
+            <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light leading-[1.1] tracking-[-0.02em] mb-6">
+              Performance-based training for youth and adults.
+            </h2>
+            <p className="text-parchment/65 text-[15px] leading-[1.8] max-w-[520px]">
+              The Athletic Performance Lab offers one-on-one training for competitive athletes and anyone who wants to move, feel, and perform better. Sessions are built around assessment, data-driven metrics, and measurable progress.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+            <div className="bg-dark-mid p-8 lg:p-10">
+              <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-3">Youth & Adult Athletes</p>
+              <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em] mb-4">Sport-specific personal training</h3>
+              <p className="text-parchment/65 text-[14px] leading-[1.72] mb-6">
+                Build speed, power, endurance, confidence, and injury resilience through programming tailored to your sport and goals.
+              </p>
+              <a
+                href={COURT_RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-parchment text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt-bright pb-[3px]"
+              >
+                Request Training
+              </a>
+            </div>
+            <div className="bg-dark-mid p-8 lg:p-10">
+              <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-3">Team Training</p>
+              <h3 className="text-parchment text-[20px] font-light tracking-[-0.01em] mb-4">Youth club and school teams</h3>
+              <p className="text-parchment/65 text-[14px] leading-[1.72] mb-6">
+                WSC's Performance Training Team is available for sport and conditioning sessions for youth athletic clubs and school athletic departments.
+              </p>
+              <a
+                href="mailto:dgraham@woodinvillesportsclub.com"
+                className="text-parchment text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt-bright pb-[3px]"
+              >
+                Email Don Graham
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Complimentary Fitness Assessment */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.4fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Free Fitness Assessment</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
+              Expert guidance for WSC gym members.
+            </h2>
+            <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
+              Get expert insight into your current routine, performance goals, and next steps with a complimentary 30-45 minute assessment from a certified WSC trainer.
+            </p>
+            <a
+              href={COURT_RESERVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+            >
+              Book Your Assessment
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+            {[
+              {
+                q: "What is included?",
+                a: "A trainer will evaluate your current approach, discuss goals, identify opportunities for improvement, and provide personalized recommendations.",
+              },
+              {
+                q: "Is it really complimentary?",
+                a: "Yes. The assessment is included for WSC gym members with no obligation or long-term commitment required.",
+              },
+              {
+                q: "Do I need gym experience?",
+                a: "No. The session is designed for all fitness levels, from first-time gym users to experienced athletes.",
+              },
+              {
+                q: "What happens after?",
+                a: "You will receive guidance based on your goals. If useful, the coaching team may recommend personal training or coaching options.",
+              },
+            ].map((item) => (
+              <article key={item.q} className="bg-parchment-mid p-8">
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{item.q}</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72]">{item.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Amenities Grid */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Amenities</p>
           <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-14">

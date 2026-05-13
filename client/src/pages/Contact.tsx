@@ -3,6 +3,7 @@
  * Real content from WSC website crawl
  */
 import { useState } from "react";
+import { Link } from "wouter";
 import PageHero from "@/components/PageHero";
 import { toast } from "sonner";
 import StructuredData, { getContactPageSchema, getBreadcrumbSchema } from "@/components/StructuredData";
@@ -181,6 +182,26 @@ export default function Contact() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More Ways to Connect */}
+      <section className="bg-parchment px-6 lg:px-14 pb-24 lg:pb-28">
+        <div className="max-w-[1440px] mx-auto">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">More Ways to Connect</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">
+            {[
+              { href: "/sessions", title: "Session Dates", desc: "View 2026 registration windows and program calendars." },
+              { href: "/events", title: "Private Events", desc: "Plan a party, corporate event, wedding, or family celebration." },
+              { href: "/food-trucks", title: "Food Trucks", desc: "See rotating local food trucks and vendor contact details." },
+              { href: "/careers", title: "Careers", desc: "Explore open departments and work opportunities at WSC." },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="bg-parchment-mid p-7 no-underline group border-t-2 border-transparent hover:border-volt transition-colors duration-300">
+                <h3 className="text-ink text-[18px] font-light tracking-[-0.01em] mb-3 group-hover:text-volt transition-colors duration-200">{item.title}</h3>
+                <p className="text-ink-mid text-[13px] leading-[1.7]">{item.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

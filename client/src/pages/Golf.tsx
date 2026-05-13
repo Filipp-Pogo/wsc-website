@@ -292,9 +292,9 @@ export default function Golf() {
               ))}
             </div>
             <div className="bg-dark-bg p-6 border-l-2 border-volt-bright">
-              <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-2">Launch Promo</p>
+              <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-2">Trial Access</p>
               <p className="text-parchment/65 text-[14px] leading-[1.72]">
-                Limited-time Golf Simulator Membership — bring guests for free through March 31, 2026. Trial membership available for $20 + tax.
+                Trial golf simulator access is available for $20 + tax. Trial members can book simulator sessions at regular rates with a 7-day booking window and may upgrade at any time.
               </p>
             </div>
           </div>
@@ -343,7 +343,7 @@ export default function Golf() {
               {
                 tag: "Youth",
                 name: "Junior Academy",
-                desc: "After-school academy for ages 7–18. New Foundations class for ages 7–9 beginning Winter 3. Includes indoor training in Swing Lab simulators.",
+                desc: "After-school academy for ages 7–18, including Foundations for ages 7–9. Includes indoor training in Swing Lab simulators.",
               },
               {
                 tag: "Adults",

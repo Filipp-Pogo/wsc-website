@@ -144,7 +144,7 @@ const FAQ_ITEMS = [
       },
       {
         q: "Can I bring guests to the facility?",
-        a: "Yes. Guest policies vary by membership tier and activity. All-Access members can bring guests to the gym and fitness areas. Golf simulator trial members can bring up to 3 guests for free through the promotional period. Check with the front desk for current guest policies.",
+        a: "Yes. Guest policies vary by membership tier and activity. All-Access members can bring guests to the gym and fitness areas. Golf simulator trial members may bring up to 3 guests per session under the current trial access rules. Check with the front desk for current guest policies.",
       },
       {
         q: "What are the facility hours?",

@@ -81,16 +81,16 @@ const thisWeekItems = [
   {
     icon: Calendar,
     tag: "Registration",
-    title: "Winter 3 Registration Is Open!",
-    desc: "Winter Session 3 registration is now open for all tennis, pickleball, golf, and fitness programs. Secure your spot before classes fill up.",
-    date: "Register Now",
+    title: "Spring 2 Registration Is Open",
+    desc: "Spring 2 starts May 25, 2026 and runs through June 28. Register through CourtReserve for tennis, pickleball, golf, and APL programming.",
+    date: "Starts May 25",
     time: "",
   },
   {
     icon: Clock,
     tag: "New Program",
-    title: "NEW Tier 1 Golf Foundations (Ages 7–9)",
-    desc: "Introducing a new junior golf class for ages 7–9. Plus new Adult Golf Clinics and Swing Lab simulators now open for booking.",
+    title: "Tier 1 Golf Foundations (Ages 7-9)",
+    desc: "Junior golf pathways now include Foundations for ages 7-9, Adult Golf Clinics, private lessons, and Swing Lab simulator training.",
     date: "Ongoing",
     time: "",
   },
@@ -98,8 +98,8 @@ const thisWeekItems = [
     icon: Calendar,
     tag: "Summer",
     title: "Summer 2026 Registration Is Open",
-    desc: "Summer training programs are live — Tennis, Golf, and Adventure Club camps for ages 3–18. Early registration recommended.",
-    date: "June 29 – Aug 30",
+    desc: "Summer training programs are live: Tennis, Golf, and Adventure Club camps for ages 3-18. Early registration recommended.",
+    date: "June 29 - Aug 30",
     time: "",
   },
 ];
@@ -360,6 +360,14 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-7">
+            <Link
+              href="/sessions"
+              className="text-parchment/70 hover:text-parchment text-[12px] tracking-[0.14em] uppercase no-underline border-b border-volt-bright pb-[3px] transition-colors duration-200"
+            >
+              View 2026 Session Dates
+            </Link>
           </div>
         </div>
       </section>

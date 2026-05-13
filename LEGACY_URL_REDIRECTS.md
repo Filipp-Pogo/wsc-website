@@ -2,7 +2,7 @@
 
 Source inventory: `.scrape/woodinvillesportsclub.com/manifest.json`
 
-The live Wix crawl found 87 public pages. The production site keeps the current React routes lean, then handles old Wix URLs with Vercel-level redirects in `vercel.json` before the SPA fallback runs.
+The latest live Wix crawl found 90 public pages. The production site keeps the current React routes lean, then handles old Wix URLs with Vercel-level redirects in `vercel.json` before the SPA fallback runs.
 
 ## Kept As Current Pages
 
@@ -13,6 +13,9 @@ These scraped URLs already have first-class pages and do not redirect:
 - `/golf`
 - `/pickleball`
 - `/membership`
+- `/summer`
+- `/careers`
+- `/food-trucks`
 
 ## Redirect Strategy
 
@@ -35,15 +38,19 @@ These scraped URLs already have first-class pages and do not redirect:
 ### Contact
 
 - `/contact-us`
-- `/careers`
 - `/coaching-conference`
-- `/events-1`
-- `/food-trucks`
 - `/fta-parent-meeting-4-21`
 - `/member-request`
 - `/newsletter-signup`
-- `/upcoming-session-dates`
+- `/inquiry-services-page`
 - `/event-details-registration/:slug`
+
+### First-Class Utility Pages
+
+- `/careers` is now preserved as a current page.
+- `/food-trucks` is now preserved as a current page.
+- `/events-1` redirects to `/events`.
+- `/upcoming-session-dates` redirects to `/sessions`.
 
 ### Gym
 
@@ -54,6 +61,7 @@ These scraped URLs already have first-class pages and do not redirect:
 - `/tier-1-performance`
 - `/performance-training-team`
 - `/personal-training-interest-form`
+- `/free-fitness-assessment`
 - `/matpilates`
 - `/post/elevate-your-fitness-game-at-woodinville-sports-club`
 
@@ -114,4 +122,4 @@ These scraped URLs already have first-class pages and do not redirect:
 
 ## Coverage Check
 
-All 87 scraped pages are now either a current page or matched by a Vercel redirect rule.
+All 90 scraped pages are now either a current page or matched by a Vercel redirect rule.
