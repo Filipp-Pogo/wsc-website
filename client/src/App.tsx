@@ -1,7 +1,7 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import Analytics from "./components/Analytics";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -18,6 +18,13 @@ const Gym = lazy(() => import("./pages/Gym"));
 const Pickleball = lazy(() => import("./pages/Pickleball"));
 const Summer = lazy(() => import("./pages/Summer"));
 const Membership = lazy(() => import("./pages/Membership"));
+const Sessions = lazy(() => import("./pages/Sessions"));
+const Events = lazy(() => import("./pages/Events"));
+const FoodTrucks = lazy(() => import("./pages/FoodTrucks"));
+const Careers = lazy(() => import("./pages/Careers"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogCategory = lazy(() => import("./pages/BlogCategory"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Accessibility = lazy(() => import("./pages/Accessibility"));
@@ -41,6 +48,16 @@ function PageLoading() {
   );
 }
 
+function ScrollToTopOnRouteChange() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location]);
+
+  return null;
+}
+
 function Router() {
   return (
     <Suspense fallback={<PageLoading />}>
@@ -52,6 +69,13 @@ function Router() {
         <Route path="/pickleball" component={Pickleball} />
         <Route path="/summer" component={Summer} />
         <Route path="/membership" component={Membership} />
+        <Route path="/sessions" component={Sessions} />
+        <Route path="/events" component={Events} />
+        <Route path="/food-trucks" component={FoodTrucks} />
+        <Route path="/careers" component={Careers} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/categories/:category" component={BlogCategory} />
+        <Route path="/post/:slug" component={BlogPost} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/accessibility" component={Accessibility} />
@@ -73,9 +97,12 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
+          <ScrollToTopOnRouteChange />
           <Analytics />
           <Toaster />
-          <Navbar />
+          <header>
+            <Navbar />
+          </header>
           <main id="main-content" tabIndex={-1}>
             <Router />
           </main>

@@ -4,6 +4,7 @@
  */
 import PageHero from "@/components/PageHero";
 import { Link } from "wouter";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
@@ -13,6 +14,10 @@ export default function Accessibility() {
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.accessibility} />
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Accessibility", url: "https://www.woodinvillesportsclub.com/accessibility" },
+      ])]} />
       <PageHero
         eyebrow="Accessibility"
         headline="Our Commitment to Accessibility."

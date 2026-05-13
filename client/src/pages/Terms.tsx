@@ -74,8 +74,8 @@ export default function Terms() {
   return (
     <div className="min-h-screen">
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Terms of Service", url: "https://woodinvillesportsclub.com/terms" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Terms of Service", url: "https://www.woodinvillesportsclub.com/terms" },
       ])]} />
       <PageHero
         eyebrow="Terms of Service"

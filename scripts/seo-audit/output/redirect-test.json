@@ -1,0 +1,635 @@
+{
+  "generated_at": "2026-05-13T05:40:17.831Z",
+  "redirectTests": [
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-1",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/about",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-3",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/about",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-wsc",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/about",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-2.0",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-2.5",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-3.0",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-wsc-tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/apl-training-center",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/areasweserve",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/about",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/blog",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog/categories/golf",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/blog/categories/golf",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog/categories/tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/blog/categories/tennis",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/book",
+      "expected_new_url": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "expected_status": 301,
+      "destination_status": "external",
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/book-online",
+      "expected_new_url": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "expected_status": 301,
+      "destination_status": "external",
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/camps",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/careers",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/careers",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/coaching-conference",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/contact-us",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-2025-summer-camp-sign-up",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-adventure-camp",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-camps",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball-camp",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-tennis-camp",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/arts-%26-crafts",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/baking-for-beginners",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/modern-ballet",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/pottery-workshop",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/trumpet-basics",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/fitness-expo-extravaganza",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/pickleball-palooza-tournament",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/tennis-under-the-stars-gala",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/events-1",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/events",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/faqs",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/faq",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/fitness",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/food-trucks",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/food-trucks",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/free-fitness-assessment",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/fta-parent-meeting-4-21",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/golf",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/golf",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/golf-coaching",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/golf",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/inquiry-services-page",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/main-gym",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/matpilates",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/member-request",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/membership",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership-agreement",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/policies",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership-policies",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/policies",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/performance-training-team",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/pickleball",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball-camp",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/bothell-driving-range-woodinville-sports-club-golf",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/bothell-driving-range-woodinville-sports-club-golf",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/elevate-your-fitness-game-at-woodinville-sports-club",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/elevate-your-fitness-game-at-woodinville-sports-club",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/join-woodinville-sports-club-for-premier-sports-facilities",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/join-woodinville-sports-club-for-premier-sports-facilities",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/kirkland-driving-range-woodinville-sports-club",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/kirkland-driving-range-woodinville-sports-club",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/kirkland-parents-give-your-kids-the-ultimate-summer-at-woodinville-sports-club",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/kirkland-parents-give-your-kids-the-ultimate-summer-at-woodinville-sports-club",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/premier-tennis-courts-classes-in-woodinville-wa",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/premier-tennis-courts-classes-in-woodinville-wa",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/redmond-driving-range-toptracer-golf-at-wsc",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/redmond-driving-range-toptracer-golf-at-wsc",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/summer-camps-near-me-woodinville-wa",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/summer-camps-near-me-woodinville-wa",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/top-summer-camps-near-bellevue-for-2025",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/top-summer-camps-near-bellevue-for-2025",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/top-tennis-courts-classes-near-bothell-wa",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/top-tennis-courts-classes-near-bothell-wa",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/training-in-the-pacific-northwest-making-the-most-of-covered-bay-practice",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/training-in-the-pacific-northwest-making-the-most-of-covered-bay-practice",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/uncovering-the-ultimate-golf-experience-explore-our-woodinville-driving-range-today",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/uncovering-the-ultimate-golf-experience-explore-our-woodinville-driving-range-today",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/wsc-2025-pricing-and-policy-changes",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/wsc-2025-pricing-and-policy-changes",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/wsc-updated-court-booking-guide",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/post/wsc-updated-court-booking-guide",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/racket-stringing",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/pro-shop",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/registration-instructions",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/rpm-elite-application",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/sact",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/strength-and-conditioning",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camp-signup",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-adventureclub",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-golf",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 200,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/testimonials",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/about",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier-1-classes-application-form",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier-1-performance",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1-auto-enroll-policy",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/policies",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1coreitennis",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1golfacademy",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/golf",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1golfftaform",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/golf",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/upcoming-session-dates",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/sessions",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/usta",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "expected_status": 301,
+      "destination_status": 200,
+      "pass": true
+    }
+  ]
+}

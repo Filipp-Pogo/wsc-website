@@ -730,8 +730,8 @@ export default function Policies() {
     <div className="min-h-screen">
       <SEOHead {...SEO.policies} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Policies & Terms", url: "https://woodinvillesportsclub.com/policies" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Policies & Terms", url: "https://www.woodinvillesportsclub.com/policies" },
       ])]} />
       <PageHero
         eyebrow="Policies & Terms"

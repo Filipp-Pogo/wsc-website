@@ -1,0 +1,814 @@
+{
+  "generated_at": "2026-05-13T05:38:29.345Z",
+  "old_url_count": 90,
+  "old_unique_path_count": 89,
+  "new_route_count": 20,
+  "counts": {
+    "exact": 26,
+    "redirect-needed": 64,
+    "new-page": 10
+  },
+  "missing_content": [],
+  "rows": [
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/",
+      "new_url": "https://www.woodinvillesportsclub.com/",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Sports Club | Tennis, Golf, Pickleball, Fitness & Events in Woodinville, WA",
+      "old_word_count": 488
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-1",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "TableExample | WSC",
+      "old_word_count": 487
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-3",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "About | WSC",
+      "old_word_count": 137
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/about-wsc",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "About WSC | WSC",
+      "old_word_count": 437
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-2.0",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "RPM Adult 2.0",
+      "old_word_count": 164
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-2.5",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "RPM Adult 2.5",
+      "old_word_count": 160
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-3.0",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "RPM Adult 3.0",
+      "old_word_count": 158
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/adult-wsc-tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "WSC Adult Tennis | WSC",
+      "old_word_count": 786
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/apl-training-center",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
+      "old_word_count": 447
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/areasweserve",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Areas We Serve | WSC",
+      "old_word_count": 99
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog",
+      "new_url": "https://www.woodinvillesportsclub.com/blog",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Blog | WSC",
+      "old_word_count": 128
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog/categories/golf",
+      "new_url": "https://www.woodinvillesportsclub.com/blog/categories/golf",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Golf",
+      "old_word_count": 32
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/blog/categories/tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/blog/categories/tennis",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Tennis",
+      "old_word_count": 73
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/book",
+      "new_url": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Book | WSC",
+      "old_word_count": 31
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/book-online",
+      "new_url": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Book Online | WSC",
+      "old_word_count": 8
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/camps",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Summer Training | WSC Tennis, Golf, & Adventure Club",
+      "old_word_count": 527
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/careers",
+      "new_url": "https://www.woodinvillesportsclub.com/careers",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Careers at WSC | WSC",
+      "old_word_count": 399
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/coaching-conference",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "2005 Tier 1 Performance: Coaching Conference | WSC",
+      "old_word_count": 128
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/contact-us",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Contact Us | WSC",
+      "old_word_count": 12
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-2025-summer-camp-sign-up",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Copy of 2025 Summer Camp Sign Up | WSC",
+      "old_word_count": 254
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-adventure-camp",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "(OLD) 2025 Adventure Camp | WSC",
+      "old_word_count": 345
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-camps",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Summer Camps 2025 | Tennis, Golf, & Multi-Sport Fun at WSC",
+      "old_word_count": 327
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball-camp",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Youth Pickleball Summer Camps 2025 | Ages 7-12 | Woodinville Sports Club",
+      "old_word_count": 276
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Tennis | Indoor Courts, Lessons & Programs | Woodinville Sports Club",
+      "old_word_count": 201
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-tennis-camp",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "OLD (2025 Tennis Camps) | WSC",
+      "old_word_count": 284
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Courses (List) | WSC",
+      "old_word_count": 151
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/arts-%26-crafts",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Arts & Crafts | WSC",
+      "old_word_count": 166
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/baking-for-beginners",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Baking for Beginners | WSC",
+      "old_word_count": 167
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/modern-ballet",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Modern Ballet | WSC",
+      "old_word_count": 166
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/pottery-workshop",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Pottery Workshop | WSC",
+      "old_word_count": 166
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tennis | WSC",
+      "old_word_count": 165
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/courses/trumpet-basics",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Trumpet Basics | WSC",
+      "old_word_count": 166
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/fitness-expo-extravaganza",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Fitness Expo Extravaganza | WSC",
+      "old_word_count": 66
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/pickleball-palooza-tournament",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Pickleball Palooza Tournament | WSC",
+      "old_word_count": 58
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/event-details-registration/tennis-under-the-stars-gala",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tennis Under the Stars Gala | WSC",
+      "old_word_count": 72
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/events-1",
+      "new_url": "https://www.woodinvillesportsclub.com/events",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Unforgettable Events in Woodinville | Rustic Cabin, Stunning Views! Changes: \"Unforgettable,\" highlights key features (rustic cabin, views)",
+      "old_word_count": 487
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/faqs",
+      "new_url": "https://www.woodinvillesportsclub.com/faq",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Multi-Sport Adventure Club for Kids | WSC Woodinville",
+      "old_word_count": 776
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/fitness",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
+      "old_word_count": 306
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/food-trucks",
+      "new_url": "https://www.woodinvillesportsclub.com/food-trucks",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "NEW! Food Trucks | WSC",
+      "old_word_count": 292
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/free-fitness-assessment",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Complimentary Fitness Assessment for WSC Members | Woodinville Sports Club",
+      "old_word_count": 200
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/fta-parent-meeting-4-21",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "FTA Parent Meeting Featuring Alex Proctor ICL | WSC",
+      "old_word_count": 99
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/golf",
+      "new_url": "https://www.woodinvillesportsclub.com/golf",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Golf | Driving Range, Coaching, Lessons & Practice Area | Woodinville Sports Club",
+      "old_word_count": 1081
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/golf-coaching",
+      "new_url": "https://www.woodinvillesportsclub.com/golf",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Golf Coaching | WSC",
+      "old_word_count": 429
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/inquiry-services-page",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Inquiry Services Page | WSC",
+      "old_word_count": 17
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/main-gym",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
+      "old_word_count": 370
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/matpilates",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Pilates Interest Form | WSC",
+      "old_word_count": 132
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/member-request",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Membership Cancel Request | WSC",
+      "old_word_count": 166
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership",
+      "new_url": "https://www.woodinvillesportsclub.com/membership",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Membership | WSC",
+      "old_word_count": 518
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership-agreement",
+      "new_url": "https://www.woodinvillesportsclub.com/policies",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Membership Agreement | WSC",
+      "old_word_count": 3248
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/membership-policies",
+      "new_url": "https://www.woodinvillesportsclub.com/policies",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Membership Policies | WSC",
+      "old_word_count": 1200
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Newsletter Signup | WSC",
+      "old_word_count": 20
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/performance-training-team",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
+      "old_word_count": 431
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Personal Training Interest Form | WSC",
+      "old_word_count": 143
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball",
+      "new_url": "https://www.woodinvillesportsclub.com/pickleball",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Pickleball | Courts, Drop-In, Tournaments | Woodinville Sports Club",
+      "old_word_count": 1421
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/pickleball-camp",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Youth Pickleball Summer Camps 2025 | Ages 7-12 | Woodinville Sports Club",
+      "old_word_count": 276
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you",
+      "new_url": "https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Bellevue golfers, looking for a top-notch driving range near you?",
+      "old_word_count": 253
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/bothell-driving-range-woodinville-sports-club-golf",
+      "new_url": "https://www.woodinvillesportsclub.com/post/bothell-driving-range-woodinville-sports-club-golf",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Bothell Driving Range | Woodinville Sports Club Golf",
+      "old_word_count": 298
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/elevate-your-fitness-game-at-woodinville-sports-club",
+      "new_url": "https://www.woodinvillesportsclub.com/post/elevate-your-fitness-game-at-woodinville-sports-club",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Your Welcoming Fitness Home: Experience the Woodinville Sports Club Difference",
+      "old_word_count": 443
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/join-woodinville-sports-club-for-premier-sports-facilities",
+      "new_url": "https://www.woodinvillesportsclub.com/post/join-woodinville-sports-club-for-premier-sports-facilities",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Sports Club: Where Community and Active Lifestyle Meet",
+      "old_word_count": 570
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/kirkland-driving-range-woodinville-sports-club",
+      "new_url": "https://www.woodinvillesportsclub.com/post/kirkland-driving-range-woodinville-sports-club",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Kirkland Driving Range | Woodinville Sports Club",
+      "old_word_count": 226
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/kirkland-parents-give-your-kids-the-ultimate-summer-at-woodinville-sports-club",
+      "new_url": "https://www.woodinvillesportsclub.com/post/kirkland-parents-give-your-kids-the-ultimate-summer-at-woodinville-sports-club",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Kirkland Parents: Give Your Kids the Ultimate Summer at Woodinville Sports Club!",
+      "old_word_count": 377
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/premier-tennis-courts-classes-in-woodinville-wa",
+      "new_url": "https://www.woodinvillesportsclub.com/post/premier-tennis-courts-classes-in-woodinville-wa",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Premier Tennis Courts & Classes in Woodinville, WA",
+      "old_word_count": 782
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/redmond-driving-range-toptracer-golf-at-wsc",
+      "new_url": "https://www.woodinvillesportsclub.com/post/redmond-driving-range-toptracer-golf-at-wsc",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Driving Range Near Redmond: Toptracer Golf at Woodinville Sports Club",
+      "old_word_count": 222
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/summer-camps-near-me-woodinville-wa",
+      "new_url": "https://www.woodinvillesportsclub.com/post/summer-camps-near-me-woodinville-wa",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Summer Camps 2025: Tennis, Golf, Adventure, and Farm Fun!",
+      "old_word_count": 617
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/top-summer-camps-near-bellevue-for-2025",
+      "new_url": "https://www.woodinvillesportsclub.com/post/top-summer-camps-near-bellevue-for-2025",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Top Summer Camps Near Bellevue for 2025",
+      "old_word_count": 423
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/top-tennis-courts-classes-near-bothell-wa",
+      "new_url": "https://www.woodinvillesportsclub.com/post/top-tennis-courts-classes-near-bothell-wa",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Top Tennis Courts & Classes Near Bothell, WA",
+      "old_word_count": 758
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/training-in-the-pacific-northwest-making-the-most-of-covered-bay-practice",
+      "new_url": "https://www.woodinvillesportsclub.com/post/training-in-the-pacific-northwest-making-the-most-of-covered-bay-practice",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Training in the Pacific Northwest: Making the Most of Covered Bay Practice",
+      "old_word_count": 575
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/uncovering-the-ultimate-golf-experience-explore-our-woodinville-driving-range-today",
+      "new_url": "https://www.woodinvillesportsclub.com/post/uncovering-the-ultimate-golf-experience-explore-our-woodinville-driving-range-today",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Uncovering the Ultimate Golf Experience: Explore Our Woodinville Driving Range Today",
+      "old_word_count": 778
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/wsc-2025-pricing-and-policy-changes",
+      "new_url": "https://www.woodinvillesportsclub.com/post/wsc-2025-pricing-and-policy-changes",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "WSC 2025 Pricing & Policy Changes",
+      "old_word_count": 937
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/post/wsc-updated-court-booking-guide",
+      "new_url": "https://www.woodinvillesportsclub.com/post/wsc-updated-court-booking-guide",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "WSC Updated Court Booking Guide",
+      "old_word_count": 601
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/racket-stringing",
+      "new_url": "https://www.woodinvillesportsclub.com/pro-shop",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Racket Stringing | WSC",
+      "old_word_count": 196
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/registration-instructions",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Multi-Sport Adventure Club for Kids | WSC Woodinville",
+      "old_word_count": 413
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/rpm-elite-application",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "RPM Elite Application Form | WSC",
+      "old_word_count": 181
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/sact",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "SACT | WSC",
+      "old_word_count": 1090
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/strength-and-conditioning",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
+      "old_word_count": 1201
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Summer Programs | WSC Tennis, Golf, & Adventure Club",
+      "old_word_count": 562
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camp-signup",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Summer Camp Sign Up | WSC",
+      "old_word_count": 9
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-adventureclub",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Multi-Sport Adventure Club for Kids | WSC Woodinville",
+      "old_word_count": 428
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-golf",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Golf Academy Summer Training | WSC Woodinville",
+      "old_word_count": 815
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/summer-camps-tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/summer",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Summer Tennis Training | All Levels | WSC Woodinville",
+      "old_word_count": 795
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tennis",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "exact",
+      "review_reason": "",
+      "old_title": "Woodinville Tennis | Indoor Courts, Lessons & Programs | Woodinville Sports Club",
+      "old_word_count": 261
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/testimonials",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Testimonials | WSC",
+      "old_word_count": 150
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier-1-classes-application-form",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Classes Application Form | WSC",
+      "old_word_count": 174
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier-1-performance",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Performance | WSC",
+      "old_word_count": 284
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1-auto-enroll-policy",
+      "new_url": "https://www.woodinvillesportsclub.com/policies",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Academy Policy | WSC",
+      "old_word_count": 372
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1coreitennis",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Core Tennis (RPM) | WSC",
+      "old_word_count": 588
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1golfacademy",
+      "new_url": "https://www.woodinvillesportsclub.com/golf",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "WSC Tier 1 Golf Academy",
+      "old_word_count": 460
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/tier1golfftaform",
+      "new_url": "https://www.woodinvillesportsclub.com/golf",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Tier 1 Full-Time Golf Academy Form | WSC",
+      "old_word_count": 103
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/upcoming-session-dates",
+      "new_url": "https://www.woodinvillesportsclub.com/sessions",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "Upcoming Session Dates | WSC",
+      "old_word_count": 251
+    },
+    {
+      "old_url": "https://www.woodinvillesportsclub.com/usta",
+      "new_url": "https://www.woodinvillesportsclub.com/tennis",
+      "match_type": "redirect-needed",
+      "review_reason": "",
+      "old_title": "USTA | WSC",
+      "old_word_count": 1240
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/about",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/accessibility",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/contact",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/events",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/faq",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/policies",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/privacy",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/pro-shop",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/sessions",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    }
+  ]
+}

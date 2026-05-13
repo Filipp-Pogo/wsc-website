@@ -187,8 +187,8 @@ export default function Golf() {
     <div className="min-h-screen">
       <SEOHead {...SEO.golf} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Golf", url: "https://woodinvillesportsclub.com/golf" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Golf", url: "https://www.woodinvillesportsclub.com/golf" },
       ])]} />
       <PageHero
         eyebrow="Tier 1 Golf by Caliber"
@@ -231,7 +231,10 @@ export default function Golf() {
           </div>
           <img
             src={GOLF_IMG}
-            alt="Golf driving range"
+            alt="Covered golf driving range at Woodinville Sports Club"
+            width={1800}
+            height={1200}
+            loading="lazy"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
           />
         </div>
@@ -292,9 +295,9 @@ export default function Golf() {
               ))}
             </div>
             <div className="bg-dark-bg p-6 border-l-2 border-volt-bright">
-              <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-2">Launch Promo</p>
+              <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-2">Trial Access</p>
               <p className="text-parchment/65 text-[14px] leading-[1.72]">
-                Limited-time Golf Simulator Membership — bring guests for free through March 31, 2026. Trial membership available for $20 + tax.
+                Trial golf simulator access is available for $20 + tax. Trial members can book simulator sessions at regular rates with a 7-day booking window and may upgrade at any time.
               </p>
             </div>
           </div>
@@ -314,6 +317,9 @@ export default function Golf() {
               <img
                 src={img.src}
                 alt={img.alt}
+                width={1800}
+                height={1350}
+                loading="lazy"
                 className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -343,7 +349,7 @@ export default function Golf() {
               {
                 tag: "Youth",
                 name: "Junior Academy",
-                desc: "After-school academy for ages 7–18. New Foundations class for ages 7–9 beginning Winter 3. Includes indoor training in Swing Lab simulators.",
+                desc: "After-school academy for ages 7–18, including Foundations for ages 7–9. Includes indoor training in Swing Lab simulators.",
               },
               {
                 tag: "Adults",

@@ -1,0 +1,376 @@
+{
+  "generated_at": "2026-05-13T05:09:55.056Z",
+  "checked": 41,
+  "failures": [],
+  "rows": [
+    {
+      "route": "/",
+      "title": "Woodinville Sports Campus | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/tennis",
+      "title": "Tennis Programs & Courts | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/golf",
+      "title": "Golf Range & Swing Lab Simulators | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/gym",
+      "title": "Gym & Athletic Performance | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/pickleball",
+      "title": "Pickleball Courts & Open Play | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/summer",
+      "title": "Summer Training & Camps 2026 | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/membership",
+      "title": "Membership Plans & Pricing | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/sessions",
+      "title": "2026 Session Dates Calendar | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/events",
+      "title": "Private Events & Venue Rentals | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/food-trucks",
+      "title": "Food Trucks & Campus Dining | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/careers",
+      "title": "Careers at WSC Sports Campus | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog",
+      "title": "Blog & Resource Guides Hub | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/about",
+      "title": "About WSC 67-Acre Campus | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/contact",
+      "title": "Contact, Hours & Directions | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/pro-shop",
+      "title": "Pro Shop Gear & Equipment | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/policies",
+      "title": "Club Policies & Terms of Service | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/privacy",
+      "title": "Privacy Policy & Data Use | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/faq",
+      "title": "Frequently Asked Questions | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/accessibility",
+      "title": "Accessibility Statement Info | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/404",
+      "title": "Page Not Found on WSC Website | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/golf",
+      "title": "Golf Resource Guides & Tips | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/tennis",
+      "title": "Tennis Resource Guide Hub | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/summer",
+      "title": "Summer Camp Resource Guides | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/fitness",
+      "title": "Fitness Resource Guide Hub | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/membership",
+      "title": "Membership Resource Guides | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/blog/categories/policies",
+      "title": "Policy & Booking Resource Guides | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you",
+      "title": "Bellevue Golf Range Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/bothell-driving-range-woodinville-sports-club-golf",
+      "title": "Bothell Driving Range Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/elevate-your-fitness-game-at-woodinville-sports-club",
+      "title": "Woodinville Gym & Fitness Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/join-woodinville-sports-club-for-premier-sports-facilities",
+      "title": "Woodinville Membership Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/kirkland-driving-range-woodinville-sports-club",
+      "title": "Kirkland Driving Range at WSC Golf | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/kirkland-parents-give-your-kids-the-ultimate-summer-at-woodinville-sports-club",
+      "title": "Kirkland Summer Camps at WSC | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/premier-tennis-courts-classes-in-woodinville-wa",
+      "title": "Woodinville Tennis Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/redmond-driving-range-toptracer-golf-at-wsc",
+      "title": "Redmond Toptracer Range Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/summer-camps-near-me-woodinville-wa",
+      "title": "Woodinville Summer Camps at WSC | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/top-summer-camps-near-bellevue-for-2025",
+      "title": "Summer Camps Near Bellevue at WSC | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/top-tennis-courts-classes-near-bothell-wa",
+      "title": "Bothell Tennis Courts Guide | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/training-in-the-pacific-northwest-making-the-most-of-covered-bay-practice",
+      "title": "PNW Covered Bay Golf Practice | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/uncovering-the-ultimate-golf-experience-explore-our-woodinville-driving-range-today",
+      "title": "Woodinville Driving Range | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/wsc-2025-pricing-and-policy-changes",
+      "title": "WSC Pricing and Policy Updates | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    },
+    {
+      "route": "/post/wsc-updated-court-booking-guide",
+      "title": "WSC Court Booking Guide 2026 | Woodinville Sports Club",
+      "h1Count": 1,
+      "headerCount": 1,
+      "navCount": 1,
+      "mainCount": 1,
+      "footerCount": 1
+    }
+  ]
+}

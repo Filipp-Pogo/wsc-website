@@ -67,6 +67,9 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Woodinville Sports Club"
+            width={1200}
+            height={600}
+            loading="eager"
             className="block h-9 sm:h-10 w-auto object-contain"
           />
         </Link>

@@ -18,8 +18,8 @@ export default function NotFound() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Page Not Found"
-        description="The page you're looking for doesn't exist. Navigate back to Woodinville Sports Club's homepage or explore our programs."
+        title="Page Not Found on WSC Website"
+        description="The page you requested was not found. Return to WSC home, explore tennis, golf, gym, pickleball, membership, or contact the club for help now."
         path="/404"
       />
 

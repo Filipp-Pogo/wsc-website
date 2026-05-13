@@ -1,0 +1,325 @@
+{
+  "generated_at": "2026-05-13T05:38:29.349Z",
+  "detected_host": "vercel",
+  "redirect_count": 63,
+  "all_permanent_301": true,
+  "exact_path_sources": true,
+  "single_hop_internal": true,
+  "redirects": [
+    {
+      "source": "/about-1",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-3",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-wsc",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/adult-rpm-classes/rpm-adult-2.0",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/adult-rpm-classes/rpm-adult-2.5",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/adult-rpm-classes/rpm-adult-3.0",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/adult-wsc-tennis",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/apl-training-center",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/areasweserve",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "permanent": true
+    },
+    {
+      "source": "/book-online",
+      "destination": "https://app.courtreserve.com/Online/Portal/Index/6689",
+      "permanent": true
+    },
+    {
+      "source": "/camps",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/coaching-conference",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-2025-summer-camp-sign-up",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-adventure-camp",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-camps",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/pickleball-camp",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-tennis",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-tennis-camp",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses/arts-%26-crafts",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses/baking-for-beginners",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses/modern-ballet",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses/pottery-workshop",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/courses/tennis",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/courses/trumpet-basics",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/event-details-registration/fitness-expo-extravaganza",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/event-details-registration/pickleball-palooza-tournament",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/event-details-registration/tennis-under-the-stars-gala",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/events-1",
+      "destination": "/events",
+      "permanent": true
+    },
+    {
+      "source": "/faqs",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/fitness",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/free-fitness-assessment",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/fta-parent-meeting-4-21",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/golf-coaching",
+      "destination": "/golf",
+      "permanent": true
+    },
+    {
+      "source": "/inquiry-services-page",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/main-gym",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/matpilates",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/member-request",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/membership-agreement",
+      "destination": "/policies",
+      "permanent": true
+    },
+    {
+      "source": "/membership-policies",
+      "destination": "/policies",
+      "permanent": true
+    },
+    {
+      "source": "/newsletter-signup",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/performance-training-team",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/personal-training-interest-form",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/racket-stringing",
+      "destination": "/pro-shop",
+      "permanent": true
+    },
+    {
+      "source": "/registration-instructions",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/rpm-elite-application",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/sact",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/strength-and-conditioning",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/summer-camp-signup",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/summer-camps-adventureclub",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/summer-camps-golf",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/summer-camps-tennis",
+      "destination": "/summer",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/tier-1-classes-application-form",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/tier-1-performance",
+      "destination": "/gym",
+      "permanent": true
+    },
+    {
+      "source": "/tier1-auto-enroll-policy",
+      "destination": "/policies",
+      "permanent": true
+    },
+    {
+      "source": "/tier1coreitennis",
+      "destination": "/tennis",
+      "permanent": true
+    },
+    {
+      "source": "/tier1golfacademy",
+      "destination": "/golf",
+      "permanent": true
+    },
+    {
+      "source": "/tier1golfftaform",
+      "destination": "/golf",
+      "permanent": true
+    },
+    {
+      "source": "/upcoming-session-dates",
+      "destination": "/sessions",
+      "permanent": true
+    },
+    {
+      "source": "/usta",
+      "destination": "/tennis",
+      "permanent": true
+    }
+  ]
+}

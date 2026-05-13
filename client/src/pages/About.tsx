@@ -16,8 +16,8 @@ export default function About() {
       <SEOHead {...SEO.about} />
       <StructuredData schemas={[
         getBreadcrumbSchema([
-          { name: "Home", url: "https://woodinvillesportsclub.com/" },
-          { name: "About", url: "https://woodinvillesportsclub.com/about" },
+          { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+          { name: "About", url: "https://www.woodinvillesportsclub.com/about" },
         ]),
       ]} />
       <PageHero

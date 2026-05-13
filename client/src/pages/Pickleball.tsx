@@ -29,8 +29,8 @@ export default function Pickleball() {
     <div className="min-h-screen">
       <SEOHead {...SEO.pickleball} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Pickleball", url: "https://woodinvillesportsclub.com/pickleball" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Pickleball", url: "https://www.woodinvillesportsclub.com/pickleball" },
       ])]} />
       <PageHero
         eyebrow="Pickleball"
@@ -72,7 +72,10 @@ export default function Pickleball() {
           <div>
             <img
               src={PICKLE_IMG}
-              alt="Pickleball dome"
+              alt="Indoor pickleball dome courts at Woodinville Sports Club"
+              width={1800}
+              height={1149}
+              loading="lazy"
               className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85] mb-6"
             />
             <div className="bg-parchment-mid p-6 border-l-2 border-volt">
@@ -336,10 +339,10 @@ export default function Pickleball() {
 
           <div ref={tournamentsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">
             {[
-              { name: "Shamrock Shootout", date: "March 20–22, 2026", season: "Spring" },
-              { name: "Spring Fling", date: "May 29–31, 2026", season: "Late Spring" },
+              { name: "Spring Fling", date: "May 29–31, 2026", season: "Upcoming" },
               { name: "Dominate the Dome", date: "September 2026", season: "Fall" },
               { name: "Holiday Classic", date: "December 2026", season: "Winter" },
+              { name: "Shamrock Shootout", date: "Completed March 20–22, 2026", season: "Completed" },
             ].map((t, i) => (
               <div
                 key={i}

@@ -6,6 +6,7 @@
  */
 import PageHero from "@/components/PageHero";
 import { Link } from "wouter";
+import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
@@ -63,6 +64,10 @@ export default function Privacy() {
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.privacy} />
+      <StructuredData schemas={[getBreadcrumbSchema([
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Privacy Policy", url: "https://www.woodinvillesportsclub.com/privacy" },
+      ])]} />
       <PageHero
         eyebrow="Privacy Policy"
         headline="Your Privacy Matters."

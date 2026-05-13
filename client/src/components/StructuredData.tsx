@@ -8,8 +8,9 @@
 const WSC_ORGANIZATION = {
   "@type": "Organization",
   name: "Woodinville Sports Club",
-  url: "https://woodinvillesportsclub.com",
-  logo: "https://woodinvillesportsclub.com/logo.png",
+  legalName: "Woodinville Sports Club",
+  url: "https://www.woodinvillesportsclub.com",
+  logo: "https://www.woodinvillesportsclub.com/logo.png",
   sameAs: [
     "https://www.instagram.com/woodinvillesportsclub",
     "https://www.calibersports.com",
@@ -50,19 +51,20 @@ export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": ["SportsActivityLocation", "LocalBusiness"],
-    "@id": "https://woodinvillesportsclub.com/#organization",
+    "@id": "https://www.woodinvillesportsclub.com/#organization",
     name: "Woodinville Sports Club",
+    legalName: "Woodinville Sports Club",
     alternateName: "WSC",
     description:
       "A 67-acre hybrid performance campus in Woodinville, WA offering world-class tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber — one of the nation's leading developmental programs.",
-    url: "https://woodinvillesportsclub.com",
+    url: "https://www.woodinvillesportsclub.com",
     telephone: "+1-425-487-1090",
     email: "info@woodinvillesportsclub.com",
     image: [
-      "https://woodinvillesportsclub.com/images/wsc/campus-dome.webp",
-      "https://woodinvillesportsclub.com/images/wsc/tennis-courts.webp",
+      "https://www.woodinvillesportsclub.com/images/wsc/campus-dome.webp",
+      "https://www.woodinvillesportsclub.com/images/wsc/tennis-courts.webp",
     ],
-    logo: "https://woodinvillesportsclub.com/logo.png",
+    logo: "https://www.woodinvillesportsclub.com/logo.png",
     address: WSC_ADDRESS,
     geo: WSC_GEO,
     openingHoursSpecification: WSC_HOURS,
@@ -144,9 +146,9 @@ export function getWebSiteSchema() {
     "@type": "WebSite",
     name: "Woodinville Sports Club",
     alternateName: "WSC",
-    url: "https://woodinvillesportsclub.com",
+    url: "https://www.woodinvillesportsclub.com",
     publisher: {
-      "@id": "https://woodinvillesportsclub.com/#organization",
+      "@id": "https://www.woodinvillesportsclub.com/#organization",
     },
   };
 }
@@ -186,11 +188,11 @@ export function getSummerCampSchema() {
     organizer: {
       "@type": "Organization",
       name: "Woodinville Sports Club",
-      url: "https://woodinvillesportsclub.com",
+      url: "https://www.woodinvillesportsclub.com",
     },
     offers: {
       "@type": "Offer",
-      url: "https://woodinvillesportsclub.com/summer",
+      url: "https://www.woodinvillesportsclub.com/summer",
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
     },
@@ -205,14 +207,23 @@ export function getContactPageSchema() {
     "@type": "ContactPage",
     name: "Contact Woodinville Sports Club",
     description: "Get in touch with WSC for membership inquiries, tour scheduling, program information, and general questions.",
-    url: "https://woodinvillesportsclub.com/contact",
+    url: "https://www.woodinvillesportsclub.com/contact",
     mainEntity: {
-      "@type": "LocalBusiness",
-      "@id": "https://woodinvillesportsclub.com/#organization",
+      "@type": ["SportsActivityLocation", "LocalBusiness"],
+      "@id": "https://www.woodinvillesportsclub.com/#organization",
       name: "Woodinville Sports Club",
+      legalName: "Woodinville Sports Club",
       telephone: "+1-425-487-1090",
       email: "info@woodinvillesportsclub.com",
+      image: "https://www.woodinvillesportsclub.com/images/wsc/contact-campus.webp",
       address: WSC_ADDRESS,
+      geo: WSC_GEO,
+      openingHoursSpecification: WSC_HOURS,
+      sameAs: [
+        "https://www.instagram.com/woodinvillesportsclub",
+        "https://www.calibersports.com",
+        "https://www.tier1nw.com",
+      ],
       contactPoint: [
         {
           "@type": "ContactPoint",

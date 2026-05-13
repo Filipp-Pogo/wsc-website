@@ -4,73 +4,103 @@
  */
 export const SEO = {
   home: {
-    title: "Tennis, Golf, Pickleball & Athletic Performance",
+    title: "Woodinville Sports Campus",
     description:
-      "Woodinville Sports Club is a 67-acre performance campus in Woodinville, WA. 8 indoor tennis courts, 23 covered driving bays, Swing Lab simulators, pickleball, and APL athletic training. Home to Tier 1 Sports by Caliber.",
+      "Woodinville Sports Club is a 67-acre campus for tennis, golf, pickleball, gym, APL training, camps, events, and family programs in Woodinville, WA.",
     path: "/",
   },
   tennis: {
-    title: "Tennis Programs & Indoor Courts",
+    title: "Tennis Programs & Courts",
     description:
-      "8 climate-controlled indoor tennis courts, Tier 1 Tennis Academy, adult and junior programs, private lessons, and court booking via CourtReserve. Book courts at $21.14/30min at Woodinville Sports Club.",
+      "Book 8 indoor tennis courts, Tier 1 junior training, adult classes, private lessons, USTA teams, and CourtReserve access at Woodinville Sports Club.",
     path: "/tennis",
   },
   golf: {
-    title: "Golf Range, Swing Lab Simulators & Tier 1 Academy",
+    title: "Golf Range & Swing Lab Simulators",
     description:
-      "23 covered driving bays with free Toptracer, 4 Uneekor Swing Lab simulators, Tier 1 Golf Academy, private lessons, and a 2.5-acre short game area. Range buckets from $8 at Woodinville Sports Club.",
+      "Practice at 23 covered golf bays with Toptracer, 4 Swing Lab simulators, short-game space, mini-golf, lessons, and Tier 1 Golf Academy in Woodinville.",
     path: "/golf",
   },
   gym: {
-    title: "Gym, Fitness Center & APL Athletic Performance",
+    title: "Gym & Athletic Performance",
     description:
-      "Full-service gym with weight room, functional training area, sauna, and locker rooms. APL group classes including Build, Ignite, Speed School, and more. Monthly All-Access from $40/mo at WSC.",
+      "Train in WSC's gym with weights, functional space, sauna, locker rooms, APL strength classes, speed training, personal training, and all-access plans.",
     path: "/gym",
   },
   pickleball: {
-    title: "Pickleball at The Dome — Open Play, Lessons & Tournaments",
+    title: "Pickleball Courts & Open Play",
     description:
-      "8 indoor pickleball courts at The Dome with open play 7 days a week. Sessions from $18, private court rental $25/hr, DUPR Ladder, 4 annual PIG tournaments, and beginner-to-advanced classes at WSC.",
+      "Play indoor pickleball at The Dome with open play, private court rentals, DUPR ladders, tournaments, beginner classes, and member booking options.",
     path: "/pickleball",
   },
   summer: {
-    title: "Summer Training Programs & Camps 2026",
+    title: "Summer Training & Camps 2026",
     description:
-      "Summer training at WSC from June 29 to August 30, 2026. Tennis Academy, Golf Academy, and Adventure Club multi-sport camps for ages 3-18. Weekly sessions with full-day and half-day options.",
+      "Plan 2026 summer training at WSC with tennis, golf, Adventure Club, half-day and full-day bundles, weekly sessions, and programs for ages 3-18.",
     path: "/summer",
   },
   membership: {
     title: "Membership Plans & Pricing",
     description:
-      "6 membership tiers from $20 one-time trial to $100/mo Family All-Access. Court booking, golf simulator access, gym and fitness, and class registration. Join Woodinville Sports Club today.",
+      "Compare WSC membership plans for families, couples, individuals, court booking, range access, class registration, gym use, and golf simulator benefits.",
     path: "/membership",
   },
-  about: {
-    title: "About WSC — 67-Acre Campus Since 1979",
+  sessions: {
+    title: "2026 Session Dates Calendar",
     description:
-      "Founded in 1979, Woodinville Sports Club is a 67-acre hybrid performance campus in Woodinville, WA. A Caliber Sports facility and home to Tier 1 Sports — one of the nation's leading developmental programs.",
+      "View WSC's 2026 programming session dates, registration windows, start dates, end dates, and summer schedules for tennis, golf, camps, and classes.",
+    path: "/sessions",
+  },
+  events: {
+    title: "Private Events & Venue Rentals",
+    description:
+      "Host private events at WSC in Woodinville Wine Country, including weddings, birthdays, corporate outings, family celebrations, sports parties and cabin rentals.",
+    path: "/events",
+  },
+  foodTrucks: {
+    title: "Food Trucks & Campus Dining",
+    description:
+      "Woodinville Sports Club hosts rotating local food trucks on campus. Grab dinner before golf, tennis, pickleball, fitness, or private events.",
+    path: "/food-trucks",
+  },
+  careers: {
+    title: "Careers at WSC Sports Campus",
+    description:
+      "Explore WSC careers in tennis, golf, fitness, operations, youth camps, events, front desk service, and athletic programming in Woodinville, WA.",
+    path: "/careers",
+  },
+  blog: {
+    title: "Blog & Resource Guides Hub",
+    description:
+      "Read Woodinville Sports Club resources for tennis, golf, fitness, summer camps, membership, court booking, and active families around the Eastside.",
+    path: "/blog",
+  },
+  about: {
+    title: "About WSC 67-Acre Campus",
+    description:
+      "Learn about WSC's 67-acre Woodinville campus, founded in 1979 and now a Caliber Sports facility for tennis, golf, pickleball, fitness, and events.",
     path: "/about",
   },
   contact: {
-    title: "Contact Us — Hours, Directions & Inquiries",
+    title: "Contact, Hours & Directions",
     description:
-      "Contact Woodinville Sports Club at (425) 487-1090 or info@woodinvillesportsclub.com. Located at 15327 140th Pl NE, Woodinville, WA 98072. Tennis, golf, gym, and pickleball facility hours.",
+      "Contact WSC at (425) 487-1090, find hours and directions, or visit 15327 140th Pl NE in Woodinville for tennis, golf, gym, and pickleball help.",
     path: "/contact",
   },
   proShop: {
-    title: "Pro Shop — Gear, Apparel & Equipment",
+    title: "Pro Shop Gear & Equipment",
     description:
-      "Visit the WSC Pro Shop for tennis rackets, golf equipment, pickleball paddles, athletic apparel, and accessories. Expert staff and stringing services available on campus.",
+      "Visit the WSC Pro Shop for tennis rackets, golf equipment, pickleball paddles, athletic apparel, accessories, expert staff, and stringing services.",
     path: "/pro-shop",
   },
   policies: {
     title: "Club Policies & Terms of Service",
     description:
-      "Review Woodinville Sports Club's membership policies, facility rules, code of conduct, cancellation policies, and terms of service. Guest policies and court booking guidelines.",
+      "Review WSC membership policies, facility rules, code of conduct, cancellation terms, guest policies, court booking guidelines, and member agreement details.",
     path: "/policies",
   },
   privacy: {
-    title: "Privacy Policy",
+    title: "Privacy Policy & Data Use",
     description:
       "Woodinville Sports Club's privacy policy covering data collection, usage, cookies, and your rights. Learn how we protect your personal information.",
     path: "/privacy",
@@ -82,9 +112,9 @@ export const SEO = {
     path: "/faq",
   },
   accessibility: {
-    title: "Accessibility Statement",
+    title: "Accessibility Statement Info",
     description:
-      "Woodinville Sports Club's commitment to digital accessibility. Learn about our WCAG compliance efforts and how to request accommodations.",
+      "Learn about WSC's digital accessibility commitment, WCAG compliance efforts, inclusive website updates, and how to request help or accommodations.",
     path: "/accessibility",
   },
 } as const;

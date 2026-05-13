@@ -15,6 +15,68 @@ import { SEO } from "@/lib/seo-data";
 
 const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
 const TENNIS_ACTION = "/images/wsc/tennis-player.webp";
+const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
+
+const corePathway = [
+  {
+    name: "JumpStart",
+    ages: "Ages 3-5",
+    desc: "Hand-eye coordination, fundamental skills, and lots of fun for the youngest players.",
+  },
+  {
+    name: "Red Ball",
+    ages: "Ages 5-8",
+    desc: "Scaled courts and red balls for basic strokes, movement, confidence, and a love for the game.",
+  },
+  {
+    name: "Orange Ball",
+    ages: "Ages 9-10",
+    desc: "Orange balls and modified court sizes for technique, footwork, and early strategy.",
+  },
+  {
+    name: "Green Ball",
+    ages: "Ages 10-12",
+    desc: "Stroke development, tactical awareness, and match play fundamentals on standard court sizes.",
+  },
+  {
+    name: "Yellow Ball",
+    ages: "Ages 12+",
+    desc: "Full-court training with standard balls, advanced technique, match strategy, and competitive play.",
+  },
+];
+
+const adultClasses = [
+  {
+    name: "Intro to Tennis",
+    level: "Beginner",
+    desc: "For players with little to no tennis experience. Covers the five basic strokes, grips, and footwork.",
+  },
+  {
+    name: "Co-ed Doubles Strategy Clinic",
+    level: "NTRP 2.5-3.0",
+    desc: "Net play, positioning, shot selection, movement patterns, communication, and match-play readiness.",
+  },
+  {
+    name: "Shot Spotlight",
+    level: "NTRP 2.5-3.5",
+    desc: "A weekly deep dive into one featured shot, focused on form, execution, and repetition.",
+  },
+  {
+    name: "Patterns & Point Play",
+    level: "NTRP 2.5 advanced-3.5",
+    desc: "Fast-paced rallying, player-fed points, consistency work, and competitive pattern training.",
+  },
+  {
+    name: "Technique & Live Ball",
+    level: "NTRP 2.5 advanced-3.5",
+    desc: "Coach-fed technical instruction followed by champion/challenger style live-ball play.",
+  },
+  {
+    name: "Small Group Intensives",
+    level: "NTRP 3.0-4.0+",
+    desc: "High-repetition training for players who want a harder, more focused class format.",
+  },
+];
 
 export default function Tennis() {
   // Scroll-reveal hooks
@@ -22,14 +84,17 @@ export default function Tennis() {
   const { ref: facilitiesRef, isVisible: facilitiesVisible } = useScrollReveal({ threshold: 0.1 });
   const { containerRef: coachesRef, visibleItems: coachesVisible } = useStaggerReveal(3, { staggerDelay: 150, threshold: 0.08 });
   const { ref: bookingRef, isVisible: bookingVisible } = useScrollReveal({ threshold: 0.1 });
+  const { containerRef: coreRef, visibleItems: coreVisible } = useStaggerReveal(5, { staggerDelay: 110, threshold: 0.08 });
+  const { containerRef: adultRef, visibleItems: adultVisible } = useStaggerReveal(6, { staggerDelay: 90, threshold: 0.06 });
+  const { ref: leagueRef, isVisible: leagueVisible } = useScrollReveal({ threshold: 0.08 });
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.15 });
 
   return (
     <div className="min-h-screen">
       <SEOHead {...SEO.tennis} />
       <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://woodinvillesportsclub.com/" },
-        { name: "Tennis", url: "https://woodinvillesportsclub.com/tennis" },
+        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+        { name: "Tennis", url: "https://www.woodinvillesportsclub.com/tennis" },
       ])]} />
       <PageHero
         eyebrow="Tier 1 Tennis by Caliber"
@@ -75,7 +140,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Tier 1 Performance
             </a>
           </div>
 
@@ -108,7 +173,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Tier 1 Core
             </a>
           </div>
 
@@ -139,7 +204,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More
+              Learn More About Adult Tennis
             </a>
           </div>
         </div>
@@ -177,7 +242,10 @@ export default function Tennis() {
           </div>
           <img
             src={TENNIS_IMG}
-            alt="Indoor tennis courts"
+            alt="Indoor tennis courts at Woodinville Sports Club"
+            width={1800}
+            height={1218}
+            loading="lazy"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
           />
         </div>
@@ -235,6 +303,76 @@ export default function Tennis() {
         </div>
       </section>
 
+      {/* Tier 1 Core Pathway */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Junior Pathway</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Red-to-yellow ball development.
+          </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[720px]">
+            Tier 1 Core Tennis, formerly RPM, uses the red-to-yellow ball pathway followed by the USTA. Classes are built for ages 3 and up, with age-appropriate equipment, modified court sizes, and progressive skill development.
+          </p>
+
+          <div ref={coreRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[3px]">
+            {corePathway.map((level, i) => (
+              <article
+                key={level.name}
+                className={`bg-parchment-mid p-7 transition-all duration-700 ease-out ${coreVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{level.ages}</p>
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{level.name}</h3>
+                <p className="text-ink-mid text-[13px] leading-[1.72]">{level.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Adult Class Menu */}
+      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
+        <div className="max-w-[1440px] mx-auto">
+          <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">Adult Tennis</p>
+          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+            Classes, socials, and matchplay.
+          </h2>
+          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[720px]">
+            Adult classes meet weekly, with drop-ins opening one week prior when available. Pricing varies by class length and session duration, typically $45-$75 + tax per class or $225-$325 + tax per 5-week session. Coaches evaluate new players and may suggest level adjustments.
+          </p>
+
+          <div ref={adultRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[3px]">
+            {adultClasses.map((classItem, i) => (
+              <article
+                key={classItem.name}
+                className={`bg-parchment p-8 border-t-2 border-transparent hover:border-volt transition-all duration-700 ease-out ${adultVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              >
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{classItem.level}</p>
+                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-3">{classItem.name}</h3>
+                <p className="text-ink-mid text-[14px] leading-[1.72]">{classItem.desc}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 bg-parchment p-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">Friday Night UTR Matchplay</p>
+              <h3 className="text-[20px] font-light tracking-[-0.01em] mb-3">Verified singles matches for juniors and adults.</h3>
+              <p className="text-ink-mid text-[14px] leading-[1.72]">
+                Friday nights alternate between juniors 18 and under and adults 19+. Registration closes Wednesday night, draws post Thursday at 1:00 PM, and matches use Fast 4 scoring with opponents near each player's UTR level.
+              </p>
+            </div>
+            <a
+              href={COURT_RESERVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+            >
+              Register
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Court Booking */}
       <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
         <div
@@ -276,7 +414,7 @@ export default function Tennis() {
                 Membership Sign Up
               </Link>
               <a
-                href="https://app.courtreserve.com/Online/Portal/Index/6689"
+                href={COURT_RESERVE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-ink border border-wsc-border px-8 py-3.5 hover:border-volt transition-colors duration-200"
@@ -284,6 +422,50 @@ export default function Tennis() {
                 Book a Court
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Tennis */}
+      <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
+        <div
+          ref={leagueRef}
+          className={`max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.35fr] gap-12 lg:gap-20 items-start transition-all duration-700 ease-out ${leagueVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div>
+            <p className="text-volt text-[11px] tracking-[0.22em] uppercase mb-5">USTA & SACT</p>
+            <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-8">
+              Team tennis at WSC.
+            </h2>
+            <p className="text-ink-mid text-[16px] leading-[1.82]">
+              WSC welcomes USTA and Seattle Area Cup Tennis teams. Captains must hold at least a Class Registration Pass, and at least one captain per team must have a valid WSC membership.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
+            {[
+              {
+                label: "Match Length",
+                desc: "League matches typically run 90 minutes. Matches beyond 95 minutes must continue on an overflow court or be scheduled for completion later.",
+              },
+              {
+                label: "Team Fees",
+                desc: "Home and visiting teams pay $21 + tax per person in one lump-sum payment at the front desk.",
+              },
+              {
+                label: "Warm-Up Courts",
+                desc: "Home captains with booking privileges may reserve warm-up courts up to 7 days in advance. Visiting teams may book within 24 hours by calling the front desk.",
+              },
+              {
+                label: "Cancellation",
+                desc: "Teams must communicate match cancellations at least 24 hours before the scheduled match time. Late defaults may be responsible for the full court cost.",
+              },
+            ].map((item) => (
+              <article key={item.label} className="bg-parchment-mid p-8">
+                <p className="text-volt text-[10px] tracking-[0.2em] uppercase mb-3">{item.label}</p>
+                <p className="text-ink-mid text-[14px] leading-[1.72]">{item.desc}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

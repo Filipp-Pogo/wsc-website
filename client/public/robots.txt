@@ -1,8 +1,4 @@
-# Woodinville Sports Club
-# https://woodinvillesportsclub.com
-
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://woodinvillesportsclub.com/sitemap.xml
+Sitemap: https://www.woodinvillesportsclub.com/sitemap.xml

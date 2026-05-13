@@ -29,7 +29,7 @@ const POSTS: InstaPost[] = [
   {
     id: "2",
     url: "https://www.instagram.com/p/DVUAJfyErsA/",
-    caption: "The range is open 24/7. Whether you're a seasoned golfer or just getting started, come hit some balls under the lights.",
+    caption: "The range is open to the public daily, with covered bays, free Toptracer, grass tees, and a 2.5-acre short-game practice area.",
     type: "image",
     thumbnail: "/images/wsc/golf-practice-area.webp",
     likes: "87",
@@ -74,7 +74,7 @@ const POSTS: InstaPost[] = [
   {
     id: "7",
     url: "https://www.instagram.com/p/DVPyb55Dclm/",
-    caption: "Last chance, Woodinville. Our All-Access membership special ends February 28th. Save up to $150!",
+    caption: "All-Access memberships include gym and fitness access, court and range privileges, class registration access, sauna, and locker rooms.",
     type: "image",
     thumbnail: "/images/wsc/apl-training.webp",
     likes: "45",
@@ -83,7 +83,7 @@ const POSTS: InstaPost[] = [
   {
     id: "8",
     url: "https://www.instagram.com/p/DVOo-q-EgdB/",
-    caption: "Register for a full week of WSC Summer Training by February 28 and save 10% plus get a free Summer Training t-shirt.",
+    caption: "Summer 2026 registration is open for Tennis, Golf, and Adventure Club programs across the 9-week summer session.",
     type: "image",
     thumbnail: "/images/wsc/summer-camp.webp",
     likes: "62",
@@ -111,6 +111,8 @@ export default function InstagramFeed() {
           <img
             src={post.thumbnail}
             alt={post.caption}
+            width={1800}
+            height={1200}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             style={{ filter: "saturate(0.85) brightness(0.95)" }}
             loading="lazy"
