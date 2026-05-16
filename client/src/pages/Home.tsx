@@ -300,8 +300,8 @@ export default function Home() {
               Woodinville, Washington — Pacific Northwest
             </p>
             <h1 className="text-parchment text-[clamp(40px,5.2vw,76px)] font-light leading-[1.06] tracking-[-0.025em] mb-7">
-              Level Up Your<br className="hidden lg:block" />
-              Game at WSC.
+              Building People<br className="hidden lg:block" />
+              Through Sport.
             </h1>
             <p className="text-parchment/60 text-[16px] leading-[1.72] max-w-[440px] mb-5">
               The definitive destination in the Pacific Northwest for athletes and families seeking unparalleled sports training, holistic development, and a thriving community.
