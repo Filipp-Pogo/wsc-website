@@ -6,15 +6,18 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { Instagram, Calendar, Clock, MapPin, ChevronRight, Quote } from "lucide-react";
+import { toast } from "sonner";
 import InstagramFeed from "@/components/InstagramFeed";
 import FacilityGallery from "@/components/FacilityGallery";
 import Tier1Banner from "@/components/Tier1Banner";
 import FullWidthImage from "@/components/FullWidthImage";
 import StructuredData, { getLocalBusinessSchema, getWebSiteSchema, getFAQSchema } from "@/components/StructuredData";
 import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
+import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 import { responsiveAvifSrcSet, responsiveWebpSrcSet } from "@/lib/responsive-image";
+import { submitWebsiteForm } from "@/lib/forms";
 
 const TENNIS_IMG = "/images/wsc/tennis-courts.webp";
 const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
@@ -244,12 +247,47 @@ export default function Home() {
   const { ref: dayRef, isVisible: dayVisible } = useScrollReveal({ threshold: 0.08 });
   const { containerRef: testimonialRef, visibleItems: testimonialVisible } = useStaggerReveal(3, { staggerDelay: 160, threshold: 0.1 });
   const { ref: membershipRef, isVisible: membershipVisible } = useScrollReveal({ threshold: 0.1 });
+  const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("");
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+  const { honeypotProps: newsletterHoneypotProps, validateSubmission: validateNewsletterSubmission } = useFormProtection(1);
 
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setNewsletterStatus("Thank you for subscribing. Check your inbox for a welcome email.");
-    e.currentTarget.reset();
+    const check = validateNewsletterSubmission();
+    if (!check.valid) {
+      if (check.reason === "honeypot" || check.reason === "too_fast") {
+        setNewsletterStatus("Thank you for subscribing.");
+        setNewsletterEmail("");
+        return;
+      }
+      if (check.reason === "rate_limited") {
+        setNewsletterStatus("Please wait a moment before subscribing again.");
+        return;
+      }
+    }
+
+    setIsNewsletterSubmitting(true);
+    try {
+      await submitWebsiteForm({
+        formType: "newsletter_signup",
+        source: "/",
+        email: newsletterEmail,
+        subject: "WSC newsletter signup",
+        metadata: {
+          signupLocation: "home_newsletter",
+        },
+      });
+
+      setNewsletterStatus("Thank you for subscribing.");
+      setNewsletterEmail("");
+      toast.success("Thanks, you're on the WSC newsletter list.");
+    } catch {
+      setNewsletterStatus("We could not subscribe you right now. Please try again.");
+      toast.error("We could not subscribe you right now. Please try again.");
+    } finally {
+      setIsNewsletterSubmitting(false);
+    }
   };
 
   return (
@@ -917,17 +955,27 @@ export default function Home() {
               <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input
                 id="newsletter-email"
+                name="email"
                 type="email"
                 required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Your email address"
                 aria-label="Email address for newsletter subscription"
+                disabled={isNewsletterSubmitting}
                 className="flex-1 bg-dark-bg border border-parchment/[0.15] px-5 py-3 text-[14px] text-parchment placeholder:text-parchment/70 focus:border-volt-bright focus:outline-none transition-colors"
               />
+              <input {...newsletterHoneypotProps} />
               <button
                 type="submit"
-                className="text-[12px] tracking-[0.14em] uppercase bg-volt-bright text-dark-bg px-8 py-3 hover:bg-parchment transition-colors duration-200 font-medium"
+                disabled={isNewsletterSubmitting}
+                className={`text-[12px] tracking-[0.14em] uppercase px-8 py-3 transition-colors duration-200 font-medium ${
+                  isNewsletterSubmitting
+                    ? "bg-parchment/25 text-parchment/70 cursor-default"
+                    : "bg-volt-bright text-dark-bg hover:bg-parchment"
+                }`}
               >
-                Subscribe
+                {isNewsletterSubmitting ? "Subscribing..." : "Subscribe"}
               </button>
             </div>
             <p

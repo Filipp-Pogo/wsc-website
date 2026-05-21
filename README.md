@@ -35,13 +35,26 @@ comparison. The raw scrape is ignored by Git; production-ready images live in
 ## Environment
 
 Analytics is optional and consent-gated. Copy `.env.example` to `.env.local`
-and set both variables only when Umami is configured:
+and set both analytics variables only when Umami is configured:
 
 ```bash
 VITE_ANALYTICS_ENDPOINT=https://analytics.example.com
 VITE_ANALYTICS_WEBSITE_ID=your-website-id
 ```
 
-The contact and golf lesson forms currently validate basic bot/rate-limit checks
-client-side and open addressed email drafts. Add a real backend or email provider
-before changing those flows to claim automatic delivery.
+Website forms post to `/api/forms`, write submissions to JSONL, and send
+notifications through Resend:
+
+```bash
+RESEND_API_KEY=your-resend-api-key
+FORM_EMAIL_TO=Info@woodinvillesportsclub.com
+FORM_EMAIL_FROM="WSC Website <forms@woodinvillesportsclub.com>"
+FORM_SUBMISSIONS_DIR=./data/form-submissions
+FORM_WEBHOOK_URL=
+```
+
+`FORM_EMAIL_FROM` must use a sender domain verified in Resend. `FORM_WEBHOOK_URL`
+is optional; set it to a CRM, Zapier, Make, or sheet webhook when you want a
+durable off-site record in addition to the JSONL file. For serverless
+deployments, use the webhook for durable records because local JSONL storage may
+be temporary.

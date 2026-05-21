@@ -3,6 +3,7 @@ import fs from "fs";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { handleFormSubmissionRequest } from "./form-submissions";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +13,7 @@ async function startServer() {
   const server = createServer(app);
 
   app.disable("x-powered-by");
+  app.use(express.json({ limit: "50kb" }));
 
   // Serve static files from dist/public in production
   const staticPath =
@@ -21,6 +23,10 @@ async function startServer() {
 
   app.get("/healthz", (_req, res) => {
     res.status(200).json({ ok: true });
+  });
+
+  app.post("/api/forms", (req, res) => {
+    void handleFormSubmissionRequest(req, res);
   });
 
   app.use(

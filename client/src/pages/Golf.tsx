@@ -15,6 +15,7 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
+import { submitWebsiteForm } from "@/lib/forms";
 
 const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
 const GOLF_SUNSET = "/images/wsc/campus-sunset.webp";
@@ -39,9 +40,10 @@ function PrivateLessonForm() {
     experience: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { honeypotProps, validateSubmission } = useFormProtection();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const check = validateSubmission();
     if (!check.valid) {
@@ -55,20 +57,31 @@ function PrivateLessonForm() {
         return;
       }
     }
-    setSubmitted(true);
-    const subject = `Golf lesson request from ${form.name}`;
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      form.phone ? `Phone: ${form.phone}` : null,
-      `Skill level: ${form.skillLevel}`,
-      "",
-      form.experience || "No additional goals provided.",
-    ].filter(Boolean).join("\n");
 
-    window.location.href = `mailto:info@woodinvillesportsclub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    toast.info("Opening an email draft so the golf staff receives your request.");
-    setTimeout(() => setSubmitted(false), 4000);
+    setIsSubmitting(true);
+    try {
+      await submitWebsiteForm({
+        formType: "golf_lesson",
+        source: "/golf",
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        subject: `Golf lesson request from ${form.name}`,
+        message: form.experience || "No additional goals provided.",
+        metadata: {
+          skillLevel: form.skillLevel,
+        },
+      });
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
+      toast.success("Lesson request submitted! Our golf staff will contact you within 1-2 business days.");
+      setTimeout(() => setSubmitted(false), 4000);
+    } catch {
+      toast.error("We could not send your lesson request right now. Please try again or email info@woodinvillesportsclub.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass =
@@ -153,14 +166,14 @@ function PrivateLessonForm() {
       <input {...honeypotProps} />
       <button
         type="submit"
-        disabled={submitted}
+        disabled={isSubmitting || submitted}
         className={`text-[12px] tracking-[0.14em] uppercase px-8 py-3.5 transition-colors duration-200 ${
-          submitted
+          isSubmitting || submitted
             ? "bg-parchment/20 text-parchment/70 cursor-default"
             : "bg-volt-bright text-dark-bg hover:bg-parchment hover:text-dark-bg"
         }`}
       >
-        {submitted ? "Request Submitted" : "Submit Lesson Request"}
+        {isSubmitting ? "Sending..." : submitted ? "Request Submitted" : "Submit Lesson Request"}
       </button>
 
       <p className="text-parchment/75 text-[12px] leading-[1.6]">

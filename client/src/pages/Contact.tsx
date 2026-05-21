@@ -10,14 +10,16 @@ import StructuredData, { getContactPageSchema, getLocalBusinessSchema, getBreadc
 import { useFormProtection } from "@/hooks/useFormProtection";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
+import { submitWebsiteForm } from "@/lib/forms";
 
 const HERO_IMG = "/images/wsc/contact-campus.webp";
 
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { honeypotProps, validateSubmission } = useFormProtection();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const check = validateSubmission();
     if (!check.valid) {
@@ -33,16 +35,25 @@ export default function Contact() {
       }
     }
     const name = `${form.firstName} ${form.lastName}`.trim();
-    const subject = `Website inquiry from ${name}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${form.email}`,
-      "",
-      form.message,
-    ].join("\n");
 
-    window.location.href = `mailto:info@woodinvillesportsclub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    toast.info("Opening an email draft so your message can be sent.");
+    setIsSubmitting(true);
+    try {
+      await submitWebsiteForm({
+        formType: "contact",
+        source: "/contact",
+        name,
+        email: form.email,
+        subject: `Website inquiry from ${name}`,
+        message: form.message,
+      });
+
+      toast.success("Message sent! We'll be in touch shortly.");
+      setForm({ firstName: "", lastName: "", email: "", message: "" });
+    } catch {
+      toast.error("We could not send your message right now. Please try again or email info@woodinvillesportsclub.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,9 +142,14 @@ export default function Contact() {
               <input {...honeypotProps} />
               <button
                 type="submit"
-                className="text-[12px] tracking-[0.14em] uppercase bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment-dark transition-colors duration-200"
+                disabled={isSubmitting}
+                className={`text-[12px] tracking-[0.14em] uppercase px-8 py-3.5 transition-colors duration-200 ${
+                  isSubmitting
+                    ? "bg-ink/15 text-ink-mid cursor-default"
+                    : "bg-volt-bright text-dark-bg hover:bg-parchment-dark"
+                }`}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
