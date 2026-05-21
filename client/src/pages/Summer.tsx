@@ -469,7 +469,7 @@ export default function Summer() {
       ]} />
 
       {/* Hero — Full bleed with overlay */}
-      <section className="relative min-h-[85vh] flex items-end overflow-hidden">
+      <section className="relative overflow-hidden pt-[var(--site-header-height,130px)]">
         <div className="absolute inset-0">
           <img
             src={HERO_IMG}
@@ -481,22 +481,22 @@ export default function Summer() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.75)] via-[rgba(22,19,16,0.45)] to-transparent" />
         </div>
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-14 pb-16 lg:pb-20">
+        <div className="hero-safe-content relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-14 pb-16 lg:pb-20 pt-10 min-h-[85vh] flex flex-col justify-end">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-volt-bright text-[13px] tracking-[0.22em] uppercase mb-5">
+            <p className="hero-eyebrow text-volt-bright text-[13px] tracking-[0.22em] uppercase mb-5">
               Summer Training @ WSC
             </p>
-            <h1 className="text-parchment text-[clamp(36px,5.5vw,72px)] font-light tracking-[-0.03em] leading-[1.05] mb-5">
+            <h1 className="hero-title text-parchment text-[clamp(36px,5.5vw,72px)] font-light tracking-[-0.03em] leading-[1.05] mb-5">
               Join Us for an<br />Epic Summer.
             </h1>
-            <p className="text-parchment/70 text-[17px] leading-[1.7] max-w-[520px] mb-8">
+            <p className="hero-subtitle text-parchment/70 text-[17px] leading-[1.7] max-w-[520px] mb-8">
               Train where high-performance athletes train. Ages 3–18 on our 67-acre campus, June 29 – August 30.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="hero-actions flex flex-wrap gap-4">
               <Link
                 href="https://app.courtreserve.com/Online/Portal/Index/6689"
                 target="_blank"
@@ -516,7 +516,7 @@ export default function Summer() {
 
           {/* Quick Stats Strip */}
           <motion.div
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-parchment/10"
+            className="hero-stats mt-12 grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-parchment/10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}

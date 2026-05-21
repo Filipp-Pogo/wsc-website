@@ -4,7 +4,7 @@
  * Simplified: Gym is now a single link (no dropdown), Fitness merged into Gym page
  */
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import MarketingBanner from "@/components/MarketingBanner";
 
@@ -24,7 +24,29 @@ const navLinks = [
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const mobileMenuId = "mobile-navigation-menu";
+
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const updateHeaderHeight = () => {
+      root.style.setProperty("--site-header-height", `${nav.getBoundingClientRect().height}px`);
+    };
+
+    updateHeaderHeight();
+
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(nav);
+    window.addEventListener("resize", updateHeaderHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
 
   return (
     <>
@@ -35,7 +57,7 @@ export default function Navbar() {
     >
       Skip to main content
     </a>
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg" aria-label="Main navigation">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 bg-dark-bg" aria-label="Main navigation">
       {/* Contact top bar with phone */}
       <div className="bg-dark-mid px-6 lg:px-14 py-1.5 flex items-center justify-between border-b border-white/[0.05]">
         <span className="text-parchment/70 text-[10px] tracking-[0.16em] uppercase">Woodinville Sports Club</span>
