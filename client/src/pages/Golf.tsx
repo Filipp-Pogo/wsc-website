@@ -1,7 +1,7 @@
 /*
  * 4B Design — Golf Page
  * Real content from WSC website crawl
- * Tier 1 Sports by Caliber branding
+ * Tier 1 Sports branding
  * Scroll reveal animations for consistent UX
  */
 import { useState } from "react";
@@ -191,7 +191,7 @@ export default function Golf() {
         { name: "Golf", url: "https://www.woodinvillesportsclub.com/golf" },
       ])]} />
       <PageHero
-        eyebrow="Tier 1 Golf by Caliber"
+        eyebrow="Tier 1 Golf"
         headline="Woodinville's Best Golf Driving Range and Practice Area."
         subtitle="Practice at our driving range and state-of-the-art facility featuring 23 covered driving bays, grass tees, an expansive 2.5-acre short game training area, new indoor golf simulators, and an 18-hole mini-golf course."
         image={GOLF_IMG}

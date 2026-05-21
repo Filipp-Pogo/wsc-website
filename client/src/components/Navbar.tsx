@@ -9,7 +9,6 @@ import { Menu, X, Phone } from "lucide-react";
 import MarketingBanner from "@/components/MarketingBanner";
 
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
-const CALIBER_URL = "https://www.calibersports.com";
 
 const navLinks = [
   { href: "/tennis", label: "Tennis" },
@@ -37,9 +36,9 @@ export default function Navbar() {
       Skip to main content
     </a>
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg" aria-label="Main navigation">
-      {/* Caliber Sports top bar with phone */}
+      {/* Contact top bar with phone */}
       <div className="bg-dark-mid px-6 lg:px-14 py-1.5 flex items-center justify-between border-b border-white/[0.05]">
-        <span className="text-parchment/70 text-[10px] tracking-[0.16em] uppercase">A Caliber Sports Facility</span>
+        <span className="text-parchment/70 text-[10px] tracking-[0.16em] uppercase">Woodinville Sports Club</span>
         <div className="flex items-center gap-6">
           <a
             href="tel:+14254814686"
@@ -49,12 +48,12 @@ export default function Navbar() {
             (425) 481-4686
           </a>
           <a
-            href={CALIBER_URL}
+            href={COURT_RESERVE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-parchment/70 text-[10px] tracking-[0.1em] uppercase no-underline hover:text-parchment transition-colors duration-200"
           >
-            calibersports.com
+            CourtReserve
           </a>
         </div>
       </div>

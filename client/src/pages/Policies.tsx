@@ -450,7 +450,7 @@ function TermsContent() {
               These Terms of Service ("Terms") govern your use of the Woodinville Sports Club ("WSC") website at <strong className="text-ink font-normal">woodinvillesportsclub.com</strong>, our facilities at 15327 140th Pl NE, Woodinville, WA 98072, and all related services, programs, memberships, and activities.
             </p>
             <p>
-              By accessing our Site, purchasing a membership, booking a facility, or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. WSC is a Caliber Sports facility. These Terms are supplementary to any additional terms provided by Caliber Sports or Tier 1 Sports by Caliber.
+              By accessing our Site, purchasing a membership, booking a facility, or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. These Terms are supplementary to any additional program-specific terms provided during registration.
             </p>
           </Prose>
         </div>
@@ -588,7 +588,7 @@ function TermsContent() {
             <HighlightBox>
               <p className="text-ink text-[15px] font-medium mb-3">Waiver and Release of Liability</p>
               <p className="text-ink-mid text-[14px] leading-[1.72]">
-                In consideration of being permitted to use the facilities, you agree to release, waive, and discharge WSC, Caliber Sports, Tier 1 Sports by Caliber, and their respective officers, directors, employees, and affiliates from any and all liability arising out of your participation, to the fullest extent permitted by Washington State law (RCW 4.24.210).
+                In consideration of being permitted to use the facilities, you agree to release, waive, and discharge WSC, its officers, directors, employees, and affiliates from any and all liability arising out of your participation, to the fullest extent permitted by Washington State law (RCW 4.24.210).
               </p>
             </HighlightBox>
             <SubHeading>Minors</SubHeading>
@@ -639,15 +639,15 @@ function TermsContent() {
       <section id="terms-programs" className="bg-parchment px-6 lg:px-14 py-20 lg:py-24 scroll-mt-[180px]">
         <div className="max-w-[800px] mx-auto">
           <SectionEyebrow>Programs</SectionEyebrow>
-          <SectionHeading>Programs & Tier 1 Sports by Caliber.</SectionHeading>
+          <SectionHeading>Programs & Tier 1 Sports.</SectionHeading>
           <Prose>
             <SubHeading>Program Registration</SubHeading>
             <p>
               Registration for all programs is managed through CourtReserve. Availability, schedules, and pricing are subject to change. In the event of a cancellation by WSC, registered participants will receive a full refund or credit.
             </p>
-            <SubHeading>Tier 1 Sports by Caliber</SubHeading>
+            <SubHeading>Tier 1 Sports</SubHeading>
             <p>
-              WSC is home to Tier 1 Sports by Caliber, one of the nation's leading developmental programs. Tier 1 programs are operated by Caliber Sports and may have additional terms and fee structures. Enrollment is subject to evaluation by Tier 1 coaching staff.
+              WSC is home to Tier 1 Sports, one of the nation's leading developmental programs. Tier 1 programs may have additional terms and fee structures. Enrollment is subject to evaluation by Tier 1 coaching staff.
             </p>
             <SubHeading>Summer Camps</SubHeading>
             <p>
@@ -665,11 +665,11 @@ function TermsContent() {
           <Prose>
             <SubHeading>Intellectual Property</SubHeading>
             <p>
-              All content on the WSC website is the property of Woodinville Sports Club or Caliber Sports and is protected by U.S. and international copyright and trademark laws. You may not reproduce or distribute any content without prior written consent.
+              All content on the WSC website is the property of Woodinville Sports Club and is protected by U.S. and international copyright and trademark laws. You may not reproduce or distribute any content without prior written consent.
             </p>
             <SubHeading>Third-Party Links</SubHeading>
             <p>
-              Our Site may contain links to third-party websites including CourtReserve, Caliber Sports, and Tier 1 Sports. WSC does not endorse or assume responsibility for third-party content.
+              Our Site may contain links to third-party websites including CourtReserve and Tier 1 Sports. WSC does not endorse or assume responsibility for third-party content.
             </p>
             <SubHeading>Disclaimer of Warranties</SubHeading>
             <p>

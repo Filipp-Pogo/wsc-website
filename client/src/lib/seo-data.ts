@@ -78,7 +78,7 @@ export const SEO = {
   about: {
     title: "About WSC 67-Acre Campus",
     description:
-      "Learn about WSC's 67-acre Woodinville campus, founded in 1979 and now a Caliber Sports facility for tennis, golf, pickleball, fitness, and events.",
+      "Learn about WSC's 67-acre Woodinville campus, founded in 1979 and built for tennis, golf, pickleball, fitness, and events.",
     path: "/about",
   },
   contact: {

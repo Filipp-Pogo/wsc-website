@@ -307,7 +307,7 @@ export default function Home() {
               The definitive destination in the Pacific Northwest for athletes and families seeking unparalleled sports training, holistic development, and a thriving community.
             </p>
             <p className="text-parchment/80 text-[13px] leading-[1.65] max-w-[440px] mb-8">
-              Home to <strong className="text-parchment/80 font-normal">Tier 1 Sports by Caliber</strong> — one of the nation's leading developmental programs in tennis, golf, and athletic performance.
+              Home to <strong className="text-parchment/80 font-normal">Tier 1 Sports</strong> — one of the nation's leading developmental programs in tennis, golf, and athletic performance.
             </p>
             <div className="flex flex-wrap gap-5 items-center">
               <Link
@@ -410,7 +410,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TIER 1 SPORTS BY CALIBER — Full Banner ── */}
+      {/* ── TIER 1 SPORTS — Full Banner ── */}
       <Tier1Banner variant="full" />
 
       {/* ── FULL-WIDTH VISUAL BREAK — Campus ── */}

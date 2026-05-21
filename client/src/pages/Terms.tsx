@@ -102,7 +102,7 @@ export default function Terms() {
               By accessing our Site, purchasing a membership, booking a facility, registering for a program, or otherwise using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must not use our Site or services.
             </p>
             <p>
-              WSC is a Caliber Sports facility. These Terms are supplementary to any additional terms, policies, or agreements provided by Caliber Sports or its affiliates, including Tier 1 Sports by Caliber.
+              These Terms are supplementary to any additional program-specific terms, policies, or agreements provided during registration.
             </p>
           </Prose>
         </div>
@@ -271,7 +271,7 @@ export default function Terms() {
             </HighlightBox>
 
             <BulletList items={[
-              "You hereby release, waive, discharge, and covenant not to sue Woodinville Sports Club, Caliber Sports, Tier 1 Sports by Caliber, and their respective officers, directors, employees, agents, coaches, volunteers, and affiliates (collectively, the \"Released Parties\") from any and all liability, claims, demands, actions, or causes of action arising out of or related to any loss, damage, or injury, including death, that may be sustained by you or your property while participating in any WSC activity or using any WSC facility",
+              "You hereby release, waive, discharge, and covenant not to sue Woodinville Sports Club and its officers, directors, employees, agents, coaches, volunteers, and affiliates (collectively, the \"Released Parties\") from any and all liability, claims, demands, actions, or causes of action arising out of or related to any loss, damage, or injury, including death, that may be sustained by you or your property while participating in any WSC activity or using any WSC facility",
               "This release applies regardless of whether such loss, damage, or injury is caused by the negligence of the Released Parties or otherwise, to the fullest extent permitted by Washington State law (RCW 4.24.210)",
               "You agree to indemnify and hold harmless the Released Parties from any loss, liability, damage, or costs, including attorney's fees, that they may incur due to your participation in WSC activities or your use of WSC facilities, whether caused by your negligence or otherwise",
               "You consent to receive medical treatment that may be deemed advisable in the event of injury, accident, or illness during participation in WSC activities, and you agree that such treatment will be at your own expense",
@@ -338,16 +338,16 @@ export default function Terms() {
       <section className="bg-parchment px-6 lg:px-14 py-20 lg:py-24">
         <div className="max-w-[800px] mx-auto">
           <SectionEyebrow>Programs</SectionEyebrow>
-          <SectionHeading>Programs &amp; Tier 1 Sports by Caliber.</SectionHeading>
+          <SectionHeading>Programs &amp; Tier 1 Sports.</SectionHeading>
           <Prose>
             <SubHeading>Program Registration</SubHeading>
             <p>
               Registration for all WSC programs, classes, clinics, and camps is managed through CourtReserve. Program availability, schedules, and pricing are subject to change. WSC reserves the right to cancel or modify programs due to insufficient enrollment, instructor availability, or other operational considerations. In the event of a program cancellation by WSC, registered participants will receive a full refund or credit.
             </p>
 
-            <SubHeading>Tier 1 Sports by Caliber</SubHeading>
+            <SubHeading>Tier 1 Sports</SubHeading>
             <p>
-              WSC is home to Tier 1 Sports by Caliber, one of the nation's leading developmental programs in tennis, golf, and athletic performance. Tier 1 programs are operated by Caliber Sports and may have additional terms, requirements, and fee structures beyond standard WSC membership. Enrollment in Tier 1 programs is subject to evaluation and acceptance by Tier 1 coaching staff.
+              WSC is home to Tier 1 Sports, one of the nation's leading developmental programs in tennis, golf, and athletic performance. Tier 1 programs may have additional terms, requirements, and fee structures beyond standard WSC membership. Enrollment in Tier 1 programs is subject to evaluation and acceptance by Tier 1 coaching staff.
             </p>
             <p>
               Tier 1 participants agree to comply with all Tier 1 program-specific policies, including attendance requirements, training schedules, and competition commitments. Additional waivers and agreements may be required for Tier 1 program participation.
@@ -369,7 +369,7 @@ export default function Terms() {
           <Prose>
             <SubHeading>Intellectual Property</SubHeading>
             <p>
-              All content on the WSC website, including text, graphics, logos, images, photographs, videos, audio, software, and the overall design and layout, is the property of Woodinville Sports Club or Caliber Sports and is protected by U.S. and international copyright, trademark, and intellectual property laws. The WSC name, logo, and all related marks are trademarks of Caliber Sports.
+              All content on the WSC website, including text, graphics, logos, images, photographs, videos, audio, software, and the overall design and layout, is the property of Woodinville Sports Club and is protected by U.S. and international copyright, trademark, and intellectual property laws. The WSC name, logo, and all related marks are trademarks of Woodinville Sports Club.
             </p>
             <p>
               You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any content from this Site without the prior written consent of WSC, except for personal, non-commercial use such as printing a page for your own reference.
@@ -383,7 +383,7 @@ export default function Terms() {
 
             <SubHeading>Third-Party Links</SubHeading>
             <p>
-              Our Site may contain links to third-party websites, including CourtReserve, Caliber Sports, Tier 1 Sports, and social media platforms. These links are provided for convenience only. WSC does not endorse, control, or assume responsibility for the content, privacy policies, or practices of any third-party website. You access third-party sites at your own risk.
+              Our Site may contain links to third-party websites, including CourtReserve, Tier 1 Sports, and social media platforms. These links are provided for convenience only. WSC does not endorse, control, or assume responsibility for the content, privacy policies, or practices of any third-party website. You access third-party sites at your own risk.
             </p>
 
             <SubHeading>Disclaimer of Warranties</SubHeading>
@@ -393,7 +393,7 @@ export default function Terms() {
 
             <SubHeading>Limitation of Liability</SubHeading>
             <p>
-              To the fullest extent permitted by applicable law, WSC, Caliber Sports, and their respective officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of (or inability to access or use) the Site or any content or services obtained through the Site.
+              To the fullest extent permitted by applicable law, WSC and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of (or inability to access or use) the Site or any content or services obtained through the Site.
             </p>
           </Prose>
         </div>

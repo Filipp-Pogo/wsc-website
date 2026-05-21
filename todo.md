@@ -19,20 +19,15 @@
 - [ ] **FIX:** Add Tier 1 link in the footer
 - [ ] **FIX:** Add "Learn more at Tier1Performance.com" links on Tennis and Golf pages
 
-### 3. Caliber Sports — MINIMAL PRESENCE
-- [ ] Top bar link exists but is very small and easy to miss
-- [ ] Footer has a link but it's buried
-- [ ] **FIX:** Keep current placement — it's appropriate for a parent brand (not the main focus)
-
-### 4. New Customer Navigation Friction
+### 3. New Customer Navigation Friction
 - [ ] No "New Members" or "Get Started" flow
 - [ ] Membership page has no clear "first step" guidance
 - [ ] No "Schedule a Tour" link in the nav (only in hero)
 - [ ] **FIX:** Add a sticky "Book a Tour" or "Get Started" CTA
 - [ ] **FIX:** Add a "New to WSC?" section on the homepage
 
-### 5. Missing Quick Actions
+### 4. Missing Quick Actions
 - [ ] No phone number visible in the header
 - [ ] No hours visible without going to Contact page
-- [ ] **FIX:** Add phone number to the top Caliber Sports bar
+- [ ] **FIX:** Add phone number to the top contact bar
 - [ ] **FIX:** Add quick-access links in footer: Court Reserve, Tier 1, Phone

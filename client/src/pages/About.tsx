@@ -41,7 +41,7 @@ export default function About() {
               Welcome to Woodinville Sports Club — a dedicated <strong>training facility</strong> where passion meets performance and community thrives through sport. For over four decades, we've been the heart of athletic pursuit in the Pacific Northwest, fostering a legacy of excellence that continues to shape the future of sports and fitness in our region.
             </p>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-8">
-              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we. Today, we stand as a premier <strong>multi-sport training campus</strong>, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs — all anchored by <strong>Tier 1 Sports by Caliber</strong>, one of the nation's leading developmental programs.
+              Founded in 1979, Woodinville Sports Club began as a modest tennis facility with a big dream: to create a space where athletes of all levels could come together, challenge themselves, and grow. As our community evolved, so did we. Today, we stand as a premier <strong>multi-sport training campus</strong>, offering world-class facilities for tennis, golf, pickleball, and comprehensive fitness programs — all anchored by <strong>Tier 1 Sports</strong>, one of the nation's leading developmental programs.
             </p>
             <div className="border-l-2 border-volt pl-6 py-4">
               <p className="text-ink-mid text-[15px] leading-[1.7] italic">
@@ -63,7 +63,7 @@ export default function About() {
               <p className="text-volt text-[11px] tracking-[0.22em] uppercase font-medium">Court Scheduling</p>
             </div>
             <p className="text-ink-mid text-[15px] leading-[1.75]">
-              As a training-focused facility, court time at WSC is prioritized for academy programming through Tier 1 Sports by Caliber. Recreational and member play is welcome and available — we recommend checking <a href="https://app.courtreserve.com/Online/Portal/Index/6689" target="_blank" rel="noopener noreferrer" className="text-volt hover:text-ink transition-colors duration-200 underline">CourtReserve</a> for current availability or calling us at <a href="tel:4254871090" className="text-volt hover:text-ink transition-colors duration-200 underline">(425) 487-1090</a>.
+              As a training-focused facility, court time at WSC is prioritized for academy programming through Tier 1 Sports. Recreational and member play is welcome and available — we recommend checking <a href="https://app.courtreserve.com/Online/Portal/Index/6689" target="_blank" rel="noopener noreferrer" className="text-volt hover:text-ink transition-colors duration-200 underline">CourtReserve</a> for current availability or calling us at <a href="tel:4254871090" className="text-volt hover:text-ink transition-colors duration-200 underline">(425) 487-1090</a>.
             </p>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function About() {
             </p>
             <div className="bg-[#0d1b2a] p-6 lg:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-1.5">Tier 1 Sports by Caliber</p>
+                <p className="text-volt-bright text-[10px] tracking-[0.2em] uppercase mb-1.5">Tier 1 Sports</p>
                 <p className="text-white text-[15px] font-light">Discover our world-class developmental programming.</p>
               </div>
               <a

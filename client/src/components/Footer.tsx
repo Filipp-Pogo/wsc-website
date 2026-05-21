@@ -1,13 +1,12 @@
 /*
  * 4B Design: Dark footer (#161310), 4-column grid
  * Real content from WSC website crawl
- * Added: Quick Links column with Court Reserve, Tier 1, Caliber Sports
+ * Added: Quick Links column with Court Reserve and Tier 1
  */
 import { Link } from "wouter";
 
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 const TIER1_URL = "https://www.tier1nw.com";
-const CALIBER_URL = "https://www.calibersports.com";
 
 export default function Footer() {
   return (
@@ -21,21 +20,9 @@ export default function Footer() {
           <div className="text-volt-bright text-[12px] mb-5">
             Woodinville, Washington — Pacific Northwest
           </div>
-            <p className="text-parchment/70 text-[13px] leading-[1.7] max-w-[260px] mb-4">
+          <p className="text-parchment/70 text-[13px] leading-[1.7] max-w-[260px] mb-4">
             A hybrid performance campus for tennis, golf, and athletic development. Serving the Woodinville community since 1979.
           </p>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-parchment/70 text-[10px] tracking-[0.12em] uppercase">A</span>
-            <a
-              href={CALIBER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-parchment/75 text-[11px] tracking-[0.14em] uppercase no-underline hover:text-parchment transition-colors duration-200 border-b border-parchment/20 pb-[1px]"
-            >
-              Caliber Sports
-            </a>
-            <span className="text-parchment/70 text-[10px] tracking-[0.12em] uppercase">Facility</span>
-          </div>
           <a
             href="https://www.instagram.com/woodinvillesportsclub"
             target="_blank"
@@ -130,20 +117,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-parchment/75 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
-              >
-                Tier 1 Performance NW
-              </a>
-            </li>
-            <li>
-              <a
-                href={CALIBER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-parchment/75 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
-              >
-                Caliber Sports
-              </a>
-            </li>
+            >
+              Tier 1 Performance NW
+            </a>
+          </li>
           </ul>
         </div>
 
@@ -249,14 +226,9 @@ export default function Footer() {
           <p className="text-parchment/70 text-[11px] tracking-[0.1em] uppercase">
             &copy; {new Date().getFullYear()} Woodinville Sports Club. All rights reserved.
           </p>
-          <a
-            href={CALIBER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-parchment/70 text-[10px] tracking-[0.12em] uppercase no-underline hover:text-parchment/75 transition-colors duration-200"
-          >
-            Powered by Caliber Sports
-          </a>
+          <span className="text-parchment/70 text-[10px] tracking-[0.12em] uppercase">
+            Woodinville, WA
+          </span>
         </div>
       </div>
     </footer>
