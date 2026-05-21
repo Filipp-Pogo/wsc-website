@@ -47,7 +47,7 @@ const heroCollageImages = [
     alt: "Tennis player training at Woodinville Sports Club",
     width: 1800,
     height: 1200,
-    objectPosition: "center",
+    objectPosition: "center 28%",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
@@ -63,7 +63,7 @@ const heroCollageImages = [
     alt: "Indoor tennis courts at Woodinville Sports Club",
     width: 1800,
     height: 1218,
-    objectPosition: "center",
+    objectPosition: "25% 24%",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
@@ -79,7 +79,7 @@ const heroCollageImages = [
     alt: "Athletic performance training at Woodinville Sports Club",
     width: 1185,
     height: 1800,
-    objectPosition: "center 34%",
+    objectPosition: "center 12%",
     className: "hidden lg:block lg:col-span-2 lg:row-span-3",
   },
   {
