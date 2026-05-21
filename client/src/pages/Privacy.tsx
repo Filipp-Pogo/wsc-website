@@ -244,13 +244,7 @@ export default function Privacy() {
                   </p>
                 </div>
                 <div className="border-t border-ink/10 pt-4">
-                  <span className="text-ink text-[14px] font-medium">Caliber Sports</span>
-                  <p className="text-ink-mid text-[13px] leading-[1.72] mt-1">
-                    Our parent organization. WSC is a Caliber Sports facility, and certain operational and administrative data may be shared within the Caliber Sports network for management purposes.
-                  </p>
-                </div>
-                <div className="border-t border-ink/10 pt-4">
-                  <span className="text-ink text-[14px] font-medium">Tier 1 Sports by Caliber</span>
+                  <span className="text-ink text-[14px] font-medium">Tier 1 Sports</span>
                   <p className="text-ink-mid text-[13px] leading-[1.72] mt-1">
                     Our elite developmental programming partner. If you enroll in Tier 1 programs, relevant registration and participant information may be shared with Tier 1 coaching staff.
                   </p>
@@ -458,7 +452,7 @@ export default function Privacy() {
           <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
             Your trust is important to us.
           </h2>
-          <p className="text-parchment/65 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+          <p className="text-parchment/80 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
             We are committed to transparency and protecting your personal information at every step.
           </p>
           <div className="flex flex-wrap justify-center gap-5">

@@ -1,7 +1,7 @@
 /*
  * 4B Design — Tennis Page
  * Real content from WSC website crawl
- * Tier 1 Sports by Caliber branding
+ * Tier 1 Sports branding
  * Scroll reveal animations for consistent UX
  */
 import { Link } from "wouter";
@@ -97,7 +97,7 @@ export default function Tennis() {
         { name: "Tennis", url: "https://www.woodinvillesportsclub.com/tennis" },
       ])]} />
       <PageHero
-        eyebrow="Tier 1 Tennis by Caliber"
+        eyebrow="Tier 1 Tennis"
         headline="Elevate Your Tennis Game at WSC."
         subtitle="World-class instruction and facilities for players of all levels. Home of Tier 1 Sports — one of the nation's leading developmental programs."
         image={TENNIS_IMG}
@@ -168,7 +168,7 @@ export default function Tennis() {
               </ul>
             </div>
             <a
-              href="https://www.tier1nw.com/tier1-core"
+              href="https://www.tier1nw.com/tennis/intro-classes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
@@ -204,7 +204,7 @@ export default function Tennis() {
               rel="noopener noreferrer"
               className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
             >
-              Learn More About Adult Tennis
+              View Adult Tennis Schedule
             </a>
           </div>
         </div>

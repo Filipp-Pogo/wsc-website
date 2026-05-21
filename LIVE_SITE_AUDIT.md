@@ -38,4 +38,4 @@ The scraper stores raw snapshots in `.scrape/woodinvillesportsclub.com/`, which 
 ## Notes
 
 - The live site still contains some time-sensitive references that are expired as of May 13, 2026, including February early-bird language and March simulator wording. The React site avoids presenting those expired offers as active.
-- Photo use is technically feasible. The images are first-party files served from the existing WSC Wix site, but final legal/brand approval should come from WSC/Caliber ownership before publishing them on the replacement site.
+- Photo use is technically feasible. The images are first-party files served from the existing WSC Wix site, but final legal/brand approval should come from WSC ownership before publishing them on the replacement site.

@@ -1,7 +1,7 @@
 /**
- * Marketing Banner — Sits between the Caliber top bar and main nav.
- * LIGHT background so it POPS against the dark nav and Caliber bar.
- * Tier 1 Sports by Caliber messaging front and center.
+ * Marketing Banner — Sits between the contact top bar and main nav.
+ * LIGHT background so it POPS against the dark nav and top bar.
+ * Tier 1 Sports messaging front and center.
  *
  * MOBILE-FIRST: Stacks vertically on small screens, horizontal on sm+.
  * TO UPDATE: Change the DEFAULT values below. That's it.
@@ -12,7 +12,7 @@ import { Link } from "wouter";
 
 /* ─── DEFAULT BANNER CONTENT (edit here to update site-wide) ─── */
 const DEFAULTS = {
-  badge: "Tier 1 Sports by Caliber",
+  badge: "Tier 1 Sports",
   headline: "Home to World-Class Programming",
   description:
     "Tier 1 is one of the leading developmental programs in the country — now in tennis, golf, and athletic performance at WSC.",

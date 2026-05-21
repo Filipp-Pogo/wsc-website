@@ -13,14 +13,8 @@ const WSC_ORGANIZATION = {
   logo: "https://www.woodinvillesportsclub.com/logo.png",
   sameAs: [
     "https://www.instagram.com/woodinvillesportsclub",
-    "https://www.calibersports.com",
     "https://www.tier1nw.com",
   ],
-  parentOrganization: {
-    "@type": "Organization",
-    name: "Caliber Sports",
-    url: "https://www.calibersports.com",
-  },
 };
 
 /* ─── Address ─── */
@@ -56,7 +50,7 @@ export function getLocalBusinessSchema() {
     legalName: "Woodinville Sports Club",
     alternateName: "WSC",
     description:
-      "A 67-acre hybrid performance campus in Woodinville, WA offering world-class tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports by Caliber — one of the nation's leading developmental programs.",
+      "A 67-acre hybrid performance campus in Woodinville, WA offering world-class tennis, golf, pickleball, and athletic performance training. Home to Tier 1 Sports — one of the nation's leading developmental programs.",
     url: "https://www.woodinvillesportsclub.com",
     telephone: "+1-425-487-1090",
     email: "info@woodinvillesportsclub.com",
@@ -128,14 +122,8 @@ export function getLocalBusinessSchema() {
     ],
     sameAs: [
       "https://www.instagram.com/woodinvillesportsclub",
-      "https://www.calibersports.com",
       "https://www.tier1nw.com",
     ],
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Caliber Sports",
-      url: "https://www.calibersports.com",
-    },
   };
 }
 
@@ -221,7 +209,6 @@ export function getContactPageSchema() {
       openingHoursSpecification: WSC_HOURS,
       sameAs: [
         "https://www.instagram.com/woodinvillesportsclub",
-        "https://www.calibersports.com",
         "https://www.tier1nw.com",
       ],
       contactPoint: [
@@ -262,10 +249,10 @@ export function getFAQSchema() {
       },
       {
         "@type": "Question",
-        name: "What is Tier 1 Sports by Caliber?",
+        name: "What is Tier 1 Sports?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Tier 1 Sports by Caliber is one of the nation's leading developmental programs in tennis, golf, and athletic performance. Based at WSC, Tier 1 develops athletes from first swing to collegiate and professional ranks with world-class coaching.",
+          text: "Tier 1 Sports is one of the nation's leading developmental programs in tennis, golf, and athletic performance. Based at WSC, Tier 1 develops athletes from first swing to collegiate and professional ranks with world-class coaching.",
         },
       },
       {

@@ -1,12 +1,10 @@
 /**
  * Tier1Banner — Prominent full-width section highlighting
- * Tier 1 Sports by Caliber as a world-class developmental program.
+ * Tier 1 Sports as a world-class developmental program.
  * Used on the homepage and optionally on sport pages.
  */
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
-
-const CALIBER_URL = "https://www.calibersports.com";
 
 interface Tier1BannerProps {
   variant?: "full" | "compact";
@@ -21,7 +19,7 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
         <div className="max-w-[1440px] mx-auto relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div>
             <p className="text-volt-bright text-[10px] tracking-[0.22em] uppercase mb-3">
-              Tier 1 Sports by Caliber
+              Tier 1 Sports
             </p>
             <h3 className="text-white text-[clamp(20px,2.2vw,28px)] font-light tracking-[-0.02em] leading-[1.2]">
               One of the nation's leading developmental programs.
@@ -35,15 +33,6 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
               className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3 hover:bg-white transition-colors duration-200"
             >
               Explore Tier 1
-              <ArrowRight size={13} />
-            </a>
-            <a
-              href={CALIBER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline text-white border border-white/30 px-7 py-3 hover:bg-white/10 transition-colors duration-200"
-            >
-              Caliber Sports
               <ArrowRight size={13} />
             </a>
           </div>
@@ -66,7 +55,7 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-[3px] h-8 bg-volt-bright" />
               <p className="text-volt-bright text-[11px] tracking-[0.22em] uppercase">
-                Tier 1 Sports by Caliber
+                Tier 1 Sports
               </p>
             </div>
             <h2 className="text-white text-[clamp(30px,3.5vw,52px)] font-light tracking-[-0.025em] leading-[1.08] mb-6">
@@ -75,7 +64,7 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
               Programming.
             </h2>
             <p className="text-white/70 text-[16px] leading-[1.8] max-w-[480px] mb-8">
-              WSC is home to Tier 1 Sports by Caliber — one of the nation's leading developmental programs in tennis, golf, and athletic performance. Our coaches develop athletes from first swing to collegiate and professional ranks.
+              WSC is home to Tier 1 Sports — one of the nation's leading developmental programs in tennis, golf, and athletic performance. Our coaches develop athletes from first swing to collegiate and professional ranks.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -123,9 +112,9 @@ export default function Tier1Banner({ variant = "full" }: Tier1BannerProps) {
                 desc: "Integrated strength and conditioning for youth and adult athletes across all disciplines",
               },
               {
-                val: "Caliber",
-                label: "Sports Network",
-                desc: "Part of the Caliber Sports family — a national network of premier athletic facilities",
+                val: "WSC",
+                label: "Training Campus",
+                desc: "A 67-acre home base for tennis, golf, fitness, and year-round athlete development",
               },
             ].map((item, i) => (
               <div
