@@ -68,6 +68,7 @@ const heroCollageImages = [
     width: 1800,
     height: 1218,
     objectPosition: "25% 24%",
+    imageClassName: "lg:translate-y-[28%]",
     className: "col-span-1 row-span-2 lg:col-span-3 lg:row-span-3",
   },
   {
