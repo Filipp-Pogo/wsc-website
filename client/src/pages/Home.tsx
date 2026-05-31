@@ -263,6 +263,7 @@ export default function Home() {
   const { ref: membershipRef, isVisible: membershipVisible } = useScrollReveal({ threshold: 0.1 });
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("");
+  const [newsletterStatusType, setNewsletterStatusType] = useState<"success" | "error">("success");
   const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
   const { honeypotProps: newsletterHoneypotProps, validateSubmission: validateNewsletterSubmission } = useFormProtection(1);
 
@@ -272,20 +273,24 @@ export default function Home() {
     if (!check.valid) {
       if (check.reason === "honeypot" || check.reason === "too_fast") {
         setNewsletterStatus("Thank you for subscribing.");
+        setNewsletterStatusType("success");
         setNewsletterEmail("");
         return;
       }
       if (check.reason === "rate_limited") {
         setNewsletterStatus("Please wait a moment before subscribing again.");
+        setNewsletterStatusType("error");
         return;
       }
     }
 
     setIsNewsletterSubmitting(true);
+    setNewsletterStatus("");
     try {
       await submitWebsiteForm({
         formType: "newsletter_signup",
         source: "/",
+        formName: "Newsletter Signup",
         email: newsletterEmail,
         subject: "WSC newsletter signup",
         metadata: {
@@ -294,10 +299,12 @@ export default function Home() {
       });
 
       setNewsletterStatus("Thank you for subscribing.");
+      setNewsletterStatusType("success");
       setNewsletterEmail("");
       toast.success("Thanks, you're on the WSC newsletter list.");
     } catch {
       setNewsletterStatus("We could not subscribe you right now. Please try again.");
+      setNewsletterStatusType("error");
       toast.error("We could not subscribe you right now. Please try again.");
     } finally {
       setIsNewsletterSubmitting(false);
@@ -989,7 +996,7 @@ export default function Home() {
           <p className="text-parchment/75 text-[15px] leading-[1.75] mb-8">
             Weekly schedules, open play times, registration deadlines, and member-only updates — delivered to your inbox every Monday.
           </p>
-          <form onSubmit={handleNewsletterSubmit}>
+          <form onSubmit={handleNewsletterSubmit} data-form-name="Newsletter Signup">
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input
@@ -1017,14 +1024,18 @@ export default function Home() {
                 {isNewsletterSubmitting ? "Subscribing..." : "Subscribe"}
               </button>
             </div>
-            <p
-              className="sr-only"
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              {newsletterStatus}
-            </p>
+            {newsletterStatus ? (
+              <p
+                role={newsletterStatusType === "error" ? "alert" : "status"}
+                aria-live="polite"
+                aria-atomic="true"
+                className={`mt-4 text-[13px] leading-[1.6] ${
+                  newsletterStatusType === "error" ? "text-red-200" : "text-parchment"
+                }`}
+              >
+                {newsletterStatus}
+              </p>
+            ) : null}
             <p className="text-parchment/75 text-[11px] leading-[1.6] mt-4">
               Unsubscribe at any time. See our{" "}
               <Link href="/privacy" className="text-parchment/70 underline hover:text-parchment transition-colors">Privacy Policy</Link>.

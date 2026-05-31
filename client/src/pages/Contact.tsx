@@ -17,6 +17,7 @@ const HERO_IMG = "/images/wsc/contact-campus.webp";
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const { honeypotProps, validateSubmission } = useFormProtection();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,32 +26,42 @@ export default function Contact() {
     if (!check.valid) {
       // Silently reject bot submissions — show fake success so bots think it worked
       if (check.reason === "honeypot" || check.reason === "too_fast") {
-        toast.success("Message sent! We'll be in touch shortly.");
+        const message = "Message sent! We'll be in touch shortly.";
+        setFormStatus({ type: "success", message });
+        toast.success(message);
         setForm({ firstName: "", lastName: "", email: "", message: "" });
         return;
       }
       if (check.reason === "rate_limited") {
-        toast.error("Please wait a moment before sending another message.");
+        const message = "Please wait a moment before sending another message.";
+        setFormStatus({ type: "error", message });
+        toast.error(message);
         return;
       }
     }
     const name = `${form.firstName} ${form.lastName}`.trim();
 
     setIsSubmitting(true);
+    setFormStatus(null);
     try {
       await submitWebsiteForm({
         formType: "contact",
         source: "/contact",
+        formName: "Contact Form",
         name,
         email: form.email,
         subject: `Website inquiry from ${name}`,
         message: form.message,
       });
 
-      toast.success("Message sent! We'll be in touch shortly.");
+      const message = "Message sent! We'll be in touch shortly.";
+      setFormStatus({ type: "success", message });
+      toast.success(message);
       setForm({ firstName: "", lastName: "", email: "", message: "" });
     } catch {
-      toast.error("We could not send your message right now. Please try again or email info@woodinvillesportsclub.com.");
+      const message = "We could not send your message right now. Please try again or email info@woodinvillesportsclub.com.";
+      setFormStatus({ type: "error", message });
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -80,7 +91,7 @@ export default function Contact() {
           {/* Form */}
           <div>
             <p className="text-volt text-[13px] tracking-[0.22em] uppercase mb-5">Send a Message</p>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} data-form-name="Contact Form" className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="contact-first-name" className="block text-ink-light text-[11px] tracking-[0.14em] uppercase mb-2">
@@ -140,6 +151,16 @@ export default function Contact() {
               </div>
               {/* Honeypot — invisible to humans, bots fill it */}
               <input {...honeypotProps} />
+              {formStatus ? (
+                <p
+                  role={formStatus.type === "error" ? "alert" : "status"}
+                  className={`text-[13px] leading-[1.6] ${
+                    formStatus.type === "error" ? "text-red-700" : "text-ink"
+                  }`}
+                >
+                  {formStatus.message}
+                </p>
+              ) : null}
               <button
                 type="submit"
                 disabled={isSubmitting}

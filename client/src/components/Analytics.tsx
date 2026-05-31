@@ -11,7 +11,7 @@ const CONSENT_STORAGE_KEY = "wsc-cookie-consent";
 const ANALYTICS_SCRIPT_ID = "wsc-analytics-script";
 const GA4_SCRIPT_ID = "wsc-ga4-script";
 const GA4_MEASUREMENT_ID =
-  import.meta.env.VITE_GA4_MEASUREMENT_ID || "TODO_REPLACE_ME_GA4_MEASUREMENT_ID";
+  import.meta.env.NEXT_PUBLIC_GA_ID || import.meta.env.VITE_GA4_MEASUREMENT_ID || "G-S6448TRP0T";
 
 function hasAnalyticsConsent() {
   try {

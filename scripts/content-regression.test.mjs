@@ -48,6 +48,15 @@ test("golf simulator section does not promote trial membership", () => {
   assert.doesNotMatch(golf, /Trial Access|Trial golf simulator|Trial members/i);
 });
 
+test("membership page does not list the retired trial golf simulator pass", () => {
+  const membership = read("client/src/pages/Membership.tsx");
+
+  assert.doesNotMatch(
+    membership,
+    /Trial Golf Simulators|Trial members|7-day window|Bring up to 3 guests per session|try the golf simulators before committing/i,
+  );
+});
+
 test("covered driving bay count is not capped at 23", () => {
   const files = [
     "client/src/pages/About.tsx",
@@ -100,15 +109,17 @@ test("membership auto-renewal is clearly disclosed", () => {
 });
 
 test("website forms are routed to WSC email notifications", () => {
-  const apiRoute = read("api/forms.ts");
+  const apiRoute = read("api/contact.ts");
   const formServer = read("server/form-submissions.ts");
   const readme = read("README.md");
 
   assert.match(apiRoute, /handleFormSubmissionRequest/);
   assert.match(apiRoute, /from "\.\.\/server\/form-submissions\.js"/);
-  assert.match(formServer, /const DEFAULT_EMAIL_TO = "Info@woodinvillesportsclub\.com"/);
+  assert.match(formServer, /POSTMARK_SERVER_TOKEN/);
+  assert.match(formServer, /FORM_ALERT_TO/);
+  assert.match(formServer, /FORM_ALERT_FROM/);
   assert.match(formServer, /result\.email\.status !== "sent"/);
-  assert.match(readme, /FORM_EMAIL_TO=Info@woodinvillesportsclub\.com/);
+  assert.match(readme, /FORM_ALERT_TO=Info@woodinvillesportsclub\.com/);
 });
 
 test("gym page does not mention APL class programming", () => {

@@ -9,7 +9,7 @@ Production website for Woodinville Sports Club, a sports campus in Woodinville, 
 - Wouter routing
 - Express production server
 - Vercel deployment config
-- Resend-backed website form notifications
+- Postmark-backed website form notifications
 - Static SEO shell generation for public routes
 
 ## Quick Start
@@ -81,19 +81,21 @@ Copy `.env.example` to `.env.local` for local secrets. Analytics is optional and
 ```bash
 VITE_ANALYTICS_ENDPOINT=https://analytics.example.com
 VITE_ANALYTICS_WEBSITE_ID=your-website-id
+NEXT_PUBLIC_GA_ID=G-S6448TRP0T
 ```
 
-Website forms submit to `/api/forms`, write JSONL records, and send notifications through Resend:
+Website forms submit to `/api/contact`, write JSONL records, and send notifications through Postmark:
 
 ```bash
-RESEND_API_KEY=your-resend-api-key
-FORM_EMAIL_TO=Info@woodinvillesportsclub.com
-FORM_EMAIL_FROM="WSC Website <forms@woodinvillesportsclub.com>"
+POSTMARK_SERVER_TOKEN=your-postmark-server-token
+POSTMARK_MESSAGE_STREAM=outbound
+FORM_ALERT_TO=Info@woodinvillesportsclub.com
+FORM_ALERT_FROM="WSC Website <Info@woodinvillesportsclub.com>"
 FORM_SUBMISSIONS_DIR=./data/form-submissions
 FORM_WEBHOOK_URL=
 ```
 
-`FORM_EMAIL_FROM` must use a sender domain verified in Resend. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
+`FORM_ALERT_FROM` must use a sender signature or sender domain verified in Postmark. The visitor's email is sent as `ReplyTo`, never as the sender. `POSTMARK_MESSAGE_STREAM` defaults to `outbound`. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
 
 ## Forms
 
@@ -103,7 +105,7 @@ The active forms are:
 - Golf lesson request form on `/golf`
 - Newsletter signup form on `/`
 
-Client-side form submission is centralized in `client/src/lib/forms.ts`. Server-side validation, JSONL recording, optional webhook forwarding, and Resend delivery live in `server/form-submissions.ts`.
+Client-side form submission is centralized in `client/src/lib/forms.ts`. Server-side validation, honeypot handling, JSONL recording, optional webhook forwarding, and Postmark delivery live in `server/form-submissions.ts`. `/api/forms` remains as a compatibility alias for older clients.
 
 ## SEO and Static Output
 

@@ -21,11 +21,13 @@ export function useFormProtection(minSeconds = 3) {
   const honeypotProps = {
     // Styled to be invisible but still in the DOM (bots fill it)
     "aria-hidden": true as const,
+    type: "text",
     tabIndex: -1,
     autoComplete: "off" as const,
-    name: "website_url", // Attractive name for bots
+    name: "companyWebsite",
     value: honeypot,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => setHoneypot(e.target.value),
+    className: "hidden",
     style: {
       position: "absolute" as const,
       left: "-9999px",

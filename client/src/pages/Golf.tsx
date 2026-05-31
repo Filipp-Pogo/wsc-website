@@ -17,11 +17,14 @@ import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 import { submitWebsiteForm } from "@/lib/forms";
 
-const GOLF_IMG = "/images/wsc/golf-practice-area.webp";
-const GOLF_SUNSET = "/images/wsc/campus-sunset.webp";
+const GOLF_HERO_IMG = "/images/wsc/golf-range-sunset.webp";
+const GOLF_RANGE_FIELD_IMG = "/images/wsc/golf-range-field.webp";
+const GOLF_RANGE_BASKETS_IMG = "/images/wsc/golf-range-baskets.webp";
 const SIM_BAY_IMG = "/images/wsc/swing-lab-simulators.webp";
-const SIM_SCREEN_IMG = "/images/wsc/swing-lab-simulators.webp";
-const SIM_LOUNGE_IMG = "/images/wsc/swing-lab-simulators.webp";
+const SIM_JUNIOR_IMG = "/images/wsc/swing-lab-junior-practice.webp";
+const SIM_LESSON_IMG = "/images/wsc/swing-lab-private-lesson.webp";
+const GOLF_INSTRUCTORS_IMG = "/images/wsc/golf-instructors-swing-lab.webp";
+const JUNIOR_ACADEMY_IMG = "/images/wsc/junior-golf-academy-group.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 const SKILL_LEVELS = [
@@ -61,6 +64,7 @@ function PrivateLessonForm() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const { honeypotProps, validateSubmission } = useFormProtection();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -68,21 +72,27 @@ function PrivateLessonForm() {
     const check = validateSubmission();
     if (!check.valid) {
       if (check.reason === "honeypot" || check.reason === "too_fast") {
-        toast.success("Lesson request submitted! Our golf staff will contact you within 1–2 business days.");
+        const message = "Lesson request submitted! Our golf staff will contact you within 1-2 business days.";
+        setFormStatus({ type: "success", message });
+        toast.success(message);
         setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
         return;
       }
       if (check.reason === "rate_limited") {
-        toast.error("Please wait a moment before submitting another request.");
+        const message = "Please wait a moment before submitting another request.";
+        setFormStatus({ type: "error", message });
+        toast.error(message);
         return;
       }
     }
 
     setIsSubmitting(true);
+    setFormStatus(null);
     try {
       await submitWebsiteForm({
         formType: "golf_lesson",
         source: "/golf",
+        formName: "Golf Lesson Request",
         name: form.name,
         email: form.email,
         phone: form.phone,
@@ -95,10 +105,14 @@ function PrivateLessonForm() {
 
       setSubmitted(true);
       setForm({ name: "", email: "", phone: "", skillLevel: "", experience: "" });
-      toast.success("Lesson request submitted! Our golf staff will contact you within 1-2 business days.");
+      const message = "Lesson request submitted! Our golf staff will contact you within 1-2 business days.";
+      setFormStatus({ type: "success", message });
+      toast.success(message);
       setTimeout(() => setSubmitted(false), 4000);
     } catch {
-      toast.error("We could not send your lesson request right now. Please try again or email info@woodinvillesportsclub.com.");
+      const message = "We could not send your lesson request right now. Please try again or email info@woodinvillesportsclub.com.";
+      setFormStatus({ type: "error", message });
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -109,7 +123,7 @@ function PrivateLessonForm() {
   const labelClass = "block text-parchment/70 text-[11px] tracking-[0.14em] uppercase mb-2";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} data-form-name="Golf Lesson Request" className="space-y-5">
       <div>
         <label htmlFor="lesson-name" className={labelClass}>Full Name *</label>
         <input
@@ -184,6 +198,16 @@ function PrivateLessonForm() {
 
       {/* Honeypot — invisible to humans, bots fill it */}
       <input {...honeypotProps} />
+      {formStatus ? (
+        <p
+          role={formStatus.type === "error" ? "alert" : "status"}
+          className={`text-[13px] leading-[1.6] ${
+            formStatus.type === "error" ? "text-red-200" : "text-parchment"
+          }`}
+        >
+          {formStatus.message}
+        </p>
+      ) : null}
       <button
         type="submit"
         disabled={isSubmitting || submitted}
@@ -227,7 +251,8 @@ export default function Golf() {
         eyebrow="WSC Golf Training Grounds"
         headline="The PNW's Golf Training Grounds."
         subtitle="Practice all day on expansive golf grounds built for real improvement: putting grounds, chipping area, a driving range with more than 23 covered bays, turf putting green, grass tees, and Swing Lab simulators."
-        image={GOLF_IMG}
+        image={GOLF_HERO_IMG}
+        imagePosition="center 58%"
       />
 
       {/* Golf Training Grounds */}
@@ -263,12 +288,13 @@ export default function Golf() {
             </div>
           </div>
           <img
-            src={GOLF_IMG}
-            alt="Covered golf driving range at Woodinville Sports Club"
-            width={1800}
-            height={1200}
+            src={GOLF_RANGE_FIELD_IMG}
+            alt="Short-game practice green at Woodinville Sports Club"
+            width={1350}
+            height={1800}
             loading="lazy"
             className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85]"
+            style={{ objectPosition: "center 66%" }}
           />
         </div>
 
@@ -348,9 +374,9 @@ export default function Golf() {
         {/* Simulator photo gallery */}
         <div ref={simGalleryRef} className="max-w-[1440px] mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-3">
           {[
-            { src: SIM_BAY_IMG, alt: "Golfer using Uneekor simulator with swing data overlay", caption: "Uneekor launch monitors capture 24 data points per swing" },
-            { src: SIM_SCREEN_IMG, alt: "Simulator screen with virtual course and analytics", caption: "2,000+ photorealistic courses with real-time feedback" },
-            { src: SIM_LOUNGE_IMG, alt: "Multiple simulator bays in the Swing Lab lounge", caption: "Four professional-grade bays with lounge seating" },
+            { src: SIM_JUNIOR_IMG, alt: "Junior golfer practicing in a Swing Lab simulator bay", caption: "Indoor reps in Swing Lab support year-round junior training" },
+            { src: SIM_LESSON_IMG, alt: "Golf coach guiding a junior golfer in the Swing Lab", caption: "Simulator lessons combine coaching with launch data" },
+            { src: SIM_BAY_IMG, alt: "Multiple simulator bays in the Swing Lab lounge", caption: "Four professional-grade bays with lounge seating" },
           ].map((img, i) => (
             <div
               key={i}
@@ -378,13 +404,26 @@ export default function Golf() {
           ref={academyRef}
           className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${academyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <p className="text-volt text-[13px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
-          <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
-            Registration is open.
-          </h2>
-          <p className="text-ink-mid text-[16px] leading-[1.82] mb-14 max-w-[680px]">
-            Classes for youth and adults of all levels, from first swing to elite golfers. Led by WGTF Master Certified Coach, Daniel Jarvie. Outdoor instruction on the range; indoor instruction in WSC's new Swing Lab indoor golf simulators.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-10 lg:gap-16 items-start mb-14">
+            <div>
+              <p className="text-volt text-[13px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
+              <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
+                Registration is open.
+              </h2>
+              <p className="text-ink-mid text-[16px] leading-[1.82] max-w-[680px]">
+                Classes for youth and adults of all levels, from first swing to elite golfers. Led by WGTF Master Certified Coach, Daniel Jarvie. Outdoor instruction on the range; indoor instruction in WSC's new Swing Lab indoor golf simulators.
+              </p>
+            </div>
+            <img
+              src={JUNIOR_ACADEMY_IMG}
+              alt="Junior golf academy students with coach Daniel Jarvie at Woodinville Sports Club"
+              width={1800}
+              height={1200}
+              loading="lazy"
+              className="w-full aspect-[16/10] object-cover saturate-[0.72] brightness-[0.92]"
+              style={{ objectPosition: "center 42%" }}
+            />
+          </div>
 
           <div className="space-y-0">
             {[
@@ -487,11 +526,12 @@ export default function Golf() {
 
       {/* Full-width visual break */}
       <FullWidthImage
-        src={GOLF_SUNSET}
-        alt="WSC driving range at golden hour"
-        caption="Driving range open to the public, plus putting grounds, chipping area, and turf putting green."
+        src={GOLF_RANGE_BASKETS_IMG}
+        alt="Baskets of range balls on the grass at Woodinville Sports Club"
+        caption="Bucket up for full-swing work, short-game reps, and all-day practice on the grounds."
         subcaption="Golf Training Grounds"
         height="medium"
+        imagePosition="center 52%"
       />
 
       {/* Why WSC Golf */}
@@ -527,34 +567,45 @@ export default function Golf() {
             </h2>
           </div>
 
-          <div ref={coachesRef} className="grid grid-cols-1 md:grid-cols-2 gap-[3px]">
-            {[
-              {
-                name: "Daniel Jarvie",
-                title: "Director of Golf & Tier 1 Golf Academy",
-                credential: "WGTF Master Certified Coach",
-                philosophy: "Former Seattle Junior Champion and Division I player at University of Washington. 30+ years of professional teaching, coaching, and playing experience. Former Director of Instruction and College Coach who taught golf schools for legendary PGA Tour coach Jimmy Ballard.",
-              },
-              {
-                name: "Stella Kim",
-                title: "WSC Golf Instructor",
-                credential: "LPGA-Certified Teaching Professional, TPI Level 1 & 2",
-                philosophy: "Nearly two decades of experience with a supportive, detail-oriented teaching style. Graduate of Professional Golf Career College (2014). Taught in Southern California, New York, and Korea before joining WSC in Seattle.",
-              },
-            ].map((coach, i) => (
-              <div
-                key={i}
-                className={`bg-parchment-mid p-8 lg:p-10 transition-all duration-700 ease-out ${coachesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              >
-                <div className="w-16 h-16 rounded-full bg-dark-bg/10 flex items-center justify-center mb-6">
-                  <span className="text-volt text-[20px] font-light">{coach.name.charAt(0)}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(320px,420px)_1fr] gap-[3px] items-stretch">
+            <div className="relative mx-auto lg:mx-0 w-full max-w-[520px] lg:max-w-none aspect-[3/4] lg:aspect-auto lg:min-h-[520px] overflow-hidden bg-dark-bg">
+              <img
+                src={GOLF_INSTRUCTORS_IMG}
+                alt="Golf instructors Daniel Jarvie and Stella Kim in the Swing Lab"
+                width={768}
+                height={1024}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover saturate-[0.72] brightness-[0.9]"
+                style={{ objectPosition: "center 36%" }}
+              />
+            </div>
+
+            <div ref={coachesRef} className="grid grid-cols-1 gap-[3px]">
+              {[
+                {
+                  name: "Daniel Jarvie",
+                  title: "Director of Golf & Tier 1 Golf Academy",
+                  credential: "WGTF Master Certified Coach",
+                  philosophy: "Former Seattle Junior Champion and Division I player at University of Washington. 30+ years of professional teaching, coaching, and playing experience. Former Director of Instruction and College Coach who taught golf schools for legendary PGA Tour coach Jimmy Ballard.",
+                },
+                {
+                  name: "Stella Kim",
+                  title: "WSC Golf Instructor",
+                  credential: "LPGA-Certified Teaching Professional, TPI Level 1 & 2",
+                  philosophy: "Nearly two decades of experience with a supportive, detail-oriented teaching style. Graduate of Professional Golf Career College (2014). Taught in Southern California, New York, and Korea before joining WSC in Seattle.",
+                },
+              ].map((coach, i) => (
+                <div
+                  key={i}
+                  className={`bg-parchment-mid p-8 lg:p-10 transition-all duration-700 ease-out ${coachesVisible[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                >
+                  <h3 className="text-[18px] font-light tracking-[-0.01em] mb-1">{coach.name}</h3>
+                  <p className="text-volt text-[12px] tracking-[0.2em] uppercase mb-1.5">{coach.title}</p>
+                  <p className="text-ink-mid text-[11px] tracking-[0.08em] uppercase mb-5">{coach.credential}</p>
+                  <p className="text-ink-mid text-[14px] leading-[1.72] italic">"{coach.philosophy}"</p>
                 </div>
-                <h3 className="text-[18px] font-light tracking-[-0.01em] mb-1">{coach.name}</h3>
-                <p className="text-volt text-[12px] tracking-[0.2em] uppercase mb-1.5">{coach.title}</p>
-                <p className="text-ink-mid text-[11px] tracking-[0.08em] uppercase mb-5">{coach.credential}</p>
-                <p className="text-ink-mid text-[14px] leading-[1.72] italic">"{coach.philosophy}"</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
 
