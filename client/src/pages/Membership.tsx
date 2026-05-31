@@ -89,20 +89,6 @@ const tiers = [
       "Membership auto-renews annually",
     ],
   },
-  {
-    type: "Trial",
-    name: "Trial Golf Simulators",
-    price: "$20",
-    period: "+ tax (one-time)",
-    who: "One 16+ individual",
-    features: [
-      "For non-members or Class Access members",
-      "Test out golf simulators before committing",
-      "Book simulator sessions at regular rates with 7-day window",
-      "Bring up to 3 guests per session",
-      "Trial members may upgrade at any time",
-    ],
-  },
 ];
 
 const FAQ_ITEMS = [
@@ -111,7 +97,7 @@ const FAQ_ITEMS = [
     items: [
       {
         q: "What membership options are available?",
-        a: "We offer six tiers: Family All-Access ($100/mo), Couple All-Access ($70/mo), Individual All-Access ($40/mo), Court & Range Access ($120/yr), Class Registration ($50/yr), and a Trial Golf Simulators pass ($20 one-time). Monthly memberships include a $50 + tax initiation fee.",
+        a: "We offer five tiers: Family All-Access ($100/mo), Couple All-Access ($70/mo), Individual All-Access ($40/mo), Court & Range Access ($120/yr), and Class Registration ($50/yr). Monthly memberships include a $50 + tax initiation fee.",
       },
       {
         q: "Is there a discount for families?",
@@ -124,10 +110,6 @@ const FAQ_ITEMS = [
       {
         q: "Are there any hidden fees?",
         a: "Monthly memberships require a one-time $50 + tax initiation fee. Annual passes have no initiation fee. All listed prices are subject to applicable sales tax. Court booking and class registration fees apply separately based on the activity. All memberships auto-renew until cancelled under the applicable cancellation policy.",
-      },
-      {
-        q: "Can I try the golf simulators before committing to a membership?",
-        a: "Absolutely. Our Trial Golf Simulators pass is $20 + tax (one-time) and lets you book simulator sessions at regular rates with a 7-day booking window. You can upgrade to a full membership at any time.",
       },
     ],
   },
@@ -144,7 +126,7 @@ const FAQ_ITEMS = [
       },
       {
         q: "Can I bring guests to the facility?",
-        a: "Yes. Guest policies vary by membership tier and activity. All-Access members can bring guests to the gym and fitness areas. Golf simulator trial members may bring up to 3 guests per session under the current trial access rules. Check with the front desk for current guest policies.",
+        a: "Yes. Guest policies vary by membership tier and activity. All-Access members can bring guests to the gym and fitness areas. Check with the front desk for current guest policies.",
       },
       {
         q: "What are the facility hours?",
@@ -281,7 +263,7 @@ export default function Membership() {
           <div className="mb-14 pb-8 border-b border-wsc-border">
             <p className="text-volt text-[13px] tracking-[0.22em] uppercase mb-5">Membership Options</p>
             <h2 className="text-[clamp(26px,2.8vw,40px)] font-light tracking-[-0.02em] leading-[1.15]">
-              Six tiers. One campus.
+              Five tiers. One campus.
             </h2>
           </div>
 

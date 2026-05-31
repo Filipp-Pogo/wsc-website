@@ -12,7 +12,30 @@ import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
 const PICKLE_IMG = "/images/wsc/pickleball-dome.webp";
+const PICKLE_OPEN_PLAY_IMG = "/images/wsc/pickleball-serve-action.webp";
+const PICKLE_READY_IMG = "/images/wsc/pickleball-ready-position.webp";
+const PICKLE_TOURNAMENT_WINNERS_IMG = "/images/wsc/pickleball-tournament-winners.webp";
+const PICKLE_TOURNAMENT_PODIUM_IMG = "/images/wsc/pickleball-tournament-podium.webp";
+const PICKLE_TOURNAMENT_FINALISTS_IMG = "/images/wsc/pickleball-tournament-finalists.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
+
+const TOURNAMENT_PHOTOS = [
+  {
+    src: PICKLE_TOURNAMENT_WINNERS_IMG,
+    alt: "Pickleball medalists holding paddles in front of the Woodinville Sports Club backdrop",
+    caption: "Tournament medalists in the dome",
+  },
+  {
+    src: PICKLE_TOURNAMENT_PODIUM_IMG,
+    alt: "Pickleball tournament podium group with medals at Woodinville Sports Club",
+    caption: "Round-robin events with divisions by skill and age",
+  },
+  {
+    src: PICKLE_TOURNAMENT_FINALISTS_IMG,
+    alt: "Pickleball finalists and medalists posing after a WSC tournament",
+    caption: "Competitive events hosted with Pickleball is Great",
+  },
+];
 
 export default function Pickleball() {
   const { ref: courtsRef, isVisible: courtsVisible } = useScrollReveal({ threshold: 0.08 });
@@ -71,12 +94,13 @@ export default function Pickleball() {
           </div>
           <div>
             <img
-              src={PICKLE_IMG}
-              alt="Indoor pickleball dome courts at Woodinville Sports Club"
-              width={1800}
-              height={1149}
+              src={PICKLE_OPEN_PLAY_IMG}
+              alt="Pickleball player tracking the ball during indoor play at Woodinville Sports Club"
+              width={1200}
+              height={1800}
               loading="lazy"
-              className="w-full aspect-[4/3] object-cover saturate-[0.55] brightness-[0.85] mb-6"
+              className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover saturate-[0.72] brightness-[0.9] mb-6"
+              style={{ objectPosition: "center 45%" }}
             />
             <div className="bg-parchment-mid p-6 border-l-2 border-volt">
               <p className="text-volt text-[12px] tracking-[0.2em] uppercase mb-2">Court Capacity</p>
@@ -211,6 +235,15 @@ export default function Pickleball() {
             <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15]">
               Reserve your<br />own court.
             </h2>
+            <img
+              src={PICKLE_READY_IMG}
+              alt="Pickleball player ready for the next shot on an indoor court"
+              width={1200}
+              height={1800}
+              loading="lazy"
+              className="mt-8 w-full max-w-[380px] aspect-[3/4] object-cover saturate-[0.72] brightness-[0.9]"
+              style={{ objectPosition: "center 45%" }}
+            />
           </div>
           <div>
             <p className="text-ink-mid text-[16px] leading-[1.82] mb-6">
@@ -335,6 +368,25 @@ export default function Pickleball() {
             <p className="text-parchment/80 text-[15px] leading-[1.75] max-w-[560px] mx-auto">
               We partner with Pickleball is Great (PIG) to host tournaments. Round Robin format, skills 3.0–5.0 in age events (under 50 and 50+).
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+            {TOURNAMENT_PHOTOS.map((photo) => (
+              <figure key={photo.src} className="group relative overflow-hidden bg-dark-bg">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={1800}
+                  height={1200}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover saturate-[0.72] brightness-[0.85] transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: "center 38%" }}
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-5 pb-5 pt-14 text-parchment text-[12px] tracking-[0.04em]">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
           <div ref={tournamentsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[3px]">

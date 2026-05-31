@@ -9,8 +9,9 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 
+const FITNESS_CENTER_HERO = "/images/wsc/fitness-center-hero.webp";
 const GYM_HERO = "/images/wsc/gym-main.webp";
-const GYM_WEIGHTS = "/images/wsc/gym-floor.webp";
+const GYM_WEIGHTS = FITNESS_CENTER_HERO;
 const GYM_FUNCTIONAL = "/images/wsc/gym-floor.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
@@ -33,7 +34,8 @@ export default function Gym() {
         eyebrow="Fitness Center"
         headline="Your Gym. Your Goals."
         subtitle="Train in a full-service fitness center with cardio equipment, free weights, dedicated strength space, functional training tools, sauna access, and locker rooms on WSC's 67-acre campus."
-        image={GYM_HERO}
+        image={FITNESS_CENTER_HERO}
+        imagePosition="center 52%"
       />
 
       <section className="bg-dark-bg px-6 lg:px-14 py-16">
@@ -115,9 +117,9 @@ export default function Gym() {
             </div>
             <img
               src={GYM_WEIGHTS}
-              alt="WSC weight room with power racks and Olympic lifting platforms"
-              width={1800}
-              height={1350}
+              alt="WSC main gym with cardio machines, free weights, and strength equipment"
+              width={600}
+              height={350}
               loading="lazy"
               className="w-full aspect-[4/3] object-cover"
             />

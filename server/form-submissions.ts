@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import { randomUUID } from "crypto";
+import { ServerClient } from "postmark";
 import type { IncomingHttpHeaders, IncomingMessage, ServerResponse } from "http";
 import path from "path";
 
@@ -10,9 +11,14 @@ type WebsiteFormPayload = {
   source?: unknown;
   email?: unknown;
   name?: unknown;
+  fullName?: unknown;
   phone?: unknown;
   subject?: unknown;
   message?: unknown;
+  comments?: unknown;
+  formName?: unknown;
+  companyWebsite?: unknown;
+  website_url?: unknown;
   metadata?: unknown;
 };
 
@@ -38,8 +44,9 @@ type FormSubmission = {
 
 type EmailDeliveryResult = {
   status: "sent" | "not_configured" | "failed";
-  provider: "resend";
+  provider: "postmark";
   to: string[];
+  id?: string;
   error?: string;
 };
 
@@ -53,7 +60,7 @@ type RequestWithBody = IncomingMessage & {
   body?: unknown;
 };
 
-const DEFAULT_EMAIL_TO = "Info@woodinvillesportsclub.com";
+const SUPPORT_EMAIL = "Info@woodinvillesportsclub.com";
 const VALID_FORM_TYPES = new Set<WebsiteFormType>(["contact", "golf_lesson", "newsletter_signup"]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 50_000;
@@ -85,11 +92,25 @@ export async function handleFormSubmissionRequest(req: RequestWithBody, res: Ser
 
   try {
     const payload = await readJsonBody(req);
+
+    if (isHoneypotSubmission(payload)) {
+      sendJson(res, 200, {
+        ok: true,
+        success: true,
+        recorded: false,
+        emailed: false,
+        emailStatus: "skipped",
+      });
+      return;
+    }
+
     const result = await processFormSubmission(payload, getRequestContext(req.headers));
 
     if (result.email.status !== "sent") {
       if (result.email.status === "not_configured") {
-        console.error("Form email notification is not configured. Set RESEND_API_KEY before accepting submissions.");
+        console.error(
+          "Form email notification is not configured. Set POSTMARK_SERVER_TOKEN, FORM_ALERT_TO, and FORM_ALERT_FROM before accepting submissions.",
+        );
       } else {
         console.error("Form email notification failed", result.email.error);
       }
@@ -98,7 +119,7 @@ export async function handleFormSubmissionRequest(req: RequestWithBody, res: Ser
         recorded: result.recorded,
         emailed: false,
         emailStatus: result.email.status,
-        error: "Your submission was saved, but the email notification could not be sent. Please try again or email Info@woodinvillesportsclub.com.",
+        error: `Your submission was saved, but the email notification could not be sent. Please try again or email ${SUPPORT_EMAIL}.`,
       });
       return;
     }
@@ -109,6 +130,7 @@ export async function handleFormSubmissionRequest(req: RequestWithBody, res: Ser
       recorded: result.recorded,
       emailed: result.email.status === "sent",
       emailStatus: result.email.status,
+      emailId: result.email.id,
     });
   } catch (error) {
     const statusCode = error instanceof HttpError ? error.statusCode : 500;
@@ -153,11 +175,16 @@ function normalizePayload(rawPayload: unknown): Omit<FormSubmission, "id" | "sub
   const formType = cleanString(payload.formType, 80) as WebsiteFormType;
   const source = cleanString(payload.source, 160) || "/";
   const email = cleanString(payload.email, 320).toLowerCase();
-  const name = cleanString(payload.name, 180);
+  const name = cleanString(payload.name, 180) || cleanString(payload.fullName, 180);
   const phone = cleanString(payload.phone, 80);
   const subject = cleanString(payload.subject, 180);
-  const message = cleanString(payload.message, 5_000);
+  const message = cleanString(payload.message, 5_000) || cleanString(payload.comments, 5_000);
   const metadata = cleanMetadata(payload.metadata);
+  const formName = cleanString(payload.formName, 120);
+
+  if (formName) {
+    metadata.formName = formName;
+  }
 
   if (!VALID_FORM_TYPES.has(formType)) {
     throw new HttpError(400, "Please choose a valid form.");
@@ -216,52 +243,46 @@ async function recordSubmission(submission: FormSubmission) {
 }
 
 async function sendNotificationEmail(submission: FormSubmission): Promise<EmailDeliveryResult> {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  const to = parseRecipients(process.env.FORM_EMAIL_TO || DEFAULT_EMAIL_TO);
-  const provider = "resend" as const;
-  const recipients = to.length ? to : [DEFAULT_EMAIL_TO];
+  const serverToken = process.env.POSTMARK_SERVER_TOKEN?.trim();
+  const to = parseRecipients(process.env.FORM_ALERT_TO || process.env.FORM_EMAIL_TO || "");
+  const provider = "postmark" as const;
+  const from = cleanEmailHeader(process.env.FORM_ALERT_FROM || process.env.FORM_EMAIL_FROM || "");
+  const messageStream = cleanPostmarkMessageStream(process.env.POSTMARK_MESSAGE_STREAM || "outbound");
 
-  if (!apiKey) {
-    console.warn("RESEND_API_KEY is not configured; form submission was recorded but no email was sent.");
-    return { status: "not_configured", provider, to: recipients };
+  if (!serverToken) {
+    console.warn("POSTMARK_SERVER_TOKEN is not configured; form submission was recorded but no email was sent.");
+    return { status: "not_configured", provider, to };
   }
 
-  const from = process.env.FORM_EMAIL_FROM?.trim() || "WSC Website <onboarding@resend.dev>";
+  if (!to.length || !from) {
+    console.warn("FORM_ALERT_TO or FORM_ALERT_FROM is not configured; form submission was recorded but no email was sent.");
+    return { status: "not_configured", provider, to };
+  }
+
   const emailBody = buildEmailBody(submission);
+  const postmark = new ServerClient(serverToken);
 
   try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
+    const result = await postmark.sendEmail({
+      From: from,
+      To: to.join(","),
+      ReplyTo: submission.email,
+      Subject: submission.subject,
+      TextBody: emailBody.text,
+      HtmlBody: emailBody.html,
+      MessageStream: messageStream,
+      Metadata: {
+        submissionId: submission.id,
+        formType: submission.formType,
       },
-      body: JSON.stringify({
-        from,
-        to: recipients,
-        reply_to: submission.email,
-        subject: submission.subject,
-        text: emailBody.text,
-        html: emailBody.html,
-      }),
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      return {
-        status: "failed",
-        provider,
-        to: recipients,
-        error: `Resend returned ${response.status}: ${errorText.slice(0, 500)}`,
-      };
-    }
-
-    return { status: "sent", provider, to: recipients };
+    return { status: "sent", provider, to, id: result.MessageID };
   } catch (error) {
     return {
       status: "failed",
       provider,
-      to: recipients,
+      to,
       error: error instanceof Error ? error.message : "Unknown email delivery error.",
     };
   }
@@ -363,7 +384,7 @@ function fallbackSubject(formType: WebsiteFormType, name: string) {
 function parseRecipients(value: string) {
   return value
     .split(",")
-    .map((recipient) => recipient.trim())
+    .map((recipient) => cleanEmailHeader(recipient))
     .filter(Boolean);
 }
 
@@ -376,10 +397,34 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+function isHoneypotSubmission(value: unknown) {
+  if (!isRecord(value)) return false;
+  return Boolean(cleanString(value.companyWebsite, 200) || cleanString(value.website_url, 200));
+}
+
 function labelize(value: string) {
   return value
     .replace(/[_-]+/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function cleanEmailHeader(value: string) {
+  let next = value.replace(/\\r|\\n/g, "").replace(/[\r\n]/g, "").trim();
+
+  for (let index = 0; index < 2; index += 1) {
+    if (
+      (next.startsWith('"') && next.endsWith('"')) ||
+      (next.startsWith("'") && next.endsWith("'"))
+    ) {
+      next = next.slice(1, -1).replace(/\\r|\\n/g, "").replace(/[\r\n]/g, "").trim();
+    }
+  }
+
+  return next;
+}
+
+function cleanPostmarkMessageStream(value: string) {
+  return cleanEmailHeader(value).replace(/[^a-zA-Z0-9._-]/g, "").slice(0, 40) || "outbound";
 }
 
 function escapeHtml(value: string) {

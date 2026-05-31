@@ -10,7 +10,7 @@ Use this runbook when replacing the live Wix site with the custom Vercel-hosted 
    - `woodinvillesportsclub.com`
 3. Confirm the canonical host is `https://www.woodinvillesportsclub.com`.
 4. Replace placeholder IDs before production launch:
-   - `TODO_REPLACE_ME_GA4_MEASUREMENT_ID`
+   - `NEXT_PUBLIC_GA_ID=G-S6448TRP0T` in Vercel
    - `TODO_REPLACE_ME_GOOGLE_SEARCH_CONSOLE_VERIFICATION`
    - `TODO_REPLACE_ME_BING_WEBMASTER_VERIFICATION`
 5. Verify Google Search Console ownership for the domain property and URL-prefix properties if available.

@@ -41,6 +41,10 @@ async function startServer() {
     void handleFormSubmissionRequest(req, res);
   });
 
+  app.post("/api/contact", (req, res) => {
+    void handleFormSubmissionRequest(req, res);
+  });
+
   app.use(
     express.static(staticPath, {
       index: false,
