@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const outputDir = path.resolve("scripts/seo-audit/output");
-const localOrigin = "http://localhost:4173";
+const localOrigin = process.env.PRELAUNCH_LOCAL_ORIGIN || "http://localhost:4173";
 const publicOrigin = "https://www.woodinvillesportsclub.com";
 
 function readJson(file) {
@@ -189,7 +189,7 @@ ${markdownTable(["Page", "Performance", "Accessibility", "Best Practices", "SEO"
 - Structured data unresolved values: ${(structured.unresolved_values ?? []).length}.
 - Robots.txt: allows all crawling, sitemap linked, no \`Disallow: /\`.
 - Sitemap.xml: ${publicSeo.sitemapUrlCount} public URLs, all on \`www\`, all with \`lastmod\`.
-- Analytics placeholders: GA4, Google Search Console, and Bing Webmaster TODO markers present; no hardcoded GA4 debug ID detected.
+- Analytics/search verification: GA4 is consent-gated; Search Console and Bing verification should use real provider tokens or DNS verification, not placeholder meta tags.
 
 ## Missing Items
 

@@ -3,7 +3,7 @@
  * Removed duplicate Swing Lab gallery, Tier 1 Golf Academy detail, and APL Performance section.
  * These are now compact teasers linking to their respective pages.
  */
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { Instagram, Calendar, Clock, MapPin, ChevronRight, Quote } from "lucide-react";
 import { toast } from "sonner";
@@ -940,13 +940,13 @@ export default function Home() {
                 type: "Monthly",
                 name: "Family All-Access",
                 price: "$100/mo",
-                desc: "All household individuals — two adults max plus kids 17 and under. Includes class registration, court and range access, strength and fitness facilities, sauna and locker rooms.",
+                desc: "All household individuals — two adults max plus kids 17 and under. Includes class registration, court and range access, gym, sauna, locker rooms, plus golf simulator, range bucket, mini-golf, beverage, and golf happy hour perks.",
               },
               {
                 type: "Monthly",
                 name: "Individual All-Access",
                 price: "$40/mo",
-                desc: "One 18+ individual. Full campus access including class registration, court and range access, strength and fitness facilities, sauna and locker rooms.",
+                desc: "One 18+ individual. Full campus access including class registration, court and range access, gym, sauna, locker rooms, plus golf simulator, range bucket, mini-golf, beverage, and golf happy hour perks.",
               },
               {
                 type: "Annual",

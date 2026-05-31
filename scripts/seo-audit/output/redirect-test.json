@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T05:40:17.831Z",
+  "generated_at": "2026-05-31T03:22:10.078Z",
   "redirectTests": [
     {
       "old_url": "https://www.woodinvillesportsclub.com/",
@@ -59,7 +59,7 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/apl-training-center",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
+      "expected_new_url": "https://www.woodinvillesportsclub.com/fitness",
       "expected_status": 301,
       "destination_status": 200,
       "pass": true
@@ -156,7 +156,7 @@
       "pass": true
     },
     {
-      "old_url": "https://www.woodinvillesportsclub.com/pickleball-camp",
+      "old_url": "https://www.woodinvillesportsclub.com/copy-of-golf-camp",
       "expected_new_url": "https://www.woodinvillesportsclub.com/summer",
       "expected_status": 301,
       "destination_status": 200,
@@ -248,8 +248,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/events-1",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/events",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/events-1",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },
@@ -262,8 +262,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/fitness",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/fitness",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },
@@ -297,8 +297,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/golf-coaching",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/golf",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/golf-coaching",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },
@@ -325,8 +325,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/member-request",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/member-request",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },
@@ -353,8 +353,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/contact",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },
@@ -367,8 +367,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
-      "expected_new_url": "https://www.woodinvillesportsclub.com/gym",
-      "expected_status": 301,
+      "expected_new_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
+      "expected_status": 200,
       "destination_status": 200,
       "pass": true
     },

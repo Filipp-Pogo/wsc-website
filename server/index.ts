@@ -8,7 +8,6 @@ import { handleFormSubmissionRequest } from "./form-submissions";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const canonicalRedirects: Record<string, string> = {
-  "/fitness": "/gym",
   "/terms": "/policies",
 };
 
@@ -17,6 +16,16 @@ async function startServer() {
   const server = createServer(app);
 
   app.disable("x-powered-by");
+  app.use((_req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+    if (process.env.NODE_ENV === "production") {
+      res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+    }
+    next();
+  });
   app.use(express.json({ limit: "5.5mb" }));
 
   // Serve static files from dist/public in production

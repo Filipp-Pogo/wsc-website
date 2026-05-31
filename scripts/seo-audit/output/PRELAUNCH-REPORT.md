@@ -1,12 +1,12 @@
 # WSC Prelaunch SEO Report
 
-Generated: 2026-05-13T05:40:17.834Z
+Generated: 2026-05-31T03:22:10.081Z
 
 ## Summary
 
 - Old live-site URLs discovered: 90
-- New public sitemap URLs: 40
-- Redirects configured in Vercel: 63
+- New public sitemap URLs: 45
+- Redirects configured in Vercel: 60
 - Old URLs without a 1:1 match or redirect: 0
 - Redirect tests passing: 90/90
 
@@ -30,7 +30,7 @@ Full machine-readable results are saved in `scripts/seo-audit/output/redirect-te
 | https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-2.5 | https://www.woodinvillesportsclub.com/tennis | 301 | 200 |
 | https://www.woodinvillesportsclub.com/adult-rpm-classes/rpm-adult-3.0 | https://www.woodinvillesportsclub.com/tennis | 301 | 200 |
 | https://www.woodinvillesportsclub.com/adult-wsc-tennis | https://www.woodinvillesportsclub.com/tennis | 301 | 200 |
-| https://www.woodinvillesportsclub.com/apl-training-center | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
+| https://www.woodinvillesportsclub.com/apl-training-center | https://www.woodinvillesportsclub.com/fitness | 301 | 200 |
 | https://www.woodinvillesportsclub.com/areasweserve | https://www.woodinvillesportsclub.com/about | 301 | 200 |
 | https://www.woodinvillesportsclub.com/blog | https://www.woodinvillesportsclub.com/blog | 200 | 200 |
 | https://www.woodinvillesportsclub.com/blog/categories/golf | https://www.woodinvillesportsclub.com/blog/categories/golf | 200 | 200 |
@@ -44,7 +44,7 @@ Full machine-readable results are saved in `scripts/seo-audit/output/redirect-te
 | https://www.woodinvillesportsclub.com/copy-of-2025-summer-camp-sign-up | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
 | https://www.woodinvillesportsclub.com/copy-of-adventure-camp | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
 | https://www.woodinvillesportsclub.com/copy-of-camps | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
-| https://www.woodinvillesportsclub.com/pickleball-camp | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
+| https://www.woodinvillesportsclub.com/copy-of-golf-camp | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
 | https://www.woodinvillesportsclub.com/copy-of-tennis | https://www.woodinvillesportsclub.com/tennis | 301 | 200 |
 | https://www.woodinvillesportsclub.com/copy-of-tennis-camp | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
 | https://www.woodinvillesportsclub.com/courses | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
@@ -57,24 +57,24 @@ Full machine-readable results are saved in `scripts/seo-audit/output/redirect-te
 | https://www.woodinvillesportsclub.com/event-details-registration/fitness-expo-extravaganza | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
 | https://www.woodinvillesportsclub.com/event-details-registration/pickleball-palooza-tournament | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
 | https://www.woodinvillesportsclub.com/event-details-registration/tennis-under-the-stars-gala | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
-| https://www.woodinvillesportsclub.com/events-1 | https://www.woodinvillesportsclub.com/events | 301 | 200 |
+| https://www.woodinvillesportsclub.com/events-1 | https://www.woodinvillesportsclub.com/events-1 | 200 | 200 |
 | https://www.woodinvillesportsclub.com/faqs | https://www.woodinvillesportsclub.com/faq | 301 | 200 |
-| https://www.woodinvillesportsclub.com/fitness | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
+| https://www.woodinvillesportsclub.com/fitness | https://www.woodinvillesportsclub.com/fitness | 200 | 200 |
 | https://www.woodinvillesportsclub.com/food-trucks | https://www.woodinvillesportsclub.com/food-trucks | 200 | 200 |
 | https://www.woodinvillesportsclub.com/free-fitness-assessment | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
 | https://www.woodinvillesportsclub.com/fta-parent-meeting-4-21 | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
 | https://www.woodinvillesportsclub.com/golf | https://www.woodinvillesportsclub.com/golf | 200 | 200 |
-| https://www.woodinvillesportsclub.com/golf-coaching | https://www.woodinvillesportsclub.com/golf | 301 | 200 |
+| https://www.woodinvillesportsclub.com/golf-coaching | https://www.woodinvillesportsclub.com/golf-coaching | 200 | 200 |
 | https://www.woodinvillesportsclub.com/inquiry-services-page | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
 | https://www.woodinvillesportsclub.com/main-gym | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
 | https://www.woodinvillesportsclub.com/matpilates | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
-| https://www.woodinvillesportsclub.com/member-request | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
+| https://www.woodinvillesportsclub.com/member-request | https://www.woodinvillesportsclub.com/member-request | 200 | 200 |
 | https://www.woodinvillesportsclub.com/membership | https://www.woodinvillesportsclub.com/membership | 200 | 200 |
 | https://www.woodinvillesportsclub.com/membership-agreement | https://www.woodinvillesportsclub.com/policies | 301 | 200 |
 | https://www.woodinvillesportsclub.com/membership-policies | https://www.woodinvillesportsclub.com/policies | 301 | 200 |
-| https://www.woodinvillesportsclub.com/newsletter-signup | https://www.woodinvillesportsclub.com/contact | 301 | 200 |
+| https://www.woodinvillesportsclub.com/newsletter-signup | https://www.woodinvillesportsclub.com/newsletter-signup | 200 | 200 |
 | https://www.woodinvillesportsclub.com/performance-training-team | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
-| https://www.woodinvillesportsclub.com/personal-training-interest-form | https://www.woodinvillesportsclub.com/gym | 301 | 200 |
+| https://www.woodinvillesportsclub.com/personal-training-interest-form | https://www.woodinvillesportsclub.com/personal-training-interest-form | 200 | 200 |
 | https://www.woodinvillesportsclub.com/pickleball | https://www.woodinvillesportsclub.com/pickleball | 200 | 200 |
 | https://www.woodinvillesportsclub.com/pickleball-camp | https://www.woodinvillesportsclub.com/summer | 301 | 200 |
 | https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you | https://www.woodinvillesportsclub.com/post/bellevue-golfers-looking-for-a-top-notch-driving-range-near-you | 200 | 200 |
@@ -123,13 +123,13 @@ Full machine-readable results are saved in `scripts/seo-audit/output/redirect-te
 
 ## Page SEO / Accessibility / Schema
 
-- Repo SEO metadata audit: 41/41 routes passed.
+- Repo SEO metadata audit: 46/46 routes passed.
 - Rendered H1 and landmark audit: passed.
 - Image alt/size/loading audit: passed.
 - Structured data unresolved values: 0.
 - Robots.txt: allows all crawling, sitemap linked, no `Disallow: /`.
-- Sitemap.xml: 40 public URLs, all on `www`, all with `lastmod`.
-- Analytics placeholders: GA4, Google Search Console, and Bing Webmaster TODO markers present; no hardcoded GA4 debug ID detected.
+- Sitemap.xml: 45 public URLs, all on `www`, all with `lastmod`.
+- Analytics/search verification: GA4 is consent-gated; Search Console and Bing verification should use real provider tokens or DNS verification, not placeholder meta tags.
 
 ## Missing Items
 

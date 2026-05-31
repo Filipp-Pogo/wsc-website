@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-21T05:07:00.923Z",
+  "generated_at": "2026-05-31T03:21:41.000Z",
   "old_url_count": 90,
   "old_unique_path_count": 90,
-  "new_route_count": 20,
+  "new_route_count": 29,
   "counts": {
-    "exact": 26,
-    "redirect-needed": 64,
-    "new-page": 10
+    "exact": 32,
+    "redirect-needed": 58,
+    "new-page": 14
   },
   "missing_content": [],
   "rows": [
@@ -76,7 +76,7 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/apl-training-center",
-      "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "new_url": "https://www.woodinvillesportsclub.com/fitness",
       "match_type": "redirect-needed",
       "review_reason": "",
       "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
@@ -292,8 +292,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/events-1",
-      "new_url": "https://www.woodinvillesportsclub.com/events",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/events-1",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Unforgettable Events in Woodinville | Rustic Cabin, Stunning Views! Changes: \"Unforgettable,\" highlights key features (rustic cabin, views)",
       "old_word_count": 487
@@ -308,8 +308,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/fitness",
-      "new_url": "https://www.woodinvillesportsclub.com/gym",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/fitness",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Woodinville Fitness Center | Gym, Personal Training & More | Woodinville Sports Club",
       "old_word_count": 306
@@ -348,8 +348,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/golf-coaching",
-      "new_url": "https://www.woodinvillesportsclub.com/golf",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/golf-coaching",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Golf Coaching | WSC",
       "old_word_count": 429
@@ -380,8 +380,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/member-request",
-      "new_url": "https://www.woodinvillesportsclub.com/contact",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/member-request",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Membership Cancel Request | WSC",
       "old_word_count": 166
@@ -412,8 +412,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
-      "new_url": "https://www.woodinvillesportsclub.com/contact",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/newsletter-signup",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Newsletter Signup | WSC",
       "old_word_count": 20
@@ -428,8 +428,8 @@
     },
     {
       "old_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
-      "new_url": "https://www.woodinvillesportsclub.com/gym",
-      "match_type": "redirect-needed",
+      "new_url": "https://www.woodinvillesportsclub.com/personal-training-interest-form",
+      "match_type": "exact",
       "review_reason": "",
       "old_title": "Personal Training Interest Form | WSC",
       "old_word_count": 143
@@ -772,7 +772,39 @@
     },
     {
       "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/golf-lessons",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
       "new_url": "https://www.woodinvillesportsclub.com/gym",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/member-cancelation",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/member-cancellation",
+      "match_type": "new-page",
+      "review_reason": "",
+      "old_title": "",
+      "old_word_count": ""
+    },
+    {
+      "old_url": "",
+      "new_url": "https://www.woodinvillesportsclub.com/personal-training-request",
       "match_type": "new-page",
       "review_reason": "",
       "old_title": "",

@@ -221,9 +221,9 @@ export default function Footer() {
             <li className="pt-4 border-t border-parchment/[0.06]">
               <p className="text-volt-bright text-[12px] tracking-[0.14em] uppercase mb-2">Facility Hours</p>
               <div className="space-y-1 mb-3">
-                <p className="text-parchment/70 text-[12px]">Tennis: Weekdays 6AM–11PM, Weekends 7AM–10PM</p>
-                <p className="text-parchment/70 text-[12px]">Gym: Weekdays 6AM–11PM, Weekends 7AM–10PM</p>
-                <p className="text-parchment/70 text-[12px]">Golf: Everyday 9AM–10PM</p>
+                <p className="text-parchment/70 text-[12px]">Tennis: Weekdays 6AM-11PM, Weekends 7AM-10PM</p>
+                <p className="text-parchment/70 text-[12px]">Gym: Weekdays 6AM-11PM, Weekends 7AM-10PM</p>
+                <p className="text-parchment/70 text-[12px]">Golf: Everyday 9AM-10PM</p>
               </div>
             </li>
             <li>

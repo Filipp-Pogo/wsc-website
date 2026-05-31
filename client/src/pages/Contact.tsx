@@ -256,14 +256,14 @@ export default function Contact() {
               {
                 name: "Tennis & Gym",
                 hours: [
-                  { day: "Weekdays", time: "6:00 AM – 11:00 PM" },
-                  { day: "Weekends", time: "7:00 AM – 10:00 PM" },
+                  { day: "Weekdays", time: "6:00 AM - 11:00 PM" },
+                  { day: "Weekends", time: "7:00 AM - 10:00 PM" },
                 ],
               },
               {
                 name: "Golf Range",
                 hours: [
-                  { day: "Everyday", time: "9:00 AM – 10:00 PM" },
+                  { day: "Everyday", time: "9:00 AM - 10:00 PM" },
                 ],
               },
               {

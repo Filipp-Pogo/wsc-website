@@ -57,6 +57,7 @@ The main website routes are registered in `client/src/App.tsx`.
 - `/tennis`
 - `/golf`
 - `/gym`
+- `/fitness`
 - `/pickleball`
 - `/summer`
 - `/membership`

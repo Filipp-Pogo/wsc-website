@@ -30,7 +30,7 @@ function removeAnalyticsScript() {
 }
 
 function isConfigured(value: string) {
-  return value.length > 0 && !value.startsWith("TODO_REPLACE_ME");
+  return value.length > 0 && !value.includes("REPLACE_ME") && !value.includes("PLACEHOLDER");
 }
 
 export default function Analytics() {

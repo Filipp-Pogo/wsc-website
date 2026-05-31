@@ -10,8 +10,8 @@ import AccessibilityToggle from "./components/AccessibilityToggle";
 import CookieConsent from "./components/CookieConsent";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
 
-const Home = lazy(() => import("./pages/Home"));
 const Tennis = lazy(() => import("./pages/Tennis"));
 const Golf = lazy(() => import("./pages/Golf"));
 const Gym = lazy(() => import("./pages/Gym"));

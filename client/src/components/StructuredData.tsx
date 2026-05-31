@@ -4,19 +4,6 @@
  * Supports: LocalBusiness, SportsActivityLocation, Organization, WebSite, BreadcrumbList
  */
 
-/* ─── Base Organization Schema ─── */
-const WSC_ORGANIZATION = {
-  "@type": "Organization",
-  name: "Woodinville Sports Club",
-  legalName: "Woodinville Sports Club",
-  url: "https://www.woodinvillesportsclub.com",
-  logo: "https://www.woodinvillesportsclub.com/logo.png",
-  sameAs: [
-    "https://www.instagram.com/woodinvillesportsclub",
-    "https://www.tier1nw.com",
-  ],
-};
-
 /* ─── Address ─── */
 const WSC_ADDRESS = {
   "@type": "PostalAddress",
@@ -38,6 +25,10 @@ const WSC_GEO = {
 const WSC_HOURS = [
   { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "06:00", closes: "23:00" },
   { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "07:00", closes: "22:00" },
+];
+
+const WSC_GOLF_HOURS = [
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "09:00", closes: "22:00" },
 ];
 
 /* ─── Main LocalBusiness + SportsActivityLocation Schema ─── */
@@ -62,6 +53,14 @@ export function getLocalBusinessSchema() {
     address: WSC_ADDRESS,
     geo: WSC_GEO,
     openingHoursSpecification: WSC_HOURS,
+    department: [
+      {
+        "@type": "SportsActivityLocation",
+        name: "WSC Golf Range",
+        telephone: "+1-425-485-7319",
+        openingHoursSpecification: WSC_GOLF_HOURS,
+      },
+    ],
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash, Credit Card",
@@ -227,6 +226,7 @@ export function getContactPageSchema() {
           areaServed: "US",
           availableLanguage: "English",
           description: "Golf Desk — driving range, Swing Lab, and golf program inquiries",
+          hoursAvailable: WSC_GOLF_HOURS,
         },
       ],
     },
@@ -268,7 +268,7 @@ export function getFAQSchema() {
         name: "What are the hours of operation?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "WSC is open Monday through Friday from 6:00 AM to 9:00 PM, Saturday from 7:00 AM to 8:00 PM, and Sunday from 7:00 AM to 6:00 PM.",
+          text: "Tennis and Gym hours are weekdays from 6:00 AM to 11:00 PM and weekends from 7:00 AM to 10:00 PM. Golf hours are everyday from 9:00 AM to 10:00 PM.",
         },
       },
       {

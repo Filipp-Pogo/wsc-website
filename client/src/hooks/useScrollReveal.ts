@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ScrollRevealOptions {
   /** Fraction of element visible before triggering (0–1). Default 0.15 */

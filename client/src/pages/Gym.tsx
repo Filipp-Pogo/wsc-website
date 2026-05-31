@@ -43,8 +43,8 @@ export default function Gym() {
           {[
             { val: "67", label: "Acre Campus" },
             { val: "6am", label: "Weekday Open" },
-            { val: "7am", label: "Weekend Open" },
-            { val: "10pm", label: "Daily Close" },
+            { val: "11pm", label: "Weekday Close" },
+            { val: "7am-10pm", label: "Weekend Hours" },
           ].map((m, i) => (
             <div key={i} className={`pr-10 ${i < 3 ? "lg:border-r border-parchment/[0.08]" : ""}`}>
               <div className="text-volt-bright text-[36px] font-light leading-none mb-2">
@@ -259,7 +259,7 @@ export default function Gym() {
             </div>
             <div className="space-y-4">
               {[
-                { day: "Monday - Friday", hours: "6:00 AM - 10:00 PM" },
+                { day: "Monday - Friday", hours: "6:00 AM - 11:00 PM" },
                 { day: "Saturday - Sunday", hours: "7:00 AM - 10:00 PM" },
               ].map((item) => (
                 <div key={item.day} className="flex items-center justify-between py-4 border-b border-ink/10">

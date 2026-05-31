@@ -28,6 +28,25 @@ test("fitness route renders the Athletic Performance Lab page", () => {
   assert.doesNotMatch(app, /<Route path="\/fitness">\{\(\) => <Redirect to="\/gym" \/>/);
 });
 
+test("Athletic Performance Lab is directly public in production", () => {
+  const server = read("server/index.ts");
+  const sitemapGenerator = read("scripts/seo-audit/generate-public-seo-files.ts");
+  const vercel = JSON.parse(read("vercel.json"));
+  const redirects = vercel.redirects ?? [];
+
+  assert.equal(
+    redirects.some((redirect) => redirect.source === "/fitness"),
+    false,
+    "/fitness should not be redirected away from the APL page",
+  );
+  assert.equal(
+    redirects.find((redirect) => redirect.source === "/apl-training-center")?.destination,
+    "/fitness",
+  );
+  assert.doesNotMatch(server, /"\/fitness":\s*"\/gym"/);
+  assert.match(sitemapGenerator, /SEO\.apl\.path/);
+});
+
 test("golf academy registration links open WSC CourtReserve", () => {
   const golf = read("client/src/pages/Golf.tsx");
   const sectionStart = golf.indexOf("{/* Tier 1 Golf Academy */}");
@@ -191,6 +210,8 @@ test("live website forms are discoverable from site clicks", () => {
   const membership = read("client/src/pages/Membership.tsx");
   const gym = read("client/src/pages/Gym.tsx");
   const fitness = read("client/src/pages/Fitness.tsx");
+  const vercel = JSON.parse(read("vercel.json"));
+  const redirects = vercel.redirects ?? [];
 
   for (const href of [
     "/member-request",
@@ -199,6 +220,11 @@ test("live website forms are discoverable from site clicks", () => {
     "/newsletter-signup",
   ]) {
     assert.match(footer, new RegExp(`href="${href}"`));
+    assert.equal(
+      redirects.some((redirect) => redirect.source === href),
+      false,
+      `${href} should not be redirected away from its form route`,
+    );
   }
 
   assert.match(membership, /Cancellation Request/);

@@ -13,19 +13,18 @@ const OLD_ORIGIN = "https://www.woodinvillesportsclub.com";
 const NEW_ORIGIN = "https://www.woodinvillesportsclub.com";
 
 const canonicalRouteOverrides = new Map([
-  ["/fitness", "/gym"],
   ["/terms", "/policies"],
 ]);
 
 const nonPublicRoutes = new Set(["/404"]);
-const routeAliases = new Set(["/fitness", "/terms"]);
+const routeAliases = new Set(["/terms"]);
 
 const manualClosestTargets = new Map([
   ["/about-1", "/about"],
   ["/about-3", "/about"],
   ["/about-wsc", "/about"],
   ["/adult-wsc-tennis", "/tennis"],
-  ["/apl-training-center", "/gym"],
+  ["/apl-training-center", "/fitness"],
   ["/areasweserve", "/about"],
   ["/blog", "/"],
   ["/blog/categories/golf", "/golf"],
@@ -45,19 +44,14 @@ const manualClosestTargets = new Map([
   ["/courses/tennis", "/tennis"],
   ["/events-1", "/events"],
   ["/faqs", "/faq"],
-  ["/fitness", "/gym"],
   ["/free-fitness-assessment", "/gym"],
   ["/fta-parent-meeting-4-21", "/contact"],
-  ["/golf-coaching", "/golf"],
   ["/inquiry-services-page", "/contact"],
   ["/main-gym", "/gym"],
   ["/matpilates", "/gym"],
-  ["/member-request", "/contact"],
   ["/membership-agreement", "/policies"],
   ["/membership-policies", "/policies"],
-  ["/newsletter-signup", "/contact"],
   ["/performance-training-team", "/gym"],
-  ["/personal-training-interest-form", "/gym"],
   ["/pickleball-camp", "/summer"],
   ["/racket-stringing", "/pro-shop"],
   ["/registration-instructions", "/summer"],

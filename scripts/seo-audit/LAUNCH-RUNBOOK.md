@@ -9,11 +9,8 @@ Use this runbook when replacing the live Wix site with the custom Vercel-hosted 
    - `www.woodinvillesportsclub.com`
    - `woodinvillesportsclub.com`
 3. Confirm the canonical host is `https://www.woodinvillesportsclub.com`.
-4. Replace placeholder IDs before production launch:
-   - `NEXT_PUBLIC_GA_ID=G-S6448TRP0T` in Vercel
-   - `TODO_REPLACE_ME_GOOGLE_SEARCH_CONSOLE_VERIFICATION`
-   - `TODO_REPLACE_ME_BING_WEBMASTER_VERIFICATION`
-5. Verify Google Search Console ownership for the domain property and URL-prefix properties if available.
+4. Confirm `NEXT_PUBLIC_GA_ID=G-S6448TRP0T` is set in Vercel if GA4 tracking should be active.
+5. Verify Google Search Console and Bing Webmaster ownership with real provider tokens or DNS verification. Do not ship placeholder verification meta tags.
 6. Run the deployed redirect test against the Vercel preview URL:
 
    ```sh

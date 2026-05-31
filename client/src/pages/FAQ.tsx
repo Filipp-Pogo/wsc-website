@@ -387,7 +387,7 @@ export default function FAQ() {
                 )}
               </p>
               <div>
-                {filteredFAQs.map((faq, i) => {
+                {filteredFAQs.map((faq) => {
                   const globalIndex = FAQS.indexOf(faq);
                   return (
                     <AccordionItem

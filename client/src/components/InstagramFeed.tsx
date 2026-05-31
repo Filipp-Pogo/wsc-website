@@ -4,7 +4,7 @@
  * Falls back to a visual grid linking to the Instagram profile
  */
 import { useState } from "react";
-import { Instagram, ExternalLink, Heart, MessageCircle } from "lucide-react";
+import { Instagram, Heart, MessageCircle } from "lucide-react";
 
 interface InstaPost {
   id: string;

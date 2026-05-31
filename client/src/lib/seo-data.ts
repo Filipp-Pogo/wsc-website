@@ -22,7 +22,7 @@ export const SEO = {
     path: "/golf",
   },
   gym: {
-    title: "Fitness Center",
+    title: "Gym & Fitness Center Access",
     description:
       "Train in WSC's fitness center with cardio equipment, free weights, power racks, functional training space, sauna, locker rooms, and all-access plans.",
     path: "/gym",
@@ -30,7 +30,7 @@ export const SEO = {
   apl: {
     title: "Athletic Performance Lab",
     description:
-      "Explore WSC Athletic Performance Lab offerings for youth and adult athletes, including strength and conditioning, speed training, personal training, team training, and coaches.",
+      "Explore WSC Athletic Performance Lab training for youth and adult athletes, including strength, speed, personal training, team sessions, and expert coaches.",
     path: "/fitness",
   },
   pickleball: {
@@ -78,25 +78,25 @@ export const SEO = {
   memberCancellation: {
     title: "Membership Cancellation Request",
     description:
-      "Submit a Woodinville Sports Club membership cancellation request so the WSC team can review your account and follow up.",
+      "Submit a Woodinville Sports Club membership cancellation request with account details so the WSC team can review, confirm, and follow up with next steps.",
     path: "/member-request",
   },
   personalTrainingRequest: {
     title: "Personal Training Request",
     description:
-      "Request personal training at WSC and share your goals, schedule, injury notes, and training preferences with the fitness team.",
+      "Request personal training at WSC and share your goals, availability, injury notes, preferred schedule, and training needs with the fitness team.",
     path: "/personal-training-interest-form",
   },
   golfLessons: {
-    title: "Golf Lessons Inquiry",
+    title: "Golf Lessons Inquiry Form",
     description:
-      "Request a golf lesson or golf assessment at WSC and share your skill level, golf experience, and training goals.",
+      "Request a golf lesson or golf assessment at WSC and share your skill level, current experience, coaching goals, and preferred follow-up details.",
     path: "/golf-coaching",
   },
   newsletterSignup: {
-    title: "Newsletter Signup",
+    title: "WSC Newsletter Signup Form",
     description:
-      "Sign up for Woodinville Sports Club email updates for tennis, golf, APL fitness, pickleball, summer camps, events, and club news.",
+      "Sign up for Woodinville Sports Club email updates covering tennis, golf, APL fitness, pickleball, summer camps, events, member news, and club announcements.",
     path: "/newsletter-signup",
   },
   blog: {
@@ -108,7 +108,7 @@ export const SEO = {
   about: {
     title: "About WSC 67-Acre Campus",
     description:
-      "Learn about WSC's 67-acre Woodinville campus and the multi-sport training ground being built for tennis, golf, athletic performance, camps, and community programs.",
+      "Learn about WSC's 67-acre Woodinville campus and the multi-sport training ground for tennis, golf, athletic performance, camps, and community programs.",
     path: "/about",
   },
   contact: {

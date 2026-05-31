@@ -24,6 +24,8 @@ const tiers = [
       "Includes Court & Range Access Pass privileges",
       "Access to Strength & Fitness Facilities, Sauna and Locker Rooms",
       "5% golf sims discount + 10-day booking window",
+      "$4 off golf range buckets",
+      "Mini-golf & beverage discounts + golf happy hour access",
       "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
@@ -39,6 +41,8 @@ const tiers = [
       "Includes Court & Range Access Pass privileges",
       "Access to Strength & Fitness, Sauna and Locker Rooms",
       "5% golf sims discount + 10-day booking window",
+      "$4 off golf range buckets",
+      "Mini-golf & beverage discounts + golf happy hour access",
       "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
@@ -54,6 +58,8 @@ const tiers = [
       "Includes Court & Range Access Pass privileges",
       "Access to Strength & Fitness Facilities, Sauna and Locker Rooms",
       "5% golf sims discount + 10-day booking window",
+      "$4 off golf range buckets",
+      "Mini-golf & beverage discounts + golf happy hour access",
       "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
@@ -101,7 +107,7 @@ const FAQ_ITEMS = [
       },
       {
         q: "Is there a discount for families?",
-        a: "Yes. The Family All-Access Pass covers all household members (two adults plus kids 17 and under) for $100/month + tax. It includes full access to all facilities, classes, court booking, and golf simulator discounts.",
+        a: "Yes. The Family All-Access Pass covers all household members (two adults plus kids 17 and under) for $100/month + tax. It includes full access to all facilities, classes, court booking, golf simulator discounts, $4 off range buckets, mini-golf discounts, beverage discounts, and golf happy hour access.",
       },
       {
         q: "What does the Court & Range Access Pass include?",
@@ -118,7 +124,7 @@ const FAQ_ITEMS = [
     items: [
       {
         q: "How do I book courts and simulators?",
-        a: "All bookings are made through CourtReserve, our online reservation platform. You can book tennis courts, pickleball courts, and golf simulators. Court & Range Access Pass holders and All-Access members can book up to 7 days in advance for simulators.",
+        a: "All bookings are made through CourtReserve, our online reservation platform. You can book tennis courts, pickleball courts, and golf simulators. Court & Range Access Pass holders can book simulators up to 7 days in advance; All-Access members get a 10-day simulator booking window.",
       },
       {
         q: "Do I need a membership to use the driving range?",
@@ -130,7 +136,7 @@ const FAQ_ITEMS = [
       },
       {
         q: "What are the facility hours?",
-        a: "Tennis & Gym: Weekdays 6:00 AM \u2013 11:00 PM, Weekends 7:00 AM \u2013 10:00 PM. Golf Range: Everyday 9:00 AM \u2013 10:00 PM. Pickleball open play runs 7 days a week \u2014 check the schedule for specific session times. Holiday hours may vary.",
+        a: "Tennis and Gym hours are weekdays from 6:00 AM to 11:00 PM and weekends from 7:00 AM to 10:00 PM. Golf hours are everyday from 9:00 AM to 10:00 PM. Pickleball open play runs 7 days a week \u2014 check the schedule for specific session times. Holiday hours may vary.",
       },
     ],
   },
