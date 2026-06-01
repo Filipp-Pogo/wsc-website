@@ -47,7 +47,7 @@ test("Athletic Performance Lab is directly public in production", () => {
   assert.match(sitemapGenerator, /SEO\.apl\.path/);
 });
 
-test("golf academy registration links open WSC CourtReserve", () => {
+test("golf academy section links WSC CourtReserve and Tier 1 Golf", () => {
   const golf = read("client/src/pages/Golf.tsx");
   const sectionStart = golf.indexOf("{/* Tier 1 Golf Academy */}");
   const sectionEnd = golf.indexOf("{/* Range Pricing */}");
@@ -56,9 +56,21 @@ test("golf academy registration links open WSC CourtReserve", () => {
   assert.notEqual(sectionStart, -1);
   assert.notEqual(sectionEnd, -1);
   assert.match(golf, /const COURT_RESERVE_URL = "https:\/\/app\.courtreserve\.com\/Online\/Portal\/Index\/6689"/);
+  assert.match(golf, /const TIER1_GOLF_URL = "https:\/\/www\.tier1nw\.com\/golf"/);
+  assert.match(golf, /const TIER1_GOLF_APPLY_URL = "https:\/\/www\.tier1nw\.com\/golf\/apply"/);
   assert.match(academySection, /href=\{COURT_RESERVE_URL\}/);
+  assert.match(academySection, /href=\{TIER1_GOLF_URL\}/);
+  assert.match(academySection, /href=\{TIER1_GOLF_APPLY_URL\}/);
   assert.match(academySection, /Register in CourtReserve/);
-  assert.doesNotMatch(academySection, /href=\{TIER1_GOLF_URL\}|href="\/membership"/);
+  assert.match(academySection, /Data-driven junior golf development at WSC/);
+  assert.match(academySection, /September 2026/);
+  assert.match(golf, /Full-Time Golf Academy/);
+  assert.match(golf, /Par to Eagle Pathway/);
+  assert.doesNotMatch(golf, /Par to Albatros Pathway/);
+  assert.match(golf, /APL integration|APL Integrated/i);
+  assert.match(golf, /Competition pathway/i);
+  assert.match(golf, /Tier1golf@woodinvillesportsclub\.com/);
+  assert.doesNotMatch(academySection, /href="\/membership"/);
 });
 
 test("golf simulator section does not promote trial membership", () => {

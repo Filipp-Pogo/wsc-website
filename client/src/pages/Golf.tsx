@@ -14,6 +14,7 @@ import { useScrollReveal, useStaggerReveal } from "@/hooks/useScrollReveal";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 import { GolfLessonInquiryForm } from "@/components/InquiryForms";
+import { ArrowUpRight } from "lucide-react";
 
 const GOLF_HERO_IMG = "/images/wsc/golf-range-sunset.webp";
 const GOLF_RANGE_FIELD_IMG = "/images/wsc/golf-range-field.webp";
@@ -24,6 +25,9 @@ const SIM_LESSON_IMG = "/images/wsc/swing-lab-private-lesson.webp";
 const GOLF_INSTRUCTORS_IMG = "/images/wsc/golf-instructors-swing-lab.webp";
 const JUNIOR_ACADEMY_IMG = "/images/wsc/junior-golf-academy-group.webp";
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
+const TIER1_GOLF_URL = "https://www.tier1nw.com/golf";
+const TIER1_GOLF_APPLY_URL = "https://www.tier1nw.com/golf/apply";
+const TIER1_GOLF_EMAIL = "Tier1golf@woodinvillesportsclub.com";
 
 const GOLF_TRAINING_GROUNDS = [
   {
@@ -42,6 +46,31 @@ const GOLF_TRAINING_GROUNDS = [
     name: "Turf Putting Green",
     desc: "A durable all-weather turf green for repeatable reps and focused practice sessions.",
   },
+];
+
+const TIER1_GOLF_TRACKS = [
+  {
+    eyebrow: "Academy Programs",
+    title: "Foundations to High School",
+    desc: "Age-aware junior development from first swing through high school training, with clear benchmarks for movement, setup, short game, and scoring habits.",
+  },
+  {
+    eyebrow: "High Performance Academy",
+    title: "Par to Eagle Pathway",
+    desc: "Competitive-player training with individualized plans, performance analytics, decision-making, event preparation, and recruiting awareness as athletes mature.",
+  },
+  {
+    eyebrow: "Full-Time Golf Academy",
+    title: "Expected September 2026",
+    desc: "A founding full-time track with daily structure, APL integration, competition planning, recruiting support, and academic accountability built into the model.",
+  },
+];
+
+const TIER1_GOLF_PILLARS = [
+  "Simulator-driven feedback",
+  "APL golf performance",
+  "Competition pathway",
+  "Recruiting support",
 ];
 
 export default function Golf() {
@@ -212,67 +241,106 @@ export default function Golf() {
       </section>
 
       {/* Tier 1 Golf Academy */}
-      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
+      <section className="bg-dark-bg px-6 lg:px-14 py-24 lg:py-28 overflow-hidden">
         <div
           ref={academyRef}
           className={`max-w-[1440px] mx-auto transition-all duration-700 ease-out ${academyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-10 lg:gap-16 items-start mb-14">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start mb-14">
             <div>
-              <p className="text-volt text-[13px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
-              <h2 className="text-[clamp(26px,2.8vw,38px)] font-light tracking-[-0.02em] leading-[1.15] mb-6">
-                Registration is open.
+              <p className="text-volt-bright text-[13px] tracking-[0.22em] uppercase mb-5">Tier 1 Golf Academy</p>
+              <h2 className="text-parchment text-[clamp(30px,3.8vw,58px)] font-light tracking-[-0.03em] leading-[1.02] mb-6">
+                Data-driven junior golf development at WSC.
               </h2>
-              <p className="text-ink-mid text-[16px] leading-[1.82] max-w-[680px]">
-                Classes for youth and adults of all levels, from first swing to elite golfers. Led by WGTF Master Certified Coach, Daniel Jarvie. Outdoor instruction on the range; indoor instruction in WSC's new Swing Lab indoor golf simulators.
+              <p className="text-parchment/78 text-[16px] leading-[1.82] max-w-[650px] mb-8">
+                Tier 1 Golf brings structured player development to WSC's range, short-game grounds, Swing Lab simulators, and Athletic Performance Lab. The pathway moves juniors from foundations into high-performance training, competition planning, and the full-time academy track forming for September 2026.
               </p>
-            </div>
-            <ResponsiveImage
-              src={JUNIOR_ACADEMY_IMG}
-              alt="Junior golf academy students with coach Daniel Jarvie at Woodinville Sports Club"
-              loading="lazy"
-              className="w-full aspect-[16/10] object-cover saturate-[0.72] brightness-[0.92]"
-              style={{ objectPosition: "center 42%" }}
-            />
-          </div>
-
-          <div className="space-y-0">
-            {[
-              {
-                tag: "Youth",
-                name: "Junior Academy",
-                desc: "After-school academy for ages 7–18, including Foundations for ages 7–9. Includes indoor training in Swing Lab simulators.",
-              },
-              {
-                tag: "Adults",
-                name: "Adult Clinics",
-                desc: "Golf clinics for men and women. Private lessons for adults. Range and simulator-based instruction.",
-              },
-              {
-                tag: "Director",
-                name: "Led by Daniel Jarvie",
-                desc: "WGTF Master Certified Coach and Director of Golf. Expert instruction combining range work with simulator technology. Full-time youth academy launching later in 2026.",
-              },
-            ].map((p, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-4 lg:gap-12 items-baseline py-8 border-b border-wsc-border"
-              >
-                <p className="text-volt text-[12px] tracking-[0.2em] uppercase">{p.tag}</p>
-                <div>
-                  <h3 className="text-[20px] font-light tracking-[-0.01em] mb-2">{p.name}</h3>
-                  <p className="text-ink-mid text-[14px] leading-[1.72]">{p.desc}</p>
-                </div>
+              <div className="flex flex-wrap gap-3 mb-9">
+                {TIER1_GOLF_PILLARS.map((item) => (
+                  <span key={item} className="text-parchment/75 text-[11px] tracking-[0.14em] uppercase border border-parchment/15 px-4 py-2">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
-                  href={COURT_RESERVE_URL}
+                  href={TIER1_GOLF_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-ink text-[12px] tracking-[0.12em] uppercase no-underline border-b border-volt pb-[3px]"
+                  className="inline-flex items-center justify-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
                 >
-                  Register in CourtReserve
+                  Explore Tier 1 Golf
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" strokeWidth={1.8} />
+                </a>
+                <a
+                  href={TIER1_GOLF_APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
+                >
+                  Apply With Tier 1
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" strokeWidth={1.8} />
                 </a>
               </div>
+              <p className="mt-6 text-parchment/68 text-[13px] leading-[1.7]">
+                Questions about golf placement? Email{" "}
+                <a href={`mailto:${TIER1_GOLF_EMAIL}`} className="text-volt-bright no-underline border-b border-volt-bright/40 pb-[2px]">
+                  {TIER1_GOLF_EMAIL}
+                </a>
+                .
+              </p>
+            </div>
+            <div className="relative">
+              <ResponsiveImage
+                src={JUNIOR_ACADEMY_IMG}
+                alt="Junior golf academy students with coach Daniel Jarvie at Woodinville Sports Club"
+                loading="lazy"
+                className="w-full aspect-[16/11] object-cover saturate-[0.72] brightness-[0.82]"
+                style={{ objectPosition: "center 42%" }}
+              />
+              <div className="grid grid-cols-3 gap-[1px] bg-parchment/10 border border-parchment/10">
+                {[
+                  { val: "4", label: "Swing Lab Sims" },
+                  { val: "APL", label: "Integrated" },
+                  { val: "2026", label: "Full-Time Launch" },
+                ].map((m) => (
+                  <div key={m.label} className="bg-dark-mid px-4 py-5">
+                    <p className="text-volt-bright text-[28px] font-light tracking-[-0.03em] leading-none mb-2">{m.val}</p>
+                    <p className="text-parchment/64 text-[10px] tracking-[0.14em] uppercase leading-[1.45]">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            {TIER1_GOLF_TRACKS.map((track) => (
+              <article key={track.title} className="border border-parchment/10 bg-white/[0.045] p-6 lg:p-7 min-h-[260px]">
+                <p className="text-volt-bright text-[11px] tracking-[0.18em] uppercase mb-5">{track.eyebrow}</p>
+                <h3 className="text-parchment text-[clamp(22px,2vw,30px)] font-light tracking-[-0.02em] leading-[1.05] mb-5">
+                  {track.title}
+                </h3>
+                <p className="text-parchment/72 text-[14px] leading-[1.72]">{track.desc}</p>
+              </article>
             ))}
+          </div>
+
+          <div className="mt-5 border border-volt-bright/20 bg-volt-bright/[0.08] p-6 lg:p-7 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-volt-bright text-[11px] tracking-[0.2em] uppercase mb-2">Current classes and lessons</p>
+              <p className="text-parchment/76 text-[13px] leading-[1.7] max-w-[760px]">
+                WSC still handles current golf class registration and private lesson booking through CourtReserve while Tier 1 carries the deeper golf pathway, evaluation, and academy details.
+              </p>
+            </div>
+            <a
+              href={COURT_RESERVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center justify-center gap-2 text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-7 py-3.5 hover:bg-parchment transition-colors duration-200"
+            >
+              Register in CourtReserve
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" strokeWidth={1.8} />
+            </a>
           </div>
         </div>
       </section>
