@@ -13,7 +13,7 @@ import { SEO } from "@/lib/seo-data";
 const GYM_HERO = "/images/wsc/fitness-center-hero.webp";
 const GYM_MAIN = "/images/wsc/gym-main.webp";
 const GYM_WEIGHTS = GYM_MAIN;
-const GYM_FUNCTIONAL = "/images/wsc/gym-floor.webp";
+const GYM_FUNCTIONAL = GYM_MAIN;
 const COURT_RESERVE_URL = "https://app.courtreserve.com/Online/Portal/Index/6689";
 
 export default function Gym() {
