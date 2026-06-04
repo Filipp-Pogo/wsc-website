@@ -156,6 +156,8 @@ test("website forms are routed to WSC email notifications", () => {
   assert.match(formServer, /CONSTANT_CONTACT_CLIENT_ID/);
   assert.match(formServer, /contacts\/sign_up_form/);
   assert.match(formServer, /CONSTANT_CONTACT_LIST_IDS/);
+  assert.match(formServer, /buildNotificationSubject/);
+  assert.match(formServer, /Title: \$\{submission\.subject\}/);
   assert.equal(packageJson.scripts["postmark:check"], "node scripts/check-postmark-setup.mjs");
   assert.equal(packageJson.scripts["postmark:smoke-forms"], "tsx scripts/smoke-test-form-delivery.mjs");
   assert.match(postmarkCheck, /POSTMARK_SERVER_TOKEN/);
@@ -240,10 +242,13 @@ test("form submission API accepts all live website form types", () => {
     assert.match(formServer, new RegExp(`"${formType}"`));
   }
 
-  assert.match(formServer, /Membership cancellation request from/);
-  assert.match(formServer, /Personal training request from/);
-  assert.match(formServer, /Private event inquiry from/);
-  assert.match(formServer, /Career application from/);
+  assert.match(formServer, /WSC Contact Form - Message from/);
+  assert.match(formServer, /WSC Newsletter Signup -/);
+  assert.match(formServer, /WSC Membership Cancellation Request -/);
+  assert.match(formServer, /WSC Personal Training Request -/);
+  assert.match(formServer, /WSC Golf Lesson Inquiry -/);
+  assert.match(formServer, /WSC Private Event Inquiry -/);
+  assert.match(formServer, /WSC Career Application -/);
 });
 
 test("live website forms are discoverable from site clicks", () => {

@@ -123,13 +123,11 @@ function buildPayloads() {
       ...base,
       formType: "contact",
       source: "/contact",
-      subject: "Postmark smoke test: contact",
     },
     {
       ...base,
       formType: "newsletter_signup",
       source: "/",
-      subject: "Postmark smoke test: newsletter signup",
       metadata: {
         interests: "Tennis updates, Golf updates, Summer camp updates",
       },
@@ -138,7 +136,6 @@ function buildPayloads() {
       ...base,
       formType: "golf_lesson",
       source: "/golf",
-      subject: "Postmark smoke test: golf lesson",
       metadata: {
         skillLevel: "Intermediate",
         preferredProgram: "Private lesson",
@@ -149,7 +146,6 @@ function buildPayloads() {
       ...base,
       formType: "member_cancellation",
       source: "/member-request",
-      subject: "Postmark smoke test: member cancellation",
       metadata: {
         reason: "Smoke test",
         improvements: "Smoke test only",
@@ -160,7 +156,6 @@ function buildPayloads() {
       ...base,
       formType: "personal_training",
       source: "/personal-training-interest-form",
-      subject: "Postmark smoke test: personal training",
       metadata: {
         traineeType: "Adult",
         trainingGoals: "Strength and mobility",
@@ -171,7 +166,6 @@ function buildPayloads() {
       ...base,
       formType: "private_event",
       source: "/events",
-      subject: "Postmark smoke test: private event",
       metadata: {
         eventType: "Corporate event",
         guestCount: 12,
@@ -182,7 +176,6 @@ function buildPayloads() {
       ...base,
       formType: "career_application",
       source: "/careers",
-      subject: "Postmark smoke test: career application",
       metadata: {
         department: "Fitness Center",
         legalAuthorization: true,

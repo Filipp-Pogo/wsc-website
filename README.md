@@ -97,7 +97,7 @@ FORM_SUBMISSIONS_DIR=./data/form-submissions
 FORM_WEBHOOK_URL=
 ```
 
-`FORM_ALERT_FROM` must use a sender signature or sender domain verified in Postmark. The visitor's email is sent as `ReplyTo`, never as the sender. `POSTMARK_MESSAGE_STREAM` defaults to `outbound`. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
+`FORM_ALERT_FROM` must use a sender signature or sender domain verified in Postmark. The visitor's email is sent as `ReplyTo`, never as the sender. `POSTMARK_MESSAGE_STREAM` defaults to `outbound`. Each form notification gets a server-generated subject line such as `WSC Golf Lesson Inquiry - Intermediate - Jane Smith` or `WSC Membership Cancellation Request - Jane Smith`, and the same title appears at the top of the email body. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
 
 Newsletter signups can also be added directly to Constant Contact. Create a Constant Contact V3 API app, complete the OAuth flow once, then configure:
 
@@ -122,8 +122,12 @@ Run `pnpm postmark:check` before launch to confirm the required Postmark environ
 The active forms are:
 
 - Contact form on `/contact`
-- Golf lesson request form on `/golf`
-- Newsletter signup form on `/`
+- Newsletter signup form on `/` and `/newsletter-signup`
+- Membership cancellation request form on `/member-request`, `/member-cancellation`, and `/member-cancelation`
+- Personal training interest form on `/personal-training-interest-form` and `/personal-training-request`
+- Golf lesson request form on `/golf`, `/golf-coaching`, and `/golf-lessons`
+- Private events inquiry form on `/events` and `/events-1`
+- Careers application form on `/careers`
 
 Client-side form submission is centralized in `client/src/lib/forms.ts`. Server-side validation, honeypot handling, JSONL recording, optional webhook forwarding, optional Constant Contact newsletter sync, and Postmark delivery live in `server/form-submissions.ts`. `/api/forms` remains as a compatibility alias for older clients.
 

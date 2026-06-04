@@ -229,7 +229,6 @@ function normalizePayload(rawPayload: unknown): Omit<FormSubmission, "id" | "sub
   const email = cleanString(payload.email, 320).toLowerCase();
   const name = cleanString(payload.name, 180) || cleanString(payload.fullName, 180);
   const phone = cleanString(payload.phone, 80);
-  const subject = cleanString(payload.subject, 180);
   const message = cleanString(payload.message, 5_000) || cleanString(payload.comments, 5_000);
   const metadata = cleanMetadata(payload.metadata);
   const attachments = cleanAttachments(payload.attachments);
@@ -276,7 +275,7 @@ function normalizePayload(rawPayload: unknown): Omit<FormSubmission, "id" | "sub
     name,
     email,
     phone,
-    subject: subject || fallbackSubject(formType, name),
+    subject: buildNotificationSubject(formType, name, email, metadata),
     message,
     metadata,
     attachments,
@@ -522,6 +521,7 @@ function getRequestContext(headers: IncomingHttpHeaders): RequestContext {
 function buildEmailBody(submission: FormSubmission) {
   const metadataLines = Object.entries(submission.metadata).map(([key, value]) => `${labelize(key)}: ${value ?? ""}`);
   const lines = [
+    `Title: ${submission.subject}`,
     `Form: ${labelize(submission.formType)}`,
     `Source: ${submission.source}`,
     `Submitted: ${submission.submittedAt}`,
@@ -588,14 +588,41 @@ function cleanString(value: unknown, maxLength: number) {
   return value.replace(/\r\n?/g, "\n").trim().slice(0, maxLength);
 }
 
-function fallbackSubject(formType: WebsiteFormType, name: string) {
-  if (formType === "contact") return `Website inquiry from ${name || "WSC website"}`;
-  if (formType === "golf_lesson") return `Golf lesson inquiry from ${name || "WSC website"}`;
-  if (formType === "member_cancellation") return `Membership cancellation request from ${name || "WSC website"}`;
-  if (formType === "personal_training") return `Personal training request from ${name || "WSC website"}`;
-  if (formType === "private_event") return `Private event inquiry from ${name || "WSC website"}`;
-  if (formType === "career_application") return `Career application from ${name || "WSC website"}`;
-  return "WSC newsletter signup";
+function buildNotificationSubject(
+  formType: WebsiteFormType,
+  name: string,
+  email: string,
+  metadata: Record<string, string | number | boolean | null>,
+) {
+  const person = subjectPart(name || email || "WSC website");
+
+  if (formType === "contact") return `WSC Contact Form - Message from ${person}`;
+  if (formType === "newsletter_signup") return `WSC Newsletter Signup - ${person}`;
+  if (formType === "member_cancellation") return `WSC Membership Cancellation Request - ${person}`;
+  if (formType === "personal_training") return `WSC Personal Training Request - ${person}`;
+  if (formType === "private_event") return `WSC Private Event Inquiry - ${person}`;
+
+  if (formType === "golf_lesson") {
+    const skillLevel = subjectPart(metadata.skillLevel, 40);
+    return skillLevel
+      ? `WSC Golf Lesson Inquiry - ${skillLevel} - ${person}`
+      : `WSC Golf Lesson Inquiry - ${person}`;
+  }
+
+  if (formType === "career_application") {
+    const department = subjectPart(metadata.department, 60);
+    return department
+      ? `WSC Career Application - ${department} - ${person}`
+      : `WSC Career Application - ${person}`;
+  }
+
+  return `WSC Website Form - ${person}`;
+}
+
+function subjectPart(value: unknown, maxLength = 80) {
+  return cleanEmailHeader(cleanString(value, maxLength))
+    .replace(/\s+/g, " ")
+    .slice(0, maxLength);
 }
 
 function parseRecipients(value: string) {
