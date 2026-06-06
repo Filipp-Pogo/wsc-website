@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Redirect, Route, Switch, useLocation } from "wouter";
+import { Analytics } from "@vercel/analytics/react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/Navbar";
@@ -114,6 +115,7 @@ function App() {
         </main>
         <Footer />
         <DeferredAppServices />
+        <Analytics />
       </ThemeProvider>
     </ErrorBoundary>
   );
