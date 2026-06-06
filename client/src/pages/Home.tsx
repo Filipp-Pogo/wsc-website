@@ -155,6 +155,30 @@ const thisWeekItems = [
   },
 ];
 
+const mobileQuickActions = [
+  {
+    eyebrow: "Book",
+    label: "CourtReserve",
+    href: COURT_RESERVE_SIGN_UP_URL,
+    external: true,
+  },
+  {
+    eyebrow: "Now Open",
+    label: "Summer Camps",
+    href: "/summer",
+  },
+  {
+    eyebrow: "Explore",
+    label: "Tennis & Golf",
+    href: "#home-programs",
+  },
+  {
+    eyebrow: "Join",
+    label: "Memberships",
+    href: "/membership",
+  },
+];
+
 const disciplines = [
   {
     num: "01",
@@ -343,8 +367,120 @@ export default function Home() {
       <SEOHead {...SEO.home} />
       <StructuredData schemas={[getLocalBusinessSchema(), getWebSiteSchema(), getFAQSchema()]} />
 
+      {/* ── MOBILE HERO ── */}
+      <section className="bg-dark-bg pt-[var(--site-header-height,130px)] lg:hidden">
+        <div className="relative flex h-[392px] flex-col justify-end overflow-hidden px-6 pb-8">
+          <ResponsiveImage
+            src={GALLERY_GOLF}
+            alt="Woodinville Sports Club campus at sunset"
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            pictureClassName="absolute inset-0 block h-full w-full"
+            className="h-full w-full scale-[1.02] object-cover brightness-[0.62] saturate-[0.85]"
+            style={{ objectPosition: "center" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(22,19,16,0.9)] via-[rgba(22,19,16,0.48)] to-[rgba(22,19,16,0.16)]" />
+          <div className="relative z-10">
+            <h1 className="mb-4 text-[36px] font-light leading-[1.08] tracking-[-0.02em] text-parchment">
+              Play more. Train better.
+            </h1>
+            <p className="max-w-[320px] text-[15px] leading-[1.62] text-parchment/75">
+              Courts, camps, programs, and memberships across one Woodinville campus.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 border-y border-parchment/[0.1]">
+          {mobileQuickActions.map((action, index) => {
+            const className = `min-h-[118px] border-parchment/[0.1] bg-[#100d0b] px-5 py-5 no-underline transition-colors duration-200 hover:bg-dark-mid ${
+              index % 2 === 0 ? "border-r" : ""
+            } ${index < 2 ? "border-b" : ""}`;
+            const content = (
+              <>
+                <span className="mb-2.5 block text-[9px] uppercase tracking-[0.18em] text-volt-bright">
+                  {action.eyebrow}
+                </span>
+                <span className="block text-[16px] leading-[1.25] text-parchment">
+                  {action.label}
+                </span>
+              </>
+            );
+
+            if (action.external) {
+              return (
+                <a
+                  key={action.label}
+                  href={action.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {content}
+                </a>
+              );
+            }
+
+            if (action.href.startsWith("#")) {
+              return (
+                <a key={action.label} href={action.href} className={className}>
+                  {content}
+                </a>
+              );
+            }
+
+            return (
+              <Link key={action.label} href={action.href} className={className}>
+                {content}
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="bg-dark-bg px-4 py-5">
+          <div className="bg-parchment p-5 text-ink">
+            <p className="mb-2 text-[10px] uppercase tracking-[0.18em] text-volt">
+              This Week at WSC
+            </p>
+            <h2 className="mb-2 text-[20px] font-light leading-[1.2] tracking-[-0.01em]">
+              Spring 2 Registration Is Open
+            </h2>
+            <p className="mb-4 text-[13px] leading-[1.58] text-ink-mid">
+              Spring 2 runs through June 28. Register through CourtReserve for tennis, pickleball, golf, and APL programming.
+            </p>
+            <Link
+              href="/sessions"
+              className="inline-flex min-h-10 items-center justify-center bg-volt-bright px-4 text-[10px] uppercase tracking-[0.15em] text-dark-bg no-underline transition-colors duration-200 hover:bg-parchment-mid"
+            >
+              View Session Dates
+            </Link>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-3 border-y border-parchment/[0.1] bg-[#0d0b09]">
+          {[
+            { val: "8+1", label: "Courts" },
+            { val: "23+", label: "Bays" },
+            { val: "4", label: "Sims" },
+          ].map((item, index) => (
+            <div
+              key={item.label}
+              className={`px-2 py-4 text-center ${index < 2 ? "border-r border-parchment/[0.08]" : ""}`}
+            >
+              <span className="mb-1.5 block text-[23px] font-light leading-none tracking-[-0.02em] text-volt-bright">
+                {item.val}
+              </span>
+              <span className="text-[8px] uppercase tracking-[0.14em] text-parchment/70">
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── HERO ── */}
-      <section className="relative min-h-screen bg-dark-bg flex flex-col justify-end overflow-hidden pt-[130px]">
+      <section className="relative hidden min-h-screen flex-col justify-end overflow-hidden bg-dark-bg pt-[130px] lg:flex">
         <div
           className="absolute inset-0 grid grid-cols-2 grid-rows-6 gap-px bg-dark-bg lg:grid-cols-12"
           aria-hidden="true"
@@ -439,7 +575,7 @@ export default function Home() {
       </section>
 
       {/* ── THIS WEEK AT WSC ── */}
-      <section className="bg-dark-bg border-t border-parchment/[0.08] px-6 lg:px-14 py-14 lg:py-16">
+      <section className="hidden bg-dark-bg border-t border-parchment/[0.08] px-6 py-14 lg:block lg:px-14 lg:py-16">
         <div className="max-w-[1440px] mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-2 h-2 rounded-full bg-volt-bright animate-pulse" />
@@ -564,7 +700,7 @@ export default function Home() {
       </section>
 
       {/* ── DISCIPLINES — Interactive Cards ── */}
-      <section className="bg-parchment-mid px-6 lg:px-14 py-24 lg:py-28">
+      <section id="home-programs" className="scroll-mt-[var(--site-header-height,130px)] bg-parchment-mid px-6 py-24 lg:px-14 lg:py-28">
         <div className="max-w-[1440px] mx-auto">
           <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-14 pb-8 border-b border-wsc-border">
             <div>

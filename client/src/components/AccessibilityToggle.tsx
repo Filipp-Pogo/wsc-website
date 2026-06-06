@@ -33,7 +33,7 @@ export default function AccessibilityToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="fixed bottom-[4.5rem] right-6 z-50 w-11 h-11 flex items-center justify-center bg-dark-bg/90 backdrop-blur-sm border border-parchment/15 text-parchment hover:bg-dark-mid hover:border-parchment/30 transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+      className="fixed right-4 top-[calc(var(--site-header-height,130px)+1rem)] z-50 flex h-11 w-11 items-center justify-center border border-parchment/15 bg-dark-bg/90 text-parchment shadow-[0_4px_20px_rgba(0,0,0,0.3)] backdrop-blur-sm transition-all duration-200 hover:border-parchment/30 hover:bg-dark-mid lg:bottom-[4.5rem] lg:right-6 lg:top-auto"
       aria-label={highContrast ? "Disable high contrast mode" : "Enable high contrast mode"}
       title={highContrast ? "Disable high contrast mode" : "Enable high contrast mode"}
     >
