@@ -86,7 +86,12 @@ type RequestWithBody = IncomingMessage & {
   body?: unknown;
 };
 
-const SUPPORT_EMAIL = "Info@woodinvillesportsclub.com";
+const SUPPORT_EMAIL = "info@woodinvillesportsclub.com";
+const GOLF_LESSONS_EMAIL = "tier1golf@woodinvillesportsclub.com";
+const GOLF_LESSONS_EMAIL_ALIASES = new Set([
+  normalizeRecipient(GOLF_LESSONS_EMAIL),
+  normalizeRecipient("tier1golf@woodinvillesportsclun.com"),
+]);
 const VALID_FORM_TYPES = new Set<WebsiteFormType>([
   "contact",
   "golf_lesson",
@@ -429,7 +434,7 @@ async function getConstantContactAccessToken() {
 
 async function sendNotificationEmail(submission: FormSubmission): Promise<EmailDeliveryResult> {
   const serverToken = process.env.POSTMARK_SERVER_TOKEN?.trim();
-  const to = parseRecipients(process.env.FORM_ALERT_TO || process.env.FORM_EMAIL_TO || "");
+  const to = resolveNotificationRecipients(submission.formType);
   const provider = "postmark" as const;
   const from = cleanEmailHeader(process.env.FORM_ALERT_FROM || process.env.FORM_EMAIL_FROM || "");
   const messageStream = cleanPostmarkMessageStream(process.env.POSTMARK_MESSAGE_STREAM || "outbound");
@@ -630,6 +635,40 @@ function parseRecipients(value: string) {
     .split(",")
     .map((recipient) => cleanEmailHeader(recipient))
     .filter(Boolean);
+}
+
+function resolveNotificationRecipients(formType: WebsiteFormType) {
+  const configuredRecipients = parseRecipients(process.env.FORM_ALERT_TO || process.env.FORM_EMAIL_TO || SUPPORT_EMAIL);
+  const baseRecipients = uniqueRecipients(
+    configuredRecipients.filter((recipient) => !GOLF_LESSONS_EMAIL_ALIASES.has(normalizeRecipient(recipient))),
+  );
+  const recipients = baseRecipients.length ? baseRecipients : [SUPPORT_EMAIL];
+
+  if (formType === "golf_lesson") {
+    recipients.push(GOLF_LESSONS_EMAIL);
+  }
+
+  return uniqueRecipients(recipients);
+}
+
+function uniqueRecipients(recipients: string[]) {
+  const seen = new Set<string>();
+  const unique: string[] = [];
+
+  for (const recipient of recipients) {
+    const key = normalizeRecipient(recipient);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    unique.push(recipient);
+  }
+
+  return unique;
+}
+
+function normalizeRecipient(value: string) {
+  const cleaned = cleanEmailHeader(value);
+  const bracketedEmail = cleaned.match(/<([^<>]+)>$/)?.[1];
+  return (bracketedEmail || cleaned).trim().toLowerCase();
 }
 
 function firstHeader(value: string | string[] | undefined) {

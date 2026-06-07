@@ -152,6 +152,8 @@ test("website forms are routed to WSC email notifications", () => {
   assert.match(formServer, /POSTMARK_SERVER_TOKEN/);
   assert.match(formServer, /FORM_ALERT_TO/);
   assert.match(formServer, /FORM_ALERT_FROM/);
+  assert.match(formServer, /GOLF_LESSONS_EMAIL = "tier1golf@woodinvillesportsclub\.com"/);
+  assert.match(formServer, /resolveNotificationRecipients\(submission\.formType\)/);
   assert.match(formServer, /result\.email\.status !== "sent"/);
   assert.match(formServer, /CONSTANT_CONTACT_CLIENT_ID/);
   assert.match(formServer, /contacts\/sign_up_form/);
@@ -177,7 +179,8 @@ test("website forms are routed to WSC email notifications", () => {
   assert.match(postmarkSmoke, /personal_training/);
   assert.match(postmarkSmoke, /private_event/);
   assert.match(postmarkSmoke, /career_application/);
-  assert.match(readme, /FORM_ALERT_TO=Info@woodinvillesportsclub\.com/);
+  assert.match(readme, /FORM_ALERT_TO=info@woodinvillesportsclub\.com/);
+  assert.match(readme, /Golf lesson submissions are additionally routed to `tier1golf@woodinvillesportsclub\.com`/);
   assert.match(readme, /CONSTANT_CONTACT_REFRESH_TOKEN/);
   assert.match(readme, /CONSTANT_CONTACT_INTEREST_LIST_MAP/);
   assert.match(readme, /pnpm postmark:check/);

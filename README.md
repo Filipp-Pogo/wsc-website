@@ -91,13 +91,13 @@ Website forms submit to `/api/contact`, write JSONL records, and send notificati
 POSTMARK_SERVER_TOKEN=your-postmark-server-token
 POSTMARK_MESSAGE_STREAM=outbound
 POSTMARK_TEST_TO=
-FORM_ALERT_TO=Info@woodinvillesportsclub.com,Tier1golf@woodinvillesportsclub.com
+FORM_ALERT_TO=info@woodinvillesportsclub.com
 FORM_ALERT_FROM="WSC Website <Info@woodinvillesportsclub.com>"
 FORM_SUBMISSIONS_DIR=./data/form-submissions
 FORM_WEBHOOK_URL=
 ```
 
-`FORM_ALERT_FROM` must use a sender signature or sender domain verified in Postmark. The visitor's email is sent as `ReplyTo`, never as the sender. `POSTMARK_MESSAGE_STREAM` defaults to `outbound`. Each form notification gets a server-generated subject line such as `WSC Golf Lesson Inquiry - Intermediate - Jane Smith` or `WSC Membership Cancellation Request - Jane Smith`, and the same title appears at the top of the email body. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
+`FORM_ALERT_FROM` must use a sender signature or sender domain verified in Postmark. The visitor's email is sent as `ReplyTo`, never as the sender. `POSTMARK_MESSAGE_STREAM` defaults to `outbound`. Golf lesson submissions are additionally routed to `tier1golf@woodinvillesportsclub.com`; all other website forms go only to `FORM_ALERT_TO`. Each form notification gets a server-generated subject line such as `WSC Golf Lesson Inquiry - Intermediate - Jane Smith` or `WSC Membership Cancellation Request - Jane Smith`, and the same title appears at the top of the email body. `FORM_WEBHOOK_URL` is optional, but recommended for durable off-site records on serverless deployments because local JSONL storage can be temporary.
 
 Newsletter signups can also be added directly to Constant Contact. Create a Constant Contact V3 API app, complete the OAuth flow once, then configure:
 
