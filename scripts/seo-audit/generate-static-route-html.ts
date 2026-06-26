@@ -42,7 +42,6 @@ const pageImages: Record<string, string> = {
   "/contact": "/images/wsc/contact-campus.webp",
   "/pro-shop": "/images/wsc/racket-stringing.webp",
   "/policies": "/images/wsc/campus-dome.webp",
-  "/privacy": "/images/wsc/campus-dome.webp",
   "/faq": "/images/wsc/campus-dome.webp",
   "/accessibility": "/images/wsc/campus-dome.webp",
 };
@@ -137,7 +136,7 @@ function replaceMeta(html: string, route: StaticRoute) {
 }
 
 function baseRoutes(): StaticRoute[] {
-  return Object.values(SEO).map((entry) => ({
+  return Object.values(SEO).filter((entry) => entry.path !== "/privacy").map((entry) => ({
     path: entry.path,
     title: entry.title,
     description: entry.description,

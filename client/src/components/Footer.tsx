@@ -196,14 +196,6 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/privacy"
-                className="text-parchment/75 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/policies"
                 className="text-parchment/75 text-[13px] no-underline hover:text-parchment transition-colors duration-200"
               >

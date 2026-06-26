@@ -7,11 +7,12 @@
 import PageHero from "@/components/PageHero";
 import StructuredData, { getBreadcrumbSchema } from "@/components/StructuredData";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { SEO } from "@/lib/seo-data";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Privacy from "./Privacy";
 
 const HERO_IMG = "/images/wsc/campus-dome.webp";
 
@@ -454,6 +455,16 @@ const TERMS_SECTIONS = [
   { id: "terms-website", label: "Website" },
   { id: "terms-legal", label: "Legal" },
 ];
+
+type PolicyTab = "policies" | "terms" | "privacy";
+
+function tabFromHash(): PolicyTab {
+  if (typeof window === "undefined") return "policies";
+
+  if (window.location.hash === "#terms") return "terms";
+  if (window.location.hash === "#privacy") return "privacy";
+  return "policies";
+}
 
 function QuickNav({ sections }: { sections: { id: string; label: string }[] }) {
   const [open, setOpen] = useState(false);
@@ -1043,7 +1054,23 @@ function TermsContent() {
 /* ── Main Page ────────────────────────────────────────────── */
 
 export default function Policies() {
-  const [activeTab, setActiveTab] = useState<"policies" | "terms">("policies");
+  const [activeTab, setActiveTab] = useState<PolicyTab>(tabFromHash);
+
+  useEffect(() => {
+    const handleHashChange = () => setActiveTab(tabFromHash());
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  function selectTab(tab: PolicyTab) {
+    setActiveTab(tab);
+
+    const hash = tab === "policies" ? "" : `#${tab}`;
+    window.history.replaceState(null, "", `${window.location.pathname}${hash}`);
+  }
 
   return (
     <div className="min-h-screen">
@@ -1055,17 +1082,17 @@ export default function Policies() {
       <PageHero
         eyebrow="Policies & Terms"
         headline="Policies & Terms."
-        subtitle="Everything you need to know about membership, facility rules, legal terms, and fees at Woodinville Sports Club."
+        subtitle="Everything you need to know about membership, facility rules, legal terms, privacy, and fees at Woodinville Sports Club."
         image={HERO_IMG}
       />
 
       {/* Tab Switcher */}
       <div className="bg-dark-bg sticky top-[130px] z-30 border-b border-white/[0.08]">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-14 flex" role="group" aria-label="Policy content">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-14 flex overflow-x-auto" role="group" aria-label="Policy content">
           <button
             type="button"
             aria-pressed={activeTab === "policies"}
-            onClick={() => setActiveTab("policies")}
+            onClick={() => selectTab("policies")}
             className={`text-[12px] tracking-[0.12em] uppercase py-4 px-6 border-b-2 transition-colors duration-200 bg-transparent cursor-pointer ${
               activeTab === "policies"
                 ? "text-parchment border-volt-bright font-medium"
@@ -1077,7 +1104,7 @@ export default function Policies() {
           <button
             type="button"
             aria-pressed={activeTab === "terms"}
-            onClick={() => setActiveTab("terms")}
+            onClick={() => selectTab("terms")}
             className={`text-[12px] tracking-[0.12em] uppercase py-4 px-6 border-b-2 transition-colors duration-200 bg-transparent cursor-pointer ${
               activeTab === "terms"
                 ? "text-parchment border-volt-bright font-medium"
@@ -1086,11 +1113,25 @@ export default function Policies() {
           >
             Terms of Service
           </button>
+          <button
+            type="button"
+            aria-pressed={activeTab === "privacy"}
+            onClick={() => selectTab("privacy")}
+            className={`text-[12px] tracking-[0.12em] uppercase py-4 px-6 border-b-2 transition-colors duration-200 bg-transparent cursor-pointer whitespace-nowrap ${
+              activeTab === "privacy"
+                ? "text-parchment border-volt-bright font-medium"
+                : "text-parchment/70 border-transparent hover:text-parchment/80"
+            }`}
+          >
+            Privacy Policy
+          </button>
         </div>
       </div>
 
       {/* Tab Content */}
-      {activeTab === "policies" ? <ClubPoliciesContent /> : <TermsContent />}
+      {activeTab === "policies" ? <ClubPoliciesContent /> : null}
+      {activeTab === "terms" ? <TermsContent /> : null}
+      {activeTab === "privacy" ? <Privacy embedded /> : null}
 
       {/* CTA */}
       <section className="bg-dark-bg px-6 lg:px-14 py-20 lg:py-24">

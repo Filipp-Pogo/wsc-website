@@ -29,7 +29,6 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Accessibility = lazy(() => import("./pages/Accessibility"));
-const Privacy = lazy(() => import("./pages/Privacy"));
 const Policies = lazy(() => import("./pages/Policies"));
 const PolicyDetail = lazy(() => import("./pages/PolicyDetail"));
 const FAQ = lazy(() => import("./pages/FAQ"));
@@ -92,12 +91,12 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/accessibility" component={Accessibility} />
-        <Route path="/privacy" component={Privacy} />
+        <Route path="/privacy">{() => <Redirect to="/policies#privacy" />}</Route>
         <Route path="/policies" component={Policies} />
         <Route path="/policies/:slug" component={PolicyDetail} />
         <Route path="/faq" component={FAQ} />
         <Route path="/pro-shop" component={ProShop} />
-        <Route path="/terms">{() => <Redirect to="/policies" />}</Route>
+        <Route path="/terms">{() => <Redirect to="/policies#terms" />}</Route>
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

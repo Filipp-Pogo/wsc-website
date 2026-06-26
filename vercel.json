@@ -233,6 +233,11 @@
       "permanent": true
     },
     {
+      "source": "/privacy",
+      "destination": "/policies#privacy",
+      "permanent": true
+    },
+    {
       "source": "/pickleball-camp",
       "destination": "/summer",
       "permanent": true
@@ -284,7 +289,7 @@
     },
     {
       "source": "/terms",
-      "destination": "/policies",
+      "destination": "/policies#terms",
       "permanent": true
     },
     {

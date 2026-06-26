@@ -60,20 +60,29 @@ function HighlightBox({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Privacy() {
+type PrivacyProps = {
+  embedded?: boolean;
+};
+
+export default function Privacy({ embedded = false }: PrivacyProps = {}) {
   return (
-    <div className="min-h-screen">
-      <SEOHead {...SEO.privacy} />
-      <StructuredData schemas={[getBreadcrumbSchema([
-        { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
-        { name: "Privacy Policy", url: "https://www.woodinvillesportsclub.com/privacy" },
-      ])]} />
-      <PageHero
-        eyebrow="Privacy Policy"
-        headline="Your Privacy Matters."
-        subtitle="Woodinville Sports Club is committed to protecting your personal information and being transparent about how we collect, use, and share your data."
-        image={HERO_IMG}
-      />
+    <div className={embedded ? "" : "min-h-screen"}>
+      {!embedded && (
+        <>
+          <SEOHead {...SEO.privacy} />
+          <StructuredData schemas={[getBreadcrumbSchema([
+            { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
+            { name: "Policies & Terms", url: "https://www.woodinvillesportsclub.com/policies" },
+            { name: "Privacy Policy", url: "https://www.woodinvillesportsclub.com/policies#privacy" },
+          ])]} />
+          <PageHero
+            eyebrow="Privacy Policy"
+            headline="Your Privacy Matters."
+            subtitle="Woodinville Sports Club is committed to protecting your personal information and being transparent about how we collect, use, and share your data."
+            image={HERO_IMG}
+          />
+        </>
+      )}
 
       {/* 1. Overview */}
       <section className="bg-parchment px-6 lg:px-14 py-24 lg:py-28">
@@ -445,32 +454,33 @@ export default function Privacy() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
-        <div className="max-w-[1440px] mx-auto text-center">
-          <p className="text-volt-bright text-[13px] tracking-[0.22em] uppercase mb-5">Learn More</p>
-          <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
-            Your trust is important to us.
-          </h2>
-          <p className="text-parchment/80 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
-            We are committed to transparency and protecting your personal information at every step.
-          </p>
-          <div className="flex flex-wrap justify-center gap-5">
-            <Link
-              href="/contact"
-              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/accessibility"
-              className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
-            >
-              Accessibility
-            </Link>
+      {!embedded && (
+        <section className="bg-dark-mid px-6 lg:px-14 py-20 lg:py-24">
+          <div className="max-w-[1440px] mx-auto text-center">
+            <p className="text-volt-bright text-[13px] tracking-[0.22em] uppercase mb-5">Learn More</p>
+            <h2 className="text-parchment text-[clamp(26px,3vw,42px)] font-light tracking-[-0.02em] leading-[1.15] mb-4">
+              Your trust is important to us.
+            </h2>
+            <p className="text-parchment/80 text-[15px] leading-[1.75] max-w-[480px] mx-auto mb-8">
+              We are committed to transparency and protecting your personal information at every step.
+            </p>
+            <div className="flex flex-wrap justify-center gap-5">
+              <Link
+                href="/contact"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline bg-volt-bright text-dark-bg px-8 py-3.5 hover:bg-parchment transition-colors duration-200"
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/accessibility"
+                className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
+              >
+                Accessibility
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

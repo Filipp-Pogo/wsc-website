@@ -9,7 +9,8 @@ import { handleFormSubmissionRequest } from "./form-submissions";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const canonicalRedirects: Record<string, string> = {
-  "/terms": "/policies",
+  "/privacy": "/policies#privacy",
+  "/terms": "/policies#terms",
 };
 
 async function startServer() {
@@ -44,8 +45,9 @@ async function startServer() {
     const destination = canonicalRedirects[req.path];
     const queryIndex = req.originalUrl.indexOf("?");
     const query = queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : "";
+    const [destinationPath, destinationHash = ""] = destination.split("#");
 
-    res.redirect(301, `${destination}${query}`);
+    res.redirect(301, `${destinationPath}${query}${destinationHash ? `#${destinationHash}` : ""}`);
   });
 
   app.all("/api/forms", (req, res) => {

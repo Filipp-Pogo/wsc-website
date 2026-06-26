@@ -1197,7 +1197,7 @@ export default function Home() {
             ) : null}
             <p className="text-parchment/75 text-[11px] leading-[1.6] mt-4">
               Unsubscribe at any time. See our{" "}
-              <Link href="/privacy" className="text-parchment/70 underline hover:text-parchment transition-colors">Privacy Policy</Link>.
+              <Link href="/policies#privacy" className="text-parchment/70 underline hover:text-parchment transition-colors">Privacy Policy</Link>.
             </p>
           </form>
         </div>

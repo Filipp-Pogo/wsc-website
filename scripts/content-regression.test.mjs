@@ -141,6 +141,24 @@ test("policies page uses the full collapsible membership agreement", () => {
   assert.doesNotMatch(policies, /Using WSC facilities, services, or activities involves the risk of injury, ranging from minor to catastrophic injuries including death/);
 });
 
+test("privacy policy is consolidated under policies and terms", () => {
+  const app = read("client/src/App.tsx");
+  const policies = read("client/src/pages/Policies.tsx");
+  const footer = read("client/src/components/Footer.tsx");
+  const cookieConsent = read("client/src/components/CookieConsent.tsx");
+  const sitemapGenerator = read("scripts/seo-audit/generate-public-seo-files.ts");
+  const vercel = JSON.parse(read("vercel.json"));
+  const redirects = vercel.redirects ?? [];
+
+  assert.match(policies, /type PolicyTab = "policies" \| "terms" \| "privacy"/);
+  assert.match(policies, /<Privacy embedded \/>/);
+  assert.match(app, /<Redirect to="\/policies#privacy" \/>/);
+  assert.equal(redirects.find((redirect) => redirect.source === "/privacy")?.destination, "/policies#privacy");
+  assert.doesNotMatch(footer, /href="\/privacy"/);
+  assert.match(cookieConsent, /href="\/policies#privacy"/);
+  assert.doesNotMatch(sitemapGenerator, /SEO\.privacy\.path/);
+});
+
 test("membership auto-renewal is clearly disclosed", () => {
   const membership = read("client/src/pages/Membership.tsx");
   const policies = read("client/src/pages/Policies.tsx");

@@ -378,7 +378,7 @@ export default function Terms() {
             <SubHeading>User Submissions</SubHeading>
             <p>
               Any information, feedback, suggestions, or other materials you submit to WSC through the Site (including contact form submissions and email communications) become the property of WSC. We may use such submissions for any purpose without compensation or attribution to you, subject to our{" "}
-              <Link href="/privacy" className="text-ink underline underline-offset-4 decoration-volt">Privacy Policy</Link>.
+              <Link href="/policies#privacy" className="text-ink underline underline-offset-4 decoration-volt">Privacy Policy</Link>.
             </p>
 
             <SubHeading>Third-Party Links</SubHeading>
@@ -425,7 +425,7 @@ export default function Terms() {
             <SubHeading>Entire Agreement</SubHeading>
             <p>
               These Terms, together with our{" "}
-              <Link href="/privacy" className="text-ink underline underline-offset-4 decoration-volt">Privacy Policy</Link>{" "}
+              <Link href="/policies#privacy" className="text-ink underline underline-offset-4 decoration-volt">Privacy Policy</Link>{" "}
               and any additional agreements entered into at the time of membership enrollment or program registration, constitute the entire agreement between you and WSC regarding the use of our Site and services.
             </p>
 
@@ -528,7 +528,7 @@ export default function Terms() {
               Contact Us
             </Link>
             <Link
-              href="/privacy"
+              href="/policies#privacy"
               className="inline-block text-[12px] tracking-[0.14em] uppercase no-underline text-parchment border border-volt-bright px-8 py-3.5 hover:bg-volt hover:border-volt transition-colors duration-200"
             >
               Privacy Policy
