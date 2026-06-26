@@ -191,14 +191,14 @@ export default function SummerTennis() {
           getBreadcrumbSchema([
             { name: "Home", url: "https://www.woodinvillesportsclub.com/" },
             { name: "Tennis", url: "https://www.woodinvillesportsclub.com/tennis" },
-            { name: "Summer Tennis", url: "https://www.woodinvillesportsclub.com/tennis/summer-tennis" },
+            { name: "Summer Tennis Tournaments", url: "https://www.woodinvillesportsclub.com/tennis/summer-tennis" },
           ]),
         ]}
       />
 
       <PageHero
-        eyebrow="Summer Tennis"
-        headline="Tournament Schedule."
+        eyebrow="Summer Tennis Tournaments"
+        headline="Summer Tennis Tournaments."
         subtitle="A simple view of WSC summer tournament dates and registration links for Red, Orange, Green, USTA, UTR, and open events."
         image={HERO_IMG}
       />
