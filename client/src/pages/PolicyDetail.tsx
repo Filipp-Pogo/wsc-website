@@ -235,7 +235,11 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
         blocks: [
           {
             type: "paragraph",
-            text: "The WSC Membership Agreement was last updated on January 1, 2024. WSC retains the right to modify policies without warning. The most current copy of the Membership Guide can be found at WSC or on the WSC website.",
+            text: "The WSC Membership Agreement was last updated on September 14, 2025. The WSC Tax ID# is 82-3755991.",
+          },
+          {
+            type: "paragraph",
+            text: "WSC retains the right to modify these policies without warning. Reasonable rules and regulations may be posted in the Membership Guide or at WSC from time to time, and all members shall be subject to strict compliance therewith. The most current copy of the Membership Guide can be found at WSC or on the WSC website.",
           },
           {
             type: "paragraph",
@@ -304,7 +308,18 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
         blocks: [
           {
             type: "paragraph",
-            text: "Members may bring guests when the member is present and the applicable guest fee is paid before use of the facility.",
+            text: "WSC members are welcome to bring friends, family members, and co-workers to enjoy the facilities. Payment of the applicable guest fee is required before using the facility, and the member must be present.",
+          },
+          {
+            type: "fees",
+            rows: [
+              { item: "Tennis Guest Fee", fee: "$10 + tax per guest per court reservation" },
+              { item: "Pickleball Guest Fee", fee: "$5 + tax per guest per court reservation" },
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "Members can pay the guest fee at the time of booking through CourtReserve. If the guest does not pay, the member who made the booking will be responsible for the guest fee.",
           },
           {
             type: "notice",
@@ -312,7 +327,21 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
           },
           {
             type: "paragraph",
-            text: "Members may not allow anyone else to use their access card and must alert WSC immediately if it is lost or stolen. All CourtReserve accounts must include current photos of all users associated with the account.",
+            text: "Members may not allow anyone else to use their access card and must alert WSC immediately if it is lost or stolen. Violating this policy carries the same penalties as violating the guest policy.",
+          },
+          {
+            type: "paragraph",
+            text: "All CourtReserve accounts must include current photos of all users associated with the account. Photos can be taken at the front desk starting December 1, 2024. This is for enhanced security and personalized service.",
+          },
+        ],
+      },
+      {
+        eyebrow: "Age Restriction",
+        heading: "Age restriction.",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "WSC has a strict age requirement policy. Members up to twelve (12) years of age are only permitted in WSC under the direct supervision of a parent or legal guardian. Members age fifteen to seventeen (15-17) are permitted in WSC unsupervised with the written consent of a parent or legal guardian. Participation with WSC coaches is allowed for all age ranges. Golf may be used by 12 year olds and above unsupervised.",
           },
         ],
       },
