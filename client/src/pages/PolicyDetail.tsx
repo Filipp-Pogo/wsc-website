@@ -37,19 +37,20 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
     sections: [
       {
         eyebrow: "Online Booking",
-        heading: "Reservation access and booking windows.",
+        heading: "Member court reservations.",
         blocks: [
           {
             type: "paragraph",
-            text: "Online booking reservations open daily at 8:00 AM through CourtReserve, with a 7-day booking window. Members may select a duration of 30, 60, or 90 minutes per session.",
+            text: "Online booking reservations open daily at 8:00 AM through CourtReserve, and reservations can be made within the 7-day booking window. Members may select a duration of 30, 60, or 90 minutes per session.",
           },
           {
             type: "bullets",
             items: [
+              "The system no longer allows bookings that create 30-minute gaps between reservations. This change optimizes court scheduling and adds more bookable court hours.",
               "Members are limited to 3 active reservations within any rolling 7-day period. Active reservations include any current bookings within the next seven days.",
               "Members can only book one court at a time. Side-by-side bookings are not permitted.",
-              "The booking system will not allow reservations that create 30-minute gaps between court times.",
-              "Court time is charged in 30-minute increments. Current listed court time is $21.14 + tax per 30 minutes.",
+              "Court time is charged in 30-minute increments. Each 30-minute increment is charged at $21.14 + tax.",
+              "There are no separate rates for singles and doubles. This simplifies the booking process and provides more flexibility.",
             ],
           },
           {
@@ -60,7 +61,7 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
       },
       {
         eyebrow: "Check-In",
-        heading: "Front desk and CourtReserve check-in.",
+        heading: "Court check-in process.",
         blocks: [
           {
             type: "paragraph",
@@ -74,7 +75,7 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
       },
       {
         eyebrow: "Cancellations",
-        heading: "Court cancellation standards.",
+        heading: "Member court cancellation policies.",
         blocks: [
           {
             type: "paragraph",
@@ -87,6 +88,37 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
               "Members may not book new courts until any outstanding late-canceled fees are paid.",
               "Cancellations may not be used as a workaround to avoid court booking rules and restrictions.",
               "Members who engage in cancellation patterns to avoid compliance with the intent of the policy risk account suspension.",
+            ],
+          },
+        ],
+      },
+      {
+        eyebrow: "Classes",
+        heading: "Tennis, pickleball, and strength & conditioning class policies.",
+        blocks: [
+          {
+            type: "bullets",
+            items: [
+              "A 7-day notice is required for cancellation, regardless of illness, injury, or personal circumstance, to receive a balance credit on the account.",
+              "All participants from all classes, clinics, and private lessons must have a pass or membership. This includes participants from both WSC and authorized guest coaches.",
+              "No makeup classes are offered under any circumstances.",
+              "If WSC must cancel a camp, class, or event for any reason, WSC will notify all registered participants as soon as possible by email, phone, or text message.",
+              "Waitlist policy: by joining the waitlist, you agree to be automatically added to the class and charged when a spot becomes available, without prior notification.",
+            ],
+          },
+        ],
+      },
+      {
+        eyebrow: "Packages",
+        heading: "Packages policy.",
+        blocks: [
+          {
+            type: "bullets",
+            items: [
+              "Packages expire 31 days after purchase.",
+              "Unused classes do not roll over. Once the package expires, any remaining unbooked classes are forfeited.",
+              "Class cancellations made more than 48 hours in advance will be returned to the package balance and can be used within the package's 31-day validity period.",
+              "Once a package is purchased, no account credits or refunds will be offered for package cancellations.",
             ],
           },
         ],
@@ -113,18 +145,77 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
         ],
       },
       {
+        eyebrow: "Private Lessons",
+        heading: "Tennis private and POD lesson policies.",
+        blocks: [
+          {
+            type: "bullets",
+            items: [
+              "Private instruction by unauthorized coaches is strictly prohibited. Violators are subject to fines and loss of booking privileges.",
+              "Customers schedule directly with WSC teaching staff. Use of CourtReserve for scheduling and payments is required.",
+              "Customers looking for an instructor for private lessons should email info@woodinvillesportsclub.com.",
+              "Private lessons must be canceled at least 24 hours in advance, or customers will be charged the lesson fee, regardless of illness, injury, or personal circumstance. Credit will only be received as a balance credit on the WSC account.",
+              "When canceling a private lesson, the customer contacts the coach, who will cancel the court reservation as needed.",
+              "Please arrive 10-15 minutes before your lesson and check in and pay for your lesson with the WSC front desk before going to court.",
+            ],
+          },
+        ],
+      },
+      {
         eyebrow: "Court Usage",
         heading: "Equipment, shoes, and court standards.",
         blocks: [
           {
             type: "bullets",
             items: [
-              "Outside ball machines and ball hoppers are prohibited on WSC courts.",
-              "Rental baskets of Babolat balls are available for $15 + tax.",
+              "Outside ball machines and ball hoppers are prohibited. Rental baskets of Babolat balls are available for a $15 + tax fee.",
+              "This policy helps prevent unauthorized external coaching, protects court surfaces, and maintains the quality of balls used in programs.",
               "The Playmate Smash ball machine remains available for rent on courts #7 and #8.",
               "Court shoes specifically designed for tennis or pickleball must be worn on court. Sneakers and running shoes are not permitted.",
               "A shirt or top must be worn at all times, and proper footwear for the environment being used is required.",
             ],
+          },
+        ],
+      },
+      {
+        eyebrow: "Team Courts",
+        heading: "Warm-up courts and team fees.",
+        blocks: [
+          {
+            type: "notice",
+            text: "Visiting teams can only reserve warm-up courts the day of the match. Home teams can reserve their warm-up court up to 7 days in advance by the WSC captain.",
+          },
+          {
+            type: "paragraph",
+            text: "USTA fees for home and visiting teams are $21 + tax per court and include a can of Babolat balls from the retail shop for each court. This helps offset court maintenance fees and supports WSC's contract with Babolat.",
+          },
+        ],
+      },
+      {
+        eyebrow: "Timeline",
+        heading: "Implementation timeline for 2025 policy updates.",
+        blocks: [
+          {
+            type: "bullets",
+            items: [
+              "December 1, 2024: member photos can be taken at the front desk.",
+              "January 1, 2025: all new policies and fees take effect. Existing bookings made before January 1, 2025 will be honored.",
+              "Cancellations may not be used as a workaround to avoid court booking rules and restrictions. Members who engage in cancellation patterns to avoid compliance with the intent of the policy risk account suspension.",
+            ],
+          },
+        ],
+      },
+      {
+        eyebrow: "Support",
+        heading: "Support resources.",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Front desk staff is trained to assist with all these changes. If you have questions or concerns, email info@woodinvillesportsclub.com.",
+          },
+          {
+            type: "paragraph",
+            text: "WSC appreciates your understanding as these improvements are implemented to create a better experience for all members. These changes reflect WSC's commitment to maintaining a high-quality, accessible, and fair facility for the growing community.",
           },
         ],
       },
