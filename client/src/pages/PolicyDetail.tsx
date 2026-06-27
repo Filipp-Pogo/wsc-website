@@ -86,6 +86,7 @@ const POLICY_DETAILS: Record<string, PolicyDetail> = {
             items: [
               "Members are responsible for all no-show or late-canceled court fees.",
               "Members may not book new courts until any outstanding late-canceled fees are paid.",
+              "Members cannot transfer court fees to other playing members. The court must be cancelled then rebooked by the new booking member.",
               "Cancellations may not be used as a workaround to avoid court booking rules and restrictions.",
               "Members who engage in cancellation patterns to avoid compliance with the intent of the policy risk account suspension.",
             ],
