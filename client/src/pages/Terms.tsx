@@ -130,7 +130,7 @@ export default function Terms() {
 
             <SubHeading>Fees &amp; Payment</SubHeading>
             <BulletList items={[
-              "Membership fees consist of a one-time initiation fee plus recurring monthly or annual dues, depending on the membership tier selected",
+              "Membership fees consist of recurring monthly or annual dues, depending on the membership tier selected",
               "All fees are quoted in U.S. dollars and are subject to applicable state and local taxes",
               "Monthly memberships are billed automatically on the same date each month via the payment method on file. Annual memberships are billed in full at the time of enrollment or renewal",
               "WSC reserves the right to adjust membership fees with 30 days' written notice. Continued use of the facilities after the effective date of a fee change constitutes acceptance of the new fees",

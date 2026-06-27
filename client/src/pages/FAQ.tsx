@@ -36,7 +36,7 @@ const FAQS: FAQItem[] = [
   {
     category: "membership",
     q: "How do I become a member at WSC?",
-    a: "You can sign up for a membership through CourtReserve or by visiting the front desk. A one-time initiation fee of $50 + tax is assessed at the start of membership, including for returning customers previously enrolled with passes or memberships.",
+    a: "You can sign up for a membership through CourtReserve or by visiting the front desk.",
   },
   {
     category: "membership",
@@ -199,11 +199,6 @@ const FAQS: FAQItem[] = [
     category: "fees",
     q: "How much does court time cost?",
     a: "Court time is $21.14 + tax per 30-minute increment. You can book 30, 60, or 90 minutes. There are no separate rates for singles and doubles.",
-  },
-  {
-    category: "fees",
-    q: "What is the new member initiation fee?",
-    a: "The one-time initiation fee is $50 + tax, assessed at the start of membership. This applies to new members and returning customers previously enrolled with passes or memberships.",
   },
   {
     category: "fees",

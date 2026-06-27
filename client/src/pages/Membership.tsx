@@ -26,7 +26,6 @@ const tiers = [
       "5% golf sims discount + 10-day booking window",
       "$4 off golf range buckets",
       "Mini-golf & beverage discounts + golf happy hour access",
-      "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
   },
@@ -43,7 +42,6 @@ const tiers = [
       "5% golf sims discount + 10-day booking window",
       "$4 off golf range buckets",
       "Mini-golf & beverage discounts + golf happy hour access",
-      "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
   },
@@ -60,7 +58,6 @@ const tiers = [
       "5% golf sims discount + 10-day booking window",
       "$4 off golf range buckets",
       "Mini-golf & beverage discounts + golf happy hour access",
-      "Initiation plus monthly membership fee required",
       "Membership renews automatically each month",
     ],
   },
@@ -103,7 +100,7 @@ const FAQ_ITEMS = [
     items: [
       {
         q: "What membership options are available?",
-        a: "We offer five tiers: Family All-Access ($100/mo), Couple All-Access ($70/mo), Individual All-Access ($40/mo), Court & Range Access ($120/yr), and Class Registration ($50/yr). Monthly memberships include a $50 + tax initiation fee.",
+        a: "We offer five tiers: Family All-Access ($100/mo), Couple All-Access ($70/mo), Individual All-Access ($40/mo), Court & Range Access ($120/yr), and Class Registration ($50/yr).",
       },
       {
         q: "Is there a discount for families?",
@@ -115,7 +112,7 @@ const FAQ_ITEMS = [
       },
       {
         q: "Are there any hidden fees?",
-        a: "Monthly memberships require a one-time $50 + tax initiation fee. Annual passes have no initiation fee. All listed prices are subject to applicable sales tax. Court booking and class registration fees apply separately based on the activity. All memberships auto-renew until cancelled under the applicable cancellation policy.",
+        a: "All listed prices are subject to applicable sales tax. Court booking and class registration fees apply separately based on the activity. All memberships auto-renew until cancelled under the applicable cancellation policy.",
       },
     ],
   },
@@ -311,9 +308,6 @@ export default function Membership() {
             </p>
             <p className="text-ink-mid text-[14px] leading-[1.7] mb-2">
               <span className="text-ink font-normal">Annual Passes:</span> Auto-renew each year.
-            </p>
-            <p className="text-ink-mid text-[14px] leading-[1.7] mb-2">
-              <span className="text-ink font-normal">Monthly Memberships:</span> Require a one-time $50 + tax initiation fee.
             </p>
             <p className="text-ink-light text-[13px]">WSC TAX ID# is 82-3755991</p>
           </div>

@@ -744,7 +744,6 @@ function ClubPoliciesContent() {
               { item: "Pickleball Guest Fee (per reservation)", fee: "$5 + tax" },
               { item: "Ball Basket Rental (Babolat)", fee: "$15 + tax" },
               { item: "USTA Team Fee (per court, includes balls)", fee: "$21 + tax" },
-              { item: "New Member Initiation Fee (one-time)", fee: "$50 + tax" },
             ]} />
             <HighlightBox>
               <p className="text-ink text-[15px] leading-[1.72]">
@@ -805,7 +804,7 @@ function TermsContent() {
             ]} />
             <SubHeading>Fees & Payment</SubHeading>
             <BulletList items={[
-              "Fees consist of a one-time initiation fee plus recurring dues",
+              "Fees consist of recurring dues",
               "All memberships auto-renew unless cancelled under the applicable cancellation policy",
               "All fees are in U.S. dollars and subject to applicable taxes",
               "WSC may adjust fees with 30 days' written notice",
